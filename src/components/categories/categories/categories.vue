@@ -1,0 +1,40 @@
+<template>
+
+    <div v-if="categories.length > 0">
+
+        <div class="w-full md:w-3/4 lg:w-3/5 2xl:w-2/5 mx-auto my-8 px-5 md:px-0 z-10">
+
+            <div class="article-sort bg-gray-main p-3 md:p-5 xl:p-10 rounded-md shadow-lg flex flex-col">
+
+                <div v-for="category in categories">
+
+                    <CategoryItem :category="category"></CategoryItem>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+<script lang="ts">
+
+    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+    import CategoryItem from './category.vue';
+
+    @Component({
+        name: "CategoriesList",
+        components: {
+            CategoryItem,
+        }
+    })
+    export default class QuizAnswersContainer extends Vue {
+
+        @Prop() private categories;
+
+    }
+
+</script>

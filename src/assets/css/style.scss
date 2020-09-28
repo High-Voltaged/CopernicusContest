@@ -1,0 +1,272 @@
+body {
+	font-family: 'Poppins', sans-serif;
+	background-color: #312D4A; // gray-primary
+}
+
+@screen lg {
+
+	* ::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+		background-color: transparent;
+	}
+
+	* ::-webkit-scrollbar-track {
+		background-color: transparent;
+		border-radius: 9999px;
+	}
+
+	* ::-webkit-scrollbar-thumb {
+		border-radius: 9999px;
+		background-color: #211d34;
+	}
+
+	.card-digest ::-webkit-scrollbar-thumb {
+		background-color: #7a58c5;
+	}
+
+	.article-digest ::-webkit-scrollbar-thumb {
+		background-color: transparent;
+	}
+}
+
+.main-container {
+	max-height: calc(100vh - 5rem);
+}
+
+/* MAIN PAGE BANNER */
+
+.main-title {
+	background-image: linear-gradient(#7a58c5, #312D4A 70%);
+}
+
+.footer-styling {
+	background-image: linear-gradient(180deg, #312D4A, #1b172e, #312D4A);
+}
+
+.button-footer:hover > span {
+	transform: translateX(.8rem);
+}
+
+/* 'READ MORE' CARDS */
+
+@screen lg {
+
+	.read-more-container:hover .read-more-image {
+		transform: translateY(-3.5rem);
+	}
+}
+
+/* ARROW ICON STYLING */
+
+.arrow-container {
+	background-image: linear-gradient(315deg, #1f1b34, #7a58c5);
+}
+
+/* DIVIDER STYLING */
+
+.div-transparent {
+	content: "";
+	width: 90%;
+	background-image: linear-gradient(to right, transparent, white, transparent);
+}
+
+.div-dot {
+	content: "";
+	z-index: 1;
+	top: -12px;
+	left: calc(50% - 12px);
+	width: 24px;
+	height: 24px;
+	box-shadow: inset 0 0 0 2px #edf2f7;
+	border: 1px solid gray;
+}
+
+
+
+.sub-transparent-desktop {
+	content: "";
+	width: 95%;
+	background-image: linear-gradient(to right, #edf2f7, transparent);
+}
+
+.sub-transparent-xs {
+	content: "";
+	width: 95%;
+	background-image: linear-gradient(to right, transparent, #edf2f7, transparent);
+}
+
+
+.sub-transparent1-desktop {
+	content: "";
+	width: 95%;
+	background-image: linear-gradient(to right, transparent, #edf2f7);
+}
+
+
+/* TIMELINE STYLING */
+
+.container-w-dot {
+	border-top: 6px solid #cbd5e0;
+}
+
+.sub-container {
+	background-image: linear-gradient(315deg, #1f1b34, #7a58c5); // purple-secondary
+}
+
+.dot {
+	content: "";
+	height: 23px;
+	width: 23px;
+	left: calc(50% - 11.5px);
+	top: calc(-1.5rem - 14.5px);
+}
+
+.sub-dot {
+	content: "";
+	height: 12px;
+	width: 12px;
+}
+
+.arrow {
+	content: "";
+	border: 10px solid transparent;
+	border-bottom: 10px solid #7a58c5;
+	left: calc(50% - 10px);
+}
+
+.slider {
+	content: "";
+	width: 29px;
+	height: 29px;
+	top: 4.5px;
+}
+
+.slider1 {
+	left: calc(5% - 14.5px);
+}
+
+.slider2 {
+	right: calc(5% - 14.5px);
+}
+
+/* CARD DIGEST */
+
+@screen mdMax {
+
+	.card-digest .digest-header {
+		writing-mode: vertical-lr;
+	}
+}
+
+.card-digest .digest-header {
+	background-image: linear-gradient(260deg, #7a58c5, #1f1b34);
+}
+
+.transition-card:first-of-type {
+	margin-left: 0 !important;
+}
+
+.transition-card:hover {
+	transform: translateY(-1rem);
+}
+
+.transition-card:hover ~ .transition-card {
+	transform: translateX(1rem);
+}
+
+@screen md {
+	.transition-card:hover ~ .transition-card {
+		transform: translateX(8rem);
+	}
+}
+
+@screen 2xl {
+	.transition-card:hover ~ .transition-card {
+		transform: translateX(6rem);
+	}
+}
+
+.para-descript {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+}
+
+/* CONTENTPAGE STYLING */
+
+
+.sidebar > div {
+	width: 100%
+}
+
+.sub-category-container > div:hover {
+	background-color: rgba(122, 88, 197, .7);
+	cursor: pointer;
+}
+.sub-category-container > div {
+	transition-property: background-color, color;
+	transition-duration: 300ms, 300ms;
+	transition-timing-function: ease-in, ease;
+}
+
+@screen lg {
+
+	.article-link:hover .article-header {
+		transform: translateX(1rem);
+	}
+}
+
+
+
+/* ARTICLE DIGEST */
+
+.article-sort .divider, .article-content .divider {
+	background-image: linear-gradient(to right, transparent, #7a58c5, transparent);
+}
+
+
+
+/* QUIZ PAGE STYLING */
+
+.quiz-main-container {
+	height: calc(100vh - 5rem);
+}
+
+.quiz-main-container > div {
+	height: 100%;
+}
+
+.quiz-card {
+	background-image: linear-gradient(45deg, #1f1b34, #7a58c5 60%, #1f1b34);
+}
+
+.card-digest-image {
+	border: solid 3px white;
+
+	&:hover, &:focus, &:active {
+		border: solid 3px #7a58c5;
+	}
+}
+
+.div-quiz-transparent {
+	background-image: linear-gradient(to right, transparent, white, transparent);
+}
+
+.divider-result {
+	background-image: linear-gradient(to right, transparent, #1b172e, transparent);
+}
+
+.disabled {
+	opacity: .5;
+}
+
+.noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}

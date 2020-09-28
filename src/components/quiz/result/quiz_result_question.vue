@@ -1,0 +1,30 @@
+<template>
+
+    <div class="flex flex-col items-center mt-4" v-if="question">
+
+        <div class="md:text-lg font-normal text-gray-200"> {{ question.question }} </div>
+
+        <QuizResultAnswers :question="question"></QuizResultAnswers>
+
+    </div>
+
+</template>
+
+<script lang="ts">
+
+    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+    import QuizResultAnswers from './quiz_result_answers.vue';
+
+    @Component({
+        name: "QuizResultQuestion",
+        components: {
+            QuizResultAnswers,
+        }
+    })
+    export default class QuizResultQuestion extends Vue {
+
+        @Prop() private question;
+
+    }
+
+</script>
