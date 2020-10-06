@@ -14,7 +14,6 @@ const VuexModule = createModule({
 
 export default class Articles extends VuexModule {
 
-   temp_article = null;
    article = null;
 
    categories: ICategory[] = [];
@@ -25,18 +24,11 @@ export default class Articles extends VuexModule {
 
       return {
          article: this.article,
-         temp_article: this.temp_article,
          categories: this.categories,
          popular_articles: this.popular_articles,
       };
 
    }
-
-   @mutation setTempArticle() {
-
-      this.temp_article = { ...this.article };
-
-   } 
 
    @mutation setArticle(article) {
 

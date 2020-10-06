@@ -36,13 +36,6 @@ export function createRouter() {
             {
                 path: '/article/:id',
                 component: contentPage,
-               //  beforeEnter(to, from, next) {
-
-               //    vxm.articles.fetchArticle(to.params.id);
-
-               //    next();
-
-               //  }
             },
             {
                path: '/edit/article/:id',
