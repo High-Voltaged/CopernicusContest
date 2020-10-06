@@ -132,15 +132,10 @@
 	export default class contentPage extends Vue {
 
       @Prop({ default: false }) private editOn?: boolean;
-      
-   
+
       async beforeMount() {
 
-         if(!this.article || !this.categories || !this.popular_articles) {
-            
-            vxm.articles.fetchArticle(this.$route.params.id);
-
-         }
+         vxm.articles.fetchArticle(this.$route.params.id);
 
       }
 
@@ -161,6 +156,12 @@
          return vxm.articles.getUtil.popular_articles;
 
       }
+
+      // beforeDestroy() {
+
+      //    vxm.articles.setArticle(null);
+
+      // }
 
 	}
 

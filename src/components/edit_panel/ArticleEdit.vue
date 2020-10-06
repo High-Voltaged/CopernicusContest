@@ -53,43 +53,19 @@
 
    export default class ArticleEdit extends Vue {
 
-      // temp_article = null;
-
-      async beforeMount() {
-
-         vxm.articles.fetchArticle(this.$route.params.id);
-
-         console.log(this.article);
-
-         vxm.articles.setTempArticle();
-
-      }
-
       get article() {
 
          return vxm.articles.getUtil.article;
       
       };
 
-      get temp_article() {
-
-         return vxm.articles.getUtil.temp_article;
-
-      }
-
       async saveChanges(): Promise<void> {
 
-         // let result = await ApiUtils.postArticleChanges({ article: this.temp_article }); 
+         // let result = await ApiUtils.postArticleChanges({ article: this.article }); 
          
          // console.log(result.data);
 
          this.$router.push('/edit');
-
-      }
-
-      beforeDestroy() {
-
-         vxm.articles.setArticle(null);
 
       }
 
