@@ -2,6 +2,8 @@
 
 	<div>
 
+      <Navbar /> 
+
 		<div class="main-container overflow-y-auto">
 
 			<div class="main-title w-full h-104 md:h-88 bg-gray-500 shadow-lg">
@@ -22,15 +24,29 @@
 
 				<div class="w-full lg:w-3/5 2xl:w-2/5 lg:mr-10 -mt-44 lg:-mt-48 z-10">
 
-					<span class="block capitalize text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-gray-200 my-4 md:my-2"> {{ article.title }} </span>
+					<span v-if="!editOn" class="block capitalize text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-gray-200 my-4 md:my-2"> 
+                  {{ article.title }} 
+               </span>
+
+               <slot name="editTitle"></slot>
 
 					<div class="bg-gray-main p-5 xl:p-10 rounded-md shadow-lg flex flex-col items-center">
 
-						<div class="text-justify text-sm xl:text-base leading-relaxed xl:leading-loose font-light text-gray-300" v-for="paragraph in article.content">
+                  <div v-if="!editOn" class="w-full h-full flex flex-col items-center">
 
-							<p> {{ paragraph }} </p>
+                     <div 
+                        v-for="(para, i) in article.content"
+                        :key="i"
+                        class="text-justify text-sm xl:text-base leading-relaxed xl:leading-loose font-light text-gray-300" 
+                     >
 
-						</div>
+                        <p> {{ para }} </p>
+
+                     </div>
+
+                  </div>
+
+                  <slot name="editContent"></slot>
 
 						<div class="flex justify-center mt-5 w-full">
 							<!-- additional container, in case of having an image -->
@@ -94,71 +110,57 @@
 
 <script lang="ts">
 
-	import moment from "moment";
-	import { Component, Prop, Vue } from "nuxt-property-decorator";
-	import ApiUtils from '../scripts/api_utils';
+   import { Component, Prop, Vue } from "nuxt-property-decorator";
+   import moment from 'moment';
+   import ApiUtils from '../scripts/api_utils';
+   import IBriefArticle from '../../interfaces/brief_article';
+   import ICategory from '../../interfaces/category';
+   import { vxm } from '../store';
+   
 	import ArticleSidebar from '../components/article/article_sidebar.vue';
+	import Navbar from '../components/navbar/Navbar.vue';
 	import Footer from '../components/navbar/Footer.vue';
-	import IBriefArticle from '../../interfaces/brief_article';
-	import ICategory from '../../interfaces/category';
-	import IFullArticle from '../../interfaces/full_article';
 
 	@Component({
 		name: "contentPage",
 		components: {
-			ArticleSidebar,
+         ArticleSidebar,
+         Navbar,
 			Footer,
 		},
 	})
 	export default class contentPage extends Vue {
 
-		article = [];
+      @Prop({ default: false }) private editOn?: boolean;
+      
+   
+      async beforeMount() {
 
-		categories: ICategory[] = [];
+         if(!this.article || !this.categories || !this.popular_articles) {
+            
+            vxm.articles.fetchArticle(this.$route.params.id);
 
-		popular_articles: IBriefArticle[] = [];
+         }
 
-		async beforeMount() {
+      }
 
-			this.article = await ApiUtils.fetchArticle(Number(this.$route.params.id));
+		get article() {
 
-			this.article = this.article[0];
+         return vxm.articles.getUtil.article;
 
-			this.article.timestamp = moment(this.article.timestamp).format('YYYY-MM-DD HH:mm:s');
+      }
 
-			let temp_content = this.article.content.split("\n");
+      get categories() {
 
-			this.article.content = temp_content;
+         return vxm.articles.getUtil.categories;
 
-			let popular_articles = await ApiUtils.fetchPopularArticles();
+      }
 
-			for (let i = 0; i < popular_articles.length; ++i) {
+      get popular_articles() {
 
-				let temp_article: IBriefArticle = {} as IBriefArticle;
+         return vxm.articles.getUtil.popular_articles;
 
-				temp_article.ID = popular_articles[i].id;
-				temp_article.TimesRead = popular_articles[i].times_read;
-				temp_article.Title = popular_articles[i].title;
-				temp_article.Timestamp = moment(popular_articles[i].timestamp).format('YYYY-MM-DD HH:mm:s');
-
-				this.popular_articles.push(temp_article);
-
-			}
-
-			let categories = await ApiUtils.fetchCategories();
-
-			for (let i = 0; i < categories.length; ++i) {
-
-				let temp_category: ICategory = {} as ICategory;
-
-				temp_category.ID = categories[i].id;
-				temp_category.Name = categories[i].name;
-
-				this.categories.push(temp_category);
-
-			}
-
-		}
+      }
 
 	}
 
