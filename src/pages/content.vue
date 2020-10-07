@@ -30,7 +30,7 @@
 
                      <img :src="temp_image" class="object-fit" />
 
-                     <slot v-if="editOn" name="editImg"></slot>
+                     <slot name="editImg"></slot>
 
                   </div>
 
@@ -43,6 +43,8 @@
                <slot name="editTitle"></slot>
 
 					<div class="bg-gray-main p-5 xl:p-10 rounded-md shadow-lg flex flex-col items-center w-full">
+
+                  <slot name="error"></slot>
 
                   <div v-if="!editOn" class="w-full h-full flex flex-col items-center">
 

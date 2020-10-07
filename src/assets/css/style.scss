@@ -280,3 +280,18 @@ body {
 	-ms-user-select: none;
 	user-select: none;
 }
+
+
+.fade-out-enter-active, .fade-out-leave-active {
+   transition: all .25s ease;
+}
+
+.fade-out-enter-to, .fade-out-leave {
+   transform: translateY(0);
+   opacity: 1;
+}
+
+.fade-out-enter, .fade-out-leave-to {
+   transform: translateY(1rem);
+   opacity: 0;
+}

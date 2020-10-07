@@ -9,7 +9,9 @@
             <div class="flex items-end justify-between w-full">
 
                <div class="flex-auto inline-block mx-2">
+                  
                   <input v-model="article.title" placeholder="Edit the title" type="text" class="w-full md:w-48 xl:w-72 bg-gray-tertiary bg-opacity-75 text-sm text-gray-200 py-2 px-3 overflow-hidden focus:bg-opacity-100 transition duration-200 ease focus:outline-none" style="border-radius: 15px 15px 0 0" />
+
                </div>
 
                <div class="inline-flex items-end space-x-2 ml-2 mr-2">
@@ -44,6 +46,23 @@
 
          </template>
 
+         <template #error>
+            
+            <transition name="fade-out">
+
+               <div v-if="errors.empty_title || errors.empty_content" class="flex items-center justify-center w-full px-2 mb-2">
+
+                  <span class="text-center text-sm font-medium text-red-primary">
+                     Don't leave the input fields empty.
+                  </span>
+
+               </div>
+
+            </transition>
+
+
+         </template>
+
       </ArticleContent>      
 
    </div>
@@ -67,6 +86,11 @@
 
    export default class ArticleEdit extends Vue {
 
+      errors = {
+         empty_title: false,
+         empty_content: false,
+      }
+
       get article() {
 
          return vxm.articles.getUtil.article;
@@ -74,6 +98,29 @@
       };
 
       async saveChanges(): Promise<void> {
+
+         if(!this.article.title || !this.article.content) {
+
+            if(!this.article.title) {
+   
+               this.errors.empty_title = true;
+   
+            }
+            
+            if(!this.article.content) {
+   
+               this.errors.empty_content = true;
+   
+            } 
+
+            return;
+
+         } else {
+
+            this.errors.empty_title = false;
+            this.errors.empty_content = false;
+
+         }
 
          // let result = await ApiUtils.postArticleChanges({ article: this.article }); 
          
