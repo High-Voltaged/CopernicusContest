@@ -6,7 +6,7 @@
 
 		<div class="main-container overflow-y-auto">
 
-			<div class="main-title w-full h-104 md:h-88 bg-gray-500 shadow-lg">
+			<div class="main-title w-full h-88 bg-gray-500 shadow-lg">
 
 				<div class="w-full h-full relative flex justify-center items-center">
 
@@ -22,7 +22,19 @@
 
 			<div class="article-content flex flex-col items-center lg:flex-row lg:items-start lg:justify-center p-5 sm:px-12 md:px-20 2xl:px-32">
 
-				<div class="w-full lg:w-3/5 2xl:w-2/5 lg:mr-10 -mt-44 lg:-mt-48 z-10">
+				<div class="flex flex-col items-center w-full lg:w-3/5 2xl:w-2/5 relative lg:mr-10 -mt-88 lg:-mt-48 z-10">
+
+               <div class="article-content__img flex-0 lg:absolute overflow-hidden mb-6">
+
+                  <div class="inline-block relative">
+
+                     <img :src="temp_image" class="object-fit" />
+
+                     <slot v-if="editOn" name="editImg"></slot>
+
+                  </div>
+
+               </div>
 
 					<span v-if="!editOn" class="block capitalize text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-gray-200 my-4 md:my-2"> 
                   {{ article.title }} 
@@ -30,7 +42,7 @@
 
                <slot name="editTitle"></slot>
 
-					<div class="bg-gray-main p-5 xl:p-10 rounded-md shadow-lg flex flex-col items-center">
+					<div class="bg-gray-main p-5 xl:p-10 rounded-md shadow-lg flex flex-col items-center w-full">
 
                   <div v-if="!editOn" class="w-full h-full flex flex-col items-center">
 
@@ -132,6 +144,8 @@
 	export default class contentPage extends Vue {
 
       @Prop({ default: false }) private editOn?: boolean;
+
+      temp_image = 'https://images.unsplash.com/photo-1602027011277-38ad4edddeca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60';
 
       async beforeMount() {
 

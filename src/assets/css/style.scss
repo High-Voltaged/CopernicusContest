@@ -218,7 +218,17 @@ body {
 	}
 }
 
+.article-content__img {
 
+   width: 15rem;
+   height: 15rem;
+
+   right: calc(-2.5rem - 15rem);
+   top: calc(-4.5rem - 2rem);
+
+   border-radius: 15px;
+
+}
 
 /* ARTICLE DIGEST */
 

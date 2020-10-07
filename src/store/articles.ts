@@ -14,7 +14,7 @@ const VuexModule = createModule({
 
 export default class Articles extends VuexModule {
 
-   article = null;
+   article = [];
 
    categories: ICategory[] = [];
 
