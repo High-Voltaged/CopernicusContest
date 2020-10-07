@@ -24,13 +24,15 @@
 
 				<div class="flex flex-col items-center w-full lg:w-3/5 2xl:w-2/5 relative lg:mr-10 -mt-88 lg:-mt-48 z-10">
 
-               <div class="article-content__img flex-0 lg:absolute overflow-hidden mb-6">
+               <div class="article-content__img flex-0 lg:absolute shadow-lg overflow-hidden mb-6">
 
-                  <div class="inline-block relative">
+                  <div class="inline-block w-full h-full relative bg-gray-tertiary bg-opacity-75 hover:bg-opacity-100 transition duration-200 ease cursor-pointer">
 
-                     <img :src="temp_image" class="object-fit" />
+                     <img ref="img" :src="temp_image" class="object-fit" />
 
                      <slot name="editImg"></slot>
+
+                     <slot name="imgPlaceholder"></slot>
 
                   </div>
 

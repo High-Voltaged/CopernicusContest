@@ -38,11 +38,21 @@
 
          <template #editImg>
 
-            <button class="right-2 top-2 absolute inline-flex items-center justify-center p-1 rounded-full bg-purple-secondary transform transition duration-300 ease hover:scale-125 focus:outline-none">
+            <button v-if="!img_removed" @click="removeImg()" class="right-2 top-2 absolute inline-flex items-center justify-center p-1 rounded-full bg-purple-secondary transform transition duration-300 ease hover:scale-125 focus:outline-none">
 
                <font-awesome-icon :icon="['fas', 'minus']" class="w-3 h-3 fill-current text-white" />
 
             </button>
+
+         </template>
+
+         <template #imgPlaceholder>
+
+            <div class="img-placeholder flex items-center justify-center w-full h-full">
+
+               <font-awesome-icon :icon="['fas', 'plus']" class="w-10 h-10 fill-current text-white" />
+
+            </div>
 
          </template>
 
@@ -89,13 +99,30 @@
       errors = {
          empty_title: false,
          empty_content: false,
+      };
+
+      img_removed = false;
+
+      $refs: {
+         img: HTMLImageElement;
       }
 
       get article() {
-
+         
          return vxm.articles.getUtil.article;
       
       };
+
+      removeImg(): void {
+         
+         let img = this.$children[0].$refs.img as HTMLImageElement; 
+         
+         img.src = '';
+         this.article.picture_key = '';
+
+         this.img_removed = true;
+
+      }
 
       async saveChanges(): Promise<void> {
 

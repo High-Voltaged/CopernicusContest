@@ -228,6 +228,14 @@ body {
 
    border-radius: 15px;
 
+   svg {
+      transition: all .25s ease;
+   }
+
+   > div:hover .img-placeholder > svg {
+      transform: scale(1.25);
+   }
+
 }
 
 /* ARTICLE DIGEST */
