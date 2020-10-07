@@ -278,11 +278,13 @@
                                                 <font-awesome-icon :icon="['fas', 'angle-left']" class="w-full h-full fill-current text-gray-secondary" />
                                             </span>
                                         </div>
+
                                         <div class="slider slider2 absolute rounded-full bg-gray-tertiary z-20 flex items-center justify-center hover:shadow-solid transition duration-300 linear cursor-pointer">
                                             <span class="w-5 h-5">
                                                 <font-awesome-icon :icon="['fas', 'angle-right']" class="w-full h-full fill-current text-white" />
                                             </span>
                                         </div>
+
                                     </div>
 
                                 </div>
@@ -292,6 +294,7 @@
                         </div>
 
                         <div class="mt-4 2xl:max-w-4/5 mx-auto">
+                            
                             <div class="px-2 md:px-4">
                                 <span class="block text-center uppercase text-gray-300 font-light leading-tight">Non-main title</span>
                                 <span class="block text-center text-5xl capitalize font-black tracking-wide leading-tight text-gray-200">Main title</span>
@@ -303,141 +306,10 @@
                                 </div>
 
                                 <p class="text-center font-light text-gray-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            
                             </div>
 
-                            <div class="flex flex-col lg:flex-row items-center mt-16">
-
-                                <div class="flex flex-col items-center lg:mr-8">
-
-                                    <div class="read-more-container max-w-full">
-
-                                        <div class="flex flex-col md:flex-row items-center lg:items-end">
-
-                                            <div class="read-more-image flex-shrink-0 w-full sm:w-2/3 h-full md:w-40 md:h-64 2xl:w-48 2xl:h-72 rounded-lg shadow-md overflow-hidden md:-mb-6 lg:-mb-2 xl:-mb-8 z-10 lg:transition lg:duration-300 lg:ease-in">
-                                                <img src="https://images.unsplash.com/photo-1543927695-ea0d018b150d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=393&q=80" alt="" class="h-full w-full object-cover" />
-                                            </div>
-
-                                            <div class="flex flex-col mt-8 md:mt-0 md:ml-3 2xl:ml-5 lg:w-1/2 xl:w-2/3 max-h-72 overflow-hidden">
-                                                <span class="text-gray-200 font-semibold text-3xl tracking-wide capitalize">Title here</span>
-                                                <span class="text-gray-300 font-light text-sm leading-relaxed text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.</span>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="rounded-md bg-gray-400 -mx-2 mt-4 p-2 flex justify-end items-center">
-                                            <span class="mr-4">Renaissance date</span>
-
-                                            <button class="arrow-container flex items-center px-3 py-2 rounded hover:opacity-75 transition duration-300 linear focus:outline-none">
-                                                <a href="#" class="text-xs xl:text-sm font-semibold tracking-wide text-gray-200 cursor-pointer pr-2">Read more</a>
-                                                <span class="arrow-icon w-3 h-3">
-                                                    <font-awesome-icon :icon="['fas', 'arrow-right']" class="w-full h-full fill-current text-gray-200" />
-                                                </span>
-                                            </button>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="read-more-container max-w-full mt-16">
-
-                                        <div class="flex flex-col md:flex-row items-center lg:items-end md:justify-between">
-
-                                            <div class="flex flex-col mt-8 md:mt-0 md:mr-3 2xl:mr-5 lg:w-1/2 xl:w-2/3 order-last md:order-first max-h-72 overflow-hidden">
-                                                <span class="text-gray-200 font-semibold text-3xl tracking-wide capitalize">Title here</span>
-                                                <span class="text-gray-300 font-light text-sm leading-relaxed text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.</span>
-                                            </div>
-
-                                            <div class="read-more-image flex-shrink-0 w-full sm:w-2/3 h-full md:w-40 md:h-64 2xl:w-48 2xl:h-72 rounded-lg shadow-md overflow-hidden md:-mb-6 lg:-mb-2 xl:-mb-8 z-10 lg:transition lg:duration-300 lg:ease-in">
-                                                <img src="https://images.unsplash.com/photo-1570471630622-d8c3d0fb8b85?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="" class="h-full w-full object-cover" />
-                                            </div>
-
-                                        </div>
-
-                                        <div class="rounded-md bg-gray-400 -mx-2 mt-4 p-2 flex justify-end md:justify-start items-center">
-                                        
-                                            <span class="mr-4">Renaissance date</span>
-
-                                            <button class="arrow-container flex items-center px-3 py-2 rounded hover:opacity-75 transition duration-300 linear focus:outline-none">
-                                                <a href="#" class="text-xs xl:text-sm font-semibold tracking-wide text-gray-200 cursor-pointer pr-2">Read more</a>
-                                                <span class="arrow-icon w-3 h-3">
-                                                    <font-awesome-icon :icon="['fas', 'arrow-right']" class="w-full h-full fill-current text-gray-200" />
-                                                </span>
-                                            </button>
-                                        
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="flex flex-col items-center lg:ml-8">
-
-                                    <div class="read-more-container max-w-full mt-16 lg:mt-0">
-
-                                        <div class="flex flex-col md:flex-row items-center lg:items-end">
-
-                                            <div class="read-more-image flex-shrink-0 w-full sm:w-2/3 h-full md:w-40 md:h-64 2xl:w-48 2xl:h-72 rounded-lg shadow-md overflow-hidden md:-mb-6 lg:-mb-2 xl:-mb-8 z-10 lg:transition lg:duration-300 lg:ease-in">
-                                                <img src="https://images.unsplash.com/photo-1574586594690-db2449286e33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" class="h-full w-full object-cover" />
-                                            </div>
-
-                                            <div class="flex flex-col mt-8 md:mt-0 md:ml-3 2xl:ml-5 lg:w-1/2 xl:w-2/3 max-h-72 overflow-hidden">
-                                                <span class="text-gray-200 font-semibold text-3xl tracking-wide capitalize">Title here</span>
-                                                <span class="text-gray-300 font-light text-sm leading-relaxed text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.</span>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="rounded-md bg-gray-400 -mx-2 mt-4 p-2 flex justify-end items-center">
-                                            <span class="mr-4">Renaissance date</span>
-
-                                            <button class="arrow-container flex items-center px-3 py-2 rounded hover:opacity-75 transition duration-300 linear focus:outline-none">
-                                            
-                                                <a href="#" class="text-xs xl:text-sm font-semibold tracking-wide text-gray-200 cursor-pointer pr-2">Read more</a>
-                                                
-                                                <span class="arrow-icon w-3 h-3">
-                                                    <font-awesome-icon :icon="['fas', 'arrow-right']" class="w-full h-full fill-current text-gray-200" />
-                                                </span>
-                                            
-                                            </button>
-                                        
-                                        </div>
-
-                                    </div>
-
-                                    <div class="read-more-container max-w-full mt-16">
-
-                                        <div class="flex flex-col md:flex-row items-center lg:items-end md:justify-between">
-
-                                            <div class="flex flex-col mt-8 md:mt-0 md:mr-3 2xl:mr-5 lg:w-1/2 xl:w-2/3 order-last md:order-first max-h-72 overflow-hidden">
-                                                <span class="text-gray-200 font-semibold text-3xl tracking-wide capitalize">Title here</span>
-                                                <span class="text-gray-300 font-light text-sm leading-relaxed text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.</span>
-                                            </div>
-
-                                            <div class="read-more-image flex-shrink-0 w-full sm:w-2/3 h-full md:w-40 md:h-64 2xl:w-48 2xl:h-72 rounded-lg shadow-md overflow-hidden md:-mb-6 lg:-mb-2 xl:-mb-8 z-10 lg:transition lg:duration-300 lg:ease-in">
-                                                <img src="https://images.unsplash.com/photo-1499678329028-101435549a4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" class="h-full w-full object-cover" />
-                                            </div>
-
-                                        </div>
-
-                                        <div class="rounded-md bg-gray-400 -mx-2 mt-4 p-2 flex justify-end md:justify-start items-center">
-                                            <span class="mr-4">Renaissance date</span>
-
-                                            <button class="arrow-container flex items-center px-3 py-2 rounded hover:opacity-75 transition duration-300 linear focus:outline-none">
-
-                                                <a href="#" class="text-xs xl:text-sm font-semibold tracking-wide text-gray-200 cursor-pointer pr-2">Read more</a>
-
-                                                <span class="arrow-icon w-3 h-3">
-                                                    <font-awesome-icon :icon="['fas', 'arrow-right']" class="w-full h-full fill-current text-gray-200" />
-                                                </span>
-
-                                            </button>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
+                            <ImportantArticles :articles="this.important_articles"></ImportantArticles>
 
                         </div>
 
@@ -464,7 +336,8 @@
     import Navbar from '../components/navbar/Navbar.vue';
     import Footer from '../components/navbar/Footer.vue';
     import DigestList from '../components/digest/digest_list.vue';
-    import IDigestArticle from '../../interfaces/digest_article';
+    import ImportantArticles from '../components/article/important_articles.vue';
+    import IBriefArticle from '../../interfaces/brief_article';
 
     @Component({
         name: "index",
@@ -472,11 +345,12 @@
             Navbar,
             Footer,
             DigestList,
+            ImportantArticles,
         },
     })
     export default class index extends Vue {
 
-        digest_list: IDigestArticle[] = []
+        digest_list: IBriefArticle[] = []
 
         redirectToQuiz(): void {
 
@@ -490,7 +364,7 @@
 
             for (let i = 0; i < stuff.length; ++i) {
 
-                let temp_digest: IDigestArticle = {} as IDigestArticle;
+                let temp_digest: IBriefArticle = {} as IBriefArticle;
 
                 temp_digest.ID = stuff[i].id;
                 temp_digest.ShortDescription = stuff[i].content;
