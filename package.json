@@ -29,7 +29,8 @@
     "tailwind": "^4.0.0",
     "vue": "^2.6.11",
     "vuex": "3.5.1",
-    "vuex-class": "^0.3.2"
+    "vuex-class": "^0.3.2",
+    "vuex-class-component": "^2.3.5"
   },
   "scripts": {
     "dev": "backpack dev",
