@@ -2,6 +2,8 @@
 
 	<div>
 
+      <Navbar />
+
 		<div class="main-container overflow-y-auto">
 
 			<div class="main-title w-full bg-gray-500 shadow-lg">

@@ -2,6 +2,8 @@
 
     <div>
 
+       <Navbar />
+
         <div class="antialiased">
 
             <div class="main-container overflow-y-auto">
@@ -459,6 +461,7 @@
 
     import { Component, Prop, Vue } from "nuxt-property-decorator";
     import ApiUtils from '../scripts/api_utils';
+    import Navbar from '../components/navbar/Navbar.vue';
     import Footer from '../components/navbar/Footer.vue';
     import DigestList from '../components/digest/digest_list.vue';
     import IDigestArticle from '../../interfaces/digest_article';
@@ -466,6 +469,7 @@
     @Component({
         name: "index",
         components: {
+            Navbar,
             Footer,
             DigestList,
         },
