@@ -33,7 +33,24 @@
     })
     export default class QuizAnswersContainer extends Vue {
 
-        @Prop() private categories;
+        categories = [];
+
+        async beforeMount() {
+
+            if (this.$route.params.id != undefined) {
+
+                this.categories = await ApiUtils.fetchCategory(Number(this.$route.params.id));
+
+            } else {
+
+                this.categories = await ApiUtils.fetchCategories();
+
+
+            }
+
+            console.log(this.categories.length > 0);
+
+        }
 
     }
 

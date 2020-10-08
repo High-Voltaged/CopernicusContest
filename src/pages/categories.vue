@@ -17,13 +17,9 @@
 				</div>
 
 			</div>
-			
-			<div v-if="categories.length > 0">
 
-				<CategoriesList :categories="categories"> </CategoriesList>
+			<CategoriesList> </CategoriesList>
 
-			</div>
-			
 			<Footer />
 
 		</div>
@@ -47,25 +43,6 @@
 		},
 	})
 	export default class contentPage extends Vue {
-
-		categories = [];
-
-		async beforeMount() {
-
-			if (this.$route.params.id != undefined) {
-
-                this.categories = await ApiUtils.fetchCategory(Number(this.$route.params.id));
-
-			} else {
-
-				this.categories = await ApiUtils.fetchCategories();
-
-
-			}
-
-			console.log(this.categories.length > 0);
-
-		}
 
 	}
 
