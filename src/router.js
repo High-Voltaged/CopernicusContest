@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import { vxm } from './store';
 
 import index from '~/pages/index.vue'
-import login from '~/pages/login.vue'
 import quiz from '~/pages/quiz.vue'
 import contentPage from '~/pages/content.vue'
 import categories from '~/pages/categories.vue'
@@ -20,10 +19,6 @@ export function createRouter() {
          {
             path: '/',
             component: index,
-         },
-         {
-            path: '/login',
-            component: login,
          },
          {
             path: '/edit',

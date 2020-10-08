@@ -1,7 +1,7 @@
 const pkg = require('./package');
 
 module.exports = {
-    ssr: true,
+    ssr: false,
     srcDir: 'src/',
     extension: ['js', 'ts'],
     server: {
