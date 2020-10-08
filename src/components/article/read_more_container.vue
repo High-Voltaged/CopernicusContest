@@ -1,13 +1,13 @@
 <template>
 
-   <div class="read-more-container w-full lg:w-2/5 max-w-full lg:max-w-1/2 mx-4 my-8 lg:m-4">
+   <div class="read-more-container w-full lg:w-9/20 max-w-full lg:max-w-1/2 mx-4 my-8 lg:m-4">
 
       <!-- <ImportantArticle :article="article"></ImportantArticle> -->
 
       <div class="flex flex-col md:flex-row items-center lg:items-end">
 
          <div class="read-more-image flex-shrink-0 w-full sm:w-2/3 h-full md:w-40 md:h-64 2xl:w-48 2xl:h-72 rounded-lg shadow-md overflow-hidden md:-mb-6 lg:-mb-2 xl:-mb-8 z-10 lg:transition lg:duration-300 lg:ease-in">
-            <img src="https://images.unsplash.com/photo-1543927695-ea0d018b150d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=393&q=80" alt="" class="h-full w-full object-cover" />
+            <img :src="article.src" alt="" class="h-full w-full object-cover" />
          </div>
 
          <div class="flex flex-col mt-8 md:mt-0 md:ml-3 2xl:ml-5 lg:w-1/2 xl:w-2/3 max-h-72 overflow-hidden">
