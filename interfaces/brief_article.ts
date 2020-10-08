@@ -4,4 +4,5 @@ export default interface IBriefArticle {
     PictureKey: string,
     TimesRead: number,
     Timestamp: string,
+    ShortDescription: string,
 }

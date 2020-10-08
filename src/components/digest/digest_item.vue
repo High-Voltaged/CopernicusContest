@@ -9,8 +9,7 @@
                 <span class="capitalize text-xl font-bold tracking-tight leading-tight text-gray-200"> {{ digest.Title }} </span>
 
                 <p class="para-descript overflow-hidden mt-1 text-sm tracking-wide text-gray-300"> 
-                    <!-- {{ digest.ShortDescription }}... -->
-                    stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff 
+                    {{ digest.ShortDescription }}
                 </p>
 
             </div>
