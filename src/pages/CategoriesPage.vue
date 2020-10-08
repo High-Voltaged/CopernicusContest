@@ -36,13 +36,13 @@
 	import Footer from '../components/navbar/Footer.vue';
 
 	@Component({
-		name: "contentPage",
+		name: "CategoriesPage",
 		components: {
             CategoriesList,
 			Footer,
 		},
 	})
-	export default class contentPage extends Vue {
+    export default class CategoriesPage extends Vue {
 
 	}
 

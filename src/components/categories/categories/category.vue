@@ -26,7 +26,7 @@
 <script lang="ts">
 
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import CategoryArticles from '../articles/articles.vue';
+    import CategoryArticles from '../articles/CategoryArticles.vue';
 
     @Component({
         name: "CategoryItem",

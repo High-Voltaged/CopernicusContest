@@ -28,7 +28,7 @@
 
                         <div class="inline-block w-full h-full relative bg-gray-tertiary bg-opacity-75 hover:bg-opacity-100 transition duration-200 ease cursor-pointer">
 
-                            <img ref="img" :src="temp_image" class="object-fit" />
+                            <img ref="img" :src="article.picture_link" class="object-fit" />
 
                             <slot name="editImg"></slot>
 
@@ -50,11 +50,11 @@
 
                         <div v-if="!editOn" class="w-full h-full flex flex-col items-center">
 
-                            <div v-for="(para, i) in article.content"
+                            <div v-for="(paragraph, i) in article.content"
                                  :key="i"
                                  class="text-justify text-sm xl:text-base leading-relaxed xl:leading-loose font-light text-gray-300">
 
-                                <p> {{ para }} </p>
+                                <p> {{ paragraph }} </p>
 
                             </div>
 
@@ -146,8 +146,6 @@
     export default class contentPage extends Vue {
 
         @Prop({ default: false }) private editOn?: boolean;
-
-        temp_image = 'https://images.unsplash.com/photo-1602027011277-38ad4edddeca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60';
 
         async beforeMount() {
 

@@ -16,7 +16,7 @@
 
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import ApiUtils from "../../../scripts/api_utils";
-    import CategoryArticle from './article.vue';
+    import CategoryArticle from './CategoryArticle.vue';
 
     @Component({
         name: "CategoryArticles",

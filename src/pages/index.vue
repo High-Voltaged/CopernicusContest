@@ -150,146 +150,7 @@
                                 <p class="text-center font-light text-gray-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
 
-                            <div class="mt-16 max-w-full w-full flex-shrink-0 flex justify-center relative">
-                                <div class="relative w-full h-full">
-
-                                    <div class="timeline mx-auto flex h-full w-9/10 justify-center overflow-x-hidden">
-                                        <div class="timeline-container my-4 flex justify-between w-full h-full relative text-gray-200 transition duration-200 ease-in transform">
-
-                                            <div class="container-w-dot h-48 max-h-48 flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/6 px-3">
-                                                <div class="relative text-xs leading-tight tracking-wider font-light mt-6">
-                                                    <div class="dot absolute rounded-full z-10 cursor-pointer transform hover:scale-125 transition duration-300 linear bg-gray-tertiary shadow-lg flex items-center justify-center">
-                                                        <div class="sub-dot rounded-full z-20 cursor-pointer bg-white"></div>
-                                                    </div>
-
-                                                    <div class="sub-container relative cursor-pointer rounded shadow-md px-6 py-4 transform hover:translate-y-8 transition duration-300 linear max-h-130px">
-                                                        <div class="arrow block absolute bottom-full "></div>
-
-                                                        <div class="content max-h-98px overflow-y-hidden">
-                                                            <span class="text-2xl">Title</span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="container-w-dot h-48 max-h-48 flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/6 px-3">
-                                                <div class="relative text-xs leading-tight tracking-wider font-light mt-6">
-                                                    <div class="dot absolute rounded-full z-10 cursor-pointer transform hover:scale-125 transition duration-300 linear bg-gray-tertiary shadow-lg flex items-center justify-center">
-                                                        <div class="sub-dot rounded-full z-20 cursor-pointer bg-white"></div>
-                                                    </div>
-
-                                                    <div class="sub-container relative cursor-pointer rounded shadow-md px-6 py-4 transform hover:translate-y-8 transition duration-300 linear max-h-130px">
-                                                        <div class="arrow block absolute bottom-full "></div>
-
-                                                        <div class="content max-h-98px overflow-y-hidden">
-                                                            <span class="text-2xl">Title</span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="container-w-dot h-48 max-h-48 flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/6 px-3">
-                                                <div class="relative text-xs leading-tight tracking-wider font-light mt-6">
-                                                    <div class="dot absolute rounded-full z-10 cursor-pointer transform hover:scale-125 transition duration-300 linear bg-gray-tertiary shadow-lg flex items-center justify-center">
-                                                        <div class="sub-dot rounded-full z-20 cursor-pointer bg-white"></div>
-                                                    </div>
-
-                                                    <div class="sub-container relative cursor-pointer rounded shadow-md px-6 py-4 transform hover:translate-y-8 transition duration-300 linear max-h-130px">
-                                                        <div class="arrow block absolute bottom-full "></div>
-
-                                                        <div class="content max-h-98px overflow-y-hidden">
-                                                            <span class="text-2xl">Title</span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="container-w-dot h-48 max-h-48 flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/6 px-3">
-                                                <div class="relative text-xs leading-tight tracking-wider font-light mt-6">
-                                                    <div class="dot absolute rounded-full z-10 cursor-pointer transform hover:scale-125 transition duration-300 linear bg-gray-tertiary shadow-lg flex items-center justify-center">
-                                                        <div class="sub-dot rounded-full z-20 cursor-pointer bg-white"></div>
-                                                    </div>
-
-                                                    <div class="sub-container relative cursor-pointer rounded shadow-md px-6 py-4 transform hover:translate-y-8 transition duration-300 linear max-h-130px">
-                                                        <div class="arrow block absolute bottom-full "></div>
-
-                                                        <div class="content max-h-98px overflow-y-hidden">
-                                                            <span class="text-2xl">Title</span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="container-w-dot h-48 max-h-48 flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/6 px-3">
-                                                <div class="relative text-xs leading-tight tracking-wider font-light mt-6">
-                                                    <div class="dot absolute rounded-full z-10 cursor-pointer transform hover:scale-125 transition duration-300 linear bg-gray-tertiary shadow-lg flex items-center justify-center">
-                                                        <div class="sub-dot rounded-full z-20 cursor-pointer bg-white"></div>
-                                                    </div>
-
-                                                    <div class="sub-container relative cursor-pointer rounded shadow-md px-6 py-4 transform hover:translate-y-8 transition duration-300 linear max-h-130px">
-                                                        <div class="arrow block absolute bottom-full "></div>
-
-                                                        <div class="content max-h-98px overflow-y-hidden">
-                                                            <span class="text-2xl">Title</span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="container-w-dot h-48 max-h-48 flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/6 px-3">
-                                                <div class="relative text-xs leading-tight tracking-wider font-light mt-6">
-                                                    <div class="dot absolute rounded-full z-10 cursor-pointer transform hover:scale-125 transition duration-300 linear bg-gray-tertiary shadow-lg flex items-center justify-center">
-                                                        <div class="sub-dot rounded-full z-20 cursor-pointer bg-white"></div>
-                                                    </div>
-
-                                                    <div class="sub-container relative cursor-pointer rounded shadow-md px-6 py-4 transform hover:translate-y-8 transition duration-300 linear max-h-130px">
-                                                        <div class="arrow block absolute bottom-full "></div>
-
-                                                        <div class="content max-h-98px overflow-y-hidden">
-                                                            <span class="text-2xl">Title</span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="container-w-dot h-48 max-h-48 flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/6 px-3">
-                                                <div class="relative text-xs leading-tight tracking-wider font-light mt-6">
-                                                    <div class="dot absolute rounded-full z-10 cursor-pointer transform hover:scale-125 transition duration-300 linear bg-gray-tertiary shadow-lg flex items-center justify-center">
-                                                        <div class="sub-dot rounded-full z-20 cursor-pointer bg-white"></div>
-                                                    </div>
-
-                                                    <div class="sub-container relative cursor-pointer rounded shadow-md px-6 py-4 transform hover:translate-y-8 transition duration-300 linear max-h-130px">
-                                                        <div class="arrow block absolute bottom-full "></div>
-
-                                                        <div class="content max-h-98px overflow-y-hidden">
-                                                            <span class="text-2xl">Title</span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="manage-sliders">
-                                        <div class="disabled-slider slider slider1 absolute rounded-full bg-gray-tertiary z-20 flex items-center justify-center">
-                                            <span class="w-5 h-5">
-                                                <font-awesome-icon :icon="['fas', 'angle-left']" class="w-full h-full fill-current text-gray-secondary" />
-                                            </span>
-                                        </div>
-
-                                        <div class="slider slider2 absolute rounded-full bg-gray-tertiary z-20 flex items-center justify-center hover:shadow-solid transition duration-300 linear cursor-pointer">
-                                            <span class="w-5 h-5">
-                                                <font-awesome-icon :icon="['fas', 'angle-right']" class="w-full h-full fill-current text-white" />
-                                            </span>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
+                            <Timeline> </Timeline>
 
                         </div>
 
@@ -313,7 +174,7 @@
 
                         </div>
 
-                        <DigestList :digests="this.digest_list"> </DigestList>
+                        <DigestList> </DigestList>
 
                     </div>
 
@@ -332,12 +193,11 @@
 <script lang="ts">
 
     import { Component, Prop, Vue } from "nuxt-property-decorator";
-    import ApiUtils from '../scripts/api_utils';
     import Navbar from '../components/navbar/Navbar.vue';
     import Footer from '../components/navbar/Footer.vue';
     import DigestList from '../components/digest/digest_list.vue';
     import ImportantArticles from '../components/article/important_articles.vue';
-    import IBriefArticle from '../../interfaces/brief_article';
+    import Timeline from '../components/timeline/Timeline.vue';
 
     @Component({
         name: "index",
@@ -346,45 +206,10 @@
             Footer,
             DigestList,
             ImportantArticles,
+            Timeline,
         },
     })
     export default class index extends Vue {
-
-        digest_list: IBriefArticle[] = [];
-
-        important_articles = [
-
-           { ID: 5, Title: 'STuff', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.', timestamp: '20-05-2020', src: 'https://images.unsplash.com/photo-1574586594690-db2449286e33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' },
-           { ID: 6, Title: 'STuff', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.', timestamp: '20-05-2020', src: 'https://images.unsplash.com/photo-1543927695-ea0d018b150d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=393&q=80' },
-           { ID: 7, Title: 'STuff', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.', timestamp: '20-05-2020', src: 'https://images.unsplash.com/photo-1602159609921-746e88b6ac3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60' },
-           { ID: 8, Title: 'STuff', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.', timestamp: '20-05-2020', src: 'https://images.unsplash.com/photo-1601925059835-3c6655cdb1f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60' },
-
-        ]
-
-        redirectToQuiz(): void {
-
-            this.$router.push("/quiz");
-
-        }
-
-        async beforeMount() {
-
-            let stuff = await ApiUtils.fetchDigest();
-
-            for (let i = 0; i < stuff.length; ++i) {
-
-                let temp_digest: IBriefArticle = {} as IBriefArticle;
-
-                temp_digest.ID = stuff[i].id;
-                temp_digest.ShortDescription = stuff[i].content;
-                temp_digest.TimesRead = stuff[i].times_read;
-                temp_digest.Title = stuff[i].title;
-
-                this.digest_list.push(temp_digest);
-
-            }
-
-        }
 
     }
 

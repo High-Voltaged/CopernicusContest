@@ -73,7 +73,7 @@
    import EditArticles from '../components/edit_panel/EditArticles.vue';
 
    @Component({
-      name: "edit",
+      name: "AdminPage",
       components: {
          Navbar,
          EditPanelItem,
@@ -81,7 +81,7 @@
       },
    })
 
-   export default class edit extends Vue {
+   export default class AdminPage extends Vue {
 
       // Login Menu
 
