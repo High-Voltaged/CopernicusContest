@@ -350,7 +350,16 @@
     })
     export default class index extends Vue {
 
-        digest_list: IBriefArticle[] = []
+        digest_list: IBriefArticle[] = [];
+
+        important_articles = [
+
+           { ID: 5, Title: 'STuff', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.', timestamp: '20-05-2020' },
+           { ID: 6, Title: 'STuff', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.', timestamp: '20-05-2020' },
+           { ID: 7, Title: 'STuff', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.', timestamp: '20-05-2020' },
+           { ID: 8, Title: 'STuff', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.', timestamp: '20-05-2020' },
+
+        ]
 
         redirectToQuiz(): void {
 
