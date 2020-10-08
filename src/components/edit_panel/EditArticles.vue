@@ -1,6 +1,6 @@
 <template>
 
-   <div class="flex-auto flex items-start justify-center w-full space-x-10 overflow-x-hidden overflow-y-auto p-10">
+   <div class="flex-auto flex items-center justify-center w-full h-full space-x-10 p-10 bg-gray-secondary">
 
      <div class="flex flex-col items-start w-full space-y-6">
 

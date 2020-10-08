@@ -1,6 +1,6 @@
 <template>
    
-   <div>
+   <div class="relative">
 
       <ArticleContent :editOn="true">
       
@@ -15,13 +15,15 @@
                </div>
 
                <div class="inline-flex items-end space-x-2 ml-2 mr-2">
-                  <button @click="saveChanges()" class="p-2 bg-purple-secondary bg-opacity-50 text-white text-center text-sm font-medium capitalize hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none" style="border-radius: 10px 10px 0 0">
+                  
+                  <button @click="discardChanges" class="p-2 bg-red-600 bg-opacity-50 text-white text-center text-sm font-medium hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none" style="border-radius: 10px 10px 0 0">
+                     Discard changes
+                  </button>
+
+                  <button @click="saveChanges" class="p-2 bg-purple-secondary bg-opacity-50 text-white text-center text-sm font-medium hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none" style="border-radius: 10px 10px 0 0">
                      Save changes
                   </button>
 
-                  <button @click="removeArticle()" class="p-2 bg-red-600 bg-opacity-50 text-white text-center text-sm font-medium hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none" style="border-radius: 10px 10px 0 0">
-                     Remove article
-                  </button>
                </div>
 
             </div>
@@ -38,7 +40,7 @@
 
          <template #editImg>
 
-            <button v-if="!img_removed" @click="removeImg()" class="right-2 top-2 absolute inline-flex items-center justify-center p-1 rounded-full bg-purple-secondary transform transition duration-300 ease hover:scale-125 focus:outline-none">
+            <button v-if="!img_removed" @click="removeImg" class="right-2 top-2 absolute inline-flex items-center justify-center p-1 rounded-full bg-purple-secondary transform transition duration-300 ease hover:scale-125 focus:outline-none">
 
                <font-awesome-icon :icon="['fas', 'minus']" class="w-3 h-3 fill-current text-white" />
 
@@ -75,6 +77,17 @@
 
       </ArticleContent>      
 
+      <transition name="fade-out">
+
+         <Notification 
+            v-if="notif_on"
+            :content="changes"
+            @click="closeNotification"
+         />
+
+      </transition>
+
+
    </div>
 
 </template>
@@ -86,15 +99,19 @@
    import { vxm } from '../../store';
 
    import ArticleContent from '../../pages/content.vue';
+   import Notification from './Notification.vue';
 
    @Component({
       name: "ArticleEdit",
       components: {
          ArticleContent,
+         Notification,
       }
    })
 
    export default class ArticleEdit extends Vue {
+
+      // Base Config
 
       errors = {
          empty_title: false,
@@ -112,6 +129,9 @@
          return vxm.articles.getUtil.article;
       
       };
+
+
+      // Editing / Discarding  
 
       removeImg(): void {
          
@@ -153,17 +173,30 @@
          
          // console.log(result.data);
 
-         this.$router.push('/edit');
+         this.notif_on = true;
+         this.changes = 'Your changes to the article were saved.';
 
       }
 
-      async removeArticle(): Promise<void> {
+      async discardChanges(): Promise<void> {
 
-         // let result = await ApiUtils.removeArticle({ id: this.article.id }); 
-         
-         // console.log(result.data);
+         vxm.articles.fetchArticle(this.$route.params.id);
 
-         this.$router.push('/edit');
+         this.notif_on = true;
+         this.changes = 'Your changes to the article were discarded.';
+
+      }
+
+
+      // Notification Config
+
+      notif_on = false;
+
+      changes: string = null;
+
+      closeNotification(): void {
+
+         this.notif_on = false;
 
       }
 
