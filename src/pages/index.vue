@@ -309,7 +309,7 @@
                             
                             </div>
 
-                            <ImportantArticles :articles="this.important_articles"></ImportantArticles>
+                            <ImportantArticles></ImportantArticles>
 
                         </div>
 

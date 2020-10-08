@@ -27,6 +27,12 @@ module.exports = function(app) {
         });
     });
 
+    app.post(Links.FETCH_IMPORTANT_ARTICLES, async function(req: Request, res: Response) {
+        res.json({
+            response: await Queries.fetchImportantArticles()
+        });
+    });
+
     app.post(Links.FETCH_ARTICLES_BY_CATEGORY, async function(req: Request, res: Response) {
         res.json({
             response: await Queries.fetchArticlesByCategory(req.body.category_id)

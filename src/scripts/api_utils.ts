@@ -96,6 +96,14 @@ export namespace Wrapper {
 
     }
 
+    export async function fetchImportantArticles(): Promise<string> {
+
+        let articles = await Util.POSTRequest(Links.FETCH_IMPORTANT_ARTICLES, "");
+
+        return articles['response'];
+
+    }
+
 }
 
 export default Wrapper;

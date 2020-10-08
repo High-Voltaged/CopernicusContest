@@ -40,6 +40,15 @@ export namespace Queries {
 
     }
 
+    export async function fetchImportantArticles() {
+
+        connection = await database.getConnection();
+        let result = await connection.query("SELECT `id`, `title`, `content`, `picture_link`, `timestamp` FROM `articles` WHERE `important` = true ORDER BY `times_read` DESC;", []);
+        connection.end();
+        return result;
+
+    }
+
     export async function fetchArticlesByCategory(category_id: number) {
 
         connection = await database.getConnection();
