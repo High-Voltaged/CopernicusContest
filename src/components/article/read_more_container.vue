@@ -6,11 +6,11 @@
 
       <div class="flex flex-col md:flex-row items-center lg:items-end">
 
-         <div class="read-more-image flex-shrink-0 w-full sm:w-2/3 h-full md:w-40 md:h-64 2xl:w-48 2xl:h-72 rounded-lg shadow-md overflow-hidden md:-mb-6 lg:-mb-2 xl:-mb-8 z-10 lg:transition lg:duration-300 lg:ease-in">
-            <img :src="article.src" alt="" class="h-full w-full object-cover" />
+         <div :class="{ 'order-2': picture_right }" class="read-more-image flex-shrink-0 w-full sm:w-2/3 h-full md:w-40 md:h-64 2xl:w-48 2xl:h-72 rounded-lg shadow-md overflow-hidden md:-mb-6 lg:-mb-2 xl:-mb-8 z-10 lg:transition lg:duration-300 lg:ease-in">
+            <img :src="article.src" class="h-full w-full object-cover" />
          </div>
 
-         <div class="flex flex-col mt-8 md:mt-0 md:ml-3 2xl:ml-5 lg:w-1/2 xl:w-2/3 max-h-72 overflow-hidden">
+         <div :class="picture_right ? ['order-1', 'md:mr-3',  '2xl:mr-5'] : ['md:ml-3',  '2xl:ml-5']" class="flex flex-col mt-8 md:mt-0 lg:w-1/2 xl:w-2/3 max-h-72 overflow-hidden">
             <span class="text-gray-200 font-semibold text-3xl tracking-wide capitalize">
                {{ article.Title }}
             </span>
@@ -21,7 +21,7 @@
 
       </div>
 
-      <div class="rounded-md bg-gray-400 -mx-2 mt-4 p-2 flex justify-end items-center">
+      <div :class="picture_right ? 'justify-start' : 'justify-end'" class="rounded-md bg-gray-400 -mx-2 mt-4 p-2 flex items-center">
          
          <span class="mr-4">
             {{ article.timestamp }}
@@ -53,6 +53,8 @@
    export default class ReadMoreContainer extends Vue {
       
       @Prop() private article;
+
+      @Prop({ default: false }) private picture_right?: boolean;
    
    }
 

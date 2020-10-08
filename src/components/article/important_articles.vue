@@ -10,6 +10,7 @@
                   v-for="article in articles"
                   :key="article.ID"
                   :article="article"
+                  :picture_right="getPicPosition(article.ID)"
                ></ReadMoreContainer>
 
             </div>
@@ -90,19 +91,33 @@
 
 <script lang="ts">
 
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import ReadMoreContainer from './read_more_container.vue';
-    import ImportantArticle from './important_article.vue';
+   import { Component, Prop, Vue } from 'nuxt-property-decorator';
+   import ReadMoreContainer from './read_more_container.vue';
+   import ImportantArticle from './important_article.vue';
 
-    @Component({
-        name: "ImportantArticles",
-        components: {
-            ImportantArticle,
-            ReadMoreContainer,
-        }
-    })
-    export default class ImportantArticles extends Vue {
-        @Prop() private articles;
-    }
+   @Component({
+      name: "ImportantArticles",
+      components: {
+         ImportantArticle,
+         ReadMoreContainer,
+      }
+   })
+   export default class ImportantArticles extends Vue {
+      @Prop() private articles;
+
+      getPicPosition(id: number) {
+
+         if((id % 2) == 0) {
+
+            return true;
+
+         } else {
+
+            return false;
+
+         }
+
+      }
+   }
 
 </script>
