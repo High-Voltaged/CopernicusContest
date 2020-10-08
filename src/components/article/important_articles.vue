@@ -7,10 +7,10 @@
             <div class="flex flex-wrap items-center justify-between lg:mr-8">
 
                <ReadMoreContainer
-                  v-for="article in articles"
+                  v-for="(article, index) in articles"
                   :key="article.ID"
                   :article="article"
-                  :picture_right="getPicPosition(article.ID)"
+                  :picture_right="getPicPosition(index)"
                ></ReadMoreContainer>
 
             </div>
@@ -107,7 +107,7 @@
 
       getPicPosition(id: number) {
 
-         if((id % 2) == 0) {
+         if(id >= 2) {
 
             return true;
 
