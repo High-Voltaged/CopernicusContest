@@ -2,6 +2,7 @@ const pkg = require('./package');
 
 module.exports = {
     ssr: false,
+    telemetry: true,
     srcDir: 'src/',
     extension: ['js', 'ts'],
     server: {

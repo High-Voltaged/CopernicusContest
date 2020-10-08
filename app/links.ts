@@ -4,7 +4,7 @@ enum Links {
     FETCH_ARTICLES = "/api/fetchArticles",
     FETCH_POPULAR_ARTICLES = "/api/fetchPopularArticles",
     FETCH_ARTICLES_BY_CATEGORY = "/api/fetchArticlesByCategory",
-
+     
     FETCH_DIGEST = "/api/fetchDigest",
 
     FETCH_CATEGORIES = "/api/fetchCategories",
@@ -12,6 +12,7 @@ enum Links {
 
     FETCH_QUIZ_QUESTIONS = "/api/fetchQuizQuestions",
 
+    ADMIN_PANEL_LOGIN = "/api/login",
 
 };
 

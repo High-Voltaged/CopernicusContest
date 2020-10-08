@@ -32,8 +32,6 @@
 
         async beforeMount() {
 
-            console.log("OK");
-
             this.articles = await ApiUtils.fetchArticlesByCategory(this.category_id);
 
         }

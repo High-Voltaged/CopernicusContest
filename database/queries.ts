@@ -85,6 +85,33 @@ export namespace Queries {
 
     }
 
+    export async function queryAdminByUsername(username: string) {
+
+        connection = await database.getConnection();
+        let result = await connection.query("SELECT * FROM `admins` WHERE `username` = ?;", [username]);
+        connection.end();
+        return result;
+
+    }
+
+    export async function insertSession(user_id: number, token: string) {
+
+        connection = await database.getConnection();
+        let result = await connection.query("INSERT INTO `sessions` (`user_id`, `token`) VALUES (?, ?)", [user_id, token]);
+        connection.end();
+        return result;
+
+    }
+
+    export async function querySession(user_id: number, token: string) {
+
+        connection = await database.getConnection();
+        let result = await connection.query("SELECT * FROM `sessions` WHERE `user_id` = ? AND `token` = ?", [user_id, token]);
+        connection.end();
+        return result;
+
+    }
+
 };
 
 export default Queries;
