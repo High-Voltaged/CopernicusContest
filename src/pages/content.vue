@@ -133,20 +133,19 @@
    import ICategory from '../../interfaces/category';
    import { vxm } from '../store';
 
-   import ArticleSidebar from '../components/article/article_sidebar.vue';
-   import Navbar from '../components/navbar/Navbar.vue';
-   import Footer from '../components/navbar/Footer.vue';
+    import ArticleSidebar from '../components/article/article_sidebar.vue';
+    import Navbar from '../components/navbar/Navbar.vue';
+    import Footer from '../components/navbar/Footer.vue';
 
-   @Component({
-      name: "contentPage",
-      components: {
-         ArticleSidebar,
-         Navbar,
-         Footer,
-      },
-   })
-
-   export default class contentPage extends Vue {
+    @Component({
+        name: "contentPage",
+        components: {
+            ArticleSidebar,
+            Navbar,
+            Footer,
+        },
+    })
+    export default class contentPage extends Vue {
 
       @Prop({ default: false }) private editOn?: boolean;
 

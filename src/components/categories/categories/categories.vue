@@ -25,6 +25,7 @@
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import CategoryItem from './category.vue';
     import APIWrapper from "../../../scripts/api_wrapper";
+import ICategory from '../../../../interfaces/category';
 
     @Component({
         name: "CategoriesList",
@@ -34,7 +35,7 @@
     })
     export default class QuizAnswersContainer extends Vue {
 
-        categories = [];
+        categories: ICategory[] = [];
 
         async beforeMount() {
 

@@ -2,11 +2,11 @@
 
     <div v-if="articles.length > 0">
 
-            <div v-for="article in articles">
+        <div v-for="article in articles">
 
-                <CategoryArticle :article="article"> </CategoryArticle>
+            <CategoryArticle :article="article"> </CategoryArticle>
 
-            </div>
+        </div>
 
     </div>
 
@@ -17,6 +17,7 @@
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import APIWrapper from "../../../scripts/api_wrapper";
     import CategoryArticle from './CategoryArticle.vue';
+    import IBriefArticle from '../../../../interfaces/brief_article';
 
     @Component({
         name: "CategoryArticles",
@@ -28,7 +29,7 @@
 
         @Prop() private category_id;
 
-        articles = [];
+        articles: IBriefArticle[] = [];
 
         async beforeMount() {
 

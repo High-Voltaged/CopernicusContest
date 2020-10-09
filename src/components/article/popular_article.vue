@@ -18,7 +18,7 @@
 
                 </div>
 
-                <a :href="article.ID" class="ml-2"> {{ article.Title }} </a>
+                <a :href="article.id" class="ml-2"> {{ article.title }} </a>
 
             </div>
 
@@ -30,14 +30,14 @@
 
                     <div class="ml-2 flex items-center">
                         <span class="flex-shrink-0 text-xs font-light tracking-wide">Times viewed:</span>
-                        <span class="ml-1 text-xs font-light tracking-wide"> {{ article.TimesRead }} </span>
+                        <span class="ml-1 text-xs font-light tracking-wide"> {{ article.times_read }} </span>
                     </div>
 
                 </div>
 
                 <div class="flex-shrink w-full">
 
-                    <div class="text-xs font-light text-gray-400 text-right italic"> {{ article.Timestamp }} </div>
+                    <div class="text-xs font-light text-gray-400 text-right italic"> {{ article.timestamp }} </div>
 
                 </div>
 

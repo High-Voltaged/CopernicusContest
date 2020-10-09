@@ -7,7 +7,7 @@
             <div class="flex flex-wrap items-center justify-between ">
 
                 <ImportantArticle v-for="(article, index) in articles"
-                  :key="article.ID"
+                  :key="article.id"
                   :article="article"
                   :picture_right="getPicPosition(index)"
                ></ImportantArticle>
