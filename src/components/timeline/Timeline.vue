@@ -44,12 +44,12 @@
 <script lang="ts">
 
    import { Component, Prop, Vue } from 'nuxt-property-decorator';
-   //import TimelineItem from './TimelineItem.vue';
+   import TimelineItem from './TimelineItem.vue';
 
    @Component({
       name: "Timeline",
       components: {
-         //TimelineItem,
+         TimelineItem,
       }
    })
    export default class Timeline extends Vue {

@@ -72,6 +72,19 @@
 
             </transition>
 
+         </template>
+
+         <template #removeBtn>
+
+            <div class="absolute right-4 bottom-4">
+
+               <button @click="removeArticle" class="inline-flex items-center space-x-1 p-2 bg-red-primary opacity-50 hover:opacity-100 transition duration-300 ease rounded-lg focus:outline-none">
+
+                  <font-awesome-icon :icon="['fas', 'trash']" class="w-4 h-4 fill-current text-gray-300" />
+
+               </button>
+
+            </div>
 
          </template>
 
@@ -86,7 +99,6 @@
          />
 
       </transition>
-
 
    </div>
 
@@ -188,15 +200,36 @@
       }
 
 
+      // Adding / Removing 
+
+      async addArticle(): Promise<void> {
+
+         // let result = await APIWrapper.addArticle(this.article.id);
+
+         // console.log(result.data);
+
+      }
+
+      async removeArticle(): Promise<void> {
+
+         // let result = await APIWrapper.removeArticle(this.article.id);
+
+         // console.log(result.data);
+
+      }
+
+
       // Notification Config
 
       notif_on = false;
 
-      changes: string = null;
+      changes: string = '';
 
       closeNotification(): void {
 
          this.notif_on = false;
+
+         this.changes = '';
 
       }
 
