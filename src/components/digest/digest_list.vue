@@ -1,6 +1,6 @@
 <template>
 
-    <div v-if="digest_list.length > 0">
+    <div v-if="articles.length > 0">
 
         <div class="card-digest mdMax:overflow-x-auto flex mt-16 rounded-md">
 
@@ -16,9 +16,9 @@
 
                     <div class="flex p-12">
 
-                        <div class="digest -ml-4 md:-ml-32 2xl:-ml-24 transition-card transition duration-300 ease" v-for="digest in digest_list">
+                        <div class="digest -ml-4 md:-ml-32 2xl:-ml-24 transition-card transition duration-300 ease" v-for="article in articles">
 
-                            <DigestItem :digest="digest"></DigestItem>
+                            <DigestItem :article="article"></DigestItem>
 
                         </div>
 
@@ -37,7 +37,7 @@
 <script lang="ts">
 
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import ApiUtils from '../../scripts/api_utils';
+    import ApiWrapper from '../../scripts/api_wrapper';
     import IBriefArticle from "../../../interfaces/brief_article";
     import DigestItem from './digest_item.vue';
 
@@ -49,20 +49,13 @@
     })
     export default class DigestList extends Vue {
 
-        digest_list: IBriefArticle[] = [];
+        articles: Array<IBriefArticle> = [];
 
         async beforeMount() {
 
-            let articles = await ApiUtils.fetchDigest();
+            this.articles = await ApiWrapper.fetchDigest();
 
-            for (let i = 0; i < articles.length; ++i) {
-
-                this.digest_list.push({
-                    ID: articles[i].id, Title: articles[i].title, PictureLink: articles[i].picture_link, ShortDescription: articles[i].content,
-                    TimesRead: articles[i].times_read, Timestamp: articles[i].timestamp,
-                });
-
-            }
+            console.log(this.articles);
 
         }
 

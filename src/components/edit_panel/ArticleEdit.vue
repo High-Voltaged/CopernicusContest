@@ -95,7 +95,7 @@
 <script lang="ts">
    
    import { Component, Prop, Vue } from "nuxt-property-decorator";
-   import ApiUtils from '../../scripts/api_utils';
+   import APIWrapper from '../../scripts/api_wrapper';
    import { vxm } from '../../store';
 
    import ArticleContent from '../../pages/content.vue';

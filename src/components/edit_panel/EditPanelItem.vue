@@ -31,7 +31,6 @@
 <script lang="ts">
 
    import { Component, Prop, Vue } from "nuxt-property-decorator";
-   import { Wrapper as ApiUtils } from '../../scripts/api_utils';
 
    @Component({
       name: "EditPanelItem",

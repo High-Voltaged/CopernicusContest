@@ -31,7 +31,6 @@
 <script lang="ts">
 
 	import { Component, Prop, Vue } from "nuxt-property-decorator";
-	import ApiUtils from "../scripts/api_utils";
     import CategoriesList from '../components/categories/categories/categories.vue';
 	import Footer from '../components/navbar/Footer.vue';
 

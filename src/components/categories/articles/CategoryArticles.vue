@@ -15,7 +15,7 @@
 <script lang="ts">
 
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import ApiUtils from "../../../scripts/api_utils";
+    import APIWrapper from "../../../scripts/api_wrapper";
     import CategoryArticle from './CategoryArticle.vue';
 
     @Component({
@@ -32,7 +32,7 @@
 
         async beforeMount() {
 
-            this.articles = await ApiUtils.fetchArticlesByCategory(this.category_id);
+            this.articles = await APIWrapper.fetchArticlesByCategory(this.category_id);
 
         }
 

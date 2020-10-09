@@ -1,8 +1,8 @@
 export default interface IBriefArticle {
-    ID: number,
-    Title: string,
-    PictureLink: string,
-    TimesRead: number,
-    Timestamp: string,
-    ShortDescription: string,
+    id: number,
+    title: string,
+    picture_link: string,
+    times_read: number,
+    timestamp: string,
+    content: string,
 }

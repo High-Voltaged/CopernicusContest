@@ -24,7 +24,8 @@
 
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import ImportantArticle from './important_article.vue';
-    import ApiUtils from '../../scripts/api_utils';
+    import ApiWrapper from '../../scripts/api_wrapper';
+    import IBriefArticle from '../../../interfaces/brief_article';
 
     @Component({
         name: "ImportantArticles",
@@ -34,7 +35,7 @@
     })
     export default class ImportantArticles extends Vue {
 
-        articles = [];
+        articles: IBriefArticle[] = [];
 
         getPicPosition(id: number) {
 
@@ -52,13 +53,9 @@
 
         async beforeMount() {
 
-            let temp = await ApiUtils.fetchImportantArticles();
+            this.articles = await ApiWrapper.fetchImportantArticles();
 
-            for (let i = 0; i < temp.length; ++i) {
-
-                this.articles.push(temp[i]);
-
-            }
+            console.log(this.articles);
 
         }
 

@@ -24,6 +24,7 @@
 
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import CategoryItem from './category.vue';
+    import APIWrapper from "../../../scripts/api_wrapper";
 
     @Component({
         name: "CategoriesList",
@@ -39,11 +40,11 @@
 
             if (this.$route.params.id != undefined) {
 
-                this.categories = await ApiUtils.fetchCategory(Number(this.$route.params.id));
+                this.categories = await APIWrapper.fetchCategory(Number(this.$route.params.id));
 
             } else {
 
-                this.categories = await ApiUtils.fetchCategories();
+                this.categories = await APIWrapper.fetchCategories();
 
 
             }

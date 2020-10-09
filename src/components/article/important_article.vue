@@ -42,12 +42,19 @@
 </template>
 
 <script lang="ts">
+
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
+    import IBriefArticle from '../../../interfaces/brief_article';
+
     @Component({
         name: "ImportantArticle",
     })
     export default class ImportantArticle extends Vue {
-        @Prop() private article;
+
+        @Prop() private article: IBriefArticle;
+
         @Prop({ default: false }) private picture_right?: boolean;
+
     }
+
 </script>

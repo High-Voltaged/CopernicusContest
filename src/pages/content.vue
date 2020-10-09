@@ -69,17 +69,13 @@
 
                                 <div class="mt-2 w-full">
 
-                                    <div class="text-xs font-light text-gray-400 text-right italic"> 
-                                       Date published: {{ article.timestamp }} 
-                                    </div>
+                                    <div class="text-xs font-light text-gray-400 text-right italic"> Date published: {{ article.timestamp }} </div>
 
                                 </div>
 
                                 <div class="mt-2">
 
-                                    <span class="text-xl ml-1 tracking-wide text-gray-200 capitalize">
-                                       Author: {{ article.author_name }} 
-                                    </span>
+                                    <span class="text-xl ml-1 tracking-wide text-gray-200 capitalize"> Author: {{ article.author_name }} </span>
 
                                 </div>
 

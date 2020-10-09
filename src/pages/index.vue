@@ -66,23 +66,23 @@
 
                   <div class="mt-16 flex flex-col items-stretch justify-center 2xl:max-w-4/5 mx-auto w-full">
                         
-                        <MainTitle
-                           :content="main_titles[1]"
-                           key="1"
-                        ></MainTitle>
+                     <MainTitle
+                        :content="main_titles[1]"
+                        key="1"
+                     ></MainTitle>
 
-                        <Timeline> </Timeline>
+                      <Timeline></Timeline>
 
                   </div>
 
                   <div class="mt-4 2xl:max-w-4/5 mx-auto">
                         
-                        <MainTitle
-                           :content="main_titles[2]"
-                           key="2"
-                        ></MainTitle>
+                     <MainTitle
+                        :content="main_titles[2]"
+                        key="2"
+                     ></MainTitle>
 
-                        <ImportantArticles></ImportantArticles>
+                     <ImportantArticles></ImportantArticles>
 
                   </div>
 

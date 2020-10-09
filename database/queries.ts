@@ -61,7 +61,7 @@ export namespace Queries {
     export async function fetchDigest() {
 
         connection = await database.getConnection();
-        let result = await connection.query("SELECT `id`, `title`, `times_read`, SUBSTRING(`content`, 1, 50) as `content` FROM `articles` ORDER BY `id` DESC LIMIT 50;", []);
+        let result = await connection.query("SELECT `id`, `title`, SUBSTRING(`content`, 1, 50) as `content`, `picture_link`, `times_read` FROM `articles` ORDER BY `id` DESC LIMIT 50;", []);
         connection.end();
         return result;
 
@@ -112,10 +112,19 @@ export namespace Queries {
 
     }
 
-    export async function querySession(user_id: number, token: string) {
+    export async function querySession(session_token: string) {
 
         connection = await database.getConnection();
-        let result = await connection.query("SELECT * FROM `sessions` WHERE `user_id` = ? AND `token` = ?", [user_id, token]);
+        let result = await connection.query("SELECT * FROM `sessions` WHERE `token` = ?", [session_token]);
+        connection.end();
+        return result;
+
+    }
+
+    export async function updateArticle(article_id: number, new_title: string, new_content: string) {
+
+        connection = await database.getConnection();
+        let result = await connection.query("UPDATE `articles` SET `title` = ?, `content` = ? WHERE `article_id` = ?", [new_title, new_content, article_id]);
         connection.end();
         return result;
 

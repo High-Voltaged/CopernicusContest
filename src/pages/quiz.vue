@@ -25,7 +25,7 @@
 <script lang="ts">
 
     import { Component, Prop, Vue } from "nuxt-property-decorator";
-    import ApiUtils from '../scripts/api_utils';
+    import ApiWrapper from '../scripts/api_wrapper';
     import QuizQuestion from '../components/quiz/quiz_question.vue';
     import QuizResult from '../components/quiz/result/quiz_result.vue';
 
@@ -87,7 +87,7 @@
 
         async formatQuizJSON(): Promise<void> {
 
-            let quiz = await ApiUtils.fetchQuiz();
+            let quiz = await ApiWrapper.fetchQuiz();
 
             for (let i = 0; i < quiz.length; ++i) {
 
