@@ -25,7 +25,6 @@
 <script lang="ts">
    
    import { Component, Prop, Vue } from "nuxt-property-decorator";
-   import ApiUtils from '../../scripts/api_utils';
    import { vxm } from '../../store';
 
    @Component({

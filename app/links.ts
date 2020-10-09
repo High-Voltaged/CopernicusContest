@@ -15,6 +15,8 @@ enum Links {
 
     ADMIN_PANEL_LOGIN = "/api/login",
 
+    EDIT_ARTICLE = "/api/editArticle",
+
 };
 
 export default Links;

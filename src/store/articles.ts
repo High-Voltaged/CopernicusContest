@@ -1,7 +1,7 @@
 import { createModule, mutation, action } from 'vuex-class-component';
 import moment from 'moment';
 
-import ApiUtils from '../scripts/api_utils';
+import ApiWrapper from '../scripts/api_wrapper';
 import IBriefArticle from '../../interfaces/brief_article';
 import ICategory from '../../interfaces/category';
 import IFullArticle from '../../interfaces/full_article';
@@ -38,28 +38,28 @@ export default class Articles extends VuexModule {
 
     @action async fetchArticle(article_id: string) {
 
-        this.article = (await ApiUtils.fetchArticle(Number(article_id)))[0];
+        this.article = (await ApiWrapper.fetchArticle(Number(article_id)))[0];
 
         this.article.timestamp = moment(this.article.timestamp).format('YYYY-MM-DD HH:mm:s');
 
         this.article.content = this.article.content.split("\n");
 
-        let popular_articles = await ApiUtils.fetchPopularArticles();
+        let popular_articles = await ApiWrapper.fetchPopularArticles();
 
         for (let i = 0; i < popular_articles.length; ++i) {
 
             let temp_article: IBriefArticle = {} as IBriefArticle;
 
-            temp_article.ID = popular_articles[i].id;
-            temp_article.TimesRead = popular_articles[i].times_read;
-            temp_article.Title = popular_articles[i].title;
-            temp_article.Timestamp = moment(popular_articles[i].timestamp).format('YYYY-MM-DD HH:mm:s');
+            temp_article.id = popular_articles[i].id;
+            temp_article.times_read = popular_articles[i].times_read;
+            temp_article.title = popular_articles[i].title;
+            temp_article.timestamp = moment(popular_articles[i].timestamp).format('YYYY-MM-DD HH:mm:s');
 
             this.popular_articles.push(temp_article);
 
         }
 
-        let categories = await ApiUtils.fetchCategories();
+        let categories = await ApiWrapper.fetchCategories();
 
         for (let i = 0; i < categories.length; ++i) {
 

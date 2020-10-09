@@ -141,20 +141,20 @@
                   </div>
 
                   <div class="mt-16 flex flex-col items-stretch justify-center 2xl:max-w-4/5 mx-auto w-full">
-                        <div class="px-2 md:px-4">
-                           <span class="block text-center uppercase text-gray-300 font-light leading-tight">Non-main title</span>
-                           <span class="block text-center text-5xl capitalize font-black tracking-wide leading-tight text-gray-200">Main title</span>
+                      <div class="px-2 md:px-4">
+                          <span class="block text-center uppercase text-gray-300 font-light leading-tight">Non-main title</span>
+                          <span class="block text-center text-5xl capitalize font-black tracking-wide leading-tight text-gray-200">Main title</span>
 
-                           <div class="divider relative h-px my-5 min-w-full">
+                          <div class="divider relative h-px my-5 min-w-full">
                               <div class="div-transparent  absolute top-0 left-1/20 right-1/20 h-px">
-                                    <div class="div-dot absolute rounded-full bg-gray-tertiary cursor-pointer transition transform hover:scale-75 duration-500 linear"></div>
+                                  <div class="div-dot absolute rounded-full bg-gray-tertiary cursor-pointer transition transform hover:scale-75 duration-500 linear"></div>
                               </div>
-                           </div>
+                          </div>
 
-                           <p class="text-center font-light text-gray-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
+                          <p class="text-center font-light text-gray-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      </div>
 
-                        <Timeline> </Timeline>
+                      <!-- <Timeline> </Timeline> -->
 
                   </div>
 

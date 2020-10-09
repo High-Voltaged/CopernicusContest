@@ -1,6 +1,6 @@
 import Queries from "../database/queries";
 import Links from "./links";
-import Util from "./util";
+import Utils from "./utils";
 import { Request, Response } from "Express";
 
 module.exports = function(app) {
@@ -65,11 +65,35 @@ module.exports = function(app) {
 
     app.post(Links.ADMIN_PANEL_LOGIN, async function(req: Request, res: Response) {
 
-        await Util.processAdminLogin(res, req.body.username, req.body.password);
+        console.log(req.body);
 
         res.json({
-            response: await Queries.fetchQuizQuestions()
+            response: await Utils.processAdminLogin(res, req.body.username, req.body.password)
         });
+        
+    });
+
+    app.post(Links.EDIT_ARTICLE, async function(req: Request, res: Response) {
+
+        let cookies: Array<string> = req.headers.cookie.split("; ");
+
+        let session_token: string;
+
+        for (let cookie of cookies) {
+
+            let cookie_split = cookie.split("=");
+
+            if (cookie_split[0].toLowerCase() == "session-token") {
+
+                session_token = cookie_split[1];
+                
+                return;
+
+            }
+
+        }
+
+        await Utils.editArticle(res, req.body.article_id, req.body.new_title, req.body.new_content, session_token);
 
     });
 
