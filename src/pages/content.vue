@@ -125,10 +125,6 @@
 <script lang="ts">
 
     import { Component, Prop, Vue } from "nuxt-property-decorator";
-    import moment from 'moment';
-    import ApiUtils from '../scripts/api_utils';
-    import IBriefArticle from '../../interfaces/brief_article';
-    import ICategory from '../../interfaces/category';
     import { vxm } from '../store';
 
     import ArticleSidebar from '../components/article/article_sidebar.vue';
