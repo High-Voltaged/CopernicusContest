@@ -126,7 +126,7 @@
 
     import { Component, Prop, Vue } from "nuxt-property-decorator";
     import moment from 'moment';
-    import ApiWrapper from '../scripts/api_wrapper';
+    import ApiUtils from '../scripts/api_utils';
     import IBriefArticle from '../../interfaces/brief_article';
     import ICategory from '../../interfaces/category';
     import { vxm } from '../store';
