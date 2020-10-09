@@ -4,12 +4,13 @@
 
         <div class="flex flex-col lg:flex-row items-center mt-16">
 
-            <div class="flex flex-wrap items-center justify-between lg:mr-8">
+            <div class="flex flex-wrap items-center justify-between ">
 
                 <ImportantArticle v-for="(article, index) in articles"
-                                  :key="article.ID"
-                                  :article="article"
-                                  :picture_right="getPicPosition(index)"></ImportantArticle>
+                  :key="article.ID"
+                  :article="article"
+                  :picture_right="getPicPosition(index)"
+               ></ImportantArticle>
 
             </div>
 
