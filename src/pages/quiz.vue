@@ -6,12 +6,13 @@
 
             <div v-if="questions_array.length > question">
 
-                <QuizQuestion @selectedAnswer="selectedAnswer" @nextQuestion="nextQuestion" :questions_array="questions_array" :question="question"> </QuizQuestion>
+               <QuizQuestion @selectedAnswer="selectedAnswer" @nextQuestion="nextQuestion" :questions_array="questions_array" :question="question"> </QuizQuestion>
 
             </div>
+            
             <div v-else>
 
-                <QuizResult :questions_array="questions_array" :correct_answers="correct_answers"> </QuizResult>
+               <QuizResult :questions_array="questions_array" :correct_answers="correct_answers"> </QuizResult>
 
             </div>
 
