@@ -1,6 +1,7 @@
 import Links from "../../app/links";
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import IBriefArticle from "../../interfaces/brief_article";
+import Codes from "../../../app/codes";
 
 export namespace APIWrapper {
 
@@ -60,7 +61,7 @@ export namespace APIWrapper {
 
     }
 
-    export async function fetchImportantArticles(): Promise<AxiosResponse> {
+    export async function fetchImportantArticles(): Promise<Array<IBriefArticle>> {
 
         let response: AxiosResponse = await axios.post(Links.FETCH_IMPORTANT_ARTICLES);
 
@@ -68,7 +69,7 @@ export namespace APIWrapper {
 
     }
 
-    export async function adminLogin(username: string, password: string): Promise<AxiosResponse> {
+    export async function adminLogin(username: string, password: string): Promise<Codes> {
 
         let response: AxiosResponse = await axios.post(Links.ADMIN_PANEL_LOGIN, { username: username, password: password });
 

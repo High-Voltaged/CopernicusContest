@@ -57,11 +57,11 @@
     })
     export default class DigestItem extends Vue {
 
-        @Prop() private article: Array<IBriefArticle>;
+        @Prop() private article: IBriefArticle;
 
         goToArticle(): void {
 
-            this.$router.push("/article/" + this.article.ID);
+            this.$router.push("/article/" + this.article.id);
 
         }
 
