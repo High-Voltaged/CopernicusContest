@@ -1,10 +1,5 @@
-export default interface IFullArticle {
-    ID: number,
-    Title: string,
-    Content: string,
-    AuthorID: number,
-    CategoryID: number,
-    TimesRead: number,
-    Timestamp: string,
-    AuthorName: string,
+import IBriefArticle from "./brief_article";
+
+export default interface IFullArticle extends IBriefArticle {
+    category_id: number,
 }

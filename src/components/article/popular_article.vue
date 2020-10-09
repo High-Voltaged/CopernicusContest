@@ -18,7 +18,7 @@
 
                 </div>
 
-                <a :href="article.ID" class="ml-2"> {{ article.title }} </a>
+                <a :href="article.id" class="ml-2"> {{ article.title }} </a>
 
             </div>
 

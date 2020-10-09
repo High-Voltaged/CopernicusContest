@@ -14,7 +14,7 @@ const VuexModule = createModule({
 
 export default class Articles extends VuexModule {
 
-    article = [];
+    article: IFullArticle = {};
 
     categories: ICategory[] = [];
 
@@ -44,30 +44,9 @@ export default class Articles extends VuexModule {
 
         this.article.content = this.article.content.split("\n");
 
-        let popular_articles = await ApiWrapper.fetchPopularArticles();
+        this.popular_articles = await ApiWrapper.fetchPopularArticles();
 
-        for (let i = 0; i < popular_articles.length; ++i) {
+        this.categories = await ApiWrapper.fetchCategories();
 
-            let temp_article: IBriefArticle = {} as IBriefArticle;
-
-            temp_article.id = popular_articles[i].id;
-            temp_article.times_read = popular_articles[i].times_read;
-            temp_article.title = popular_articles[i].title;
-            temp_article.timestamp = moment(popular_articles[i].timestamp).format('YYYY-MM-DD HH:mm:s');
-
-            this.popular_articles.push(temp_article);
-
-        }
-
-        let categories = await ApiWrapper.fetchCategories();
-
-        for (let i = 0; i < categories.length; ++i) {
-
-            let temp_category: ICategory = {} as ICategory;
-            temp_category.ID = categories[i].id;
-            temp_category.Name = categories[i].name;
-            this.categories.push(temp_category);
-
-        }
     }
 }

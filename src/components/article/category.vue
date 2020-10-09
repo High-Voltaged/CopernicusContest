@@ -6,7 +6,7 @@
 
             <span>
 
-                <p class="noselect"> {{ category.Name }} </p>
+                <p class="noselect"> {{ category.name }} </p>
 
             </span>
 
@@ -29,7 +29,7 @@
 
         viewCategory(): void {
 
-            this.$router.push("/category/" + this.category.ID);
+            this.$router.push("/category/" + this.category.id);
 
         }
 

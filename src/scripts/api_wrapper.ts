@@ -2,10 +2,12 @@ import { Links } from "../../app/links";
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import IBriefArticle from "../../interfaces/brief_article";
 import Codes from "../../app/codes";
+import ICategory from "../../interfaces/category";
+import IFullArticle from "../../interfaces/full_article";
 
 export namespace APIWrapper {
 
-    export async function fetchDigest(): Promise<Array<IBriefArticle>> {
+    export async function fetchDigest(): Promise<IBriefArticle[]> {
 
         let response = await axios.post(Links.fetch_digest);
 
@@ -13,7 +15,7 @@ export namespace APIWrapper {
 
     }
 
-    export async function fetchArticle(id: number): Promise<string> {
+    export async function fetchArticle(id: number): Promise<IFullArticle> {
 
         let response = await axios.post(Links.fetch_article, { id: id });
 
@@ -21,7 +23,7 @@ export namespace APIWrapper {
 
     }
 
-    export async function fetchPopularArticles(): Promise<string> {
+    export async function fetchPopularArticles(): Promise<IBriefArticle[]> {
 
         let response = await axios.post(Links.fetch_popular_articles);
 
@@ -29,7 +31,7 @@ export namespace APIWrapper {
 
     }
 
-    export async function fetchCategories(): Promise<string> {
+    export async function fetchCategories(): Promise<ICategory[]> {
 
         let response = await axios.post(Links.fetch_categories);
 
@@ -37,7 +39,7 @@ export namespace APIWrapper {
 
     }
 
-    export async function fetchCategory(category_id: number): Promise<string> {
+    export async function fetchCategory(category_id: number): Promise<ICategory> {
 
         let response = await axios.post(Links.fetch_category, { category_id: category_id });
 
@@ -53,7 +55,7 @@ export namespace APIWrapper {
 
     }
 
-    export async function fetchArticlesByCategory(category_id: number): Promise<string> {
+    export async function fetchArticlesByCategory(category_id: number): Promise<IBriefArticle[]> {
 
         let response = await axios.post(Links.fetch_articles_by_category, { category_id: category_id });
 
@@ -61,7 +63,7 @@ export namespace APIWrapper {
 
     }
 
-    export async function fetchImportantArticles(): Promise<Array<IBriefArticle>> {
+    export async function fetchImportantArticles(): Promise<IBriefArticle[]> {
 
         let response: AxiosResponse = await axios.post(Links.fetch_important_articles);
 
