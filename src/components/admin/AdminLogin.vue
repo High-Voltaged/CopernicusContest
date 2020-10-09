@@ -58,6 +58,8 @@
         username: string = "";
         password: string = "";
 
+        edit_menu = 0;
+
         async login() {
 
             let result: Codes = await APIWrapper.adminLogin(this.username, this.password);
@@ -73,6 +75,26 @@
                 this.password = "";
 
             }
+
+        }
+
+        // Edit Menu
+
+        articles = 'Articles';
+        quiz = 'Quiz';
+
+        current: string = null;
+
+        get getCurrent() {
+
+            return `Edit${this.current}`;
+
+        }
+
+        setCurrent(c: string) {
+
+            this.current = c;
+            this.edit_menu = -1;
 
         }
 
