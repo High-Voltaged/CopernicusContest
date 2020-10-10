@@ -1,6 +1,6 @@
 <template>
    
-   <div class="flex items-center lg:transition lg:duration-300 lg:ease-in lg:transform lg:hover:translate-x-4 m-1">
+   <div class="flex items-center lg:transition lg:duration-300 lg:ease-in lg:transform lg:hover:translate-x-4 m-2">
      
       <div class="w-4 h-4 hidden lg:block">
      

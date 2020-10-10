@@ -1,8 +1,20 @@
 <template>
 
-    <div class="flex-auto flex items-center justify-center w-full h-full space-x-10 p-10 bg-gray-secondary">
+   <div class="flex-auto flex flex-col items-center justify-start relative w-full h-full space-y-6 lg:space-y-0 p-10 bg-gray-secondary">
 
-        <div class="flex flex-col items-start w-full space-y-6">
+      <button class="lg:absolute right-8 top-8 flex items-center justify-center px-4 py-2 bg-gray-tertiary rounded-lg shadow bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
+
+         <span class="inline-block p-1">
+            <font-awesome-icon :icon="['fas', 'plus']" class="w-4 h-4 fill-current text-white" />
+         </span>
+
+         <span class="text-left text-lg font-semibold text-white select-none">
+            Add an article
+         </span>
+
+      </button>
+
+     <div class="flex flex-col items-center w-full space-y-6">
 
             <div class="inline-block ml-2">
                 <span class="text-left text-xl font-semibold text-white capitalize select-none">
@@ -10,7 +22,7 @@
                 </span>
             </div>
 
-            <div class="flex-auto flex flex-wrap items-center max-w-full">
+         <div class="flex-auto flex flex-wrap items-center justify-center max-w-full">
 
                 <EditPanelItem v-for="article in articles"
                                :key="article.id"

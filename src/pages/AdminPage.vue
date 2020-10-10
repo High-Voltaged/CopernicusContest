@@ -1,38 +1,38 @@
 <template>
 
-    <div class="h-screen w-screen overflow-x-hidden overflow-y-auto">
+    <div class="h-screen w-screen overflow-x-hidden overflow-y-auto bg-gray-secobdary">
 
-        <div v-if="edit_menu == 0" class="flex flex-col items-center justify-center flex-auto h-full py-6 bg-gray-secondary">
+      <div v-if="edit_menu == 0" class="flex flex-col items-center justify-center flex-auto h-full py-6 bg-gray-secondary">
 
-            <AdminLogin> </AdminLogin>
+         <AdminLogin> </AdminLogin>
 
-        </div>
+      </div>
 
-        <div v-else-if="edit_menu == 1" class="flex-auto flex flex-col md:flex-row items-center justify-center w-full h-full space-x-10 overflow-x-hidden overflow-y-auto bg-gray-secondary p-10">
+      <div v-else-if="edit_menu == 1" class="flex-auto flex flex-col md:flex-row items-center justify-center w-full h-full space-y-8 md:space-y-0 md:space-x-10 overflow-x-hidden overflow-y-auto bg-gray-secondary p-10">
 
-            <div class="flex items-center w-72">
+         <div class="flex items-center w-72">
 
-                <div class="inline-block w-full">
-                    <button @click="setCurrent(articles)" class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
-                        Edit articles
-                    </button>
-                </div>
-
+            <div class="inline-block w-full">
+               <button @click="setCurrent(articles)" class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
+                  Edit articles
+               </button>
             </div>
 
-            <div class="flex items-center w-72">
+         </div>
 
-                <div class="inline-block w-full">
-                    <button @click="setCurrent(quiz)" class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
-                        Edit the quiz
-                    </button>
-                </div>
+         <div class="flex items-center w-72">
 
+            <div class="inline-block w-full">
+               <button @click="setCurrent(quiz)" class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
+                  Edit the quiz
+               </button>
             </div>
 
-        </div>
+         </div>
 
-        <component :is="getCurrent"></component>
+      </div>
+
+      <component :is="getCurrent"></component>
 
     </div>
 

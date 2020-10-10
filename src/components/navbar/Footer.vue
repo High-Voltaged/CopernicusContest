@@ -30,7 +30,7 @@
             Support
          </span>
 
-         <div class="flex flex-wrap flex-col sm:flex-row sm:justify-evenly lg:block space-y-2 xl:text-lg">
+         <div class="flex flex-wrap flex-col sm:flex-row sm:justify-evenly lg:block xl:text-lg">
                
             <FooterLink
                v-for="(link, index) in primary_links"
@@ -50,7 +50,7 @@
             Our website
          </span>
 
-         <div class="flex flex-wrap flex-col sm:flex-row sm:justify-evenly lg:block space-y-2 xl:text-lg">
+         <div class="flex flex-wrap flex-col sm:flex-row sm:justify-evenly lg:block xl:text-lg">
                
             <FooterLink
                v-for="(link, index) in secondary_links"

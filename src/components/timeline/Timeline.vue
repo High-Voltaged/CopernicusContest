@@ -8,9 +8,11 @@
 
                 <div class="timeline-container my-4 flex justify-between w-full h-full relative text-gray-200 transition duration-200 ease-in transform">
 
-                    <TimelineItem v-for="(item, index) in items"
-                                  :key="index"
-                                  :content="item"></TimelineItem>
+                  <TimelineItem 
+                     v-for="(item, index) in items"
+                     :key="index"
+                     :content="item"
+                  ></TimelineItem>
 
                 </div>
 
@@ -41,28 +43,29 @@
 
 <script lang="ts">
 
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import TimelineItem from './TimelineItem.vue';
 
-    @Component({
-        name: "Timeline",
-        components: {
-            TimelineItem,
-        }
-    })
-    export default class Timeline extends Vue {
+   import { Component, Prop, Vue } from 'nuxt-property-decorator';
+   import TimelineItem from './TimelineItem.vue';
 
-        items = [
+   @Component({
+      name: "Timeline",
+      components: {
+         TimelineItem,
+      }
+   })
+   export default class Timeline extends Vue {
 
-            { title: 'Stuff', info: 'Some content in here, Some content in here' },
-            { title: 'More Stuff', info: 'Some content in here' },
-            { title: 'Interesting', info: 'Some content in here' },
-            { title: 'Stuff here', info: 'Some content in here' },
-            { title: 'Other stuff', info: 'Some content in here' },
-            { title: 'Something', info: 'Some content in here' },
+      items = [
+         
+         { title: 'Stuff', info: 'Some content in here, Some content in here' },
+         { title: 'More Stuff', info: 'Some content in here' },
+         { title: 'Interesting', info: 'Some content in here' },
+         { title: 'Stuff here', info: 'Some content in here' },
+         { title: 'Other stuff', info: 'Some content in here' },
+         { title: 'Something', info: 'Some content in here' },
 
-        ]
+      ]
 
-    }
+   }
 
 </script>
