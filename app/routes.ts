@@ -73,7 +73,7 @@ module.exports = function(app) {
 
     app.post(Links.edit_article, async function(req: Request, res: Response) {
 
-        let cookies: Array<string> = req.headers.cookie.split("; ");
+        let cookies: string[] = req.headers.cookie.split("; ");
 
         let session_token: string;
 
@@ -91,7 +91,17 @@ module.exports = function(app) {
 
         }
 
-        await Utils.editArticle(res, req.body.article_id, req.body.new_title, req.body.new_content, session_token);
+        res.json({
+            response: await Utils.editArticle(res, req.body.article_id, req.body.new_title, req.body.new_content, session_token)
+        });
+
+    });
+
+    app.post(Links.fetch_edit_articles_list, async function(req: Request, res: Response) {
+
+        res.json({
+            response: await Queries.fetchEditArticleList()
+        });
 
     });
 

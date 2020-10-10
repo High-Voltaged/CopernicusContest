@@ -73,12 +73,6 @@
 
                                 </div>
 
-                                <div class="mt-2">
-
-                                    <span class="text-xl ml-1 tracking-wide text-gray-200 capitalize"> Author: {{ article.author_name }} </span>
-
-                                </div>
-
                                 <div class="flex items-center justify-center h-px w-full my-2">
                                     <div class="divider w-full h-full"></div>
                                 </div>
@@ -87,7 +81,7 @@
 
                                     <font-awesome-icon :icon="['fas', 'hashtag']" class="h-4 w-4 fill-current text-purple-secondary" />
 
-                                    <span class="article-header ml-2 text-gray-300 font-semibold lg:transition duration-300 ease">Category name</span>
+                                    <span class="article-header ml-2 text-gray-300 font-semibold lg:transition duration-300 ease"> {{ article.category_name }} </span>
 
                                 </div>
 

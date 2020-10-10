@@ -7,7 +7,8 @@ export namespace Queries {
     export async function fetchArticle(id: number) {
 
         connection = await database.getConnection();
-        let result = await connection.query("SELECT a.*, b.name as author_name FROM articles a INNER JOIN authors b ON b.id = a.author_id WHERE a.id = ?;", [id]);
+        //let result = await connection.query("SELECT a.*, b.name as author_name FROM articles a INNER JOIN authors b ON b.id = a.author_id WHERE a.id = ?;", [id]);
+        let result = await connection.query("SELECT a.*, b.name as category_name FROM articles a INNER JOIN categories b ON b.id = a.category_id WHERE a.id = 51;", [id]);
         connection.end();
         return result;
 
@@ -62,6 +63,15 @@ export namespace Queries {
 
         connection = await database.getConnection();
         let result = await connection.query("SELECT `id`, `title`, SUBSTRING(`content`, 1, 50) as `content`, `picture_link`, `times_read` FROM `articles` ORDER BY `id` DESC LIMIT 50;", []);
+        connection.end();
+        return result;
+
+    }
+
+    export async function fetchEditArticleList() {
+
+        connection = await database.getConnection();
+        let result = await connection.query("SELECT `id`, `title`, SUBSTRING(`content`, 1, 25) as `content` FROM `articles` ORDER BY `id` DESC;", []);
         connection.end();
         return result;
 

@@ -4,6 +4,7 @@ import IBriefArticle from "../../interfaces/brief_article";
 import Codes from "../../app/codes";
 import ICategory from "../../interfaces/category";
 import IFullArticle from "../../interfaces/full_article";
+import moment from "moment";
 
 export namespace APIWrapper {
 
@@ -15,11 +16,23 @@ export namespace APIWrapper {
 
     }
 
+    export async function fetchEditArticlesList(): Promise<IBriefArticle[]> {
+
+        let response: AxiosResponse = await axios.post(Links.fetch_edit_articles_list);
+
+        return response.data["response"];
+
+    }
+
     export async function fetchArticle(id: number): Promise<IFullArticle> {
 
         let response: AxiosResponse = await axios.post(Links.fetch_article, { id: id });
 
-        return response.data["response"];
+        let article = response.data["response"];
+
+        article.timestamp = moment(article.timestamp).format('YYYY-MM-DD HH:mm:s');
+
+        return article;
 
     }
 

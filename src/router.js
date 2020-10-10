@@ -17,6 +17,10 @@ export function createRouter() {
         mode: 'history',
         routes: [
             {
+                path: '*',
+                component: index,
+            },
+            {
                 path: '/',
                 component: index,
             },

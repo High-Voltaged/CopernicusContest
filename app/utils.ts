@@ -63,21 +63,17 @@ export namespace Utils {
 
     }
 
-    export async function editArticle(res: Response, article_id: number, new_title: string, new_content: string, session_token: string): Promise<void> {
+    export async function editArticle(res: Response, article_id: number, new_title: string, new_content: string, session_token: string): Promise<Codes> {
 
         if ((await validateSession(session_token)) && (validateArticleDetails(new_title, new_content))) {
 
-            Queries.updateArticle(article_id, new_title, new_content);
+            await Queries.updateArticle(article_id, new_title, new_content);
 
-            res.json({
-                response: Codes.SUCCESS
-            });
+            return Codes.SUCCESS;
 
         } else {
 
-            res.json({
-                response: Codes.ERROR
-            });
+            return Codes.ERROR;
 
         }
 

@@ -40,8 +40,6 @@ export default class Articles extends VuexModule {
 
         this.article = (await ApiWrapper.fetchArticle(Number(article_id)))[0];
 
-        this.article.timestamp = moment(this.article.timestamp).format('YYYY-MM-DD HH:mm:s');
-
         this.article.content = this.article.content.split("\n");
 
         this.popular_articles = await ApiWrapper.fetchPopularArticles();
