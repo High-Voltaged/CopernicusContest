@@ -8,7 +8,7 @@ export namespace Queries {
 
         connection = await database.getConnection();
         //let result = await connection.query("SELECT a.*, b.name as author_name FROM articles a INNER JOIN authors b ON b.id = a.author_id WHERE a.id = ?;", [id]);
-        let result = await connection.query("SELECT a.*, b.name as category_name FROM articles a INNER JOIN categories b ON b.id = a.category_id WHERE a.id = 51;", [id]);
+        let result = await connection.query("SELECT a.*, b.name as category_name FROM articles a INNER JOIN categories b ON b.id = a.category_id WHERE a.id = ?;", [id]);
         connection.end();
         return result;
 
