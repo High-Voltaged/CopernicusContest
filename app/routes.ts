@@ -64,45 +64,27 @@ module.exports = function(app) {
     });
 
     app.post(Links.admin_panel_login, async function(req: Request, res: Response) {
-
         res.json({
             response: await Utils.processAdminLogin(res, req.body.username, req.body.password)
         });
-        
     });
 
     app.post(Links.edit_article, async function(req: Request, res: Response) {
-
-        let cookies: string[] = req.headers.cookie.split("; ");
-
-        let session_token: string;
-
-        for (let cookie of cookies) {
-
-            let cookie_split = cookie.split("=");
-
-            if (cookie_split[0].toLowerCase() == "session-token") {
-
-                session_token = cookie_split[1];
-                
-                return;
-
-            }
-
-        }
-
         res.json({
-            response: await Utils.editArticle(res, req.body.article_id, req.body.new_title, req.body.new_content, session_token)
+            response: await Utils.editArticle(req, req.body.article_id, req.body.new_title, req.body.new_content)
         });
+    });
 
+    app.post(Links.insert_article, async function(req: Request, res: Response) {
+        res.json({
+            response: await Utils.insertArticle(req, req.body.title, req.body.content, req.body.picture_link, req.body.important, req.body.category_id)
+        });
     });
 
     app.post(Links.fetch_edit_articles_list, async function(req: Request, res: Response) {
-
         res.json({
             response: await Queries.fetchEditArticleList()
         });
-
     });
 
 };

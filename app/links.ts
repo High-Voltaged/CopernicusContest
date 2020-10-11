@@ -20,6 +20,8 @@ export namespace Links {
 
 	export const fetch_quiz_questions: string = "/api/fetchQuizQuestions";
 
+	export const insert_article: string = "/api/insertArticle";
+
 	export const admin_panel_login: string = "/api/login";
 
 	export const edit_article: string = "/api/editArticle";

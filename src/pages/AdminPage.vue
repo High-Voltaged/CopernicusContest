@@ -58,13 +58,6 @@
     })
     export default class AdminPage extends Vue {
 
-        // Login Menu
-
-        error_message = false;
-
-        username: string = '';
-        password: string = '';
-
         edit_menu = 0;
 
         async submitForm(e) {

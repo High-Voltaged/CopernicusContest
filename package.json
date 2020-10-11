@@ -19,7 +19,6 @@
     "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
-    "crypto": "^1.0.1",
     "express-session": "^1.17.1",
     "fork-ts-checker-webpack-plugin": "^1.6.0",
     "https": "^1.0.0",

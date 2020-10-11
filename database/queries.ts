@@ -14,6 +14,16 @@ export namespace Queries {
 
     }
 
+    export async function insertArticle(title: string, content: string, picture_link: string, important: number, category_id: number) {
+
+        connection = await database.getConnection();
+        let result = await connection.query("INSERT IGNORE INTO `articles` (`title`, `content`, picture_link, `important`, `category_id`) VALUES (?, ?, ?, ?, ?)",
+                                            [title, content, picture_link, important, category_id]);
+        connection.end();
+        return result;
+
+    }
+
     export async function incrementArticleViewCount(id: number) {
 
         connection = await database.getConnection();
