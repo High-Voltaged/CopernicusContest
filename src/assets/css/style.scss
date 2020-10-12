@@ -35,12 +35,12 @@ body {
 }
 
 input, textarea  {
-   white-space: pre-wrap !important;
-   overflow-wrap: break-words !important;
+   white-space: pre-wrap;
+   overflow-wrap: break-words;
 
-   color: rgba(0, 0, 0, .7) !important;
+   color: rgba(0, 0, 0, .7);
    &:focus, &:active {
-      color: rgba(0, 0, 0, .9) !important;
+      color: rgba(0, 0, 0, .9);
    }
 }
 
@@ -53,6 +53,14 @@ input, textarea  {
       &:focus, &:active {
          color: rgba(255, 255, 255, .9) !important;
       }
+   }
+}
+
+
+select {
+   color: #718096;
+   &:focus, &:active {
+      color: rgba(0, 0, 0, .9);
    }
 }
 

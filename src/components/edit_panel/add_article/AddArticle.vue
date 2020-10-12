@@ -30,21 +30,17 @@
                   Picture
                </span>
 
-               <div class="add-article__img flex items-center justify-center w-48 h-48 relative mt-1 bg-gray-main bg-opacity-75 rounded-lg hover:bg-opacity-100 transition duration-200 ease cursor-pointer">
+               <div class="flex flex-col items-center justify-center w-full relative mt-1">
 
-                  <img v-if="article.picture_link" ref="img" :src="article.picture_link" class="object-cover h-full w-full" />
+                  <input type="text" v-model="article.picture_link" placeholder="Article's picture src" class="w-full mt-1 bg-gray-400 text-sm placeholder-gray-600 py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease" />
 
-                  <div v-else class="img-placeholder absolute inset-0 flex items-center justify-center w-full h-full">
-
-                     <font-awesome-icon :icon="['fas', 'plus']" class="w-10 h-10 fill-current text-white" />
-
-                  </div>
-
-                  <button v-if="img_removed == 0" @click="removeImg" class="right-2 top-2 absolute inline-flex items-center justify-center p-1 rounded-full bg-purple-secondary transform transition duration-300 ease hover:scale-125 focus:outline-none">
-
-                     <font-awesome-icon :icon="['fas', 'minus']" class="w-3 h-3 fill-current text-white" />
-
-                  </button>
+                  <transition name="fade-out">
+                     <div v-if="article.picture_link" class="flex items-center justify-center w-48 h-48 mt-4 bg-gray-main overflow-hidden rounded-lg shadow cursor-pointer">
+                        
+                        <img ref="img" :src="article.picture_link" class="object-cover h-full w-full" />
+                    
+                     </div>
+                  </transition>
 
                </div>
 
