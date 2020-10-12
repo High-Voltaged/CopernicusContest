@@ -180,12 +180,6 @@
 
       }
 
-      // beforeDestroy() {
-
-      //    vxm.articles.setArticle(null);
-
-      // }
-
    }
 
 </script>

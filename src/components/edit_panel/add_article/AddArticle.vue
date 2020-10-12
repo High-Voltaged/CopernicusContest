@@ -139,7 +139,7 @@
 
          title: '',
          content: '',
-         category: '',
+         category: null,
          picture_link: '',
 
       };
