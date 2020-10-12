@@ -30,8 +30,10 @@ export namespace APIWrapper {
 
         let article: IFullArticle = response.data["response"];
 
-        article.category.id = article.category_id;
-        article.category.name = article.category_name;
+        article[0].category = { id: article[0].category_id, name: article[0].category_name };
+
+        delete article[0].category_id;
+        delete article[0].category_name;
 
         article.timestamp = moment(article.timestamp).format('YYYY-MM-DD HH:mm:s');
 
