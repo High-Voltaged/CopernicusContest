@@ -123,12 +123,12 @@
 <script lang="ts">
    
    import { Component, Prop, Vue } from "nuxt-property-decorator";
-   import APIWrapper from '../../scripts/api_wrapper';
-   import { vxm } from '../../store';
-   import ICategory from '../../../interfaces/category';
+   import APIWrapper from '../../../scripts/api_wrapper';
+   import { vxm } from '../../../store';
+   import ICategory from '../../../../interfaces/category';
 
-   import ArticleContent from '../../pages/content.vue';
-   import Notification from './Notification.vue';
+   import ArticleContent from '../../../pages/content.vue';
+   import Notification from '../Notification.vue';
 
    @Component({
       name: "ArticleEdit",
@@ -164,7 +164,7 @@
 
       async saveChanges(): Promise<void> {
 
-         if(!this.article.title || !this.article.content || !this.article.category_name || !this.article.picture_link) {
+         if(!this.article.title || !this.article.content || !this.article.category || !this.article.picture_link) {
 
             this.error = true;
             return;

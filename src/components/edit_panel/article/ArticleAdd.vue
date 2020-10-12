@@ -130,14 +130,14 @@
    import Notification from '../Notification.vue';
    
    @Component({
-      name: "AddArticle",
+      name: "ArticleAdd",
       components: {
          ArticleContent,
          Notification,
       }
    })
    
-   export default class AddArticle extends Vue {
+   export default class ArticleAdd extends Vue {
       
       article = {
 

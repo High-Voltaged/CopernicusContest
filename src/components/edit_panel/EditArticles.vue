@@ -73,7 +73,7 @@
 
       goToAddArticle() {
 
-         this.$router.push('/addArticle');
+         this.$router.push('/add_article');
 
       }
    

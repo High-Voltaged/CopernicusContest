@@ -8,8 +8,8 @@ import contentPage from '~/pages/content.vue'
 import categories from '~/pages/CategoriesPage.vue'
 
 import AdminPage from '~/pages/AdminPage.vue'
-import ArticleEdit from '~/components/edit_panel/ArticleEdit.vue';
-import AddArticle from '~/components/edit_panel/add_article/AddArticle.vue';
+import ArticleEdit from '~/components/edit_panel/article/ArticleEdit.vue';
+import ArticleAdd from '~/components/edit_panel/article/ArticleAdd.vue';
 
 Vue.use(Router)
 
@@ -51,7 +51,7 @@ export function createRouter() {
          },
          {
             path: '/add_article',
-            component: AddArticle,
+            component: ArticleAdd,
          }
       ]
    })
