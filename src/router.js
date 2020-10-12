@@ -13,37 +13,41 @@ import ArticleEdit from '~/components/edit_panel/ArticleEdit.vue';
 Vue.use(Router)
 
 export function createRouter() {
-   return new Router({
-      mode: 'history',
-      routes: [
-         {
-               path: '/',
-               component: index,
-         },
-         {
-               path: '/admin',
-               component: AdminPage,
-         },
-         {
-               path: '/quiz',
-               component: quiz,
-         },
-         {
-               path: '/article/:id',
-               component: contentPage,
-         },
-         {
-               path: '/edit/article/:id',
-               component: ArticleEdit,
-         },
-         {
-               path: '/categories',
-               component: categories,
-         },
-         {
-               path: '/category/:id',
-               component: categories,
-         },
-      ]
-   })
+    return new Router({
+        mode: 'history',
+        routes: [
+            {
+                path: '*',
+                component: index,
+            },
+            {
+                path: '/',
+                component: index,
+            },
+            {
+                path: '/admin',
+                component: AdminPage,
+            },
+            {
+                path: '/quiz',
+                component: quiz,
+            },
+            {
+                path: '/article/:id',
+                component: contentPage,
+            },
+            {
+                path: '/edit/article/:id',
+                component: ArticleEdit,
+            },
+            {
+                path: '/categories',
+                component: categories,
+            },
+            {
+                path: '/category/:id',
+                component: categories,
+            },
+        ]
+    })
 }

@@ -49,13 +49,11 @@
     })
     export default class DigestList extends Vue {
 
-        articles: Array<IBriefArticle> = [];
+        articles: IBriefArticle[] = [];
 
         async beforeMount() {
 
             this.articles = await ApiWrapper.fetchDigest();
-
-            console.log(this.articles);
 
         }
 

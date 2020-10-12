@@ -12,11 +12,15 @@ export namespace Links {
 
 	export const fetch_digest: string = "/api/fetchDigest";
 
+	export const fetch_edit_articles_list: string = "/api/fetchEditArticleList";
+
 	export const fetch_categories: string = "/api/fetchCategories";
 
 	export const fetch_category: string = "/api/fetchCategory";
 
 	export const fetch_quiz_questions: string = "/api/fetchQuizQuestions";
+
+	export const insert_article: string = "/api/insertArticle";
 
 	export const admin_panel_login: string = "/api/login";
 

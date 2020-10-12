@@ -2,7 +2,7 @@
 
    <div class="h-screen w-screen overflow-x-hidden overflow-y-auto">
 
-      <div v-if="edit_menu == 0" class="flex flex-col items-center justify-center flex-auto h-full py-6 bg-gray-secondary">
+      <div class="flex flex-col items-center justify-center flex-auto h-full py-6 bg-gray-secondary">
 
          <form @submit.prevent="login" class="flex flex-col items-center justify-center w-72 p-8 rounded-lg shadow-md bg-gray-tertiary">
 

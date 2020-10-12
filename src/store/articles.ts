@@ -36,11 +36,11 @@ export default class Articles extends VuexModule {
 
     }
 
-    @action async fetchArticle(article_id: string) {
+    @action async fetchArticle(article_id: number) {
 
-        this.article = (await ApiWrapper.fetchArticle(Number(article_id)))[0];
+        this.article = (await ApiWrapper.fetchArticle(article_id))[0];
 
-        this.article.timestamp = moment(this.article.timestamp).format('YYYY-MM-DD HH:mm:s');
+        console.log(this.article);
 
         this.article.content = this.article.content.split("\n");
 
@@ -49,4 +49,5 @@ export default class Articles extends VuexModule {
         this.categories = await ApiWrapper.fetchCategories();
 
     }
+
 }

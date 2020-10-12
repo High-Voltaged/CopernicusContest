@@ -1,31 +1,87 @@
 import * as bcrypt from "bcrypt"
 import Queries from "../database/queries";
-import { Response } from "Express";
+import { Request, Response } from "Express";
 import Codes from "./codes";
-import crypto from "crypto";
+import * as crypto from "crypto";
 
-const min_title_length: number = 3;
+const min_title_length: number = 1;
 const max_title_length: number = 100;
 
 const min_content_length: number = 100;
 const max_content_length: number = 10000000;
 
+const max_picture_length: number = 255;
+
 export namespace Utils {
 
     function generateToken() {
-        return crypto.randomBytes(64).toString('hex');
+        // Generates 64, each byte has two characters
+        return crypto.randomBytes(32).toString('hex');
     }
 
-    function validateArticleDetails(new_title: string, new_content: string) {
+    function getSessionToken(req: Request) {
 
-        return ( ( (new_title.length >= min_title_length) && (new_title.length <= max_title_length) ) &&
-            ( (new_content.length >= min_content_length) && (new_content.length <= max_content_length) ) );
+        let cookies: string[] = req.headers.cookie.split("; ");
+
+        let session_token: string;
+
+        for (let cookie of cookies) {
+
+            let cookie_split = cookie.split("=");
+
+            if (cookie_split[0].toLowerCase() == "session-token") {
+
+                session_token = cookie_split[1];
+
+                return session_token;
+
+            }
+
+        }
+
+        return session_token;
+
+    }
+
+    function validateUpdatedArticleDetails(new_title: string, new_content: string): boolean {
+
+        if (!((new_title.length >= min_title_length) && (new_title.length <= max_title_length))) {
+            return false;
+        }
+
+        if (!((new_content.length >= min_content_length) && (new_content.length <= max_content_length))) {
+            return false;
+        }
+
+        return true;
+
+    }
+
+    function validateNewArticleDetails(title: string, content: string, picture_link: string, important: number): boolean {
+
+        if (!((title.length >= min_title_length) && (title.length <= max_title_length))) {
+            return false;
+        }
+
+        if (!((content.length >= min_content_length) && (content.length <= max_content_length))) {
+            return false;
+        }
+
+        if (!((important >= 0) && (important <= 1))) {
+            return false;
+        }
+
+        if (!(picture_link.length <= max_picture_length)) {
+            return false;
+        }
+
+        return true;
 
     }
 
     async function validateSession(session_token: string): Promise<boolean> {
 
-        let result = Queries.querySession(session_token);
+        let result = await Queries.querySession(session_token);
 
         if (result[0]) {
 
@@ -63,21 +119,33 @@ export namespace Utils {
 
     }
 
-    export async function editArticle(res: Response, article_id: number, new_title: string, new_content: string, session_token: string): Promise<void> {
+    export async function editArticle(req: Request, article_id: number, new_title: string, new_content: string): Promise<Codes> {
 
-        if ((await validateSession(session_token)) && (validateArticleDetails(new_title, new_content))) {
+        if ((await validateSession(getSessionToken(req))) && (validateUpdatedArticleDetails(new_title, new_content))) {
 
-            Queries.updateArticle(article_id, new_title, new_content);
+            await Queries.updateArticle(article_id, new_title, new_content);
 
-            res.json({
-                response: Codes.SUCCESS
-            });
+            return Codes.SUCCESS;
 
         } else {
 
-            res.json({
-                response: Codes.ERROR
-            });
+            return Codes.ERROR;
+
+        }
+
+    }
+
+    export async function insertArticle(req: Request, title: string, content: string, picture_link: string, important: number, category_id: number): Promise<Codes> {
+
+        if ((await validateSession(getSessionToken(req))) && (validateNewArticleDetails(title, content, picture_link, important))) {
+
+            await Queries.insertArticle(title, content, picture_link, important, category_id);
+
+            return Codes.SUCCESS;
+
+        } else {
+
+            return Codes.ERROR;
 
         }
 
