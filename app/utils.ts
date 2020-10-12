@@ -2,15 +2,8 @@ import * as bcrypt from "bcrypt"
 import Queries from "../database/queries";
 import { Request, Response } from "Express";
 import Codes from "./codes";
+import { Limits } from "./limits";
 import * as crypto from "crypto";
-
-const min_title_length: number = 1;
-const max_title_length: number = 100;
-
-const min_content_length: number = 100;
-const max_content_length: number = 10000000;
-
-const max_picture_length: number = 255;
 
 export namespace Utils {
 
@@ -45,11 +38,11 @@ export namespace Utils {
 
     function validateUpdatedArticleDetails(new_title: string, new_content: string): boolean {
 
-        if (!((new_title.length >= min_title_length) && (new_title.length <= max_title_length))) {
+        if (!((new_title.length >= Limits.min_title_length) && (new_title.length <= Limits.max_title_length))) {
             return false;
         }
 
-        if (!((new_content.length >= min_content_length) && (new_content.length <= max_content_length))) {
+        if (!((new_content.length >= Limits.min_content_length) && (new_content.length <= Limits.max_content_length))) {
             return false;
         }
 
@@ -59,11 +52,11 @@ export namespace Utils {
 
     function validateNewArticleDetails(title: string, content: string, picture_link: string, important: number): boolean {
 
-        if (!((title.length >= min_title_length) && (title.length <= max_title_length))) {
+        if (!((title.length >= Limits.min_title_length) && (title.length <= Limits.max_title_length))) {
             return false;
         }
 
-        if (!((content.length >= min_content_length) && (content.length <= max_content_length))) {
+        if (!((content.length >= Limits.min_content_length) && (content.length <= Limits.max_content_length))) {
             return false;
         }
 
@@ -71,7 +64,7 @@ export namespace Utils {
             return false;
         }
 
-        if (!(picture_link.length <= max_picture_length)) {
+        if (!(picture_link.length <= Limits.max_picture_length)) {
             return false;
         }
 

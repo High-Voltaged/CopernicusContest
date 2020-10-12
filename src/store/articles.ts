@@ -1,5 +1,4 @@
 import { createModule, mutation, action } from 'vuex-class-component';
-import moment from 'moment';
 
 import ApiWrapper from '../scripts/api_wrapper';
 import IBriefArticle from '../../interfaces/brief_article';
