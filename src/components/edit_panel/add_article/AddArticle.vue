@@ -10,7 +10,7 @@
 
                <div class="flex-auto inline-block mx-2">
                   
-                  <input v-model="article.title" placeholder="Article's title" type="text" class="w-full md:w-48 xl:w-72 bg-gray-tertiary bg-opacity-75 text-sm text-gray-200 py-2 px-3 overflow-hidden focus:bg-opacity-100 transition duration-200 ease focus:outline-none" style="border-radius: 15px 15px 0 0" />
+                  <input v-model="article.title" placeholder="Article's title" type="text" class="w-full md:w-48 xl:w-72 bg-gray-tertiary bg-opacity-75 text-sm py-2 px-3 overflow-hidden focus:bg-opacity-100 transition duration-200 ease focus:outline-none" style="border-radius: 15px 15px 0 0" />
 
                </div>
 
@@ -33,14 +33,18 @@
          <template #editContent>
 
             <div class="w-full">
-               <textarea v-model="article.content" placeholder="Article's content" rows="10" class="w-full p-3 bg-gray-tertiary bg-opacity-75 text-sm text-gray-200 overflow-y-auto overflow-x-hidden focus:outline-none resize-none" style="border-radius: 15px"></textarea>
+               <textarea v-model="article.content" placeholder="Article's content" rows="10" class="w-full p-3 bg-gray-tertiary bg-opacity-75 text-sm overflow-y-auto overflow-x-hidden focus:outline-none resize-none" style="border-radius: 15px"></textarea>
             </div>
 
          </template>
 
          <template #addCategory>
 
-            <select type="text" v-model="article.category" placeholder="Article's category" class="w-48 mt-1 bg-gray-tertiary bg-opacity-75 text-sm py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease">
+            <label class="text-sm text-gray-500">
+               Article's category
+            </label>
+
+            <select type="text" v-model="article.category" class="w-48 mt-1 bg-gray-tertiary bg-opacity-75 text-sm py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease">
                <option
                   v-for="c in categories"
                   :key="c.id"
@@ -58,7 +62,7 @@
                type="text" 
                v-model="article.picture_link" 
                placeholder="Article's picture src" 
-               class="w-full bg-gray-tertiary bg-opacity-75 text-sm text-gray-200 py-2 px-3 overflow-hidden focus:bg-opacity-100 transition duration-200 ease focus:outline-none"
+               class="w-full bg-gray-tertiary bg-opacity-75 text-sm py-2 px-3 overflow-hidden focus:bg-opacity-100 transition duration-200 ease focus:outline-none"
                style="border-radius: 15px" 
             />
 

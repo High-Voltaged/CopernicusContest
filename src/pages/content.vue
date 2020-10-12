@@ -20,11 +20,11 @@
 
          </div>
 
-         <div class="article-content flex flex-col items-center lg:flex-row lg:items-start lg:justify-center p-5 sm:px-12 md:px-20 2xl:px-32">
+         <div class="article-content flex flex-col items-center xl:flex-row xl:items-start xl:justify-center p-5 sm:px-12 md:px-20 2xl:px-32">
 
-            <div class="flex flex-col items-center w-full lg:w-3/5 2xl:w-2/5 relative lg:mr-10 -mt-88 lg:-mt-48 z-10">
+            <div class="flex flex-col items-center w-full lg:w-3/5 2xl:w-2/5 relative lg:mr-10 -mt-88 xl:-mt-48 z-10">
 
-               <div class="article-content__img flex-0 flex flex-col items-center justify-end lg:absolute mb-6">
+               <div class="article-content__img flex-0 flex flex-col items-center justify-end xl:absolute mb-6">
 
                   <slot name="editImg"></slot>
 
@@ -40,17 +40,17 @@
 
                </div>
 
-               <span v-if="!editOn" class="block capitalize text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-gray-200 my-4 md:my-2">
+               <span v-if="!editOn && !addArticle" class="block capitalize text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-gray-200 my-4 md:my-2">
                   {{ article.title }}
                </span>
 
                <slot name="editTitle"></slot>
 
-               <div class="bg-gray-main p-5 xl:p-10 rounded-md shadow-lg flex flex-col items-center w-full">
+               <div class="flex flex-col items-center w-full bg-gray-main p-5 xl:p-10 rounded-md shadow-lg">
 
                   <slot name="error"></slot>
 
-                  <div v-if="!editOn" class="w-full h-full flex flex-col items-center">
+                  <div v-if="!editOn && !addArticle" class="w-full h-full flex flex-col items-center">
 
                      <div v-for="(paragraph, i) in article.content"
                         :key="i"
@@ -114,7 +114,7 @@
             </div>
 
             <ArticleSidebar 
-               v-if="!addArticle" 
+               v-if="!addArticle && !editOn" 
                :categories="categories" 
                :articles="popular_articles"
             ></ArticleSidebar>

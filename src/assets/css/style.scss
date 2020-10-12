@@ -1,38 +1,41 @@
+// BASE STYLING
+
+
 body {
 	font-family: 'Poppins', sans-serif;
-	background-color: #312D4A; // gray-primary
+	background-color: #312D4A;
 }
 
-@screen lg {
 
-	* ::-webkit-scrollbar {
-		width: 6px;
-		height: 6px;
-		background-color: transparent;
-	}
-
-	* ::-webkit-scrollbar-track {
-		background-color: transparent;
-		border-radius: 9999px;
-	}
-
-	* ::-webkit-scrollbar-thumb {
-		border-radius: 9999px;
-		background-color: #211d34;
-	}
-
-	.card-digest ::-webkit-scrollbar-thumb {
-		background-color: #7a58c5;
-	}
-
-	.article-digest ::-webkit-scrollbar-thumb {
-		background-color: transparent;
-	}
+* ::-webkit-scrollbar {
+   width: 6px;
+   height: 6px;
+   background-color: transparent;
 }
+
+* ::-webkit-scrollbar-track {
+   background-color: transparent;
+   border-radius: 9999px;
+}
+
+* ::-webkit-scrollbar-thumb {
+   border-radius: 9999px;
+   background-color: #211d34;
+}
+
+.card-digest ::-webkit-scrollbar-thumb {
+   background-color: #7a58c5;
+}
+
+.article-digest ::-webkit-scrollbar-thumb {
+   background-color: transparent;
+}
+
 
 .main-container {
 	max-height: calc(100vh - 5rem);
 }
+
 
 input, textarea  {
    white-space: pre-wrap;
@@ -44,16 +47,8 @@ input, textarea  {
    }
 }
 
-.article-edit-container, .article-add-container {
-   input, textarea  {
-      white-space: pre-wrap !important;
-      overflow-wrap: break-words !important;
-   
-      color: rgba(255, 255, 255, .7) !important;
-      &:focus, &:active {
-         color: rgba(255, 255, 255, .9) !important;
-      }
-   }
+label {
+   color: rgba(255, 255, 255, .7);
 }
 
 
@@ -64,7 +59,11 @@ select {
    }
 }
 
-/* MAIN PAGE BANNER */
+
+
+// MAIN PAGE BANNER 
+
+
 
 .main-title {
 	background-image: linear-gradient(#7a58c5, #312D4A 70%);
@@ -78,7 +77,11 @@ select {
 	transform: translateX(.8rem);
 }
 
-/* 'READ MORE' CARDS */
+
+
+// 'READ MORE' CARDS
+
+
 
 @screen lg {
 
@@ -87,13 +90,21 @@ select {
 	}
 }
 
-/* ARROW ICON STYLING */
+
+
+// ARROW ICON STYLING 
+
+
 
 .arrow-container {
 	background-image: linear-gradient(315deg, #1f1b34, #7a58c5);
 }
 
-/* DIVIDER STYLING */
+
+
+// DIVIDER STYLING 
+
+
 
 .div-transparent {
 	content: "";
@@ -134,7 +145,10 @@ select {
 }
 
 
-/* TIMELINE STYLING */
+
+// TIMELINE STYLING 
+
+
 
 .container-w-dot {
 	border-top: 6px solid #cbd5e0;
@@ -180,7 +194,11 @@ select {
 	right: calc(5% - 14.5px);
 }
 
-/* CARD DIGEST */
+
+
+// CARD DIGEST 
+
+
 
 @screen mdMax {
 
@@ -224,7 +242,9 @@ select {
 	text-overflow: ellipsis;
 }
 
-/* CONTENTPAGE STYLING */
+
+// CONTENTPAGE STYLING 
+
 
 
 .sidebar > div {
@@ -276,7 +296,24 @@ select {
    }
 }
 
-/* ARTICLE DIGEST */
+
+.article-edit-container, .article-add-container {
+   input, textarea  {
+      white-space: pre-wrap !important;
+      overflow-wrap: break-words !important;
+   
+      color: rgba(255, 255, 255, .7) !important;
+      &:focus, &:active {
+         color: rgba(255, 255, 255, .9) !important;
+      }
+   }
+}
+
+
+
+// ARTICLE DIGEST 
+
+
 
 .article-sort .divider, .article-content .divider {
 	background-image: linear-gradient(to right, transparent, #7a58c5, transparent);
@@ -284,7 +321,9 @@ select {
 
 
 
-/* QUIZ PAGE STYLING */
+// QUIZ PAGE STYLING 
+
+
 
 .quiz-main-container {
 	height: 100vh;
@@ -326,6 +365,10 @@ select {
 	-ms-user-select: none;
 	user-select: none;
 }
+
+
+
+// TRANSITIONING
 
 
 .fade-out-enter-active, .fade-out-leave-active {
