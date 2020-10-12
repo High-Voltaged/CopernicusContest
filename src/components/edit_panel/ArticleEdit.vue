@@ -38,17 +38,33 @@
 
          </template>
 
-         <template #editImg>
+         <template #editCategory>
 
-            <button v-if="!img_removed" @click="removeImg" class="right-2 top-2 absolute inline-flex items-center justify-center p-1 rounded-full bg-purple-secondary transform transition duration-300 ease hover:scale-125 focus:outline-none">
-
-               <font-awesome-icon :icon="['fas', 'minus']" class="w-3 h-3 fill-current text-white" />
-
-            </button>
+            <select type="text" v-model="article.category" placeholder="Article's category" class="w-full mt-1 bg-gray-400 text-sm py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease">
+               <option
+                  v-for="c in categories"
+                  :key="c.id"
+                  :value="c"
+               >
+                  {{ c.name }}
+               </option>
+            </select>
 
          </template>
 
-         <template #imgPlaceholder>
+         <template #editImg>
+
+            <input 
+               type="text" 
+               v-model="article.picture_link" 
+               placeholder="Article's picture src" 
+               class="w-full bg-gray-tertiary bg-opacity-75 text-sm text-gray-200 py-2 px-3 overflow-hidden focus:bg-opacity-100 transition duration-200 ease focus:outline-none"
+               style="border-radius: 15px" 
+            />
+
+         </template>
+
+         <!-- <template #imgPlaceholder>
 
             <div class="img-placeholder absolute inset-0  flex items-center justify-center w-full h-full">
 
@@ -56,7 +72,7 @@
 
             </div>
 
-         </template>
+         </template> -->
 
          <template #error>
             
@@ -74,7 +90,7 @@
 
          </template>
 
-         <template #removeBtn>
+         <!-- <template #removeBtn>
 
             <div class="absolute right-4 bottom-4">
 
@@ -86,7 +102,7 @@
 
             </div>
 
-         </template>
+         </template> -->
 
       </ArticleContent>      
 
@@ -109,6 +125,7 @@
    import { Component, Prop, Vue } from "nuxt-property-decorator";
    import APIWrapper from '../../scripts/api_wrapper';
    import { vxm } from '../../store';
+   import ICategory from '../../../interfaces/category';
 
    import ArticleContent from '../../pages/content.vue';
    import Notification from './Notification.vue';
@@ -125,9 +142,16 @@
 
       // Base Config
 
+      categories: ICategory[] = [];
+
       error = false;
 
-      img_removed = false;
+      
+      async beforeMount() {
+
+         this.categories = await APIWrapper.fetchCategories();
+
+      }
 
       get article() {
          
@@ -138,21 +162,13 @@
 
       // Editing / Discarding  
 
-      removeImg(): void {
-         
-         this.article.picture_link = '';
-
-         this.img_removed = true;
-
-      }
-
       async saveChanges(): Promise<void> {
 
-         if(!this.article.title || !this.article.content) {
+         if(!this.article.title || !this.article.content || !this.article.category_name || !this.article.picture_link) {
 
             this.error = true;
             return;
-
+         
          } else {
 
             this.error = false;

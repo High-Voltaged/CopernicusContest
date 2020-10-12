@@ -44,7 +44,7 @@ input, textarea  {
    }
 }
 
-.article-edit-container {
+.article-edit-container, .article-add-container {
    input, textarea  {
       white-space: pre-wrap !important;
       overflow-wrap: break-words !important;
@@ -255,8 +255,6 @@ select {
 
    right: calc(-2.5rem - 15rem);
    top: calc(-4.5rem - 2rem);
-
-   border-radius: 15px;
 
    svg {
       transition: all .25s ease;

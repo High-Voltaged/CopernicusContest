@@ -24,17 +24,19 @@
 
             <div class="flex flex-col items-center w-full lg:w-3/5 2xl:w-2/5 relative lg:mr-10 -mt-88 lg:-mt-48 z-10">
 
-               <div class="article-content__img flex-0 lg:absolute shadow-lg overflow-hidden mb-6">
+               <div class="article-content__img flex-0 flex flex-col items-center justify-end lg:absolute mb-6">
 
-                  <div class="flex items-center justify-center w-full h-full relative bg-gray-tertiary bg-opacity-75 hover:bg-opacity-100 transition duration-200 ease cursor-pointer">
+                  <slot name="editImg"></slot>
 
-                     <img v-if="article.picture_link" ref="img" :src="article.picture_link" class="object-cover h-full w-full" />
+                  <transition name="fade-out">
 
-                     <slot v-else name="imgPlaceholder"></slot>
+                     <div v-if="article.picture_link && !addArticle" class="flex-auto flex items-center justify-center w-full mt-4 bg-gray-main overflow-hidden rounded-lg shadow cursor-pointer">
+                           
+                        <img :src="article.picture_link" class="object-cover h-full w-full" />
+                     
+                     </div>
 
-                     <slot name="editImg"></slot>
-
-                  </div>
+                  </transition>
 
                </div>
 
@@ -50,19 +52,21 @@
 
                   <div v-if="!editOn" class="w-full h-full flex flex-col items-center">
 
-                        <div v-for="(paragraph, i) in article.content"
-                           :key="i"
-                           class="text-justify text-sm xl:text-base leading-relaxed xl:leading-loose font-light text-gray-300">
+                     <div v-for="(paragraph, i) in article.content"
+                        :key="i"
+                        class="text-justify text-sm xl:text-base leading-relaxed xl:leading-loose font-light text-gray-300">
 
-                           <p> {{ paragraph }} </p>
+                        <p> {{ paragraph }} </p>
 
-                        </div>
+                     </div>
 
                   </div>
 
                   <slot name="editContent"></slot>
 
-                  <div class="flex justify-center mt-5 w-full">
+                  <slot name="addCategory"></slot>
+
+                  <div v-if="!addArticle" class="flex justify-center mt-5 w-full">
                      <!-- additional container, in case of having an image -->
 
                      <div class="flex flex-col items-start max-w-9/10 bg-gray-tertiary rounded-lg px-4 py-2 shadow-md">
@@ -77,7 +81,7 @@
                            <div class="divider w-full h-full"></div>
                         </div>
 
-                        <div class="article-link flex items-center cursor-pointer">
+                        <div v-if="!editOn" class="article-link flex items-center cursor-pointer">
 
                            <font-awesome-icon :icon="['fas', 'hashtag']" class="h-4 w-4 fill-current text-purple-secondary" />
 
@@ -85,13 +89,18 @@
 
                         </div>
 
+                        <slot name="editCategory"></slot>
+
                         <div class="flex items-center mt-2 mx-1 text-white hover:text-purple-secondary transition duration-300 ease cursor-pointer">
 
                            <font-awesome-icon :icon="['fas', 'eye']" class="w-4 h-4 fill-current" />
 
                            <div class="ml-2">
-                                 <span class="text-sm font-light tracking-wide">Times viewed:</span>
-                                 <span class="text-sm font-light tracking-wide"> {{ article.times_read }} </span>
+                             
+                              <span class="text-sm font-light tracking-wide">Times viewed:</span>
+                             
+                              <span class="text-sm font-light tracking-wide"> {{ article.times_read }} </span>
+                           
                            </div>
 
                         </div>
@@ -104,7 +113,11 @@
 
             </div>
 
-            <ArticleSidebar :categories="categories" :articles="popular_articles"></ArticleSidebar>
+            <ArticleSidebar 
+               v-if="!addArticle" 
+               :categories="categories" 
+               :articles="popular_articles"
+            ></ArticleSidebar>
 
          </div>
 
@@ -137,10 +150,15 @@
    export default class contentPage extends Vue {
 
       @Prop({ default: false }) private editOn?: boolean;
+      @Prop({ default: false }) private addArticle?: boolean;
 
       async beforeMount() {
 
-      vxm.articles.fetchArticle(this.$route.params.id);
+         if(!this.addArticle) {
+
+            vxm.articles.fetchArticle(this.$route.params.id);
+         
+         }
 
       }
 

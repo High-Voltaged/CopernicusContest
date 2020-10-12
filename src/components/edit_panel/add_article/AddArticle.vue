@@ -1,97 +1,94 @@
 <template>
 
-   <div class="flex items-center justify-center relative overflow-y-auto h-screen w-screen py-10 bg-gray-secondary">
+   <div class="article-add-container relative">
 
-      <button @click="goToAdmin" class="absolute inset-x-4 lg:right-auto lg:left-8 top-8 flex items-center justify-center mx-auto px-4 py-2 bg-gray-tertiary rounded-lg shadow bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
+      <ArticleContent :addArticle="true">
 
-         <span class="inline-block p-1">
-            <font-awesome-icon :icon="['fas', 'chevron-left']" class="w-4 h-4 fill-current text-white" />
-         </span>
+         <template #editTitle>
 
-         <span class="text-left text-lg font-semibold text-white select-none">
-            Back to Admin panel
-         </span>
+            <div class="flex items-end justify-between w-full">
 
-      </button>
+               <div class="flex-auto inline-block mx-2">
+                  
+                  <input v-model="article.title" placeholder="Article's title" type="text" class="w-full md:w-48 xl:w-72 bg-gray-tertiary bg-opacity-75 text-sm text-gray-200 py-2 px-3 overflow-hidden focus:bg-opacity-100 transition duration-200 ease focus:outline-none" style="border-radius: 15px 15px 0 0" />
 
-      <div class="flex-0 flex items-center justify-center w-9/10 sm:w-80 px-6 py-8 m-auto mt-12 lg:mt-0 rounded-lg shadow bg-gray-tertiary">
+               </div>
 
-         <form @submit.prevent="" class="flex-auto flex flex-col items-center justify-center w-full h-full space-y-6"> 
+               <div class="inline-flex items-end space-x-2 ml-2 mr-2">
+                  
+                  <button @click="cancelAddition" class="p-2 bg-red-600 bg-opacity-50 text-white text-center text-sm font-medium hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none" style="border-radius: 10px 10px 0 0">
+                     Cancel
+                  </button>
 
-            <div class="flex-0 flex items-center justify-center w-full">
-               <span class="text-xl font-semibold text-center capitalize text-white select-none">
-                  A new article
-               </span>
-            </div>
-
-            <div class="flex flex-col items-center w-full">
-
-               <span class="text-sm font-semibold text-left capitalize text-white italic tracking-wide select-none">
-                  Picture
-               </span>
-
-               <div class="flex flex-col items-center justify-center w-full relative mt-1">
-
-                  <input type="text" v-model="article.picture_link" placeholder="Article's picture src" class="w-full mt-1 bg-gray-400 text-sm placeholder-gray-600 py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease" />
-
-                  <transition name="fade-out">
-                     <div v-if="article.picture_link" class="flex items-center justify-center w-48 h-48 mt-4 bg-gray-main overflow-hidden rounded-lg shadow cursor-pointer">
-                        
-                        <img ref="img" :src="article.picture_link" class="object-cover h-full w-full" />
-                    
-                     </div>
-                  </transition>
+                  <button @click="addArticle" class="p-2 bg-purple-secondary bg-opacity-50 text-white text-center text-sm font-medium hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none" style="border-radius: 10px 10px 0 0">
+                     Add article
+                  </button>
 
                </div>
 
             </div>
 
-            <div class="add-article__input-fields flex-auto flex flex-col items-center w-full space-y-5">
+         </template>
 
-               <div class="inline-flex flex-col items-start w-full">
-              
-                  <label class="w-full text-sm font-semibold text-center capitalize text-white italic tracking-wide select-none">
-                     Title
-                  </label>
+         <template #editContent>
 
-                  <input type="text" v-model="article.title" placeholder="Article's title" class="w-full mt-1 bg-gray-400 text-sm placeholder-gray-600 py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease" />
-              
-               </div>
+            <div class="w-full">
+               <textarea v-model="article.content" placeholder="Article's content" rows="10" class="w-full p-3 bg-gray-tertiary bg-opacity-75 text-sm text-gray-200 overflow-y-auto overflow-x-hidden focus:outline-none resize-none" style="border-radius: 15px"></textarea>
+            </div>
 
-               <div class="inline-flex flex-col items-start w-full">
-                 
-                  <label class="w-full text-sm font-semibold text-center capitalize text-white italic tracking-wide select-none">
-                     Content
-                  </label>
-                 
-                  <textarea rows="5" v-model="article.content" placeholder="Article's content" class="w-full mt-1 bg-gray-400 text-sm placeholder-gray-600 py-1 px-2 rounded-lg overflow-x-hidden overflow-y-auto focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease resize-none"></textarea>
+         </template>
+
+         <template #addCategory>
+
+            <select type="text" v-model="article.category" placeholder="Article's category" class="w-48 mt-1 bg-gray-tertiary bg-opacity-75 text-sm py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease">
+               <option
+                  v-for="c in categories"
+                  :key="c.id"
+                  :value="c"
+               >
+                  {{ c.name }}
+               </option>
+            </select>
+
+         </template>
+
+         <template #editImg>
+
+            <input 
+               type="text" 
+               v-model="article.picture_link" 
+               placeholder="Article's picture src" 
+               class="w-full bg-gray-tertiary bg-opacity-75 text-sm text-gray-200 py-2 px-3 overflow-hidden focus:bg-opacity-100 transition duration-200 ease focus:outline-none"
+               style="border-radius: 15px" 
+            />
+
+             <transition name="fade-out">
+
+               <div v-if="article.picture_link" class="flex-auto flex items-center justify-center w-full mt-4 bg-gray-main overflow-hidden rounded-lg shadow cursor-pointer">
+                     
+                  <img :src="article.picture_link" class="object-cover h-full w-full" />
                
                </div>
 
-               <div class="inline-flex flex-col items-start w-full">
-               
-                  <label class="w-full text-sm font-semibold text-center capitalize text-white italic tracking-wide select-none">
-                     # Category
-                  </label>
-               
-                  <select type="text" v-model="article.category" placeholder="Article's category" class="w-full mt-1 bg-gray-400 text-sm py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease">
-                     <option
-                        v-for="(option, i) in options"
-                        :key="i"
-                        :value="option.value"
-                        :disabled="i == 0"
-                     >
-                        {{ option.category }}
-                     </option>
-                  </select>
-               
-               </div>
+            </transition>
+
+         </template>
+
+         <template #imgPlaceholder>
+
+            <div class="img-placeholder absolute inset-0  flex items-center justify-center w-full h-full">
+
+               <font-awesome-icon :icon="['fas', 'plus']" class="w-10 h-10 fill-current text-white" />
 
             </div>
 
+         </template>
+
+         <template #error>
+            
             <transition name="fade-out">
 
-               <div v-if="error" class="add-article__error flex items-center justify-center w-full px-2 mb-2">
+               <div v-if="error" class="flex items-center justify-center w-full px-2 mb-2">
 
                   <span class="text-center text-sm font-medium text-red-primary">
                      Don't leave the input fields empty.
@@ -101,21 +98,9 @@
 
             </transition>
 
-            <div class="add-article__config flex items-center space-x-6">
+         </template>
 
-               <button @click="cancelAddition" type="submit" class="flex-0 inline-block py-1 px-4 rounded-lg bg-transparent border-2 border-gray-main border-opacity-75 hover:border-opacity-100 text-white font-medium transition duration-200 ease focus:outline-none select-none">
-                  Cancel
-               </button>
-
-               <button @click="addArticle" type="submit" class="flex-0 inline-block py-1 px-4 rounded-lg bg-gray-main bg-opacity-75 text-white font-medium hover:bg-opacity-100 transition duration-200 ease focus:outline-none select-none">
-                  Add article
-               </button>
-
-            </div>
-
-         </form>
-
-      </div>
+      </ArticleContent>
 
       <transition name="fade-out">
 
@@ -135,12 +120,15 @@
    
    import { Component, Prop, Vue } from "nuxt-property-decorator";
    import APIWrapper from '../../../scripts/api_wrapper';
+   import ICategory from '../../../../interfaces/category';
 
+   import ArticleContent from '../../../pages/content.vue';
    import Notification from '../Notification.vue';
    
    @Component({
       name: "AddArticle",
       components: {
+         ArticleContent,
          Notification,
       }
    })
@@ -156,18 +144,15 @@
 
       };
 
-      options = [
-
-         { category: 'Article\'s category', value: '' }, // do not remove
-         { category: 'Biography', value: 'bio' },
-         { category: 'Science', value: 'science' },
-         { category: 'Facts', value: 'facts' },
-         { category: 'Analysis', value: 'analysis' },
-         { category: 'History', value: 'history' },
-
-      ];
+      categories: ICategory[] = [];
 
       error: boolean = false;
+
+      async beforeMount() {
+
+         this.categories = await APIWrapper.fetchCategories();
+
+      }
 
 
       // Img Config
