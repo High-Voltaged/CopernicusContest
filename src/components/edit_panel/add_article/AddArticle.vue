@@ -58,7 +58,7 @@
                      Title
                   </label>
 
-                  <input type="text" v-model="article.title" placeholder="Article's title" class="w-full mt-1 bg-gray-400 text-sm py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-opacity-50 border-2 focus:border-gray-main transition duration-200 ease" />
+                  <input type="text" v-model="article.title" placeholder="Article's title" class="w-full mt-1 bg-gray-400 text-sm placeholder-gray-600 py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease" />
               
                </div>
 
@@ -68,7 +68,7 @@
                      Content
                   </label>
                  
-                  <textarea rows="5" v-model="article.content" placeholder="Article's content" class="w-full mt-1 bg-gray-400 text-sm py-1 px-2 rounded-lg overflow-x-hidden overflow-y-auto focus:outline-none border-opacity-50 border-2 focus:border-gray-main transition duration-200 ease resize-none"></textarea>
+                  <textarea rows="5" v-model="article.content" placeholder="Article's content" class="w-full mt-1 bg-gray-400 text-sm placeholder-gray-600 py-1 px-2 rounded-lg overflow-x-hidden overflow-y-auto focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease resize-none"></textarea>
                
                </div>
 
@@ -78,7 +78,16 @@
                      # Category
                   </label>
                
-                  <input type="text" v-model="article.category" placeholder="Article's category" class="w-full mt-1 bg-gray-400 text-sm py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-opacity-50 border-2 focus:border-gray-main transition duration-200 ease" />
+                  <select type="text" v-model="article.category" placeholder="Article's category" class="w-full mt-1 bg-gray-400 text-sm py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease">
+                     <option
+                        v-for="(option, i) in options"
+                        :key="i"
+                        :value="option.value"
+                        :disabled="i == 0"
+                     >
+                        {{ option.category }}
+                     </option>
+                  </select>
                
                </div>
 
@@ -98,7 +107,7 @@
 
             <div class="add-article__config flex items-center space-x-6">
 
-               <button type="submit" class="flex-0 inline-block py-1 px-4 rounded-lg bg-transparent border-2 border-gray-main border-opacity-75 hover:border-opacity-100 text-white font-medium transition duration-200 ease focus:outline-none select-none">
+               <button @click="cancelAddition" type="submit" class="flex-0 inline-block py-1 px-4 rounded-lg bg-transparent border-2 border-gray-main border-opacity-75 hover:border-opacity-100 text-white font-medium transition duration-200 ease focus:outline-none select-none">
                   Cancel
                </button>
 
@@ -150,6 +159,17 @@
          picture_link: '',
 
       };
+
+      options = [
+
+         { category: 'Article\'s category', value: '' }, // do not remove
+         { category: 'Biography', value: 'bio' },
+         { category: 'Science', value: 'science' },
+         { category: 'Facts', value: 'facts' },
+         { category: 'Analysis', value: 'analysis' },
+         { category: 'History', value: 'history' },
+
+      ];
 
       error: boolean = false;
 
@@ -205,9 +225,10 @@
 
          cancelAddition(): void {
 
-            this.resetArticle();
+            this.notif_content = 'Your article\'s content will be discarded.';
+            this.notif_on = true;
 
-            this.$router.push('/admin');
+            this.resetArticle();
 
          }
 
