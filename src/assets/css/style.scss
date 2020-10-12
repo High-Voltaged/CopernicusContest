@@ -34,6 +34,28 @@ body {
 	max-height: calc(100vh - 5rem);
 }
 
+input, textarea  {
+   white-space: pre-wrap !important;
+   overflow-wrap: break-words !important;
+
+   color: rgba(0, 0, 0, .7) !important;
+   &:focus, &:active {
+      color: rgba(0, 0, 0, .9) !important;
+   }
+}
+
+.article-edit-container {
+   input, textarea  {
+      white-space: pre-wrap !important;
+      overflow-wrap: break-words !important;
+   
+      color: rgba(255, 255, 255, .7) !important;
+      &:focus, &:active {
+         color: rgba(255, 255, 255, .9) !important;
+      }
+   }
+}
+
 /* MAIN PAGE BANNER */
 
 .main-title {
@@ -236,6 +258,16 @@ body {
       transform: scale(1.25);
    }
 
+}
+
+.add-article__img {
+   svg {
+      transition: all .25s ease;
+   }
+
+   &:hover .img-placeholder > svg {
+      transform: scale(1.25);
+   }
 }
 
 /* ARTICLE DIGEST */

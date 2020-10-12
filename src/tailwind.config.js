@@ -462,6 +462,7 @@ module.exports = {
       '0' : 0,
       full: '100%',
       px: '1px',
+      auto: 'auto',
       '-1/4': '-0.25rem',
       '-1/3': '-0.33rem',
       '-1/2': '-0.5rem',

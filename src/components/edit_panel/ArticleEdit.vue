@@ -1,6 +1,6 @@
 <template>
    
-   <div class="relative">
+   <div class="article-edit-container relative">
 
       <ArticleContent :editOn="true">
       
@@ -50,7 +50,7 @@
 
          <template #imgPlaceholder>
 
-            <div class="img-placeholder flex items-center justify-center w-full h-full">
+            <div class="img-placeholder absolute inset-0  flex items-center justify-center w-full h-full">
 
                <font-awesome-icon :icon="['fas', 'plus']" class="w-10 h-10 fill-current text-white" />
 
@@ -62,7 +62,7 @@
             
             <transition name="fade-out">
 
-               <div v-if="errors.empty_title || errors.empty_content" class="flex items-center justify-center w-full px-2 mb-2">
+               <div v-if="error" class="flex items-center justify-center w-full px-2 mb-2">
 
                   <span class="text-center text-sm font-medium text-red-primary">
                      Don't leave the input fields empty.
@@ -125,16 +125,9 @@
 
       // Base Config
 
-      errors = {
-         empty_title: false,
-         empty_content: false,
-      };
+      error = false;
 
       img_removed = false;
-
-      $refs: {
-         img: HTMLImageElement;
-      }
 
       get article() {
          
@@ -147,10 +140,7 @@
 
       removeImg(): void {
          
-         let img = this.$children[0].$refs.img as HTMLImageElement; 
-         
-         img.src = '';
-         this.article.picture_key = '';
+         this.article.picture_link = '';
 
          this.img_removed = true;
 
@@ -160,24 +150,12 @@
 
          if(!this.article.title || !this.article.content) {
 
-            if(!this.article.title) {
-   
-               this.errors.empty_title = true;
-   
-            }
-            
-            if(!this.article.content) {
-   
-               this.errors.empty_content = true;
-   
-            } 
-
+            this.error = true;
             return;
 
          } else {
 
-            this.errors.empty_title = false;
-            this.errors.empty_content = false;
+            this.error = false;
 
          }
 
@@ -200,15 +178,7 @@
       }
 
 
-      // Adding / Removing 
-
-      async addArticle(): Promise<void> {
-
-         // let result = await APIWrapper.addArticle(this.article.id);
-
-         // console.log(result.data);
-
-      }
+      // Removing 
 
       async removeArticle(): Promise<void> {
 

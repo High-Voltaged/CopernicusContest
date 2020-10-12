@@ -1,14 +1,14 @@
 <template>
 
-    <div class="h-screen w-screen overflow-x-hidden overflow-y-auto bg-gray-secobdary">
+   <div class="flex items-center justify-center overflow-y-auto h-screen w-screen py-6 bg-gray-secondary">
 
-      <div v-if="edit_menu == 0" class="flex flex-col items-center justify-center flex-auto h-full py-6 bg-gray-secondary">
+      <div v-if="edit_menu == 0" class="flex-auto flex flex-col items-center justify-center h-full py-3 bg-gray-secondary">
 
          <AdminLogin> </AdminLogin>
 
       </div>
 
-      <div v-else-if="edit_menu == 1" class="flex-auto flex flex-col md:flex-row items-center justify-center w-full h-full space-y-8 md:space-y-0 md:space-x-10 overflow-x-hidden overflow-y-auto bg-gray-secondary p-10">
+      <div v-else-if="edit_menu == 1" class="flex-auto flex flex-col md:flex-row items-center justify-center w-full h-full space-y-8 md:space-y-0 md:space-x-10 bg-gray-secondary p-8">
 
          <div class="flex items-center w-72">
 
@@ -32,76 +32,76 @@
 
       </div>
 
-      <component :is="getCurrent"></component>
+      <component :is="getCurrent()"></component>
 
-    </div>
+   </div>
 
 </template>
 
 <script lang="ts">
 
-    import { Component, Prop, Vue } from "nuxt-property-decorator";
-    import ApiWrapper from '../scripts/api_wrapper';
-    import Navbar from '../components/navbar/Navbar.vue';
-    import EditPanelItem from '../components/edit_panel/EditPanelItem.vue';
-    import EditArticles from '../components/edit_panel/EditArticles.vue';
-    import AdminLogin from '../components/admin/AdminLogin.vue';
+   import { Component, Prop, Vue } from "nuxt-property-decorator";
+   import ApiWrapper from '../scripts/api_wrapper';
+   import Navbar from '../components/navbar/Navbar.vue';
+   import EditPanelItem from '../components/edit_panel/EditPanelItem.vue';
+   import EditArticles from '../components/edit_panel/EditArticles.vue';
+   import AdminLogin from '../components/admin/AdminLogin.vue';
 
-    @Component({
-        name: "AdminPage",
-        components: {
-            Navbar,
-            EditPanelItem,
-            EditArticles,
-            AdminLogin,
-        },
-    })
-    export default class AdminPage extends Vue {
+   @Component({
+      name: "AdminPage",
+      components: {
+         Navbar,
+         EditPanelItem,
+         EditArticles,
+         AdminLogin,
+      },
+   })
+   export default class AdminPage extends Vue {
 
-        edit_menu = 0;
+      
+      async submitForm(e) {
+         
+         e.preventDefault();
 
-        async submitForm(e) {
+         // let result = await ApiUtils.processLogin(this.username, this.password);
 
-            e.preventDefault();
+         // console.log(result.data);
 
-            // let result = await ApiUtils.processLogin(this.username, this.password);
-
-            // console.log(result.data);
-
-            // if(result.data == 0) {
-
+         // if(result.data == 0) {
+            
             this.edit_menu = 1;
 
-            // } else {
-
+         // } else {
+            
             //    this.error_message = true;
 
-            // }
+         // }
 
-        }
+      }
 
 
+      // Edit Menu
 
-        // Edit Menu
+         edit_menu = 0;
 
-        articles = 'Articles';
-        quiz = 'Quiz';
+         articles = 'Articles';
+         quiz = 'Quiz';
 
-        current: string = null;
+         current: string = null;
 
-        get getCurrent() {
+         getCurrent() {
 
             return `Edit${this.current}`;
 
-        }
+         }
 
-        setCurrent(c: string) {
+         setCurrent(c: string) {
 
             this.current = c;
             this.edit_menu = -1;
 
-        }
+         }
 
-    }
+   }
 
 </script>

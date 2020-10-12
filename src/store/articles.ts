@@ -36,9 +36,9 @@ export default class Articles extends VuexModule {
 
     }
 
-    @action async fetchArticle(article_id: number) {
+    @action async fetchArticle(article_id: string) {
 
-        this.article = (await ApiWrapper.fetchArticle(article_id))[0];
+        this.article = (await ApiWrapper.fetchArticle(Number(article_id)))[0];
 
         console.log(this.article);
 
