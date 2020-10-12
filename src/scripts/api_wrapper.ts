@@ -28,7 +28,10 @@ export namespace APIWrapper {
 
         let response: AxiosResponse = await axios.post(Links.fetch_article, { id: id });
 
-        let article = response.data["response"];
+        let article: IFullArticle = response.data["response"];
+
+        article.category.id = article.category_id;
+        article.category.name = article.category_name;
 
         article.timestamp = moment(article.timestamp).format('YYYY-MM-DD HH:mm:s');
 
