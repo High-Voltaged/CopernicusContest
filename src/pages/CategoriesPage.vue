@@ -31,14 +31,16 @@
 <script lang="ts">
 
 	import { Component, Prop, Vue } from "nuxt-property-decorator";
-    import CategoriesList from '../components/categories/categories/categories.vue';
+   import CategoriesList from '../components/categories/categories/categories.vue';
+	import Navbar from '../components/navbar/Navbar.vue';
 	import Footer from '../components/navbar/Footer.vue';
 
 	@Component({
 		name: "CategoriesPage",
 		components: {
-            CategoriesList,
-			Footer,
+         CategoriesList,
+         Navbar,
+         Footer,
 		},
 	})
     export default class CategoriesPage extends Vue {
