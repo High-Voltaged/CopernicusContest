@@ -35,7 +35,7 @@ export namespace APIWrapper {
         delete article[0].category_id;
         delete article[0].category_name;
 
-        article.timestamp = moment(article.timestamp).format('YYYY-MM-DD HH:mm:s');
+        article[0].timestamp = moment(article[0].timestamp).format('YYYY-MM-DD HH:mm:s');
 
         return article;
 
