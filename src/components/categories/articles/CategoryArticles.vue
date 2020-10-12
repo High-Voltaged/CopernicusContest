@@ -1,42 +1,45 @@
 <template>
 
-    <div v-if="articles.length > 0">
+   <div v-if="articles.length > 0">
 
-        <div v-for="article in articles">
+      <div 
+         v-for="article in articles"
+         :key="article.id"
+      >
 
-            <CategoryArticle :article="article"> </CategoryArticle>
+         <CategoryArticle :article="article"> </CategoryArticle>
 
-        </div>
+      </div>
 
-    </div>
+   </div>
 
 </template>
 
 <script lang="ts">
 
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import APIWrapper from "../../../scripts/api_wrapper";
-    import CategoryArticle from './CategoryArticle.vue';
-    import IBriefArticle from '../../../../interfaces/brief_article';
+   import { Component, Prop, Vue } from 'nuxt-property-decorator';
+   import APIWrapper from "../../../scripts/api_wrapper";
+   import CategoryArticle from './CategoryArticle.vue';
+   import IBriefArticle from '../../../../interfaces/brief_article';
 
-    @Component({
-        name: "CategoryArticles",
-        components: {
-            CategoryArticle,
-        }
-    })
-    export default class CategoryArticles extends Vue {
+   @Component({
+      name: "CategoryArticles",
+      components: {
+         CategoryArticle,
+      }
+   })
+   export default class CategoryArticles extends Vue {
 
-        @Prop() private category_id;
+      @Prop() private category_id;
 
-        articles: IBriefArticle[] = [];
+      articles: IBriefArticle[] = [];
 
-        async beforeMount() {
+      async beforeMount() {
 
-            this.articles = await APIWrapper.fetchArticlesByCategory(this.category_id);
+         this.articles = await APIWrapper.fetchArticlesByCategory(this.category_id);
 
-        }
+      }
 
-    }
+   }
 
 </script>

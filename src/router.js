@@ -18,36 +18,36 @@ export function createRouter() {
       mode: 'history',
       routes: [
          {
-               path: '*',
-               component: index,
+            path: '*',
+            component: index,
          },
          {
-               path: '/',
-               component: index,
+            path: '/',
+            component: index,
          },
          {
-               path: '/admin',
-               component: AdminPage,
+            path: '/admin',
+            component: AdminPage,
          },
          {
-               path: '/quiz',
-               component: quiz,
+            path: '/quiz',
+            component: quiz,
          },
          {
-               path: '/article/:id',
-               component: contentPage,
+            path: '/article/:id',
+            component: contentPage,
          },
          {
-               path: '/edit/article/:id',
-               component: ArticleEdit,
+            path: '/edit/article/:id',
+            component: ArticleEdit,
          },
          {
-               path: '/categories',
-               component: categories,
+            path: '/categories',
+            component: categories,
          },
          {
-               path: '/category/:id',
-               component: categories,
+            path: '/category/:id',
+            component: categories,
          },
          {
             path: '/add_article',

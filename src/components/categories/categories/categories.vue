@@ -6,9 +6,12 @@
 
             <div class="article-sort bg-gray-main p-3 md:p-5 xl:p-10 rounded-md shadow-lg flex flex-col">
 
-                <div v-for="category in categories">
+                <div 
+                  v-for="category in categories"
+                  :key="category.id"   
+               >
 
-                    <CategoryItem :category="category"></CategoryItem>
+                  <CategoryItem :category="category"></CategoryItem>
 
                 </div>
 
