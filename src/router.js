@@ -50,7 +50,7 @@ export function createRouter() {
                component: categories,
          },
          {
-            path: '/addArticle',
+            path: '/add_article',
             component: AddArticle,
          }
       ]
