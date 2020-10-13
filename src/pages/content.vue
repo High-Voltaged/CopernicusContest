@@ -8,15 +8,15 @@
 
          <div class="main-title w-full h-88 bg-gray-500 shadow-lg">
 
-               <div class="w-full h-full relative flex justify-center items-center">
+            <div class="w-full h-full relative flex justify-center items-center">
 
-                  <div class="absolute inset-0">
+               <div class="absolute inset-0">
 
-                     <img src="../img/banner.jpg" class="h-full w-full object-cover opacity-25" />
-
-                  </div>
+                  <img src="../img/banner.jpg" class="h-full w-full object-cover opacity-25" />
 
                </div>
+
+            </div>
 
          </div>
 
@@ -85,7 +85,7 @@
 
                            <font-awesome-icon :icon="['fas', 'hashtag']" class="h-4 w-4 fill-current text-purple-secondary" />
 
-                           <span class="article-header ml-2 text-gray-300 font-semibold lg:transition duration-300 ease"> {{ article.category_name }} </span>
+                           <span class="article-header ml-2 text-gray-300 font-semibold lg:transition duration-300 ease"> {{ article.category.name }} </span>
 
                         </div>
 
