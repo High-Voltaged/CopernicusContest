@@ -18,9 +18,9 @@
 
       </div>
 
-      <button 
-         :class="{ 'hover:bg-opacity-100': !disabled }" 
-         @click="addAnswer()" 
+      <button  
+         @click="addAnswer()"
+         :class="{ 'hover:bg-opacity-100': validateAnswerLength() }" 
          class="flex-0 inline-flex justify-center items-center px-2 py-1 rounded-full bg-purple-400 bg-opacity-50 transition duration-200 ease focus:outline-none"
       >
          
@@ -48,7 +48,7 @@
       answer = {
          
          answer: '',
-         letter_label: '',
+         letter_label: 'Z',
 
       };
 
@@ -65,13 +65,12 @@
          } else {
 
             vxm.quiz.setValidationError({ value: false, content: '' });
-            
+
             vxm.quiz.addAnswer(this.answer);
    
             this.answer.answer = '';
 
          }
-
 
       }
 

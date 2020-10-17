@@ -6,7 +6,7 @@
 
          <QuizQuestion 
             v-if="questions_array.length > question"
-            @nextQuestion="nextQuestion" 
+            :key="question"
             :questions_array="questions_array" 
             :question="question"
          ></QuizQuestion>

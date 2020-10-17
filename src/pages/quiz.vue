@@ -6,10 +6,8 @@
 
          <QuizQuestion 
             v-if="questions_array.length > question"
+            :key="question"
             @selectedAnswer="selectedAnswer" 
-            @nextQuestion="nextQuestion" 
-            :questions_array="questions_array" 
-            :question="question"
          ></QuizQuestion>
 
          <QuizResult 
@@ -66,12 +64,6 @@
       selectedAnswer(args): void {
 
          vxm.quiz.selectedAnswer(args);
-
-         this.nextQuestion();
-
-      }
-
-      nextQuestion(): void {
 
          vxm.quiz.nextQuestion();
 

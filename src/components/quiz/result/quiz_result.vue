@@ -4,14 +4,22 @@
 
       <div class="quiz-card flex flex-col items-center m-auto w-19/20 sm:w-9/10 md:w-4/5 lg:w-2/3 xl:w-1/2 rounded-lg px-8 py-4 shadow-md">
 
-         <div class="header w-full flex items-center justify-between pb-2 md:px-0 lg:px-2">
-            <button class="text-center font-semibold text-gray-200 hover:text-gray-secondary transition duration-300 ease focus:outline-none">
-               MAIN
-            </button>
+         <div class="header w-full flex items-center justify-between space-x-2 md:px-0 lg:px-2">
 
+            <router-link to="/" tag="button" class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
+
+               <span class="text-sm text-gray-200 font-semibold tracking-wider text-left">
+                  Back to Main
+               </span>
+
+            </router-link>
+            
             <button class="w-8 h-8 focus:outline-none transition transform hover:scale-125 duration-500 linear">
+            
                <font-awesome-icon :icon="['fas', 'question-circle']" class="w-full h-full fill-current text-gray-400 hover:text-gray-200" />
-            </button>
+            
+            </button>   
+
          </div>
 
          <div class="content w-full mt-4">

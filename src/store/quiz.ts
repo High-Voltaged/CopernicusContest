@@ -69,21 +69,19 @@ export default class Articles extends VuexModule {
 
       for (let i = 0; i < this.questions_array.length; ++i) {
 
-            let letter = "A";
+         let letter = "A";
 
-            for (let x = 0; x < this.questions_array[i]["answers"].length; ++x) {
+         for (let x = 0; x < this.questions_array[i].answers.length; ++x) {
+            
+            this.questions_array[i].answers[x].letter_label = letter;
+            
+            let code: number = letter.charCodeAt(0);
+            
+            ++code;
+            
+            letter = String.fromCharCode(code);
 
-               this.questions_array[i]["answers"][x]["letter_label"] = letter;
-
-               console.log('letter is: ' + letter);
-
-               let code: number = letter.charCodeAt(0);
-
-               ++code;
-
-               letter = String.fromCharCode(code);
-
-            }
+         }
 
       }
 
@@ -114,6 +112,12 @@ export default class Articles extends VuexModule {
    @mutation nextQuestion() {
 
       ++this.question;
+
+   } 
+
+   @mutation prevQuestion() {
+
+      --this.question;
 
    } 
 
