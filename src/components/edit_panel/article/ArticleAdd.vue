@@ -235,7 +235,6 @@
          closeNotification(): void {
 
             this.notif_on = false;
-
             this.notif_content = '';
 
          }

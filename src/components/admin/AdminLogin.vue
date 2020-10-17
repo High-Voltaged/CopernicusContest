@@ -64,7 +64,7 @@
 
          if (result == Codes.SUCCESS) {
 
-
+            this.$emit('goToEdit');
 
          } else {
 

@@ -1,89 +1,97 @@
 <template>
 
-    <div class="flex flex-shrink-0 justify-center w-full h-full max-h-screen overflow-y-auto overflow-x-hidden py-8 transition duration-500 ease transform">
+   <div class="flex flex-shrink-0 justify-center w-full h-full max-h-screen overflow-y-auto overflow-x-hidden py-8 transition duration-500 ease transform">
 
-        <div class="quiz-card flex flex-col items-center m-auto w-19/20 sm:w-9/10 md:w-4/5 lg:w-2/3 xl:w-1/2 rounded-xl px-8 py-4 shadow-md">
+      <div class="quiz-card flex flex-col items-center m-auto w-19/20 sm:w-9/10 md:w-4/5 lg:w-2/3 xl:w-1/2 rounded-lg px-8 py-4 shadow-md">
 
-            <div class="header w-full flex items-center justify-between pb-2 md:px-0 lg:px-2">
-                <button class="text-center font-semibold text-gray-200 hover:text-gray-secondary transition duration-300 ease focus:outline-none">MAIN</button>
+         <div class="header w-full flex items-center justify-between pb-2 md:px-0 lg:px-2">
+            <button class="text-center font-semibold text-gray-200 hover:text-gray-secondary transition duration-300 ease focus:outline-none">
+               MAIN
+            </button>
 
-                <button class="w-8 h-8 focus:outline-none transition transform hover:scale-125 duration-500 linear">
-                    <font-awesome-icon :icon="['fas', 'question-circle']" class="w-full h-full fill-current text-gray-400 hover:text-gray-200" />
-                </button>
-            </div>
+            <button class="w-8 h-8 focus:outline-none transition transform hover:scale-125 duration-500 linear">
+               <font-awesome-icon :icon="['fas', 'question-circle']" class="w-full h-full fill-current text-gray-400 hover:text-gray-200" />
+            </button>
+         </div>
 
-            <div class="content w-full mt-4">
+         <div class="content w-full mt-4">
 
-                <div class="flex items-center justify-center w-full">
-                    
-                    <div class="text-xl md:text-2xl font-bold text-gray-200">Your result is:</div>
+            <div class="flex items-center justify-center w-full">
+               
+               <div class="text-xl md:text-2xl font-bold text-gray-200">
+                  Your result is:
+               </div>
 
-                    <div class="ml-3 text-xl md:text-2xl tracking-wider font-bold text-gray-200">{{ correct_answers }}/{{ questions_array.length }}</div>
+               <div class="ml-3 text-xl md:text-2xl tracking-wider font-bold text-gray-200">
+                  {{ correct_answers }} / {{ questions_array.length }}
+               </div>
 
-                    <div class="ml-3 cursor-pointer">
+               <div class="ml-3 cursor-pointer">
 
-                        <div v-if="questions_array.length / correct_answers <= 2">
+                  <div v-if="questions_array.length / correct_answers <= 2">
 
-                            <font-awesome-icon :icon="['fas', 'check']" class="w-6 h-6 fill-current text-green-400" />
+                     <font-awesome-icon :icon="['fas', 'check']" class="w-6 h-6 fill-current text-green-400" />
 
-                        </div>
-                        <div v-else>
+                  </div>
+                  <div v-else>
 
-                            <font-awesome-icon :icon="['fas', 'times']" class="w-6 h-6 fill-current text-red-primary" />
+                     <font-awesome-icon :icon="['fas', 'times']" class="w-6 h-6 fill-current text-red-primary" />
 
-                        </div>
+                  </div>
 
-                    </div>
-
-                </div>
-
-                <div class="divider relative h-px my-5 min-w-full">
-                
-                    <div class="div-quiz-transparent absolute top-0 left-1/20 right-1/20 h-px">
-                    </div>
-                
-                </div>
-
-                <div class="flex flex-col items-start w-full">
-
-                    <div class="w-full text-lg md:text-xl 2xl:text-center font-bold text-gray-secondary">Correct answers:</div>
-
-                    <div class="w-full mt-4">
-
-                        <div v-if="questions_array.length > 0">
-
-                            <QuizResultQuestions :questions_array="questions_array"> </QuizResultQuestions>
-
-                        </div>
-
-                    </div>
-
-                </div>
+               </div>
 
             </div>
 
-        </div>
+            <div class="divider relative h-px my-5 min-w-full">
+            
+               <div class="div-quiz-transparent absolute top-0 left-1/20 right-1/20 h-px">
+               </div>
+            
+            </div>
 
-    </div>
+            <div class="flex flex-col items-start w-full">
+
+               <div class="w-full text-lg md:text-xl 2xl:text-center font-bold text-gray-secondary">
+                  Correct answers:
+               </div>
+
+               <div class="w-full mt-4">
+
+                  <div v-if="questions_array.length > 0">
+
+                     <QuizResultQuestions :questions_array="questions_array"> </QuizResultQuestions>
+
+                  </div>
+
+               </div>
+
+            </div>
+
+         </div>
+
+      </div>
+
+   </div>
 
 </template>
 
 <script lang="ts">
 
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import QuizResultQuestions from './quiz_result_questions.vue';
+   import { Component, Prop, Vue } from 'nuxt-property-decorator';
+   import QuizResultQuestions from './quiz_result_questions.vue';
 
-    @Component({
-        name: "QuizResult",
-        components: {
-            QuizResultQuestions
-        }
-    })
-    export default class QuizResult extends Vue {
+   @Component({
+      name: "QuizResult",
+      components: {
+         QuizResultQuestions
+      }
+   })
+   export default class QuizResult extends Vue {
 
-        @Prop() private questions_array;
-        @Prop() private correct_answers;
+      @Prop() private questions_array;
+      @Prop() private correct_answers;
 
-    }
+   }
 
 </script>

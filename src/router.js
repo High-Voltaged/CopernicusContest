@@ -10,6 +10,7 @@ import categories from '~/pages/CategoriesPage.vue'
 import AdminPage from '~/pages/AdminPage.vue'
 import ArticleEdit from '~/components/edit_panel/article/ArticleEdit.vue';
 import ArticleAdd from '~/components/edit_panel/article/ArticleAdd.vue';
+import QuizEdit from '~/components/edit_panel/quiz/QuizEdit.vue';
 
 Vue.use(Router)
 
@@ -40,6 +41,10 @@ export function createRouter() {
          {
             path: '/edit/article/:id',
             component: ArticleEdit,
+         },
+         {
+            path: '/edit/quiz',
+            component: QuizEdit,
          },
          {
             path: '/categories',

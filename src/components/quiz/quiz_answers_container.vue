@@ -1,42 +1,132 @@
 <template>
 
-    <div v-if="answers.length > 0">
+   <div v-if="answers.length > 0">
 
-        <div class="option-container flex flex-col md:flex-row flex-wrap items-center md:justify-evenly w-full 2xl:w-120">
+   <div class="option-container flex flex-col items-center w-full 2xl:w-120 space-y-3">
 
-            <div v-for="answer in answers">
+      <div class="flex flex-col md:flex-row flex-wrap items-center md:justify-evenly w-full">
 
-                <QuizAnswer @selectedAnswer="selectedAnswer" :answer="answer"></QuizAnswer>
+         <QuizAnswer 
+             v-for="(answer, i) in answers"
+            :key="i"
+            :answer="answer"
+            @selectedAnswer="selectedAnswer" 
+         ></QuizAnswer>
 
-            </div>
+      </div>
 
-        </div>
+      <div v-if="editMode" class="flex flex-col items-center w-full">
 
-    </div>
+         <button
+            :disabled="disabled"
+            @click="setNewAnswer(true)" 
+            :class="{ 'hover:bg-opacity-100': !disabled }"
+            class="flex items-center justify-center space-x-1 px-2 py-1 rounded-full shadow bg-gray-primary bg-opacity-75 transition duration-300 ease focus:outline-none"
+         >
+
+            <font-awesome-icon :icon="['fas', 'plus']" class="w-3 h-3 fill-current text-gray-200" />
+
+            <span class="text-sm text-gray-200 font-medium text-left">
+               Add an answer
+            </span>
+
+         </button>
+
+         <transition name="fade-out">
+
+            <QuizNewAnswer v-if="new_answer"></QuizNewAnswer>
+
+         </transition>
+
+      </div>
+
+   </div>
+
+   </div>
 
 </template>
 
 <script lang="ts">
 
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import QuizAnswer from './quiz_answer.vue';
+   import { Component, Prop, Vue } from 'nuxt-property-decorator';
+   import QuizAnswer from './quiz_answer.vue';
+   import QuizNewAnswer from '../edit_panel/quiz/QuizNewAnswer.vue';
 
-    @Component({
-        name: "QuizAnswersContainer",
-        components: {
-            QuizAnswer,
-        }
-    })
-    export default class QuizAnswersContainer extends Vue {
+   import { vxm } from '../../store';
 
-        @Prop() private answers;
+   @Component({
+      name: "QuizAnswersContainer",
+      components: {
+         QuizAnswer,
+         QuizNewAnswer,
+      }
+   })
+   export default class QuizAnswersContainer extends Vue {
 
-        selectedAnswer(id: number): void {
+      @Prop() private answers;
 
-            this.$emit("selectedAnswer", id); 
+      // Edit Mode
 
-        }
+      new_answer = false;
 
-    }
+      get editMode() {
+
+         return vxm.quiz.getQuizUtil.editMode;
+
+      }
+
+      get questions_array() {
+
+         return vxm.quiz.getQuizUtil.questions;
+
+      }
+
+      get question() {
+
+         return vxm.quiz.getQuizUtil.question;
+
+      }
+
+      get quiz_answers() {
+
+         return this.questions_array[this.question].answers;
+
+      }
+
+      get disabled() {
+
+         if(this.quiz_answers.length == 4) {
+
+            this.setNewAnswer(false); // hide the container for new answer input
+
+         }
+
+         if((this.quiz_answers.length == 4) || this.new_answer) {
+
+            return true;
+
+         } else {
+
+            return false;
+
+         }
+
+      }
+
+      setNewAnswer(value: boolean) {
+
+         this.new_answer = value;
+
+      }
+
+      // Answer Configuration
+
+      selectedAnswer(id: number): void {
+
+         this.$emit("selectedAnswer", id); 
+
+      }
+
+   }
 
 </script>

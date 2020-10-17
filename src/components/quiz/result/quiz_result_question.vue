@@ -2,7 +2,9 @@
 
     <div class="flex flex-col items-center mt-4" v-if="question">
 
-        <div class="md:text-lg font-normal text-gray-200"> {{ question.question }} </div>
+        <div class="md:text-lg font-normal text-gray-200"> 
+           {{ question.question }} 
+         </div>
 
         <QuizResultAnswers :question="question"></QuizResultAnswers>
 

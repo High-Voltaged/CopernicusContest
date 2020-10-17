@@ -40,11 +40,6 @@ body {
 input, textarea  {
    white-space: pre-wrap;
    overflow-wrap: break-words;
-
-   color: rgba(0, 0, 0, .7);
-   &:focus, &:active {
-      color: rgba(0, 0, 0, .9);
-   }
 }
 
 label {
