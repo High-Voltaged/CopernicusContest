@@ -47,4 +47,25 @@ export default class Articles extends VuexModule {
 
    }
 
+   
+   // Adding / Editing an Article
+
+   validationError = {
+      value: false,
+      content: '',
+   }
+
+   get getValidationError() {
+
+      return this.validationError;
+
+   }
+
+   @mutation setValidationError(payload: { value: boolean, content: string }) {
+
+      this.validationError.value = payload.value;
+      this.validationError.content = payload.content;
+
+   }
+
 }

@@ -92,10 +92,10 @@
             
             <transition name="fade-out">
 
-               <div v-if="error" class="flex items-center justify-center w-full px-2 mb-2">
+               <div v-if="error.value" class="flex items-center justify-center w-full px-2 mb-2">
 
                   <span class="text-center text-sm font-medium text-red-primary">
-                     Don't leave the input fields empty.
+                     {{ error.content }}
                   </span>
 
                </div>
@@ -124,6 +124,8 @@
    
    import { Component, Prop, Vue } from "nuxt-property-decorator";
    import APIWrapper from '../../../scripts/api_wrapper';
+   import { vxm } from '../../../store';
+   import { Limits } from '../../../../app/limits';
    import ICategory from '../../../../interfaces/category';
 
    import ArticleContent from '../../../pages/content.vue';
@@ -149,8 +151,6 @@
       };
 
       categories: ICategory[] = [];
-
-      error: boolean = false;
 
       async beforeMount() {
 
@@ -182,18 +182,13 @@
 
          async addArticle(): Promise<void> {
 
-            for(let i in this.article) {
+            if(this.validateChanges() && this.validateTitle() && this.validateContent() && this.validatePicture()) {
 
-               if(!this.article[i]) {
+               vxm.articles.setValidationError({ value: false, content: '' });
 
-                  this.error = true;
-                  return;
+            } else {
 
-               } else {
-
-                  this.error = false;
-
-               }
+               return;
 
             }
 
@@ -226,6 +221,89 @@
             }
 
          }
+
+
+      // Validation 
+
+      get error() {
+
+         return vxm.articles.getValidationError;
+         
+      }
+
+      validateChanges(): boolean {
+
+         for(let i in this.article) {
+
+            if(!this.article[i]) {
+
+               vxm.articles.setValidationError({ value: true, content: 'Don\'t leave the input fields empty.' });
+               return false;
+
+            } else {
+
+               return true;
+            }
+
+         }
+
+      }
+
+      validateTitle(): boolean {
+
+         if(this.article.title.length < Limits.min_title_length) {
+
+            vxm.articles.setValidationError({ value: true, content: 'The article\'s title\'s length is too short.' });
+            return false;
+
+         } else if(this.article.title.length > Limits.max_title_length) {
+
+            vxm.articles.setValidationError({ value: true, content: 'The article\'s title\'s length is too long.' });
+            return false;
+
+         } else {
+
+            return true;
+
+         }
+
+      }
+
+      validateContent(): boolean {
+
+         if(this.article.content.length < Limits.min_content_length) {
+
+            vxm.articles.setValidationError({ value: true, content: 'The article\'s content\'s length is too short.' });
+            return false;
+
+         } else if(this.article.title.length > Limits.max_content_length) {
+
+            vxm.articles.setValidationError({ value: true, content: 'The article\'s content\'s length is too long.' });
+            return false;
+
+         } else {
+
+            return true;
+
+         }
+
+      }
+
+      validatePicture(): boolean {
+
+         if(this.article.title.length > Limits.max_picture_length) {
+
+            vxm.articles.setValidationError({ value: true, content: 'The article\'s picture\'s link is invalid.' });
+            return false;
+
+         } else {
+
+            return true;
+
+         }
+
+      }
+
 
       // Notification Config
 
