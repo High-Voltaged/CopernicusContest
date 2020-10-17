@@ -2,7 +2,12 @@
 
    <div class="flex flex-col">
 
-      <div class="quiz-main-container overflow-y-auto overflow-x-hidden">
+      <QuizEditMenu 
+         v-if="quiz_menu == 0"
+         @edit="setEditForm($event)"
+      ></QuizEditMenu>      
+
+      <div v-else-if="quiz_menu == 1" class="quiz-main-container overflow-y-auto overflow-x-hidden">
 
          <QuizQuestion 
             v-if="questions_array.length > question"
@@ -23,17 +28,32 @@
    import ApiWrapper from '../../../scripts/api_wrapper';
    import { vxm } from '../../../store';
 
+   import QuizEditMenu from './QuizEditMenu.vue';
    import QuizQuestion from '../../quiz/QuizQuestion.vue';
    import QuizAnswer from '../../quiz/QuizAnswer.vue';
 
    @Component({
       name: "QuizEdit",
       components: {
+         QuizEditMenu,
          QuizQuestion,
          QuizAnswer,
       }
    })
    export default class QuizEdit extends Vue {
+
+      // Menu Configuration
+
+
+      quiz_menu = 0;
+
+      setEditForm(index: number): void {
+
+         this.quiz_menu = 1;
+         vxm.quiz.setQuestionIndex(index);
+
+      }
+
 
       // Question Configuration
 
@@ -56,12 +76,6 @@
       }
 
       // Lifecycle Hooks
-
-      created() {
-
-         vxm.quiz.setEditMode(true);
-
-      }
 
       async beforeMount() {
 

@@ -20,11 +20,11 @@
 
             <div class="flex items-center justify-center w-full">
                
-               <div class="text-xl md:text-2xl font-bold text-gray-200">
+               <div class="text-xl md:text-2xl font-bold text-gray-200 select-none">
                   Your result is:
                </div>
 
-               <div class="ml-3 text-xl md:text-2xl tracking-wider font-bold text-gray-200">
+               <div class="ml-3 text-xl md:text-2xl tracking-wider font-bold text-gray-200 select-none">
                   {{ correct_answers }} / {{ questions_array.length }}
                </div>
 

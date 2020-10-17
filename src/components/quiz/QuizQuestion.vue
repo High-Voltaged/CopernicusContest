@@ -10,7 +10,7 @@
 
                <router-link v-if="editMode" to="/admin" tag="button" class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
-                  <span class="text-sm text-gray-200 font-semibold tracking-wider text-left">
+                  <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
                      Admin
                   </span>
 
@@ -18,7 +18,7 @@
 
                <router-link v-else to="/" tag="button" class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
-                  <span class="text-sm text-gray-200 font-semibold tracking-wider text-left">
+                  <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
                      Main
                   </span>
 
@@ -28,7 +28,7 @@
 
             <div class="flex items-center justify-center w-full">
                
-               <span class="text-base md:text-sm text-center font-normal text-gray-300">
+               <span class="text-base md:text-sm text-center font-normal text-gray-300 select-none">
                   Question #{{ question + 1 }} out of {{ questions_array.length }}
                </span>
 
@@ -71,7 +71,7 @@
 
             <div v-if="error.value" class="flex items-center justify-center w-full px-2 mb-2">
 
-               <span class="text-center text-sm font-medium text-red-primary">
+               <span class="text-center text-sm font-medium text-red-primary select-none">
                   {{ error.content }}
                </span>
 
@@ -94,7 +94,7 @@
                class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 transition duration-300 ease focus:outline-none"
             >
 
-               <span class="text-sm text-gray-200 font-semibold tracking-wider text-left">
+               <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
                   Back
                </span>
 
@@ -106,7 +106,7 @@
                class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg shadow bg-gray-primary bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none"
             >
 
-               <span class="text-sm text-gray-200 font-medium text-left">
+               <span class="text-sm text-gray-200 font-medium text-left select-none">
                   Save the Quiz
                </span>
 
@@ -119,7 +119,7 @@
                class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 transition duration-300 ease focus:outline-none"
             >
 
-               <span class="text-sm text-gray-200 font-semibold tracking-wider text-left">
+               <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
                   Next
                </span>
 
@@ -227,6 +227,16 @@
 
       // Lifecycle Hooks
 
+
+      created() {
+
+         if(this.$parent._name == '<QuizEdit>') {
+
+            vxm.quiz.setEditMode(true);
+
+         }
+
+      }
 
       mounted() {
          

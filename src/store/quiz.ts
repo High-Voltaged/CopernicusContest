@@ -133,6 +133,12 @@ export default class Articles extends VuexModule {
 
    }
 
+   @mutation setQuestionIndex(index: number) {
+
+      this.question = index;
+
+   }
+
    @mutation addAnswer(answer) {
 
       this.questions_array[this.question].answers.push({

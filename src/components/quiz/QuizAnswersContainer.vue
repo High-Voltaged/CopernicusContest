@@ -26,7 +26,7 @@
 
             <font-awesome-icon :icon="['fas', 'plus']" class="w-3 h-3 fill-current text-gray-200" />
 
-            <span class="text-sm text-gray-200 font-medium text-left">
+            <span class="text-sm text-gray-200 font-medium text-left select-none">
                Add an answer
             </span>
 

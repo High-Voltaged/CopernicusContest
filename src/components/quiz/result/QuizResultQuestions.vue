@@ -9,8 +9,11 @@
 
          <QuizResultQuestion :question="question"> </QuizResultQuestion>
 
-         <div class="flex items-center justify-center h-px w-full my-4">
-            <div class="divider-result h-full w-full"></div>
+         <div class="divider relative h-px my-5 min-w-full">
+            
+            <div class="div-quiz-transparent absolute top-0 left-1/20 right-1/20 h-px">
+            </div>
+         
          </div>
 
       </div>
