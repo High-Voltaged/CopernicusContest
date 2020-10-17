@@ -1,6 +1,8 @@
 import { createModule, mutation, action } from 'vuex-class-component';
 
 import ApiWrapper from '../scripts/api_wrapper';
+import IQuizQuestion from '../../interfaces/quiz_question';
+import IQuizAnswer from '../../interfaces/quiz_answer';
 
 const VuexModule = createModule({
     namespaced: 'quiz',
@@ -10,7 +12,7 @@ const VuexModule = createModule({
 
 export default class Articles extends VuexModule {
 
-   questions_array = [];
+   questions_array: IQuizQuestion[] = [];
    correct_answers: number = 0;
    question: number = 0;
 
