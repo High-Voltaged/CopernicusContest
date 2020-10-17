@@ -20,8 +20,7 @@
 
       <button  
          @click="addAnswer()"
-         :class="{ 'hover:bg-opacity-100': validateAnswerLength() }" 
-         class="flex-0 inline-flex justify-center items-center px-2 py-1 rounded-full bg-purple-400 bg-opacity-50 transition duration-200 ease focus:outline-none"
+         class="flex-0 inline-flex justify-center items-center px-2 py-1 rounded-full bg-purple-400 bg-opacity-50 hover:bg-opacity-100 transition duration-200 ease focus:outline-none"
       >
          
          <span class="text-sm text-white text-medium">

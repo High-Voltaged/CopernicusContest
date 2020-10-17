@@ -4,14 +4,14 @@
       
       <div class="quiz-card flex flex-col items-center relative m-auto w-19/20 sm:w-9/10 md:w-4/5 lg:w-2/3 xl:w-1/2 rounded-lg space-y-3 px-8 py-4 shadow-md">
 
-         <div class="header w-full flex flex-col items-center space-y-3 md:px-0 lg:px-2">
+         <div class="header w-full flex flex-col items-center space-y-1 md:px-0 lg:px-2">
          
-            <div class="flex items-center justify-between space-x-2 w-full">
+            <div class="flex items-center justify-start space-x-2 w-full">
 
                <router-link v-if="editMode" to="/admin" tag="button" class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
                   <span class="text-sm text-gray-200 font-semibold tracking-wider text-left">
-                     Admin Panel
+                     Admin
                   </span>
 
                </router-link>
@@ -19,25 +19,19 @@
                <router-link v-else to="/" tag="button" class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
                   <span class="text-sm text-gray-200 font-semibold tracking-wider text-left">
-                     Back to Main
+                     Main
                   </span>
 
                </router-link>
-               
-               <span class="hidden md:inline-block text-base md:text-sm text-center font-normal text-gray-300">
-                  Question #{{ question + 1 }} out of {{ questions_array.length }}
-               </span>
-               
-               <button class="w-8 h-8 focus:outline-none transition transform hover:scale-125 duration-500 linear">
-               
-                  <font-awesome-icon :icon="['fas', 'question-circle']" class="w-full h-full fill-current text-gray-400 hover:text-gray-200" />
-               
-               </button>
 
             </div>
 
-            <div class="md:hidden text-base md:text-sm text-center font-normal text-gray-300">
-               Question #{{ question + 1 }} out of {{ questions_array.length }}
+            <div class="flex items-center justify-center w-full">
+               
+               <span class="text-base md:text-sm text-center font-normal text-gray-300">
+                  Question #{{ question + 1 }} out of {{ questions_array.length }}
+               </span>
+
             </div>      
 
          </div>
@@ -200,7 +194,7 @@
 
       get next_disabled() {
 
-         if(this.question == (this.questions_array.length - 1)) {
+         if(this.question == (this.questions_array.length - 1) && this.editMode) {
 
             return true;
 

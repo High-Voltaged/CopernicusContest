@@ -366,7 +366,7 @@ select {
 // TRANSITIONING
 
 
-.fade-out-enter-active, .fade-out-leave-active {
+.fade-out-enter-active, .fade-out-leave-active, .fade-away-enter-active, .fade-away-leave-active {
    transition: all .25s ease;
 }
 
@@ -377,5 +377,15 @@ select {
 
 .fade-out-enter, .fade-out-leave-to {
    transform: translateY(1rem);
+   opacity: 0;
+}
+
+.fade-away-enter-to, .fade-away-leave {
+   transform: translateX(0);
+   opacity: 1;
+}
+
+.fade-away-enter, .fade-away-leave-to {
+   transform: translateX(.5rem);
    opacity: 0;
 }

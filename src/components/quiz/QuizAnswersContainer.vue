@@ -7,7 +7,7 @@
       <div class="flex flex-col md:flex-row flex-wrap items-center md:justify-evenly w-full">
 
          <QuizAnswer 
-             v-for="(answer, i) in answers"
+            v-for="(answer, i) in answers"
             :key="i"
             :answer="answer"
             @selectedAnswer="selectedAnswer" 
