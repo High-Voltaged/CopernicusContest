@@ -26,16 +26,22 @@
 
       </div>
 
-      <div :class="isOpen ? 'block' : 'hidden' " class="shadow-md sm:shadow-none sm:block bg-gray-tertiary sm:bg-transparent rounded-lg z-50 rounded-tl-none rounded-tr-none">
-         <div class=" px-2 py-2 sm:flex sm:items-center sm:p-0">
+      <div 
+         class="sm:block shadow-md sm:shadow-none bg-gray-tertiary sm:bg-transparent z-50" 
+         :class="isOpen ? 'block' : 'hidden' " 
+         style="border-radius: 0 0 15px 15px"
+      >
+ 
+         <div class="flex flex-col items-start sm:flex-row sm:items-center relative space-y-4 sm:space-y-0 p-3 sm:p-0">
          
             <NavbarLink
                v-for="(link, index) in links"
                :key="index"
                :link="link"
             ></NavbarLink>
-         
+
          </div>
+
       </div>
 
    </header>

@@ -7,10 +7,10 @@
       <div class="flex flex-col items-center">
 
          <div class="h-14">
-               <img src="https://askimspump.se/wp-content/uploads/sites/42/2018/01/placeholder-logo.png" class="h-full object-scale-down"> 
+            <img src="https://askimspump.se/wp-content/uploads/sites/42/2018/01/placeholder-logo.png" class="h-full object-scale-down"> 
          </div>
 
-         <div class="flex items-center">
+         <div class="flex items-center space-x-2">
                
             <FooterIcon
                v-for="(icon, index) in icons"
@@ -30,7 +30,7 @@
             Support
          </span>
 
-         <div class="flex flex-wrap flex-col sm:flex-row sm:justify-evenly lg:block xl:text-lg">
+         <div class="flex flex-wrap flex-col items-center sm:flex-row sm:justify-evenly lg:flex-col lg:items-start xl:text-lg">
                
             <FooterLink
                v-for="(link, index) in primary_links"
@@ -50,7 +50,7 @@
             Our website
          </span>
 
-         <div class="flex flex-wrap flex-col sm:flex-row sm:justify-evenly lg:block xl:text-lg">
+         <div class="flex flex-wrap flex-col items-center sm:flex-row sm:justify-evenly lg:flex-col lg:items-start xl:text-lg">
                
             <FooterLink
                v-for="(link, index) in secondary_links"
@@ -76,9 +76,9 @@
 
             </router-link>
                
-               <span class="arrow-icon w-3 h-3 lg:transition duration-300 ease">
-                  <font-awesome-icon :icon="['fas', 'arrow-right']" class="w-full h-full fill-current text-gray-200"/>
-               </span>
+            <span class="arrow-icon w-3 h-3 lg:transition duration-300 ease">
+               <font-awesome-icon :icon="['fas', 'arrow-right']" class="w-full h-full fill-current text-gray-200"/>
+            </span>
          
          </button>
 

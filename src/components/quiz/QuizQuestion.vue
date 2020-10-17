@@ -153,11 +153,12 @@
 
    import { Component, Prop, Vue } from 'nuxt-property-decorator';
    import { Limits } from '../../../app/limits';
-   import QuizAnswer from './quiz_answer.vue';
-   import QuizAnswersContainer from './quiz_answers_container.vue';
+   import { vxm } from '../../store';
+
+   import QuizAnswer from './QuizAnswer.vue';
+   import QuizAnswersContainer from './QuizAnswersContainer.vue';
    import Notification from '../edit_panel/Notification.vue';
 
-   import { vxm } from '../../store';
 
    @Component({
       name: "QuizQuestion",

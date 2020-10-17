@@ -26,10 +26,15 @@
                      <router-link to="/quiz">
 
                         <button class="arrow-container flex items-center px-6 py-3 2xl:py-4 2xl:px-8 rounded-full lg:transition duration-300 ease-in transform lg:hover:translate-x-6 shadow-md focus:outline-none">
-                           <p class="font-semibold tracking-wide text-gray-200 cursor-pointer pr-2">Take A Quiz Here</p>
+                           
+                           <p class="font-semibold tracking-wide text-gray-200 cursor-pointer pr-2">
+                              Take A Quiz Here
+                           </p>
+                           
                            <span class="arrow-icon w-3 h-3">
                               <font-awesome-icon :icon="['fas', 'arrow-right']" class="w-full h-full fill-current text-gray-200" />
                            </span>
+                        
                         </button>
 
                      </router-link>
@@ -71,7 +76,7 @@
                         key="1"
                      ></MainTitle>
 
-                      <Timeline></Timeline>
+                     <Timeline></Timeline>
 
                   </div>
 
@@ -108,8 +113,8 @@
    import Navbar from '../components/navbar/Navbar.vue';
    import Footer from '../components/navbar/Footer.vue';
    import MajorArticles from '../components/article/MajorArticles.vue';
-   import ImportantArticles from '../components/article/important_articles.vue';
-   import DigestList from '../components/digest/digest_list.vue';
+   import ImportantArticles from '../components/article/ImportantArticles.vue';
+   import DigestList from '../components/digest/DigestList.vue';
    import Timeline from '../components/timeline/Timeline.vue';
    import MainTitle from '../components/other/MainTitle.vue';
 

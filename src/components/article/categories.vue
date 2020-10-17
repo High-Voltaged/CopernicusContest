@@ -8,9 +8,13 @@
 
             <div class="sub-category-container flex flex-wrap lgMax:justify-evenly lg:flex-col w-full">
 
-                <div class="px-2 py-1 lg:py-2 m-2 lg:mx-0 text-gray-300 leading-tight font-light rounded lg:block" v-for="category in categories">
+                <div 
+                  v-for="(category, i) in categories"
+                  :key="i"
+                  class="px-2 py-1 lg:py-2 m-2 lg:mx-0 text-gray-300 leading-tight font-light rounded lg:block" 
+               >
 
-                    <Category :category="category"></Category>
+                  <Category :category="category"></Category>
 
                 </div>
 
@@ -25,7 +29,7 @@
 <script lang="ts">
 
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import Category from './category.vue';
+    import Category from './Category.vue';
 
     @Component({
         name: "Categories",

@@ -64,16 +64,6 @@
 
          </template>
 
-         <!-- <template #imgPlaceholder>
-
-            <div class="img-placeholder absolute inset-0  flex items-center justify-center w-full h-full">
-
-               <font-awesome-icon :icon="['fas', 'plus']" class="w-10 h-10 fill-current text-white" />
-
-            </div>
-
-         </template> -->
-
          <template #error>
             
             <transition name="fade-out">
@@ -89,20 +79,6 @@
             </transition>
 
          </template>
-
-         <!-- <template #removeBtn>
-
-            <div class="absolute right-4 bottom-4">
-
-               <button @click="removeArticle" class="inline-flex items-center space-x-1 p-2 bg-red-primary opacity-50 hover:opacity-100 transition duration-300 ease rounded-lg focus:outline-none">
-
-                  <font-awesome-icon :icon="['fas', 'trash']" class="w-4 h-4 fill-current text-gray-300" />
-
-               </button>
-
-            </div>
-
-         </template> -->
 
       </ArticleContent>      
 

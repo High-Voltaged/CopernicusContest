@@ -1,8 +1,13 @@
 <template>
    
-   <router-link :to="link.to">
+   <router-link 
+      :to="link.to" 
+      tag="div" 
+      class="inline-block w-full hover:bg-gray-secondary sm:hover:bg-gray-primary transition duration-300 linear"
+      style="border-radius: 10px"
+   >
 
-      <span class="block text-gray-200 font-light hover:bg-gray-secondary sm:hover:bg-gray-primary hover:text-white transition duration-300 linear px-2 py-1 rounded">
+      <span class="inline w-full text-gray-200 text-center font-medium hover:text-white transition duration-300 linear px-2 py-1">
          {{ link.content }}
       </span>
 

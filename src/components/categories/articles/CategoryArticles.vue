@@ -19,8 +19,8 @@
 
    import { Component, Prop, Vue } from 'nuxt-property-decorator';
    import APIWrapper from "../../../scripts/api_wrapper";
-   import CategoryArticle from './CategoryArticle.vue';
    import IBriefArticle from '../../../../interfaces/brief_article';
+   import CategoryArticle from './CategoryArticle.vue';
 
    @Component({
       name: "CategoryArticles",

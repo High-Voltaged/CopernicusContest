@@ -26,8 +26,9 @@
 
    import { Component, Prop, Vue } from "nuxt-property-decorator";
    import ApiWrapper from '../scripts/api_wrapper';
-   import QuizQuestion from '../components/quiz/quiz_question.vue';
-   import QuizResult from '../components/quiz/result/quiz_result.vue';
+   
+   import QuizQuestion from '../components/quiz/QuizQuestion.vue';
+   import QuizResult from '../components/quiz/result/QuizResult.vue';
 
    import { vxm } from '../store';
 

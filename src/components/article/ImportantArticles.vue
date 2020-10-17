@@ -23,7 +23,7 @@
 <script lang="ts">
 
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import ImportantArticle from './important_article.vue';
+    import ImportantArticle from './ImportantArticle.vue';
     import ApiWrapper from '../../scripts/api_wrapper';
     import IBriefArticle from '../../../interfaces/brief_article';
 

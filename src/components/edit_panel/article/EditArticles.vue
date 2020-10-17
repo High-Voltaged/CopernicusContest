@@ -42,9 +42,10 @@
 <script lang="ts">
    
    import { Component, Prop, Vue } from "nuxt-property-decorator";
-   import EditPanelItem from './EditPanelItem.vue';
    import IBriefArticle from "../../../../interfaces/brief_article";
    import APIWRapper from "../../../scripts/api_wrapper";
+   
+   import EditPanelItem from './EditPanelItem.vue';
    
    @Component({
       name: "EditArticles",

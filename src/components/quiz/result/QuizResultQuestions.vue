@@ -22,7 +22,7 @@
 <script lang="ts">
 
    import { Component, Prop, Vue } from 'nuxt-property-decorator';
-   import QuizResultQuestion from './quiz_result_question.vue';
+   import QuizResultQuestion from './QuizResultQuestion.vue';
 
    @Component({
       name: "QuizResultQuestions",

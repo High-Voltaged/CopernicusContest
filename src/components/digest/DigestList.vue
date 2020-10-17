@@ -16,9 +16,13 @@
 
                     <div class="flex p-12">
 
-                        <div class="digest -ml-4 md:-ml-32 2xl:-ml-24 transition-card transition duration-300 ease" v-for="article in articles">
+                        <div 
+                           v-for="(article, i) in articles"
+                           :key="i"
+                           class="digest -ml-4 md:-ml-32 2xl:-ml-24 transition-card transition duration-300 ease" 
+                        >
 
-                            <DigestItem :article="article"></DigestItem>
+                           <DigestItem :article="article"></DigestItem>
 
                         </div>
 
@@ -39,7 +43,7 @@
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import ApiWrapper from '../../scripts/api_wrapper';
     import IBriefArticle from "../../../interfaces/brief_article";
-    import DigestItem from './digest_item.vue';
+    import DigestItem from './DigestItem.vue';
 
     @Component({
         name: "DigestList",

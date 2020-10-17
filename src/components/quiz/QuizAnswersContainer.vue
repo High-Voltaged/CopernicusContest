@@ -49,7 +49,7 @@
 <script lang="ts">
 
    import { Component, Prop, Vue } from 'nuxt-property-decorator';
-   import QuizAnswer from './quiz_answer.vue';
+   import QuizAnswer from './QuizAnswer.vue';
    import QuizNewAnswer from '../edit_panel/quiz/QuizNewAnswer.vue';
 
    import { vxm } from '../../store';

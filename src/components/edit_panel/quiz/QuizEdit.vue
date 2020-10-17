@@ -23,8 +23,8 @@
    import ApiWrapper from '../../../scripts/api_wrapper';
    import { vxm } from '../../../store';
 
-   import QuizQuestion from '../../quiz/quiz_question.vue';
-   import QuizAnswer from '../../quiz/quiz_answer.vue';
+   import QuizQuestion from '../../quiz/QuizQuestion.vue';
+   import QuizAnswer from '../../quiz/QuizAnswer.vue';
 
    @Component({
       name: "QuizEdit",

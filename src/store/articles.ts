@@ -6,47 +6,45 @@ import ICategory from '../../interfaces/category';
 import IFullArticle from '../../interfaces/full_article';
 
 const VuexModule = createModule({
-    namespaced: 'articles',
-    strict: false,
-    target: 'nuxt',
+   namespaced: 'articles',
+   strict: false,
+   target: 'nuxt',
 })
 
 export default class Articles extends VuexModule {
 
-    article: IFullArticle = {};
+   article: IFullArticle = {};
 
-    categories: ICategory[] = [];
+   categories: ICategory[] = [];
 
-    popular_articles: IBriefArticle[] = [];
+   popular_articles: IBriefArticle[] = [];
 
-    get getUtil() {
+   get getUtil() {
 
-        return {
-            article: this.article,
-            categories: this.categories,
-            popular_articles: this.popular_articles,
-        };
+      return {
+         article: this.article,
+         categories: this.categories,
+         popular_articles: this.popular_articles,
+      };
 
-    }
+   }
 
-    @mutation setArticle(article) {
+   @mutation setArticle(article) {
 
-        this.article = article;
+      this.article = article;
 
-    }
+   }
 
-    @action async fetchArticle(article_id: string) {
+   @action async fetchArticle(article_id: string) {
 
-        this.article = (await ApiWrapper.fetchArticle(Number(article_id)))[0];
+      this.article = (await ApiWrapper.fetchArticle(Number(article_id)))[0];
 
-        console.log(this.article);
+      this.article.content = this.article.content.split("\n");
 
-        this.article.content = this.article.content.split("\n");
+      this.popular_articles = await ApiWrapper.fetchPopularArticles();
 
-        this.popular_articles = await ApiWrapper.fetchPopularArticles();
+      this.categories = await ApiWrapper.fetchCategories();
 
-        this.categories = await ApiWrapper.fetchCategories();
-
-    }
+   }
 
 }

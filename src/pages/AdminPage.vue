@@ -46,6 +46,7 @@
 
    import { Component, Prop, Vue } from "nuxt-property-decorator";
    import ApiWrapper from '../scripts/api_wrapper';
+   
    import Navbar from '../components/navbar/Navbar.vue';
    import EditPanelItem from '../components/edit_panel/article/EditPanelItem.vue';
    import EditArticles from '../components/edit_panel/article/EditArticles.vue';

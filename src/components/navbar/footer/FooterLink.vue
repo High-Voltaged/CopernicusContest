@@ -8,7 +8,7 @@
      
       </div>
      
-      <div class="w-2 h-2 block lg:hidden">
+      <div class="w-2 h-2 hidden sm:block lg:hidden">
      
          <font-awesome-icon :icon="['fas', 'circle']" class="h-full w-full fill-current text-purple-secondary" />
      

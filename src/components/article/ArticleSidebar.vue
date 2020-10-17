@@ -13,8 +13,8 @@
 <script lang="ts">
 
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import PopularArticles from './popular_articles.vue';
-    import Categories from './categories.vue';
+    import PopularArticles from './PopularArticles.vue';
+    import Categories from './Categories.vue';
 
     @Component({
         name: "ArticleSidebar",
