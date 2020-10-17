@@ -20,7 +20,7 @@
 
          </div>
 
-         <div class="article-content flex flex-col items-center lg:flex-row lg:items-start lg:justify-center p-5 sm:px-12 md:px-20 2xl:px-32">
+         <div v-if="article" class="article-content flex flex-col items-center lg:flex-row lg:items-start lg:justify-center p-5 sm:px-12 md:px-20 2xl:px-32">
 
             <div class="flex flex-col items-center w-full lg:w-3/5 2xl:w-2/5 relative lg:mr-10 -mt-88 xl:-mt-48 z-10">
 
@@ -84,9 +84,9 @@
 
                            <font-awesome-icon :icon="['fas', 'hashtag']" class="h-4 w-4 fill-current text-purple-secondary" />
 
-                           <!-- <span class="article-header ml-2 text-gray-300 font-semibold lg:transition duration-300 ease"> 
+                           <span v-if="article.category" class="article-header ml-2 text-gray-300 font-semibold lg:transition duration-300 ease"> 
                               {{ article.category.name }} 
-                           </span> -->
+                           </span>
 
                         </div>
 
@@ -155,7 +155,11 @@
 
       async beforeMount() {
 
-         vxm.articles.fetchArticle(this.$route.params.id);
+         if(!this.addArticle) {
+
+            vxm.articles.fetchArticle(this.$route.params.id);
+         
+         }
 
       }
 
