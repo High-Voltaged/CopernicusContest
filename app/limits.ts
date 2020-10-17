@@ -11,11 +11,10 @@ export namespace Limits {
    export const max_picture_length: number = 255;
 
    // For Quiz Editing
+   export const min_question_length: number = 1;
+   export const max_question_length: number = 255;
 
-   export const min_question_length: number = 20;
-   export const max_question_length: number = 80;
-
-   export const min_answer_length: number = 10;
-   export const max_answer_length: number = 30;
+   export const min_answer_length: number = 1;
+   export const max_answer_length: number = 255;
 
 };

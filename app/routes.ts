@@ -63,6 +63,12 @@ module.exports = function(app) {
         });
     });
 
+    app.post(Links.fetch_quiz_questions_edit, async function(req: Request, res: Response) {
+        res.json({
+            response: await Queries.fetchQuizQuestionsEdit()
+        });
+    });
+
     app.post(Links.admin_panel_login, async function(req: Request, res: Response) {
         res.json({
             response: await Utils.processAdminLogin(res, req.body.username, req.body.password)

@@ -108,7 +108,16 @@ export namespace Queries {
     export async function fetchQuizQuestions() {
 
         connection = await database.getConnection();
-        let result = await connection.query("SELECT questions.id, questions.question, answers.id as answer_id, answers.answer, correct_answers.correct_answer_id FROM quiz_questions questions INNER JOIN quiz_answers answers ON questions.id = answers.question_id INNER JOIN quiz_correct_answers correct_answers ON answers.id = correct_answers.correct_answer_id ORDER by rand();", []);
+        let result = await connection.query("SELECT questions.id, questions.question, answers.id as answer_id, answers.answer, correct_answers.correct_answer_id FROM quiz_questions questions INNER JOIN quiz_answers answers ON questions.id = answers.question_id INNER JOIN quiz_correct_answers correct_answers ON answers.id = correct_answers.correct_answer_id ORDER by rand() LIMIT 25;", []);
+        connection.end();
+        return result;
+
+    }
+
+    export async function fetchQuizQuestionsEdit() {
+
+        connection = await database.getConnection();
+        let result = await connection.query("SELECT questions.id, questions.question, answers.id as answer_id, answers.answer, correct_answers.correct_answer_id FROM quiz_questions questions INNER JOIN quiz_answers answers ON questions.id = answers.question_id INNER JOIN quiz_correct_answers correct_answers ON answers.id = correct_answers.correct_answer_id ORDER by questions.id;", []);
         connection.end();
         return result;
 
