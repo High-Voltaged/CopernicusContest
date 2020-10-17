@@ -26,12 +26,8 @@
 
       </div>
 
-      <div 
-         class="sm:block shadow-md sm:shadow-none bg-gray-tertiary sm:bg-transparent z-50" 
-         :class="isOpen ? 'block' : 'hidden' " 
-         style="border-radius: 0 0 15px 15px"
-      >
- 
+      <div class="hidden sm:block shadow-md sm:shadow-none bg-gray-tertiary sm:bg-transparent z-50">
+
          <div class="flex flex-col items-start sm:flex-row sm:items-center relative space-y-4 sm:space-y-0 sm:space-x-2 p-3 sm:p-0">
          
             <NavbarLink
@@ -43,6 +39,28 @@
          </div>
 
       </div>
+
+      <transition name="fade-out">
+
+         <div 
+            v-if="isOpen"
+            class="shadow-md sm:shadow-none bg-gray-tertiary sm:bg-transparent z-50" 
+            style="border-radius: 0 0 15px 15px"
+         >
+   
+            <div class="flex flex-col items-start sm:flex-row sm:items-center relative space-y-4 sm:space-y-0 sm:space-x-2 p-3 sm:p-0">
+            
+               <NavbarLink
+                  v-for="(link, index) in links"
+                  :key="index"
+                  :link="link"
+               ></NavbarLink>
+
+            </div>
+
+         </div>
+         
+      </transition>
 
    </header>
 
