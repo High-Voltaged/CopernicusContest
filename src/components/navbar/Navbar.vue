@@ -32,7 +32,7 @@
          style="border-radius: 0 0 15px 15px"
       >
  
-         <div class="flex flex-col items-start sm:flex-row sm:items-center relative space-y-4 sm:space-y-0 p-3 sm:p-0">
+         <div class="flex flex-col items-start sm:flex-row sm:items-center relative space-y-4 sm:space-y-0 sm:space-x-2 p-3 sm:p-0">
          
             <NavbarLink
                v-for="(link, index) in links"
