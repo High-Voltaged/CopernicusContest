@@ -230,7 +230,9 @@
 
       }
 
+
       // Lifecycle Hooks
+
 
       mounted() {
          
@@ -258,10 +260,8 @@
 
       validateQuestionLength(): boolean {
 
-         let question = this.questions_array[this.question].question;
-
-         if((question.length < Limits.min_question_length) 
-            || (question.length > Limits.max_question_length)) {
+         if((this.temp_question.length < Limits.min_question_length) 
+            || (this.temp_question.length > Limits.max_question_length)) {
 
             return false;
 
