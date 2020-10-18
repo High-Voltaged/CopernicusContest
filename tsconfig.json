@@ -1,16 +1,28 @@
 {
   "compilerOptions": {
+    
     "module": "commonjs",
+    
     "target": "es6",
+    
     "moduleResolution": "node",
+    
     "lib": [ "es6", "dom" ],
+    
     "esModuleInterop": true,
+    
     "experimentalDecorators": true,
+    
     "sourceMap": true,
+    
     "allowSyntheticDefaultImports": true,
+    
     "noEmit": true,
+    
     "baseUrl": ".",
+    
     "resolveJsonModule": true,
+    
     "paths": {
       "~/*": [ "./*" ],
       //"*": [ "node_modules/*" ],
@@ -18,10 +30,15 @@
       "@/*": [ "./src/components/*" ],
       "#/*": [ "./src/*" ]
     },
+  
     "types": [
       "@nuxt/types"
     ]
+  
   },
+
   "include": [ "./src/**/*.ts", "./src/**/*.vue", "*.ts", "*.vue" ],
+
   "exclude": [ "node_modules" ]
+
 }
