@@ -65,7 +65,7 @@ module.exports = function(app) {
 
     app.post(Links.fetch_quiz_questions_edit, async function(req: Request, res: Response) {
         res.json({
-            response: await Queries.fetchQuizQuestionsEdit()
+            response: await Queries.fetchEditQuizQuestions()
         });
     });
 
@@ -89,7 +89,7 @@ module.exports = function(app) {
 
     app.post(Links.fetch_edit_articles_list, async function(req: Request, res: Response) {
         res.json({
-            response: await Queries.fetchEditArticleList()
+            response: await Utils.fetchEditArticleList(req)
         });
     });
 

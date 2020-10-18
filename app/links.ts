@@ -21,7 +21,7 @@ export namespace Links {
 	export const fetch_quiz_questions: string = "/api/fetchQuizQuestions";
 
 	// Fetches quiz questions, but all of them and ordered by question id instead
-	export const fetch_quiz_questions_edit: string = "/api/fetchQuizQuestionsEdit";
+	export const fetch_edit_quiz_questions: string = "/api/fetchEditQuizQuestions";
 
 	export const insert_article: string = "/api/insertArticle";
 

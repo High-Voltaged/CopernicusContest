@@ -122,7 +122,7 @@ export namespace Utils {
 
         } else {
 
-            return Codes.ERROR;
+            return Codes.INVALID_SESSION;
 
         }
 
@@ -138,7 +138,35 @@ export namespace Utils {
 
         } else {
 
-            return Codes.ERROR;
+            return Codes.INVALID_SESSION;
+
+        }
+
+    }
+
+    export async function fetchEditArticleList(req: Request): Promise<any> {
+
+        if (await validateSession(getSessionToken(req))) {
+
+            return await Queries.fetchEditArticleList();
+
+        } else {
+
+            return Codes.INVALID_SESSION;
+
+        }
+
+    }
+
+    export async function fetchEditQuizQuestions(req: Request): Promise<any> {
+
+        if (await validateSession(getSessionToken(req))) {
+
+            return await Queries.fetchEditQuizQuestions()();
+
+        } else {
+
+            return Codes.INVALID_SESSION;
 
         }
 
