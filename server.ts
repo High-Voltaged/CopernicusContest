@@ -35,12 +35,13 @@ async function start() {
     } else {
 
         await nuxt.ready()
-
     }
+
 
     app.use(Morgan('dev'));
 
     app.set('trust proxy', 1) // trust first proxy
+
     app.use(BodyParser());
 
     require('./app/routes')(app);
@@ -52,7 +53,7 @@ async function start() {
     //http.listen(1800, host);
 
     console.log("Listening on port " + port);
-
+    
 }
 
 start();

@@ -63,7 +63,7 @@ module.exports = function(app) {
         });
     });
 
-    app.post(Links.fetch_quiz_questions_edit, async function(req: Request, res: Response) {
+    app.post(Links.fetch_edit_quiz_questions, async function(req: Request, res: Response) {
         res.json({
             response: await Queries.fetchEditQuizQuestions()
         });
