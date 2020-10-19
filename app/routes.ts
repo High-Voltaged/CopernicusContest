@@ -15,6 +15,12 @@ module.exports = function(app) {
 
     });
 
+    app.post(Links.fetch_article_stealth, async function(req: Request, res: Response) {
+        res.json({
+            response: await Utils.fetchArticleStealth(req.headers.cookie, req.body.id)
+        });
+    });
+
     app.post(Links.fetch_articles, async function(req: Request, res: Response) {
         res.json({
             response: await Queries.fetchArticles()

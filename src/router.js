@@ -36,7 +36,8 @@ export function createRouter() {
          },
          {
             path: '/article/:id',
-            component: contentPage,
+             component: contentPage,
+             name: "article_user_view",
          },
          {
             path: '/edit/article/:id',

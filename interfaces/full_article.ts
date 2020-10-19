@@ -1,6 +1,7 @@
-import IBriefArticle from "./brief_article";
 import ICategory from "./category";
+import IBaseArticle from "./base_article";
 
-export default interface IFullArticle extends IBriefArticle {
+export default interface IFullArticle extends IBaseArticle {
     category: ICategory,
+    content: string[],
 }

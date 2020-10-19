@@ -1,88 +1,82 @@
 <template>
 
-   <div class="flex flex-col">
+    <div class="flex flex-col">
 
-      <QuizEditMenu 
-         v-if="quiz_menu == 0"
-         @edit="setEditForm($event)"
-      ></QuizEditMenu>      
+        <QuizEditMenu v-if="quiz_menu == 0"
+                      @edit="setEditForm($event)"></QuizEditMenu>
 
-      <div v-else-if="quiz_menu == 1" class="quiz-main-container overflow-y-auto overflow-x-hidden">
+        <div v-else-if="quiz_menu == 1" class="quiz-main-container overflow-y-auto overflow-x-hidden">
 
-         <QuizQuestion 
-            v-if="questions_array.length > question"
-            :key="question"
-            :questions_array="questions_array" 
-            :question="question"
-         ></QuizQuestion>
+            <QuizQuestion v-if="questions_array.length > question"
+                          :key="question"
+                          :questions_array="questions_array"
+                          :question="question"></QuizQuestion>
 
-      </div>
+        </div>
 
-   </div>
+    </div>
 
 </template>
 
 <script lang="ts">
 
-   import { Component, Prop, Vue } from "nuxt-property-decorator";
-   import ApiWrapper from '../../../scripts/api_wrapper';
-   import { vxm } from '../../../store';
+    import { Component, Prop, Vue } from "nuxt-property-decorator";
+    import ApiWrapper from '../../../scripts/api_wrapper';
+    import { vxm } from '../../../store';
 
-   import QuizEditMenu from './QuizEditMenu.vue';
-   import QuizQuestion from '../../quiz/QuizQuestion.vue';
-   import QuizAnswer from '../../quiz/QuizAnswer.vue';
+    import QuizEditMenu from './QuizEditMenu.vue';
+    import QuizQuestion from '../../quiz/QuizQuestion.vue';
+    import QuizAnswer from '../../quiz/QuizAnswer.vue';
 
-   @Component({
-      name: "QuizEdit",
-      components: {
-         QuizEditMenu,
-         QuizQuestion,
-         QuizAnswer,
-      }
-   })
-   export default class QuizEdit extends Vue {
+    @Component({
+        name: "QuizEdit",
+        components: {
+            QuizEditMenu,
+            QuizQuestion,
+            QuizAnswer,
+        }
+    })
+    export default class QuizEdit extends Vue {
 
-      // Menu Configuration
+        // Menu Configuration
 
+        quiz_menu = 0;
 
-      quiz_menu = 0;
+        setEditForm(index: number): void {
 
-      setEditForm(index: number): void {
+            this.quiz_menu = 1;
+            vxm.quiz.setQuestionIndex(index);
 
-         this.quiz_menu = 1;
-         vxm.quiz.setQuestionIndex(index);
+        }
 
-      }
+        // Question Configuration
 
+        get questions_array() {
 
-      // Question Configuration
+            return vxm.quiz.getQuizUtil.questions;
 
-      get questions_array() {
+        }
 
-         return vxm.quiz.getQuizUtil.questions;
+        get question() {
 
-      }
+            return vxm.quiz.getQuizUtil.question;
 
-      get question() {
+        }
 
-         return vxm.quiz.getQuizUtil.question;
+        nextQuestion(): void {
 
-      }
-    
-      nextQuestion(): void {
+            vxm.quiz.nextQuestion();
 
-         vxm.quiz.nextQuestion();
+        }
 
-      }
+        // Lifecycle Hooks
 
-      // Lifecycle Hooks
+        async beforeMount() {
 
-      async beforeMount() {
+            vxm.quiz.prepareQuiz();
 
-          vxm.quiz.prepareQuiz();
+        }
 
-      }
-
-   }
+    }
 
 </script>

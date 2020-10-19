@@ -72,7 +72,6 @@
 
         // Validation
 
-
         validateAnswerLength(): boolean {
 
             if ((this.answer.answer.length < Limits.min_answer_length)

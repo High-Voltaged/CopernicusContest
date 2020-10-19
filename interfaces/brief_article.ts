@@ -1,8 +1,5 @@
-export default interface IBriefArticle {
-    id: number,
-    title: string,
-    picture_link: string,
-    times_read: number,
-    timestamp: string,
+import IBaseArticle from "./base_article";
+
+export default interface IBriefArticle extends IBaseArticle {
     content: string,
 }

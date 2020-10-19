@@ -162,7 +162,7 @@
 
       async discardChanges(): Promise<void> {
 
-         vxm.articles.fetchArticle(this.$route.params.id);
+          vxm.articles.fetchArticle({ article_id: this.$route.params.id, stealth: true });
 
          this.notif_on = true;
          this.changes = 'Your changes to the article were discarded.';

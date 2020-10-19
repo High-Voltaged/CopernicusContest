@@ -2,6 +2,9 @@ export namespace Links {
 
 	export const fetch_article: string = "/api/fetchArticle";
 
+	// Fetch the article but don't increment the view counter, used for editing the aticles
+	export const fetch_article_stealth: string = "/api/fetchArticleStealth";
+
 	export const fetch_articles: string = "/api/fetchArticles";
 
 	export const fetch_popular_articles: string = "/api/fetchPopularArticles";

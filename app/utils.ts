@@ -219,6 +219,20 @@ export namespace Utils {
 
     }
 
+    export async function fetchArticleStealth(raw_cookie: string, article_id: number): Promise<Codes> {
+
+        if (await validateSession(getSessionToken(raw_cookie))) {
+
+            return await Queries.fetchArticle(article_id);
+
+        } else {
+
+            return Codes.INVALID_SESSION;
+
+        }
+
+    }
+
 };
 
 export default Utils;

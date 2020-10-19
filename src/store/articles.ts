@@ -6,66 +6,67 @@ import ICategory from '../../interfaces/category';
 import IFullArticle from '../../interfaces/full_article';
 
 const VuexModule = createModule({
-   namespaced: 'articles',
-   strict: false,
-   target: 'nuxt',
+    namespaced: 'articles',
+    strict: false,
+    target: 'nuxt',
 })
 
 export default class Articles extends VuexModule {
 
-   article: IFullArticle = {};
+    article: IFullArticle = {};
 
-   categories: ICategory[] = [];
+    categories: ICategory[] = [];
 
-   popular_articles: IBriefArticle[] = [];
+    popular_articles: IBriefArticle[] =  [];
 
-   get getUtil() {
+    get getUtil() {
 
-      return {
-         article: this.article,
-         categories: this.categories,
-         popular_articles: this.popular_articles,
-      };
+        return {
+            article: this.article,
+            categories: this.categories,
+            popular_articles: this.popular_articles,
+        };
 
-   }
+    }
 
-   @mutation setArticle(article) {
+    @mutation setArticle(article) {
 
-      this.article = article;
+        this.article = article;
 
-   }
+    }
 
-   @action async fetchArticle(article_id: string) {
+    @action async fetchArticle(payload: { article_id: string, stealth: boolean }): Promise<void> {
 
-      this.article = (await ApiWrapper.fetchArticle(Number(article_id)))[0];
+        console.log("ARTICLE");
 
-      this.article.content = this.article.content.split("\n");
+        this.article = (await ApiWrapper.fetchArticle(Number(payload.article_id), payload.stealth))[0];
 
-      this.popular_articles = await ApiWrapper.fetchPopularArticles();
+        this.article.content = this.article.content.split("\n");
 
-      this.categories = await ApiWrapper.fetchCategories();
+        this.popular_articles = await ApiWrapper.fetchPopularArticles();
 
-   }
+        this.categories = await ApiWrapper.fetchCategories();
 
-   
-   // Adding / Editing an Article
+    }
 
-   validationError = {
-      value: false,
-      content: '',
-   }
+    // Adding / Editing an Article
 
-   get getValidationError() {
+    validationError = {
+        value: false,
+        content: '',
+    }
 
-      return this.validationError;
+    get getValidationError() {
 
-   }
+        return this.validationError;
 
-   @mutation setValidationError(payload: { value: boolean, content: string }) {
+    }
 
-      this.validationError.value = payload.value;
-      this.validationError.content = payload.content;
+    @mutation setValidationError(payload: { value: boolean, content: string }) {
 
-   }
+        this.validationError.value = payload.value;
+        this.validationError.content = payload.content;
+
+    }
 
 }

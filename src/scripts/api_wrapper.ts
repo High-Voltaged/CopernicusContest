@@ -25,9 +25,19 @@ export namespace APIWrapper {
 
     }
 
-    export async function fetchArticle(id: number): Promise<IFullArticle> {
+    export async function fetchArticle(id: number, stealth: boolean): Promise<IFullArticle> {
 
-        let response: AxiosResponse = await axios.post(Links.fetch_article, { id: id });
+        let response: AxiosResponse;
+
+        if (stealth) {
+
+            response = await axios.post(Links.fetch_article_stealth, { id: id });
+
+        } else {
+
+            response = await axios.post(Links.fetch_article, { id: id });;
+
+        }
 
         let article: IFullArticle = response.data["response"];
 
