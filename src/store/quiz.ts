@@ -64,6 +64,7 @@ export default class Articles extends VuexModule {
                     this.questions_array[j].answers.push({
                         id: raw_question.answer_id,
                         answer: raw_question.answer,
+                        letter_label: "0",
                     });
 
                     found = true;
@@ -82,6 +83,7 @@ export default class Articles extends VuexModule {
                     answers: [{
                         id: raw_question.answer_id,
                         answer: raw_question.answer,
+                        letter_label: "0",
                     }],
                     correct_answer_id: raw_question.correct_answer_id,
                     selected_answer: -1,
@@ -98,8 +100,6 @@ export default class Articles extends VuexModule {
         await this.formatQuizJSON();
 
         await this.assignLetterLabels();
-
-        console.log(this.questions_array);
 
     }
 
