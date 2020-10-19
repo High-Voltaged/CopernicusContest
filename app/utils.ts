@@ -204,6 +204,21 @@ export namespace Utils {
 
     }
 
+    // Validates the session and returns an appropriate code
+    export async function validateSessionCode(raw_cookie: string): Promise<Codes> {
+
+        if (await validateSession(getSessionToken(raw_cookie))) {
+
+            return Codes.SUCCESS;
+
+        } else {
+
+            return Codes.INVALID_SESSION;
+
+        }
+
+    }
+
 };
 
 export default Utils;

@@ -98,6 +98,14 @@ export namespace APIWrapper {
 
     }
 
+    export async function validateSession(): Promise<Codes> {
+
+        let response: AxiosResponse = await axios.post(Links.validate_session);
+
+        return response.data["response"];
+
+    }
+
 }
 
 export default APIWrapper;

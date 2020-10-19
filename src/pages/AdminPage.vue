@@ -13,9 +13,11 @@
             <div class="flex items-center w-72">
 
                 <div class="inline-block w-full">
+
                     <button @click="setCurrent(articles)" class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
                         Edit articles
                     </button>
+
                 </div>
 
             </div>
@@ -23,6 +25,7 @@
             <div class="flex items-center w-72">
 
                 <div class="inline-block w-full">
+
                     <router-link to="/edit/quiz">
 
                         <button class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
@@ -30,6 +33,7 @@
                         </button>
 
                     </router-link>
+
                 </div>
 
             </div>
@@ -45,12 +49,13 @@
 <script lang="ts">
 
     import { Component, Prop, Vue } from "nuxt-property-decorator";
-    import ApiWrapper from '../scripts/api_wrapper';
 
     import Navbar from '../components/navbar/Navbar.vue';
     import EditPanelItem from '../components/edit_panel/article/EditPanelItem.vue';
     import EditArticles from '../components/edit_panel/article/EditArticles.vue';
     import AdminLogin from '../components/admin/AdminLogin.vue';
+    import ApiWrapper from "../scripts/api_wrapper";
+    import Codes from "../../app/codes";
 
     @Component({
         name: "AdminPage",
@@ -77,6 +82,18 @@
 
             this.articles = true;
             this.edit_menu = -1;
+
+        }
+
+        async beforeMount() {
+
+            let session_validation = await ApiWrapper.validateSession();
+            
+            if (session_validation == Codes.SUCCESS) {
+
+                this.goToEdit();
+
+            }
 
         }
 

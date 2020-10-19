@@ -105,4 +105,10 @@ module.exports = function(app) {
         });
     });
 
+    app.post(Links.validate_session, async function(req: Request, res: Response) {
+        res.json({
+            response: await Utils.validateSessionCode(req.headers.cookie)
+        });
+    });
+
 };
