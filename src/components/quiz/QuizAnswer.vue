@@ -22,8 +22,6 @@
 
                 <button v-if="editMode"
                         @click="removeAnswer()"
-                        :disabled="disabled"
-                        :class="{ 'transform hover:scale-125': !disabled }"
                         class="inline-flex items-center justify-center absolute -right-2 -top-2 w-4 h-4 rounded-full shadow bg-red-primary transition duration-300 ease focus:outline-none">
 
                     <font-awesome-icon :icon="['fas', 'times']" class="flex-0 w-2 h-2 fill-current text-gray-200" />
@@ -74,7 +72,7 @@
 
         }
 
-        get disabled() {
+        /*get disabled() {
 
             if (this.answers.length == 2) {
 
@@ -86,7 +84,7 @@
 
             }
 
-        }
+        }*/
 
         selectedAnswer(): void {
 
@@ -97,6 +95,8 @@
         removeAnswer(): void {
 
             vxm.quiz.removeAnswer(this.answer.answer);
+
+            vxm.quiz.assignLetterLabels();
 
         }
 
