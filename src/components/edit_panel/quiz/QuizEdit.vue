@@ -79,7 +79,7 @@
 
       async beforeMount() {
 
-         vxm.quiz.formatQuizJSON();
+          vxm.quiz.prepareQuiz();
 
       }
 

@@ -5,6 +5,7 @@ import Codes from "../../app/codes";
 import ICategory from "../../interfaces/category";
 import IFullArticle from "../../interfaces/full_article";
 import moment from "moment";
+import IQuizRaw from "../../interfaces/quiz_raw";
 
 export namespace APIWrapper {
 
@@ -65,7 +66,7 @@ export namespace APIWrapper {
 
     }
 
-    export async function fetchQuiz(): Promise<string> {
+    export async function fetchQuiz(): Promise<IQuizRaw[]> {
 
         let response: AxiosResponse = await axios.post(Links.fetch_quiz_questions);
 

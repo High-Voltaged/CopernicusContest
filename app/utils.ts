@@ -12,9 +12,9 @@ export namespace Utils {
         return crypto.randomBytes(32).toString('hex');
     }
 
-    function getSessionToken(req: Request) {
+    function getSessionToken(raw_cookie: string) {
 
-        let cookies: string[] = req.headers.cookie.split("; ");
+        let cookies: string[] = raw_cookie.split("; ");
 
         let session_token: string;
 
@@ -112,25 +112,9 @@ export namespace Utils {
 
     }
 
-    export async function editArticle(req: Request, article_id: number, new_title: string, new_content: string): Promise<Codes> {
+    export async function insertArticle(raw_cookie: string, title: string, content: string, picture_link: string, important: number, category_id: number): Promise<Codes> {
 
-        if ((await validateSession(getSessionToken(req))) && (validateUpdatedArticleDetails(new_title, new_content))) {
-
-            await Queries.updateArticle(article_id, new_title, new_content);
-
-            return Codes.SUCCESS;
-
-        } else {
-
-            return Codes.INVALID_SESSION;
-
-        }
-
-    }
-
-    export async function insertArticle(req: Request, title: string, content: string, picture_link: string, important: number, category_id: number): Promise<Codes> {
-
-        if ((await validateSession(getSessionToken(req))) && (validateNewArticleDetails(title, content, picture_link, important))) {
+        if ((await validateSession(getSessionToken(raw_cookie))) && (validateNewArticleDetails(title, content, picture_link, important))) {
 
             await Queries.insertArticle(title, content, picture_link, important, category_id);
 
@@ -144,9 +128,41 @@ export namespace Utils {
 
     }
 
-    export async function fetchEditArticleList(req: Request): Promise<any> {
+    export async function editArticle(raw_cookie: string, article_id: number, new_title: string, new_content: string): Promise<Codes> {
 
-        if (await validateSession(getSessionToken(req))) {
+        if ((await validateSession(getSessionToken(raw_cookie))) && (validateUpdatedArticleDetails(new_title, new_content))) {
+
+            await Queries.updateArticle(article_id, new_title, new_content);
+
+            return Codes.SUCCESS;
+
+        } else {
+
+            return Codes.INVALID_SESSION;
+
+        }
+
+    }
+
+    export async function deleteArticle(raw_cookie: string, article_id: number) {
+
+        if (await validateSession(getSessionToken(raw_cookie))) {
+
+            await Queries.deleteArticle(article_id);
+
+            return Codes.SUCCESS;
+
+        } else {
+
+            return Codes.INVALID_SESSION;
+
+        }
+
+    }
+
+    export async function fetchEditArticleList(raw_cookie: string): Promise<any> {
+
+        if (await validateSession(getSessionToken(raw_cookie))) {
 
             return await Queries.fetchEditArticleList();
 
@@ -158,11 +174,27 @@ export namespace Utils {
 
     }
 
-    export async function fetchEditQuizQuestions(req: Request): Promise<any> {
+    export async function fetchEditQuizQuestions(raw_cookie: string): Promise<any> {
 
-        if (await validateSession(getSessionToken(req))) {
+        if (await validateSession(getSessionToken(raw_cookie))) {
 
-            return await Queries.fetchEditQuizQuestions()();
+            return await Queries.fetchEditQuizQuestions();
+
+        } else {
+
+            return Codes.INVALID_SESSION;
+
+        }
+
+    }
+
+    export async function deleteQuizQuestion(raw_cookie: string, question_id: number): Promise<any> {
+
+        if (await validateSession(getSessionToken(raw_cookie))) {
+
+            await Queries.deleteQuizQuestion(question_id);
+
+            return Codes.SUCCESS;
 
         } else {
 

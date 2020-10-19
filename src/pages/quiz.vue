@@ -70,9 +70,9 @@
 
       }
 
-      async mounted(): Promise<void> {
+      async beforeMount(): Promise<void> {
 
-         vxm.quiz.formatQuizJSON();
+           await vxm.quiz.prepareQuiz();
 
       }
 

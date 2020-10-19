@@ -14,16 +14,6 @@ export namespace Queries {
 
     }
 
-    export async function insertArticle(title: string, content: string, picture_link: string, important: number, category_id: number) {
-
-        connection = await database.getConnection();
-        let result = await connection.query("INSERT IGNORE INTO `articles` (`title`, `content`, picture_link, `important`, `category_id`) VALUES (?, ?, ?, ?, ?)",
-                                            [title, content, picture_link, important, category_id]);
-        connection.end();
-        return result;
-
-    }
-
     export async function incrementArticleViewCount(id: number) {
 
         connection = await database.getConnection();
@@ -108,7 +98,7 @@ export namespace Queries {
     export async function fetchQuizQuestions() {
 
         connection = await database.getConnection();
-        let result = await connection.query("SELECT questions.id, questions.question, answers.id as answer_id, answers.answer, correct_answers.correct_answer_id FROM quiz_questions questions INNER JOIN quiz_answers answers ON questions.id = answers.question_id INNER JOIN quiz_correct_answers correct_answers ON answers.id = correct_answers.correct_answer_id ORDER by rand() LIMIT 25;", []);
+        let result = await connection.query("SELECT questions.id as question_id, questions.question, answers.id AS answer_id, answers.answer, correct_answers.correct_answer_id FROM quiz_questions questions INNER JOIN quiz_answers answers ON questions.id = answers.question_id INNER JOIN quiz_correct_answers correct_answers ON questions.id = correct_answers.question_id ORDER by rand() LIMIT 25;", []);
         connection.end();
         return result;
 
@@ -117,7 +107,7 @@ export namespace Queries {
     export async function fetchEditQuizQuestions() {
 
         connection = await database.getConnection();
-        let result = await connection.query("SELECT questions.id, questions.question, answers.id as answer_id, answers.answer, correct_answers.correct_answer_id FROM quiz_questions questions INNER JOIN quiz_answers answers ON questions.id = answers.question_id INNER JOIN quiz_correct_answers correct_answers ON answers.id = correct_answers.correct_answer_id ORDER by questions.id;", []);
+        let result = await connection.query("SELECT questions.id as question_id, questions.question, answers.id AS answer_id, answers.answer, correct_answers.correct_answer_id FROM quiz_questions questions INNER JOIN quiz_answers answers ON questions.id = answers.question_id INNER JOIN quiz_correct_answers correct_answers ON questions.id = correct_answers.question_id;", []);
         connection.end();
         return result;
 
@@ -150,10 +140,38 @@ export namespace Queries {
 
     }
 
+    export async function insertArticle(title: string, content: string, picture_link: string, important: number, category_id: number) {
+
+        connection = await database.getConnection();
+        let result = await connection.query("INSERT IGNORE INTO `articles` (`title`, `content`, picture_link, `important`, `category_id`) VALUES (?, ?, ?, ?, ?)",
+            [title, content, picture_link, important, category_id]);
+        connection.end();
+        return result;
+
+    }
+
     export async function updateArticle(article_id: number, new_title: string, new_content: string) {
 
         connection = await database.getConnection();
-        let result = await connection.query("UPDATE `articles` SET `title` = ?, `content` = ? WHERE `article_id` = ?", [new_title, new_content, article_id]);
+        let result = await connection.query("UPDATE `articles` SET `title` = ?, `content` = ? WHERE `id` = ?", [new_title, new_content, article_id]);
+        connection.end();
+        return result;
+
+    }
+
+    export async function deleteArticle(article_id: number) {
+
+        connection = await database.getConnection();
+        let result = await connection.query("DELETE FROM `articles` WHERE `id` = ?", [article_id]);
+        connection.end();
+        return result;
+
+    }
+
+    export async function deleteQuizQuestion(question_id: number) {
+
+        connection = await database.getConnection();
+        let result = await connection.query("DELETE FROM `quiz_questions` WHERE `id` = ?", [question_id]);
         connection.end();
         return result;
 

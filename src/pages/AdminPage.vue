@@ -1,79 +1,85 @@
 <template>
 
-   <div class="flex items-center justify-center overflow-y-auto h-screen w-screen py-6 bg-gray-secondary">
+    <div class="flex items-center justify-center overflow-y-auto h-screen w-screen py-6 bg-gray-secondary">
 
-      <div v-if="edit_menu == 0" class="flex-auto flex flex-col items-center justify-center h-full py-3 bg-gray-secondary">
+        <div v-if="edit_menu == 0" class="flex-auto flex flex-col items-center justify-center h-full py-3 bg-gray-secondary">
 
-         <AdminLogin @goToEdit="edit_panel = 1"></AdminLogin>
+            <AdminLogin @goToEdit="goToEdit()"></AdminLogin>
 
-      </div>
+        </div>
 
-      <div v-else-if="edit_menu == 1" class="flex-auto flex flex-col md:flex-row items-center justify-center w-full h-full space-y-8 md:space-y-0 md:space-x-10 bg-gray-secondary p-8">
+        <div v-else-if="edit_menu == 1" class="flex-auto flex flex-col md:flex-row items-center justify-center w-full h-full space-y-8 md:space-y-0 md:space-x-10 bg-gray-secondary p-8">
 
-         <div class="flex items-center w-72">
+            <div class="flex items-center w-72">
 
-            <div class="inline-block w-full">
-               <button @click="setCurrent(articles)" class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
-                  Edit articles
-               </button>
+                <div class="inline-block w-full">
+                    <button @click="setCurrent(articles)" class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
+                        Edit articles
+                    </button>
+                </div>
+
             </div>
 
-         </div>
+            <div class="flex items-center w-72">
 
-         <div class="flex items-center w-72">
+                <div class="inline-block w-full">
+                    <router-link to="/edit/quiz">
 
-            <div class="inline-block w-full">
-               <router-link to="/edit/quiz">
+                        <button class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
+                            Edit the quiz
+                        </button>
 
-                  <button class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
-                     Edit the quiz
-                  </button>
+                    </router-link>
+                </div>
 
-               </router-link>
             </div>
 
-         </div>
+        </div>
 
-      </div>
+        <EditArticles v-if="articles"></EditArticles>
 
-      <EditArticles v-if="articles"></EditArticles>
-
-   </div>
+    </div>
 
 </template>
 
 <script lang="ts">
 
-   import { Component, Prop, Vue } from "nuxt-property-decorator";
-   import ApiWrapper from '../scripts/api_wrapper';
-   
-   import Navbar from '../components/navbar/Navbar.vue';
-   import EditPanelItem from '../components/edit_panel/article/EditPanelItem.vue';
-   import EditArticles from '../components/edit_panel/article/EditArticles.vue';
-   import AdminLogin from '../components/admin/AdminLogin.vue';
+    import { Component, Prop, Vue } from "nuxt-property-decorator";
+    import ApiWrapper from '../scripts/api_wrapper';
 
-   @Component({
-      name: "AdminPage",
-      components: {
-         Navbar,
-         EditPanelItem,
-         EditArticles,
-         AdminLogin,
-      },
-   })
-   export default class AdminPage extends Vue {
+    import Navbar from '../components/navbar/Navbar.vue';
+    import EditPanelItem from '../components/edit_panel/article/EditPanelItem.vue';
+    import EditArticles from '../components/edit_panel/article/EditArticles.vue';
+    import AdminLogin from '../components/admin/AdminLogin.vue';
 
-      edit_menu = 0;
+    @Component({
+        name: "AdminPage",
+        components: {
+            Navbar,
+            EditPanelItem,
+            EditArticles,
+            AdminLogin,
+        },
+    })
+    export default class AdminPage extends Vue {
 
-      articles = false;
+        edit_menu = 0;
 
-      setCurrent(c: string) {
+        articles = false;
 
-         this.articles = true;
-         this.edit_menu = -1;
+        goToEdit() {
 
-      }
+            this.edit_menu = 1;
 
-   }
+        }
+
+        setCurrent(c: string) {
+
+            this.articles = true;
+            this.edit_menu = -1;
+
+        }
+
+    }
 
 </script>

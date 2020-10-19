@@ -77,19 +77,31 @@ module.exports = function(app) {
 
     app.post(Links.edit_article, async function(req: Request, res: Response) {
         res.json({
-            response: await Utils.editArticle(req, req.body.article_id, req.body.new_title, req.body.new_content)
+            response: await Utils.editArticle(req.headers.cookie, req.body.article_id, req.body.new_title, req.body.new_content)
         });
     });
 
     app.post(Links.insert_article, async function(req: Request, res: Response) {
         res.json({
-            response: await Utils.insertArticle(req, req.body.title, req.body.content, req.body.picture_link, req.body.important, req.body.category_id)
+            response: await Utils.insertArticle(req.headers.cookie, req.body.title, req.body.content, req.body.picture_link, req.body.important, req.body.category_id)
         });
     });
 
     app.post(Links.fetch_edit_articles_list, async function(req: Request, res: Response) {
         res.json({
-            response: await Utils.fetchEditArticleList(req)
+            response: await Utils.fetchEditArticleList(req.headers.cookie)
+        });
+    });
+
+    app.post(Links.delete_article, async function(req: Request, res: Response) {
+        res.json({
+            response: await Utils.deleteArticle(req.headers.cookie, req.body.article_id)
+        });
+    });
+
+    app.post(Links.delete_quiz_question, async function(req: Request, res: Response) {
+        res.json({
+            response: await Utils.deleteQuizQuestion(req.headers.cookie, req.body.question_id)
         });
     });
 

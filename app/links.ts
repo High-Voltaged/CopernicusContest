@@ -29,4 +29,8 @@ export namespace Links {
 
 	export const edit_article: string = "/api/editArticle";
 
+	export const delete_article: string = "/api/deleteArticle";
+
+	export const delete_quiz_question: string = "/api/deleteQuizQuestion";
+
 };

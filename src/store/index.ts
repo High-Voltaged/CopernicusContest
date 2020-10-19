@@ -6,7 +6,6 @@ import Quiz from './quiz';
 
 Vue.use(Vuex);
 
-
 export const store = new Vuex.Store({
    strict: false,
    modules: {
