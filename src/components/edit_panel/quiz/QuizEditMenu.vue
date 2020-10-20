@@ -1,8 +1,8 @@
 <template>
 
-   <div class="flex flex-shrink-0 justify-center w-full h-full max-h-screen overflow-y-auto overflow-x-hidden py-8 transition duration-500 ease transform">
+   <div class="flex flex-shrink-0 items-center justify-center w-full h-screen max-h-screen overflow-y-auto overflow-x-hidden py-8 transition duration-500 ease transform">
 
-      <div class="quiz-card flex flex-col items-center m-auto w-19/20 sm:w-9/10 md:w-4/5 lg:w-2/3 xl:w-1/2 rounded-lg px-8 py-4 shadow-md">
+      <div class="quiz-card flex flex-col items-center justify-center m-auto w-19/20 sm:w-9/10 md:w-4/5 lg:w-2/3 xl:w-1/2 rounded-lg px-8 py-4 shadow-md">
 
          <div class="header w-full flex items-center justify-start space-x-2 py-3 md:px-0 lg:px-2">
 

@@ -22,7 +22,7 @@
 
                 <button v-if="editMode"
                         @click="removeAnswer()"
-                        class="inline-flex items-center justify-center absolute -right-2 -top-2 w-4 h-4 rounded-full shadow bg-red-primary transition duration-300 ease focus:outline-none">
+                        class="inline-flex items-center justify-center absolute -right-2 -top-2 w-4 h-4 rounded-full shadow bg-red-primary transform hover:scale-125 transition duration-300 ease focus:outline-none">
 
                     <font-awesome-icon :icon="['fas', 'times']" class="flex-0 w-2 h-2 fill-current text-gray-200" />
 
@@ -71,20 +71,6 @@
             return this.questions_array[this.question].answers;
 
         }
-
-        /*get disabled() {
-
-            if (this.answers.length == 2) {
-
-                return true;
-
-            } else {
-
-                return false;
-
-            }
-
-        }*/
 
         selectedAnswer(): void {
 

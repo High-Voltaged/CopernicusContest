@@ -43,7 +43,8 @@
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import QuizAnswer from './QuizAnswer.vue';
     import QuizNewAnswer from '../edit_panel/quiz/QuizNewAnswer.vue';
-
+    
+   import { Limits } from '../../../app/limits'; 
     import { vxm } from '../../store';
 
     @Component({
@@ -87,7 +88,7 @@
 
         get disabled() {
 
-            if (this.quiz_answers.length == 4) {
+            if (this.quiz_answers.length == Limits.max_amount_of_answers) {
 
                 this.setNewAnswer(false); // hide the container for new answer input
 

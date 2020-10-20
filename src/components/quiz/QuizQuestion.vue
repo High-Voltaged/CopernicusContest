@@ -1,6 +1,6 @@
 <template>
 
-    <div class="flex quiz-container flex-shrink-0 flex justify-center h-full w-full max-h-screen overflow-y-auto overflow-x-hidden py-8 transition duration-500 ease transform">
+    <div class="flex quiz-container flex-shrink-0 justify-center h-full w-full max-h-screen overflow-y-auto overflow-x-hidden py-8 transition duration-500 ease transform">
 
         <div class="quiz-card flex flex-col items-center relative m-auto w-19/20 sm:w-9/10 md:w-4/5 lg:w-2/3 xl:w-1/2 rounded-lg space-y-3 px-8 py-4 shadow-md">
 
@@ -165,6 +165,12 @@
 
         }
 
+         get answers() {
+
+            return vxm.quiz.getQuizUtil.questions[this.question].answers;
+
+         }
+
         get prev_disabled() {
 
             if (this.question == 0) {
@@ -262,11 +268,30 @@
 
         }
 
+        validateAnswersLength(): boolean {
+
+           if((this.answers.length < Limits.min_amount_of_answers) 
+            || (this.answers.length > Limits.max_amount_of_answers)) {
+
+              return false;
+
+           } else {
+
+              return true;
+
+           }
+
+        }
+
         saveTheQuiz(): void {
 
             if (!this.validateQuestionLength()) {
 
                 vxm.quiz.setValidationError({ value: true, content: 'The length of the question is either too short or too long.' });
+
+            } else if (!this.validateAnswersLength()) {
+
+               vxm.quiz.setValidationError({ value: true, content: 'The amount of answers can range from 2 to 4.' });
 
             } else {
 
