@@ -38,6 +38,8 @@ export namespace Links {
 
 	export const update_quiz_question: string = "/api/updateQuizQuestion";
 
+	export const insert_quiz_question: string = "/api/insertQuizQuestion";
+
 	export const validate_session: string = "/api/validateSession";
 
 };

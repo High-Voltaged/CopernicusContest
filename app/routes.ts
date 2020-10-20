@@ -123,5 +123,11 @@ module.exports = function(app) {
         });
     });
 
+    app.post(Links.insert_article, async function(req: Request, res: Response) {
+        res.json({
+            response: await Utils.insertQuizQuestion(req.headers.cookie, req.body.question)
+        });
+    });
+
 
 };

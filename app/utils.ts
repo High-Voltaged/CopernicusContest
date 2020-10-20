@@ -82,6 +82,10 @@ export namespace Utils {
 
         let found: boolean = false;
 
+        if (!((question.answers.length >= Limits.min_amount_of_answers) && (question.answers.length <= Limits.max_amount_of_answers))) {
+            return false;
+        }
+
         // Check whether each answers fits the appropriate length boundaries and also check if it has an answer that has ID of correct_answer_id
         for (let answer of question.answers) {
 
@@ -90,9 +94,7 @@ export namespace Utils {
             }
 
             if (question.correct_answer_id == answer.id) {
-
                 found = true;
-
             }
 
         }
@@ -271,6 +273,22 @@ export namespace Utils {
         if (await validateSession(getSessionToken(raw_cookie)) && validateQuizQuestionDetails(question)) {
 
             await Queries.updateQuizQuestion(question);
+
+            return Codes.SUCCESS;
+
+        } else {
+
+            return Codes.INVALID_SESSION;
+
+        }
+
+    }
+
+    export async function insertQuizQuestion(raw_cookie: string, question: IQuizQuestion): Promise<Codes> {
+
+        if (await validateSession(getSessionToken(raw_cookie)) && validateQuizQuestionDetails(question)) {
+
+            await Queries.insertQuizQuestion(question);
 
             return Codes.SUCCESS;
 

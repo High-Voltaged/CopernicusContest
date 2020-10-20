@@ -184,13 +184,11 @@ export namespace Queries {
 
         await connection.query("DELETE IGNORE FROM `quiz_answers` WHERE `question_id` = ?", [question.id]);
 
-        console.log(question.id);
-
-        await addQuizQuestion(question);
+        await insertQuizQuestion(question);
 
     }
 
-    export async function addQuizQuestion(question: IQuizQuestion) {
+    export async function insertQuizQuestion(question: IQuizQuestion) {
 
         connection = await database.getConnection();
 

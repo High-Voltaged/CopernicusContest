@@ -16,4 +16,7 @@ export namespace Limits {
     export const min_answer_length: number = 1;
     export const max_answer_length: number = 255;
 
+    export const min_amount_of_answers: number = 1;
+    export const max_amount_of_answers: number = 4;
+
 };
