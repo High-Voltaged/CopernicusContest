@@ -44,7 +44,7 @@
                Article's category
             </label>
 
-            <select type="text" v-model="article.category" class="w-48 mt-1 bg-gray-tertiary bg-opacity-75 text-sm py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease">
+            <!-- <select type="text" v-model="article.category" class="w-48 mt-1 bg-gray-tertiary bg-opacity-75 text-sm py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease">
                <option
                   v-for="c in categories"
                   :key="c.id"
@@ -52,7 +52,9 @@
                >
                   {{ c.name }}
                </option>
-            </select>
+            </select> -->
+
+            <SelectMenu></SelectMenu>
 
          </template>
 
@@ -130,12 +132,14 @@
 
    import ArticleContent from '../../../pages/content.vue';
    import Notification from '../Notification.vue';
+   import SelectMenu from '../../other/SelectMenu.vue';
    
    @Component({
       name: "ArticleAdd",
       components: {
          ArticleContent,
          Notification,
+         SelectMenu,
       }
    })
    
@@ -149,14 +153,6 @@
          picture_link: '',
 
       };
-
-      categories: ICategory[] = [];
-
-      async beforeMount() {
-
-         this.categories = await APIWrapper.fetchCategories();
-
-      }
 
       beforeDestroy() {
 
