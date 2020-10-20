@@ -236,6 +236,14 @@
 
         }
 
+         beforeDestroy() {
+
+            this.notif_on = false;
+            this.notif_content = '';
+
+            vxm.quiz.setValidationError({ value: false, content: '' });
+
+        }
 
         // Edit Mode / Validation
 
@@ -302,8 +310,6 @@
 
                 APIWrapper.updateQuizQuestion(this.questions_array[this.question]);
 
-                // post request here
-
             }
 
         }
@@ -317,15 +323,6 @@
 
             this.notif_on = false;
             this.notif_content = '';
-
-        }
-
-        beforeDestroy() {
-
-            this.notif_on = false;
-            this.notif_content = '';
-
-            vxm.quiz.setValidationError({ value: false, content: '' });
 
         }
 

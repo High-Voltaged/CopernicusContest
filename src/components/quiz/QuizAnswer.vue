@@ -80,7 +80,7 @@
 
         removeAnswer(): void {
 
-            vxm.quiz.removeAnswer(this.answer.answer);
+            vxm.quiz.removeAnswer(this.answer.id);
 
             vxm.quiz.assignLetterLabels();
 

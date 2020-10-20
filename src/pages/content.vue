@@ -160,7 +160,7 @@
 
                 } else {
 
-                    vxm.articles.fetchArticle({ article_id: this.$route.params.id, stealth: false });
+                    vxm.articles.fetchArticle({ article_id: this.$route.params.id, stealth: true });
 
                 }
 

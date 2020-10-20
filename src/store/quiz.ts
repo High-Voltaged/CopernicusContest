@@ -167,11 +167,11 @@ export default class Articles extends VuexModule {
 
     }
 
-    @mutation removeAnswer(content) {
+    @mutation removeAnswer(id: number) {
 
         let tempAnswer = this.questions_array[this.question].answers.find(answer => {
 
-            return (answer.answer == content); // change this to 'id' 
+            return (answer.id == id); // change this to 'id' 
 
         });
 

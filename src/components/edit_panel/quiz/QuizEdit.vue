@@ -63,12 +63,6 @@
 
         }
 
-        nextQuestion(): void {
-
-            vxm.quiz.nextQuestion();
-
-        }
-
         // Lifecycle Hooks
 
         async beforeMount() {
