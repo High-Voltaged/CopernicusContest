@@ -14,7 +14,7 @@
 
                </div>
 
-               <div class="inline-flex items-end space-x-2 ml-2 mr-2">
+               <div class="inline-flex items-stretch space-x-2 ml-2 mr-2">
                   
                   <button @click="cancelAddition" class="p-2 bg-red-600 bg-opacity-50 text-white text-center text-sm font-medium hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none" style="border-radius: 10px 10px 0 0">
                      Cancel
@@ -70,7 +70,7 @@
 
                <div v-if="article.picture_link" class="flex-auto flex items-center justify-center w-full mt-4 bg-gray-main overflow-hidden rounded-lg shadow cursor-pointer">
                      
-                  <img :src="article.picture_link" class="object-cover h-full w-full" />
+                  <img :src="article.picture_link" ref="img" class="object-cover h-full w-full" />
                
                </div>
 
@@ -158,25 +158,16 @@
 
       }
 
+      beforeDestroy() {
 
-      // Img Config
+         this.resetArticle();
+         
+         vxm.articles.setValidationError({ value: false, content: '' });
+         
+         this.notif_content = '';
+         this.notif_on = false;
 
-         img_removed: number = -1;
-
-         setImg(): void {
-
-            this.img_removed = 0;
-
-         }
-
-         removeImg(): void {
-            
-            this.article.picture_link = '';
-
-            this.img_removed = 1;
-
-         }
-
+      }
 
       // Add Article / Cancel
 
@@ -240,12 +231,12 @@
                vxm.articles.setValidationError({ value: true, content: 'Don\'t leave the input fields empty.' });
                return false;
 
-            } else {
-
-               return true;
-            }
+            } 
 
          }
+
+         vxm.articles.setValidationError({ value: false, content: '' });
+         return true;
 
       }
 
@@ -291,7 +282,7 @@
 
       validatePicture(): boolean {
 
-         if(this.article.title.length > Limits.max_picture_length) {
+         if(this.article.picture_link.length > Limits.max_picture_length) {
 
             vxm.articles.setValidationError({ value: true, content: 'The article\'s picture\'s link is invalid.' });
             return false;
@@ -314,15 +305,6 @@
 
             this.notif_on = false;
             this.notif_content = '';
-
-         }
-
-
-      // Router Config
-
-         goToAdmin(): void {
-
-            this.$router.push('/admin');
 
          }
    
