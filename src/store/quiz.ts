@@ -15,6 +15,7 @@ export default class Articles extends VuexModule {
     questions_array: IQuizQuestion[] = [];
     correct_answers: number = 0;
     question: number = 0;
+    temp_id: number = -1;
 
     get getQuizUtil() {
 
@@ -155,10 +156,14 @@ export default class Articles extends VuexModule {
 
     @mutation addAnswer(answer) {
 
+        // Get the temporary ID
         this.questions_array[this.question].answers.push({
+            id: this.temp_id,
             answer: answer.answer,
             letter_label: answer.letter_label,
         });
+
+        --this.temp_id;
 
     }
 

@@ -6,6 +6,7 @@ import ICategory from "../../interfaces/category";
 import IFullArticle from "../../interfaces/full_article";
 import moment from "moment";
 import IQuizRaw from "../../interfaces/quiz_raw";
+import IQuizQuestion from "../../interfaces/quiz_question";
 
 export namespace APIWrapper {
 
@@ -55,6 +56,14 @@ export namespace APIWrapper {
     export async function fetchPopularArticles(): Promise<IBriefArticle[]> {
 
         let response: AxiosResponse = await axios.post(Links.fetch_popular_articles);
+
+        return response.data["response"];
+
+    }
+
+    export async function updateQuizQuestion(question: IQuizQuestion): Promise<Codes> {
+
+        let response: AxiosResponse = await axios.post(Links.update_quiz_question, { question: question });
 
         return response.data["response"];
 

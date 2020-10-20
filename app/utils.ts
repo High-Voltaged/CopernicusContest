@@ -4,6 +4,8 @@ import { Request, Response } from "Express";
 import Codes from "./codes";
 import { Limits } from "./limits";
 import * as crypto from "crypto";
+import IQuizAnswer from "../interfaces/quiz_answer";
+import IQuizQuestion from "../interfaces/quiz_question";
 
 export namespace Utils {
 
@@ -65,6 +67,37 @@ export namespace Utils {
         }
 
         if (!(picture_link.length <= Limits.max_picture_length)) {
+            return false;
+        }
+
+        return true;
+
+    }
+
+    function validateQuizQuestionDetails(question: IQuizQuestion): boolean {
+
+        if (!((question.question.length >= Limits.min_question_length) && (question.question.length <= Limits.max_question_length))) {
+            return false;
+        }
+
+        let found: boolean = false;
+
+        // Check whether each answers fits the appropriate length boundaries and also check if it has an answer that has ID of correct_answer_id
+        for (let answer of question.answers) {
+
+            if (!((answer.answer.length >= Limits.min_answer_length) && (answer.answer.length <= Limits.max_answer_length))) {
+                return false;
+            }
+
+            if (question.correct_answer_id == answer.id) {
+
+                found = true;
+
+            }
+
+        }
+
+        if (!found) {
             return false;
         }
 
@@ -232,6 +265,23 @@ export namespace Utils {
         }
 
     }
+
+    export async function updateQuizQuestion(raw_cookie: string, question: IQuizQuestion): Promise<Codes> {
+
+        if (await validateSession(getSessionToken(raw_cookie)) && validateQuizQuestionDetails(question)) {
+
+            await Queries.updateQuizQuestion(question);
+
+            return Codes.SUCCESS;
+
+        } else {
+
+            return Codes.INVALID_SESSION;
+
+        }
+
+    }
+
 
 };
 

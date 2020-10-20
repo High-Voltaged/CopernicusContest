@@ -1,4 +1,5 @@
 import database from "./database";
+import IQuizQuestion from "../interfaces/quiz_question";
 
 let connection;
 
@@ -174,6 +175,38 @@ export namespace Queries {
         let result = await connection.query("DELETE FROM `quiz_questions` WHERE `id` = ?", [question_id]);
         connection.end();
         return result;
+
+    }
+
+    export async function updateQuizQuestion(question: IQuizQuestion) {
+
+        connection = await database.getConnection();
+
+        await connection.query("DELETE IGNORE FROM `quiz_answers` WHERE `question_id` = ?", [question.id]);
+
+        console.log(question.id);
+
+        await addQuizQuestion(question);
+
+    }
+
+    export async function addQuizQuestion(question: IQuizQuestion) {
+
+        connection = await database.getConnection();
+
+        for (let answer of question.answers) {
+
+            let result = await connection.query("INSERT INTO  `quiz_answers` (`question_id`, `answer`) VALUES (?, ?)", [question.id, answer.answer]);
+
+            if (question.selected_answer == answer.id) {
+
+                await connection.query("INSERT INTO `quiz_correct_answers` (`question_id`, `correct_answer_id`) VALUES (?, ?)", [question.id, result.insertId]);
+
+            }
+
+        }
+
+        connection.end();
 
     }
 

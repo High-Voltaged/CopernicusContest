@@ -36,6 +36,8 @@ export namespace Links {
 
 	export const delete_quiz_question: string = "/api/deleteQuizQuestion";
 
+	export const update_quiz_question: string = "/api/updateQuizQuestion";
+
 	export const validate_session: string = "/api/validateSession";
 
 };

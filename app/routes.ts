@@ -117,4 +117,11 @@ module.exports = function(app) {
         });
     });
 
+    app.post(Links.update_quiz_question, async function(req: Request, res: Response) {
+        res.json({
+            response: await Utils.updateQuizQuestion(req.headers.cookie, req.body.question)
+        });
+    });
+
+
 };
