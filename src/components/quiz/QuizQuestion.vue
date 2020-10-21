@@ -220,7 +220,7 @@
         // Lifecycle Hooks
 
 
-        created() {
+        mounted() {
 
             if (this.$parent._name == '<QuizEdit>') {
 
@@ -230,13 +230,9 @@
 
         }
 
-        mounted() {
-
-            this.questions_array[this.question];
-
-        }
-
          beforeDestroy() {
+
+            vxm.quiz.setEditMode(false);
 
             this.notif_on = false;
             this.notif_content = '';
