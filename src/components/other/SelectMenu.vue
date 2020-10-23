@@ -4,7 +4,7 @@
       
       <div class="w-full">
 
-         <div :class="color" class="flex items-center bg-opacity-50 space-x-2 p-3" style="border-radius: 10px 10px 0 0">
+         <div :class="color" class="flex items-center space-x-2 p-3" style="border-radius: 10px 10px 0 0">
 
             <input 
                :value="category.name"
@@ -68,7 +68,7 @@
       
       @Prop({ default: '' }) private category;
 
-      @Prop({ default: 'bg-gray-secondary' }) private color: string;
+      @Prop({ default: 'bg-gray-main' }) private color: string;
       @Prop({ default: 'gray-tertiary' }) private border: string; 
          
       categories: ICategory[] = [];

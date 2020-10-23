@@ -1,29 +1,34 @@
 <template>
 
-    <div class="h-screen w-screen overflow-x-hidden overflow-y-auto">
+    <div class="h-full w-full overflow-x-hidden overflow-y-auto">
 
-        <div class="flex flex-col items-center justify-center flex-auto h-full py-6 bg-gray-secondary">
+        <div class="flex flex-col items-center justify-center flex-auto h-full py-6 bg-gray-primary">
 
-            <form @submit.prevent="login" class="flex flex-col items-center justify-center w-72 p-8 rounded-lg shadow-md bg-gray-tertiary">
+            <form @submit.prevent="login" class="admin-login flex flex-col items-center justify-center w-80 space-y-6 p-8 xl:p-10 shadow-md" style="border-radius: 15px">
 
                 <div class="flex items-center justify-center w-full">
-                    <span class="text-xl font-semibold text-center capitalize text-white select-none">
-                        Login
+                    <span class="text-lg font-semibold tracking-wide text-center text-white select-none">
+                        Login to Admin Panel
                     </span>
                 </div>
 
-                <div class="flex items-center w-full h-10 mt-6">
-                    <input v-model="username" placeholder="Your username" class="w-full bg-gray-400 text-sm py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-opacity-50 border-2 focus:border-gray-main transition duration-200 ease" type="text" />
+                <div class="flex items-center w-full h-10">
+                    <input v-model="username" placeholder="Your username" class="w-full bg-gray-200 text-sm py-2 px-3 overflow-hidden focus:outline-none transition duration-300 ease" type="text" style="border-radius: 10px" />
                 </div>
 
-                <div class="flex items-center w-full h-10 mt-4">
-                    <input v-model="password" placeholder="Your password" class="w-full bg-gray-400 text-sm py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-opacity-50 border-2 focus:border-gray-main transition duration-200 ease" type="password" />
+                <div class="flex items-center w-full h-10">
+                    <input v-model="password" placeholder="Your password" class="w-full bg-gray-200 text-sm py-2 px-3 overflow-hidden focus:outline-none transition duration-300 ease" type="password" style="border-radius: 10px" />
                 </div>
 
-                <div class="w-full mt-6">
-                    <button type="submit" class="block w-full py-1 px-3 rounded-lg bg-gray-main bg-opacity-75 text-white font-medium hover:bg-opacity-100 transition duration-200 ease focus:outline-none select-none">
-                        Login
-                    </button>
+                <div class="w-full">
+                    <button
+                        class="flex items-center justify-center w-full px-3 py-2 rounded-lg bg-gray-main bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
+
+                        <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
+                           Continue
+                        </span>
+
+                     </button>
                 </div>
 
                 <transition name="fade-out">

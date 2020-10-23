@@ -50,7 +50,7 @@
                   :category="article.category"
                   @input="article.category = $event"
                   :color="'bg-gray-tertiary'"
-                  :border="'gray-secondary'"
+                  :border="'gray-main'"
                ></SelectMenu>
 
             </div>

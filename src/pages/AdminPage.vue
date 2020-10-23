@@ -1,8 +1,8 @@
 <template>
 
-    <div class="flex items-center justify-center overflow-y-auto h-screen w-screen py-6 bg-gray-secondary">
+    <div :class="(edit_menu == 0) ? 'bg-gray-primary' : 'bg-gray-secondary'" class="flex items-center justify-center overflow-y-auto h-screen w-screen py-6">
 
-        <div v-if="edit_menu == 0" class="flex-auto flex flex-col items-center justify-center h-full py-3 bg-gray-secondary">
+        <div v-if="edit_menu == 0" class="flex-auto flex flex-col items-center justify-center h-full py-3 bg-gray-primary">
 
             <AdminLogin @goToEdit="goToEdit()"></AdminLogin>
 

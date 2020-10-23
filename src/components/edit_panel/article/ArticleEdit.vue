@@ -45,7 +45,7 @@
                <SelectMenu
                   :category="article.category"
                   @input="setCategory($event)"
-                  :color="'bg-gray-secondary'"
+                  :color="'bg-gray-main'"
                   :border="'gray-tertiary'"
                ></SelectMenu>
 

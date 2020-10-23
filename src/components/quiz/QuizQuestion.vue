@@ -2,7 +2,7 @@
 
     <div class="flex quiz-container justify-center h-full w-full max-h-screen overflow-y-auto overflow-x-hidden py-8 transition duration-500 ease transform">
 
-        <div class="quiz-card flex flex-col items-center relative m-auto w-19/20 sm:w-9/10 md:w-4/5 lg:w-2/3 xl:w-1/2 rounded-lg space-y-3 px-8 py-4 shadow-md">
+        <div class="quiz-card flex flex-col items-center relative m-auto w-19/20 sm:w-9/10 md:w-4/5 lg:w-2/3 xl:w-1/2 space-y-3 px-8 py-4 shadow-md" style="border-radius: 15px">
 
             <div class="header w-full flex flex-col items-center space-y-1 md:px-0 lg:px-2">
 
@@ -27,7 +27,7 @@
                      <button
                         v-if="editMode"
                         @click="removeQuestion"
-                        class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
+                        class="flex items-center justify-center px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
                         <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
                            Remove
