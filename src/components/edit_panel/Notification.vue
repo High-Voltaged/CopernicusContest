@@ -2,7 +2,7 @@
    
    <button @click="$emit('click')" class="notification-content inline-block fixed bottom-4 flex items-center justify-center w-full bg-transparent z-50 overflow-x-hidden focus:outline-none">
 
-      <div class="flex items-center justify-center relative w-30 min-h-20 px-4 py-2 shadow rounded-lg bg-gray-main">
+      <div class="flex items-center justify-center relative w-30 min-h-20 px-6 py-3 shadow bg-gray-main" style="border-radius: 15px">
 
          <div class="text-center text-sm font-medium text-white">
 

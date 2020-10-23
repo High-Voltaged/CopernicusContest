@@ -2,7 +2,7 @@
    
    <div class="article-edit-container relative">
 
-      <ArticleContent :editMode="true" @remove="removeArticle">
+      <ArticleContent :editMode="true" @remove="setDialog">
       
          <template #editTitle>
 
@@ -93,6 +93,17 @@
 
       </transition>
 
+      <transition name="scale-out">
+
+         <VerificationDialog
+            v-if="verify_on"
+            :content="verify_content"
+            @cancel="handleModal(false)"
+            @continue="handleModal(true)"
+         />
+
+      </transition>
+
    </div>
 
 </template>
@@ -107,6 +118,7 @@
 
    import ArticleContent from '../../../pages/content.vue';
    import Notification from '../Notification.vue';
+   import VerificationDialog from '../VerificationDialog.vue';
    import SelectMenu from '../../other/SelectMenu.vue';
 
    @Component({
@@ -114,6 +126,7 @@
       components: {
          ArticleContent,
          Notification,
+         VerificationDialog,
          SelectMenu,
       }
    })
@@ -195,6 +208,9 @@
          // let result = await APIWrapper.removeArticle(this.article.id);
 
          // console.log(result.data);
+
+         this.notif_on = true;
+         this.notif_content = 'The artilce was removed.';
 
       }
 
@@ -288,16 +304,42 @@
       }
 
 
-      // Notification Config
+      // Notification / Verify Config
 
       notif_on = false;
       notif_content: string = '';
+
+      verify_on = false;
+      verify_content: string = '';
 
       closeNotification(): void {
 
          this.notif_on = false;
 
          this.notif_content = '';
+
+      }
+
+      setDialog() {
+
+         this.verify_on = true;
+         this.verify_content = 'Are you sure you want to remove this article?';
+
+      }
+
+      handleModal(confirm: boolean): void {
+
+         if(confirm) {
+
+            this.removeArticle(); 
+            this.verify_on = false;
+            this.$router.push('/admin');
+
+         } else {
+
+            this.verify_on = false;
+
+         }   
 
       }
 

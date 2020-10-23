@@ -1,6 +1,6 @@
 <template>
 
-    <div class="flex quiz-container flex-shrink-0 justify-center h-full w-full max-h-screen overflow-y-auto overflow-x-hidden py-8 transition duration-500 ease transform">
+    <div class="flex quiz-container justify-center h-full w-full max-h-screen overflow-y-auto overflow-x-hidden py-8 transition duration-500 ease transform">
 
         <div class="quiz-card flex flex-col items-center relative m-auto w-19/20 sm:w-9/10 md:w-4/5 lg:w-2/3 xl:w-1/2 rounded-lg space-y-3 px-8 py-4 shadow-md">
 

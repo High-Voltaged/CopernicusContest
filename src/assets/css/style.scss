@@ -366,7 +366,9 @@ select {
 // TRANSITIONING
 
 
-.fade-out-enter-active, .fade-out-leave-active, .fade-away-enter-active, .fade-away-leave-active {
+.fade-out-enter-active, .fade-out-leave-active, 
+.fade-away-enter-active, .fade-away-leave-active,
+.scale-out-enter-active, .scale-out-leave-active {
    transition: all .25s ease;
 }
 
@@ -387,5 +389,15 @@ select {
 
 .fade-away-enter, .fade-away-leave-to {
    transform: translateX(.5rem);
+   opacity: 0;
+}
+
+.scale-out-enter-to, .scale-out-leave {
+   transform: scale(1);
+   opacity: 1;
+}
+
+.scale-out-enter, .scale-out-leave-to {
+   transform: scale(0.7);
    opacity: 0;
 }
