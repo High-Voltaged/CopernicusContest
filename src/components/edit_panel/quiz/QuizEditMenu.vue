@@ -28,7 +28,7 @@
 
          </div>
 
-         <div v-if="questions_array > 0" class="content w-full space-y-3">
+         <div v-if="questions_array.length > 0" class="content w-full space-y-3">
 
             <div 
                v-for="(question, i) in questions_array"

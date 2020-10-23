@@ -105,11 +105,11 @@
                 </button>
 
                 <button v-if="editMode"
-                        @click="saveTheQuiz()"
+                        @click="saveTheQuestion()"
                         class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg shadow bg-gray-primary bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
 
                     <span class="text-sm text-gray-200 font-medium text-left select-none">
-                        Save the Quiz
+                        Save the Question
                     </span>
 
                 </button>
@@ -301,7 +301,7 @@
 
          }
 
-        saveTheQuiz(): void {
+        saveTheQuestion(): void {
 
             if (!this.validateQuestionLength()) {
 
