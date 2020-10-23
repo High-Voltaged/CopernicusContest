@@ -35,6 +35,12 @@ export default class Articles extends VuexModule {
 
     }
 
+    @mutation setCategory(category: ICategory) {
+
+      this.article.category = category;
+
+    }
+
     @action async fetchArticle(payload: { article_id: string, stealth: boolean }): Promise<void> {
 
         console.log("ARTICLE");

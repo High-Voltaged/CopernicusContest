@@ -2,7 +2,7 @@
    
    <div class="article-edit-container relative">
 
-      <ArticleContent :editOn="true">
+      <ArticleContent :editMode="true" @remove="removeArticle">
       
          <template #editTitle>
 
@@ -43,6 +43,8 @@
             <div class="flex flex-col items-center w-full space-y-2">
 
                <SelectMenu
+                  :category="article.category"
+                  @input="setCategory($event)"
                   :color="'bg-gray-secondary'"
                   :border="'gray-tertiary'"
                ></SelectMenu>
@@ -146,6 +148,12 @@
 
 
       // Editing / Discarding  
+
+      setCategory(category): void {
+
+         vxm.articles.setCategory(category);
+
+      }
 
       async saveChanges(): Promise<void> {
 

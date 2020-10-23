@@ -47,6 +47,8 @@
                </label>
 
                <SelectMenu
+                  :category="article.category"
+                  @input="article.category = $event"
                   :color="'bg-gray-tertiary'"
                   :border="'gray-secondary'"
                ></SelectMenu>
@@ -146,7 +148,10 @@
 
          title: '',
          content: '',
-         category: null,
+         category: {
+            id: -1,
+            name: '',
+         },
          picture_link: '',
 
       };
@@ -219,7 +224,7 @@
 
          for(let i in this.article) {
 
-            if(!this.article[i]) {
+            if(!this.article[i] || ((i == 'category') && (!this.article[i].name))) {
 
                vxm.articles.setValidationError({ value: true, content: 'Don\'t leave the input fields empty.' });
                return false;

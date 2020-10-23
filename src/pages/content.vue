@@ -40,17 +40,17 @@
 
                     </div>
 
-                    <span v-if="!editOn && !addArticle" class="block capitalize text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-gray-200 my-4 md:my-2">
+                    <span v-if="!editMode && !addArticle" class="block capitalize text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-gray-200 my-4 md:my-2">
                         {{ article.title }}
                     </span>
 
                     <slot name="editTitle"></slot>
 
-                    <div class="flex flex-col items-center w-full bg-gray-main p-5 xl:p-10 space-y-2 rounded-md shadow-lg">
+                    <div class="flex flex-col items-center w-full bg-gray-main relative p-5 xl:p-10 space-y-2 rounded-md shadow-lg">
 
                         <slot name="error"></slot>
 
-                        <div v-if="!editOn && !addArticle" class="w-full h-full flex flex-col items-center">
+                        <div v-if="!editMode && !addArticle" class="w-full h-full flex flex-col items-center">
 
                             <div v-for="(paragraph, i) in article.content"
                                  :key="i"
@@ -80,7 +80,7 @@
                                     <div class="divider w-full h-full"></div>
                                 </div>
 
-                                <div v-if="!editOn" class="article-link flex items-center cursor-pointer">
+                                <div v-if="!editMode" class="article-link flex items-center cursor-pointer">
 
                                     <font-awesome-icon :icon="['fas', 'hashtag']" class="h-4 w-4 fill-current text-purple-secondary" />
 
@@ -110,11 +110,25 @@
 
                         </div>
 
+                        <div v-if="editMode" class="md:absolute md:bottom-5 md:right-5 xl:bottom-10 xl:right-10 mt-4 md:mt-0">
+
+                           <button @click="$emit('remove')" class="inline-flex items-center p-3 rounded-lg shadow bg-purple-secondary bg-opacity-25 hover:bg-opacity-75 transition duration-300 ease focus:outline-none">
+
+                              <span class="inline-block md:hidden text-sm text-center font-medium text-white">
+                                 Remove
+                              </span>
+
+                              <font-awesome-icon :icon="['fas', 'trash']" class="hidden md:inline-block w-4 h-4 fill-current text-white" />
+
+                           </button>
+
+                        </div>
+
                     </div>
 
                 </div>
 
-                <ArticleSidebar v-if="!addArticle && !editOn"
+                <ArticleSidebar v-if="!addArticle && !editMode"
                                 :categories="categories"
                                 :articles="popular_articles"></ArticleSidebar>
 
@@ -147,7 +161,7 @@
     })
     export default class contentPage extends Vue {
 
-        @Prop({ default: false }) private editOn?: boolean;
+        @Prop({ default: false }) private editMode?: boolean;
         @Prop({ default: false }) private addArticle?: boolean;
 
         async beforeMount() {

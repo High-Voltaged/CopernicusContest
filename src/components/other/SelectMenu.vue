@@ -7,8 +7,7 @@
          <div :class="color" class="flex items-center bg-opacity-50 space-x-2 p-3" style="border-radius: 10px 10px 0 0">
 
             <input 
-               v-if="current"
-               v-model="current.name"
+               :value="category.name"
                @click="dropdownOn = !dropdownOn"
                readonly
                placeholder="Input your value" 
@@ -36,7 +35,6 @@
             <button 
                v-for="c in categories"
                :key="c.id"
-               :disabled="current == c"
                :class="[color, `hover:border-${border}`, `focus:bg-${border}`]"
                class="select-menu__cion inline-flex items-center w-full p-2 bg-transparent border-2 border-transparent transition duration-300 ease focus:outline-none" 
                style="border-radius: 10px"
@@ -68,24 +66,24 @@
    })
    export default class SelectMenu extends Vue {
       
+      @Prop({ default: '' }) private category;
+
       @Prop({ default: 'bg-gray-secondary' }) private color: string;
       @Prop({ default: 'gray-tertiary' }) private border: string; 
          
       categories: ICategory[] = [];
       
-      current = null;
       dropdownOn = false;
 
       async beforeMount() {
 
          this.categories = await APIWrapper.fetchCategories();
-         this.current = this.categories[0];
 
       }
 
-      changeValue(option): void {
+      changeValue(category): void {
 
-         this.current = option;
+         this.$emit('input', category);
 
          this.dropdownOn = false;
 
