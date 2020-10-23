@@ -2,17 +2,21 @@
 
     <div class="flex flex-col">
 
-        <QuizEditMenu v-if="quiz_menu == 0"
-                      @edit="setEditForm($event)"></QuizEditMenu>
+      <QuizEditMenu 
+         v-if="quiz_menu == 0"
+         @edit="setEditForm($event)"
+         @addQuestion="setNewQuestion"
+      ></QuizEditMenu>
 
-        <div v-else-if="quiz_menu == 1" class="quiz-main-container overflow-y-auto overflow-x-hidden">
+      <div v-else-if="quiz_menu == 1" class="quiz-main-container overflow-y-auto overflow-x-hidden">
 
-            <QuizQuestion v-if="questions_array.length > question"
-                          :key="question"
-                          :questions_array="questions_array"
-                          :question="question"></QuizQuestion>
+         <QuizQuestion v-if="questions_array.length > 0"
+                        :key="question"
+                        :questions_array="questions_array"
+                        :question="question"
+                        @setMenu="setQuizMenu($event)"></QuizQuestion>
 
-        </div>
+      </div>
 
     </div>
 
@@ -42,10 +46,24 @@
 
         quiz_menu = 0;
 
+         setQuizMenu(index: number) {
+
+            this.quiz_menu = index;
+
+         }
+
         setEditForm(index: number): void {
 
             this.quiz_menu = 1;
             vxm.quiz.setQuestionIndex(index);
+
+        }
+
+        setNewQuestion(): void {
+
+           this.quiz_menu = 1;
+
+           vxm.quiz.addQuestion();
 
         }
 
@@ -68,6 +86,14 @@
         async beforeMount() {
 
             vxm.quiz.prepareQuiz();
+
+        }
+
+        mounted() {
+
+
+
+           console.log("this is never called");
 
         }
 

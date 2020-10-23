@@ -154,6 +154,36 @@ export default class Articles extends VuexModule {
 
     }
 
+    @mutation addQuestion() {
+
+      let temp = {
+         id: this.questions_array.length,
+         question: '',
+         answers: [],
+         correct_answer_id: null,
+         selected_answer: -1,
+      };
+
+      this.questions_array.push(temp);
+
+      this.question = temp.id;
+
+    }
+
+    @mutation removeQuestion(index: number) {
+
+      this.questions_array.splice(index, 1);
+
+      this.question = this.questions_array.length - 1;
+
+    }
+
+    @mutation setQuestion(question: string) {
+
+      this.questions_array[this.question].question = question;
+
+    }
+
     @mutation addAnswer(answer) {
 
         // Get the temporary ID
@@ -171,13 +201,19 @@ export default class Articles extends VuexModule {
 
         let tempAnswer = this.questions_array[this.question].answers.find(answer => {
 
-            return (answer.id == id); // change this to 'id' 
+            return (answer.id == id); 
 
         });
 
         let index = this.questions_array[this.question].answers.indexOf(tempAnswer);
 
         this.questions_array[this.question].answers.splice(index, 1);
+
+    }
+
+    @mutation setCorrectAnswer(index: number) {
+
+      this.questions_array[this.question].correct_answer_id = index;
 
     }
 

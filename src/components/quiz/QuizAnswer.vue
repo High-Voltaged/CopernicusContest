@@ -5,8 +5,12 @@
         <div v-if="answer">
 
             <button @click="selectedAnswer()"
-                    :class="{ 'transform hover:-translate-y-2 focus:shadow-solidDark focus:opacity-50': !editMode }"
-                    class="button-container flex items-center w-56 flex-shink-0 flex-grow-0 relative rounded-lg focus:outline-none bg-gray-200 p-2 m-2 transition duration-300 ease-in">
+                    :class="[
+                        { 'transform hover:-translate-y-2 focus:shadow-solidDark focus:opacity-50': !editMode }, 
+                        { 'bg-green-400': (correct_answer_id == answer.id) }, 
+                        { 'hover:bg-green-400': editMode }
+                     ]"
+                    class="button-container flex items-center w-56 flex-shink-0 flex-grow-0 relative rounded-lg focus:outline-none bg-gray-200 p-2 m-2 transition duration-300 ease">
 
                 <div class="flex-0 w-6 min-w-6 h-6 min-h-6 mr-2 flex justify-center items-center rounded-full bg-purple-400">
 
@@ -72,9 +76,23 @@
 
         }
 
+         get correct_answer_id() {
+
+            return this.questions_array[this.question].correct_answer_id;
+
+         }
+
         selectedAnswer(): void {
 
-            this.$emit("selectedAnswer", this.answer.id);
+           if(!this.editMode) {
+
+              this.$emit('selectedAnswer', this.answer.id);
+              
+           } else {
+
+              vxm.quiz.setCorrectAnswer(this.answer.id);
+
+           }
 
         }
 

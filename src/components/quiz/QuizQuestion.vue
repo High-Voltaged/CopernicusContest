@@ -6,7 +6,7 @@
 
             <div class="header w-full flex flex-col items-center space-y-1 md:px-0 lg:px-2">
 
-                <div class="flex items-center justify-start space-x-2 w-full">
+                <div :class="{ 'justify-between': editMode }" class="flex items-center space-x-2 w-full">
 
                     <router-link v-if="editMode" to="/admin" tag="button" class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
@@ -23,6 +23,17 @@
                         </span>
 
                     </router-link>
+
+                     <button
+                        v-if="editMode"
+                        @click="removeQuestion"
+                        class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
+
+                        <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
+                           Remove
+                        </span>
+
+                     </button>
 
                 </div>
 
@@ -58,8 +69,9 @@
 
                 </div>
 
-                <QuizAnswersContainer @selectedAnswer="selectedAnswer"
-                                      :answers="questions_array[question].answers"></QuizAnswersContainer>
+                <QuizAnswersContainer v-if="answers"
+                                       @selectedAnswer="selectedAnswer"
+                                      :answers="answers"></QuizAnswersContainer>
 
             </div>
 
@@ -171,6 +183,12 @@
 
          }
 
+         get correct_answer_id() {
+
+            return this.questions_array[this.question].correct_answer_id;
+
+         }
+
         get prev_disabled() {
 
             if (this.question == 0) {
@@ -217,30 +235,6 @@
 
         }
 
-        // Lifecycle Hooks
-
-
-        mounted() {
-
-            if (this.$parent._name == '<QuizEdit>') {
-
-                vxm.quiz.setEditMode(true);
-
-            }
-
-        }
-
-         beforeDestroy() {
-
-            vxm.quiz.setEditMode(false);
-
-            this.notif_on = false;
-            this.notif_content = '';
-
-            vxm.quiz.setValidationError({ value: false, content: '' });
-
-        }
-
         // Edit Mode / Validation
 
         temp_question = this.questions_array[this.question].question;
@@ -254,6 +248,12 @@
         get error() {
 
             return vxm.quiz.getValidationError;
+
+        }
+
+        removeQuestion() {
+
+           vxm.quiz.removeQuestion(this.question);
 
         }
 
@@ -287,6 +287,20 @@
 
         }
 
+         validateCorrectAnswer(): boolean {
+
+            if(!this.correct_answer_id) {
+
+               return false;
+
+            } else {
+
+               return true;
+
+            }
+
+         }
+
         saveTheQuiz(): void {
 
             if (!this.validateQuestionLength()) {
@@ -297,14 +311,19 @@
 
                vxm.quiz.setValidationError({ value: true, content: 'The amount of answers can range from 2 to 4.' });
 
+            } else if(!this.validateCorrectAnswer()) {
+
+               vxm.quiz.setValidationError({ value: true, content: 'Please select a correct answer for this question.' });
+
             } else {
 
                 vxm.quiz.setValidationError({ value: false, content: '' });
 
+               vxm.quiz.setQuestion(this.temp_question);
+                APIWrapper.updateQuizQuestion(this.questions_array[this.question]);
+
                 this.notif_content = 'Your changes to the quiz will be saved.';
                 this.notif_on = true;
-
-                APIWrapper.updateQuizQuestion(this.questions_array[this.question]);
 
             }
 
@@ -319,6 +338,37 @@
 
             this.notif_on = false;
             this.notif_content = '';
+
+        }
+
+
+        // Lifecycle Hooks
+
+
+        mounted() {
+
+            if (this.$parent._name == '<QuizEdit>') {
+
+                vxm.quiz.setEditMode(true);
+
+            }
+
+        }
+
+         beforeDestroy() {
+
+            vxm.quiz.setEditMode(false);
+
+            this.notif_on = false;
+            this.notif_content = '';
+
+            vxm.quiz.setValidationError({ value: false, content: '' });
+
+            if(this.questions_array.length == 0) {
+
+              this.$emit('setMenu', 0);
+
+           }
 
         }
 
