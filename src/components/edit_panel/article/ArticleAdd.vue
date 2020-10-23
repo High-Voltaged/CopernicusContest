@@ -40,21 +40,18 @@
 
          <template #addCategory>
 
-            <label class="text-sm text-gray-500">
-               Article's category
-            </label>
+            <div class="flex flex-col items-center w-full space-y-2">
 
-            <!-- <select type="text" v-model="article.category" class="w-48 mt-1 bg-gray-tertiary bg-opacity-75 text-sm py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease">
-               <option
-                  v-for="c in categories"
-                  :key="c.id"
-                  :value="c"
-               >
-                  {{ c.name }}
-               </option>
-            </select> -->
+               <label class="text-sm text-gray-500">
+                  Article's category
+               </label>
 
-            <SelectMenu></SelectMenu>
+               <SelectMenu
+                  :color="'bg-gray-tertiary'"
+                  :border="'gray-secondary'"
+               ></SelectMenu>
+
+            </div>
 
          </template>
 

@@ -40,15 +40,14 @@
 
          <template #editCategory>
 
-            <select type="text" v-model="article.category" placeholder="Article's category" class="w-full mt-1 bg-gray-400 text-sm py-1 px-2 rounded-lg overflow-hidden focus:outline-none border-transparent border-2 focus:border-gray-main transition duration-200 ease">
-               <option
-                  v-for="c in categories"
-                  :key="c.id"
-                  :value="c"
-               >
-                  {{ c.name }}
-               </option>
-            </select>
+            <div class="flex flex-col items-center w-full space-y-2">
+
+               <SelectMenu
+                  :color="'bg-gray-secondary'"
+                  :border="'gray-tertiary'"
+               ></SelectMenu>
+
+            </div>
 
          </template>
 
@@ -106,12 +105,14 @@
 
    import ArticleContent from '../../../pages/content.vue';
    import Notification from '../Notification.vue';
+   import SelectMenu from '../../other/SelectMenu.vue';
 
    @Component({
       name: "ArticleEdit",
       components: {
          ArticleContent,
          Notification,
+         SelectMenu,
       }
    })
 

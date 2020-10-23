@@ -46,7 +46,7 @@
 
                     <slot name="editTitle"></slot>
 
-                    <div class="flex flex-col items-center w-full bg-gray-main p-5 xl:p-10 rounded-md shadow-lg">
+                    <div class="flex flex-col items-center w-full bg-gray-main p-5 xl:p-10 space-y-2 rounded-md shadow-lg">
 
                         <slot name="error"></slot>
 
