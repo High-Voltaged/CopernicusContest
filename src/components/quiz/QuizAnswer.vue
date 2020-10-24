@@ -7,7 +7,7 @@
             <button @click="selectedAnswer()"
                     :class="[
                         { 'transform hover:-translate-y-2 focus:shadow-solidDark focus:opacity-50': !editMode }, 
-                        { 'bg-green-400': (correct_answer_id == answer.id) }, 
+                        { 'bg-green-400': (correct_answer_id == answer.id) && editMode }, 
                         { 'hover:bg-green-400': editMode }
                      ]"
                     class="button-container flex items-center w-56 flex-shink-0 flex-grow-0 relative rounded-lg focus:outline-none bg-gray-200 p-2 m-2 transition duration-300 ease">
