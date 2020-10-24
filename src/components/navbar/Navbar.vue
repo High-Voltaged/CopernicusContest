@@ -1,8 +1,8 @@
 <template>
 
-   <header class="bg-gray-secondary z-50 inset-x-0 top-0 px-4 sm:flex sm:justify-between sm:items-center relative h-20 leading-tight shadow-navbar">
+   <header class="bg-gray-secondary z-50 inset-x-0 top-0 px-4 sm:flex sm:justify-between sm:items-center relative h-20 space-x-2 leading-tight shadow-navbar">
 
-      <div class="flex items-center py-3 px-3 justify-between sm:p-0"> <!-- `py-6` if no logo -->
+      <div class="flex items-center py-3 px-3 justify-between sm:p-0">
          
          <div>
             <img src="https://askimspump.se/wp-content/uploads/sites/42/2018/01/placeholder-logo.png" class="object-cover h-14"> 
@@ -28,7 +28,7 @@
 
       <div class="hidden sm:block shadow-md sm:shadow-none bg-gray-tertiary sm:bg-transparent z-50">
 
-         <div class="flex flex-col items-start sm:flex-row sm:items-center relative space-y-4 sm:space-y-0 sm:space-x-2 p-3 sm:p-0">
+         <div class="flex flex-col items-start sm:flex-row sm:items-center relative space-x-2">
          
             <NavbarLink
                v-for="(link, index) in links"
@@ -48,7 +48,7 @@
             style="border-radius: 0 0 15px 15px"
          >
    
-            <div class="flex flex-col items-start sm:flex-row sm:items-center relative space-y-4 sm:space-y-0 sm:space-x-2 p-3 sm:p-0">
+            <div class="flex flex-col items-start sm:flex-row sm:items-center relative space-y-4 p-3">
             
                <NavbarLink
                   v-for="(link, index) in links"
@@ -82,8 +82,8 @@
       isOpen = false;
 
       links = [
-         { to: '/admin', content: 'Admin Menu' },
-         { to: '', content: 'About us' },
+         { to: '/admin', content: 'Admin menu' },
+         { to: '/categories', content: 'All articles' },
          { to: '', content: 'Other' },
       ]
 
