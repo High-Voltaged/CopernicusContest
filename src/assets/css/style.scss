@@ -246,16 +246,6 @@ select {
 	width: 100%
 }
 
-.sub-category-container > div:hover {
-	background-color: rgba(122, 88, 197, .7);
-	cursor: pointer;
-}
-.sub-category-container > div {
-	transition-property: background-color, color;
-	transition-duration: 300ms, 300ms;
-	transition-timing-function: ease-in, ease;
-}
-
 @screen lg {
 
 	.article-link:hover .article-header {

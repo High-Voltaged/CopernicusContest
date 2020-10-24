@@ -1,18 +1,12 @@
 <template>
 
-    <div v-if="category">
+   <div v-if="category" @click="viewCategory" class="inline-block w-full h-full">
 
-        <div @click="viewCategory">
+      <span class="text-white text-center lg:text-left leading-tight font-light select-none"> 
+         {{ category.name }} 
+      </span>
 
-            <span>
-
-                <p class="noselect"> {{ category.name }} </p>
-
-            </span>
-
-        </div>
-
-    </div>
+   </div>
 
 </template>
 

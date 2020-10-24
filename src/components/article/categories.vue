@@ -1,28 +1,25 @@
 <template>
 
-    <div if="categories.length > 0">
+   <div v-if="categories.length > 0" class="category-container flex flex-col lgMax:items-center">
 
-        <div class="category-container flex flex-col lgMax:items-center">
+      <span class="block text-gray-200 text-xl xl:text-2xl tracking-wide font-semibold lgMax:text-center my-2">Random categories</span>
 
-            <span class="block text-gray-200 text-xl xl:text-2xl tracking-wide font-semibold lgMax:text-center my-2">Random categories</span>
+      <div class="sub-category-container flex flex-wrap lgMax:justify-evenly lg:flex-col w-full">
 
-            <div class="sub-category-container flex flex-wrap lgMax:justify-evenly lg:flex-col w-full">
+            <div 
+            v-for="(category, i) in categories"
+            :key="i"
+            class="inline-flex lg:block items-center px-3 py-2 m-2 lg:mx-0 bg-gray-secondary bg-opacity-0 hover:bg-opacity-100 transition duration-200 ease cursor-pointer"
+            style="border-radius: 10px" 
+         >
 
-                <div 
-                  v-for="(category, i) in categories"
-                  :key="i"
-                  class="px-2 py-1 lg:py-2 m-2 lg:mx-0 text-gray-300 leading-tight font-light rounded lg:block" 
-               >
+            <Category :category="category"></Category>
 
-                  <Category :category="category"></Category>
+         </div>
 
-                </div>
+      </div>
 
-            </div>
-
-        </div>
-
-    </div>
+   </div>
 
 </template>
 
