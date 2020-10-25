@@ -127,6 +127,8 @@ export namespace Utils {
 
         let result = await Queries.queryAdminByUsername(username);
 
+        console.log(result);
+
         if (!result[0]) {
 
             return Codes.ERROR;

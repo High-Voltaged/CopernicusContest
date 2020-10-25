@@ -101,6 +101,9 @@ export namespace Queries {
         connection = await database.getConnection();
         let result = await connection.query("SELECT questions.id as question_id, questions.question, answers.id AS answer_id, answers.answer, correct_answers.correct_answer_id FROM quiz_questions questions INNER JOIN quiz_answers answers ON questions.id = answers.question_id INNER JOIN quiz_correct_answers correct_answers ON questions.id = correct_answers.question_id ORDER by rand() LIMIT 25;", []);
         connection.end();
+
+        console.log(result);
+
         return result;
 
     }
@@ -110,6 +113,9 @@ export namespace Queries {
         connection = await database.getConnection();
         let result = await connection.query("SELECT questions.id as question_id, questions.question, answers.id AS answer_id, answers.answer, correct_answers.correct_answer_id FROM quiz_questions questions INNER JOIN quiz_answers answers ON questions.id = answers.question_id INNER JOIN quiz_correct_answers correct_answers ON questions.id = correct_answers.question_id;", []);
         connection.end();
+
+        console.log(result);
+
         return result;
 
     }
@@ -192,13 +198,15 @@ export namespace Queries {
 
         connection = await database.getConnection();
 
+        let question_result = await connection.query("INSERT INTO  `quiz_questions` (`question`) VALUES (?)", [question.question]);;
+
         for (let answer of question.answers) {
 
-            let result = await connection.query("INSERT INTO  `quiz_answers` (`question_id`, `answer`) VALUES (?, ?)", [question.id, answer.answer]);
+            let result = await connection.query("INSERT INTO  `quiz_answers` (`question_id`, `answer`) VALUES (?, ?)", [question_result.insertId, answer.answer]);
 
             if (question.selected_answer == answer.id) {
 
-                await connection.query("INSERT INTO `quiz_correct_answers` (`question_id`, `correct_answer_id`) VALUES (?, ?)", [question.id, result.insertId]);
+                await connection.query("INSERT INTO `quiz_correct_answers` (`question_id`, `correct_answer_id`) VALUES (?, ?)", [question_result.insertId, result.insertId]);
 
             }
 

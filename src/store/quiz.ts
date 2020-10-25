@@ -52,7 +52,17 @@ export default class Articles extends VuexModule {
 
     @action async formatQuizJSON(): Promise<void> {
 
-        let quiz = await ApiWrapper.fetchQuiz();
+        let quiz;
+
+        if (this.$route.name == "quiz_admin_view") {
+
+            let quiz = await ApiWrapper.fetchQuizEdit();
+
+        } else {
+
+            let quiz = await ApiWrapper.fetchQuiz();
+
+        }
 
         for (let raw_question of quiz) {
 

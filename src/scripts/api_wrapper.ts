@@ -93,6 +93,14 @@ export namespace APIWrapper {
 
     }
 
+    export async function fetchQuizEdit(): Promise<IQuizRaw[]> {
+
+        let response: AxiosResponse = await axios.post(Links.fetch_edit_quiz_questions);
+
+        return response.data["response"];
+
+    }
+
     export async function fetchArticlesByCategory(category_id: number): Promise<IBriefArticle[]> {
 
         let response: AxiosResponse = await axios.post(Links.fetch_articles_by_category, { category_id: category_id });
