@@ -136,32 +136,21 @@
 
         </transition>
 
-        <transition>
-
-           <VerificationDialog 
-               v-if="verify_on"
-               :content="verify_content"
-               @cancel="handleRouteCancel"
-               @continue="handleRouteContinue"
-           />
-
-        </transition>
-
     </div>
 
 </template>
 
 <script lang="ts">
 
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+    import { Component, Prop, Watch, Vue } from 'nuxt-property-decorator';
     import { Limits } from '../../../app/limits';
     import { vxm } from '../../store';
     import APIWrapper from '../../scripts/api_wrapper';
+   import IQuizQuestion from '~/interfaces/quiz_question';
 
     import QuizAnswer from './QuizAnswer.vue';
     import QuizAnswersContainer from './QuizAnswersContainer.vue';
     import Notification from '../edit_panel/Notification.vue';
-    import VerificationDialog from '../edit_panel/VerificationDialog.vue';
 
 
     @Component({
@@ -170,7 +159,6 @@
             QuizAnswer,
             QuizAnswersContainer,
             Notification,
-            VerificationDialog,
         }
     })
     export default class QuizQuestion extends Vue {
@@ -313,20 +301,6 @@
 
         }
 
-         validateQuestion(): boolean {
-
-            if(!this.validateQuestionLength() || !this.validateAnswersLength() || !this.validateCorrectAnswer()) {
-
-               return false;
-
-            } else {
-
-               return true;
-
-            }
-
-         }
-
         saveTheQuestion(): void {
 
             if (!this.validateQuestionLength()) {
@@ -348,6 +322,8 @@
                 vxm.quiz.setQuestion(this.temp_question);
                 APIWrapper.updateQuizQuestion(this.questions_array[this.question]);
 
+                vxm.quiz.setInitConfig(this.questions_array);
+
                 this.notif_content = 'Your changes to the quiz will be saved.';
                 this.notif_on = true;
 
@@ -360,9 +336,6 @@
         notif_on: boolean = false;
         notif_content: string = '';
 
-        verify_on = false;
-        verify_content = '';
-
         closeNotification(): void {
 
             this.notif_on = false;
@@ -373,20 +346,46 @@
 
         // Lifecycle Hooks
 
+         temp_quiz_array = [];
+
+         deepCopyArray(inObject): IQuizQuestion[] {
+
+            let outObject;
+            let value;
+
+            if((typeof inObject != 'object') || (inObject == null)) {
+
+               return inObject;
+
+            }
+
+            outObject = Array.isArray(inObject) ? [] : {};
+
+            for(let i in inObject) {
+
+               value = inObject[i];
+
+               outObject[i] = this.deepCopyArray(value);
+
+            } 
+
+            return outObject;
+
+         }
 
         mounted() {
 
             if (this.$parent._name == '<QuizEdit>') {
 
                 vxm.quiz.setEditMode(true);
+                vxm.quiz.setInitConfig(this.deepCopyArray(this.questions_array));
 
             }
+
 
         }
 
         beforeDestroy() {
-
-            vxm.quiz.setEditMode(false);
 
             this.notif_on = false;
             this.notif_content = '';
@@ -400,6 +399,7 @@
             }
 
         }
+         
 
     }
 

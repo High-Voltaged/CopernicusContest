@@ -3,6 +3,7 @@ import { createModule, mutation, action } from 'vuex-class-component';
 import ApiWrapper from '../scripts/api_wrapper';
 import IQuizQuestion from '../../interfaces/quiz_question';
 import IQuizAnswer from '../../interfaces/quiz_answer';
+import { store } from '.';
 
 const VuexModule = createModule({
     namespaced: 'quiz',
@@ -12,6 +13,8 @@ const VuexModule = createModule({
 
 export default class Articles extends VuexModule {
 
+   init_questions_array: IQuizQuestion[] = [];
+
     questions_array: IQuizQuestion[] = [];
     correct_answers: number = 0;
     question: number = 0;
@@ -20,6 +23,7 @@ export default class Articles extends VuexModule {
     get getQuizUtil() {
 
         return {
+            init_questions: this.init_questions_array,
             questions: this.questions_array,
             correct_answers: this.correct_answers,
             question: this.question,
@@ -148,9 +152,27 @@ export default class Articles extends VuexModule {
 
     }
 
+    @mutation resetQuiz() {
+
+      this.questions_array = [];
+      this.question = 0;
+      this.correct_answers = 0;
+      this.temp_id = -1;
+
+      this.editMode = false;
+      this.saved_question = null;
+
+    }
+
     // Edit Mode
 
     editMode = false;
+
+    @mutation setInitConfig(temp_array: IQuizQuestion[]) {
+
+      this.init_questions_array = temp_array;
+
+    }
 
     @mutation setEditMode(value: boolean) {
 
@@ -234,6 +256,14 @@ export default class Articles extends VuexModule {
         content: '',
     };
 
+    saved_question: boolean = null;
+
+    get savedQuestion() {
+
+      return this.saved_question;
+
+    }
+
     get getValidationError() {
 
         return this.validationEror;
@@ -244,6 +274,31 @@ export default class Articles extends VuexModule {
 
         this.validationEror.value = payload.value;
         this.validationEror.content = payload.content;
+
+    }
+
+    @mutation checkSavedQuestion(question: IQuizQuestion) {
+
+      let stored_question = {
+         question: this.init_questions_array[this.question].question,
+         answers: this.init_questions_array[this.question].answers,
+         correct_answer_id: this.init_questions_array[this.question].correct_answer_id,
+      };
+
+      for(let i in question) {
+
+         if(question[i] != stored_question[i]) {
+
+            console.log(`${i} isn't equal to ${i}`);
+
+            this.saved_question = false;
+            return;
+
+         }
+
+      }  
+
+      this.saved_question = true;
 
     }
 
