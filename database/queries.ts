@@ -204,7 +204,7 @@ export namespace Queries {
 
             let result = await connection.query("INSERT INTO  `quiz_answers` (`question_id`, `answer`) VALUES (?, ?)", [question_result.insertId, answer.answer]);
 
-            if (question.selected_answer == answer.id) {
+            if (question.correct_answer_id == answer.id) {
 
                 await connection.query("INSERT INTO `quiz_correct_answers` (`question_id`, `correct_answer_id`) VALUES (?, ?)", [question_result.insertId, result.insertId]);
 
