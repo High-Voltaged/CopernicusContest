@@ -90,7 +90,7 @@
               
            } else {
 
-            //   vxm.quiz.setCorrectAnswer(this.answer.id);
+               vxm.quiz.setCorrectAnswer(this.answer.id);
 
            }
 
