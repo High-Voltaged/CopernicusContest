@@ -50,11 +50,11 @@ export default class Articles extends VuexModule {
 
     }
 
-    @action async formatQuizJSON(): Promise<void> {
+    @action async formatQuizJSON(route_name: string): Promise<void> {
 
         let quiz;
 
-        if (this.$route.name == "quiz_admin_view") {
+        if (route_name == "quiz_admin_view") {
 
             let quiz = await ApiWrapper.fetchQuizEdit();
 
@@ -106,9 +106,9 @@ export default class Articles extends VuexModule {
 
     }
 
-    @action async prepareQuiz(): Promise<void> {
+    @action async prepareQuiz(route_name: string): Promise<void> {
 
-        await this.formatQuizJSON();
+        await this.formatQuizJSON(route_name);
 
         await this.assignLetterLabels();
 

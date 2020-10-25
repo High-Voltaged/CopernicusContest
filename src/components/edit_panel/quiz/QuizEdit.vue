@@ -85,7 +85,7 @@
 
         async beforeMount() {
 
-            vxm.quiz.prepareQuiz();
+            await vxm.quiz.prepareQuiz(this.$route.name);
 
         }
 
