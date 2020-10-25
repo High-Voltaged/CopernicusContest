@@ -56,11 +56,11 @@ export default class Articles extends VuexModule {
 
         if (route_name == "quiz_admin_view") {
 
-            let quiz = await ApiWrapper.fetchQuizEdit();
+            quiz = await ApiWrapper.fetchQuizEdit();
 
         } else {
 
-            let quiz = await ApiWrapper.fetchQuiz();
+            quiz = await ApiWrapper.fetchQuiz();
 
         }
 

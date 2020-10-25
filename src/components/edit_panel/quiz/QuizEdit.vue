@@ -89,14 +89,6 @@
 
         }
 
-        mounted() {
-
-
-
-           console.log("this is never called");
-
-        }
-
     }
 
 </script>
