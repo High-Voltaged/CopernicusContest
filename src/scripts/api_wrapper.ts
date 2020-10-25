@@ -69,6 +69,14 @@ export namespace APIWrapper {
 
     }
 
+    export async function deleteQuizQuestion(question_id: number): Promise<Codes> {
+
+        let response: AxiosResponse = await axios.post(Links.delete_quiz_question, { question_id: question_id });
+
+        return response.data["response"];
+
+    }
+
     export async function fetchCategories(): Promise<ICategory[]> {
 
         let response: AxiosResponse = await axios.post(Links.fetch_categories);

@@ -146,7 +146,7 @@
     import { Limits } from '../../../app/limits';
     import { vxm } from '../../store';
     import APIWrapper from '../../scripts/api_wrapper';
-   import IQuizQuestion from '~/interfaces/quiz_question';
+    import IQuizQuestion from '~/interfaces/quiz_question';
 
     import QuizAnswer from './QuizAnswer.vue';
     import QuizAnswersContainer from './QuizAnswersContainer.vue';
@@ -251,7 +251,11 @@
 
         }
 
-        removeQuestion() {
+        async removeQuestion() {
+
+            console.log("HERE");
+
+            await APIWrapper.deleteQuizQuestion(this.questions_array[this.question].id);
 
             vxm.quiz.removeQuestion(this.question);
 
@@ -346,32 +350,32 @@
 
         // Lifecycle Hooks
 
-         temp_quiz_array = [];
+        temp_quiz_array = [];
 
-         deepCopyArray(inObject): IQuizQuestion[] {
+        deepCopyArray(inObject): IQuizQuestion[] {
 
             let outObject;
             let value;
 
-            if((typeof inObject != 'object') || (inObject == null)) {
+            if ((typeof inObject != 'object') || (inObject == null)) {
 
-               return inObject;
+                return inObject;
 
             }
 
             outObject = Array.isArray(inObject) ? [] : {};
 
-            for(let i in inObject) {
+            for (let i in inObject) {
 
-               value = inObject[i];
+                value = inObject[i];
 
-               outObject[i] = this.deepCopyArray(value);
+                outObject[i] = this.deepCopyArray(value);
 
-            } 
+            }
 
             return outObject;
 
-         }
+        }
 
         mounted() {
 
@@ -399,7 +403,7 @@
             }
 
         }
-         
+
 
     }
 
