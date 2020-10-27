@@ -188,6 +188,8 @@ export namespace Queries {
 
         await insertQuizQuestion(question);
 
+        connection.end();
+
     }
 
     export async function insertQuizQuestion(question: IQuizQuestion) {
