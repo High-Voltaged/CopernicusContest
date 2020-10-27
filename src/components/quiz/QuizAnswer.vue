@@ -78,6 +78,9 @@
 
          get correct_answer_id() {
 
+             console.log(this.questions_array);
+             console.log(this.question);
+
             return this.questions_array[this.question].correct_answer_id;
 
          }
