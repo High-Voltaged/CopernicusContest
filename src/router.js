@@ -12,6 +12,8 @@ import ArticleEdit from '~/components/edit_panel/article/ArticleEdit.vue';
 import ArticleAdd from '~/components/edit_panel/article/ArticleAdd.vue';
 import QuizEdit from '~/components/edit_panel/quiz/QuizEdit.vue';
 
+import Loading from '~/components/other/Loading.vue';
+
 Vue.use(Router)
 
 export function createRouter() {
@@ -59,6 +61,10 @@ export function createRouter() {
             {
                 path: '/add_article',
                 component: ArticleAdd,
+            },
+            {
+               path: '/loading',
+               component: Loading,
             }
         ]
     })

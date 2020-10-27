@@ -8,13 +8,13 @@
 
                 <div :class="{ 'justify-between': editMode }" class="flex items-center space-x-2 w-full">
 
-                    <router-link v-if="editMode" to="/admin" tag="button" class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
+                    <button @click="$emit('toMenu')" v-if="editMode" to="/admin" tag="button" class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
                         <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
-                            Admin
+                            Menu
                         </span>
 
-                    </router-link>
+                    </button>
 
                     <router-link v-else to="/" tag="button" class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
