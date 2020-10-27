@@ -2,7 +2,7 @@
 
     <transition name="fade-away">
 
-        <div v-if="answer">
+        <div v-if="answer" class="inline-block relative m-2">
 
             <button @click="selectedAnswer()"
                     :class="[
@@ -10,11 +10,11 @@
                         { 'bg-green-400': (correct_answer_id == answer.id) && editMode }, 
                         { 'hover:bg-green-400': editMode }
                      ]"
-                    class="button-container flex items-center w-56 flex-shink-0 flex-grow-0 relative rounded-lg focus:outline-none bg-gray-200 p-2 m-2 transition duration-300 ease">
+                    class="button-container flex items-center w-56 flex-shink-0 flex-grow-0 rounded-lg focus:outline-none bg-gray-200 p-2 transition duration-300 ease">
 
-                <div class="flex-0 w-6 min-w-6 h-6 min-h-6 mr-2 flex justify-center items-center rounded-full bg-purple-400">
+                <div class="flex-0 w-6 min-w-6 h-6 min-h-6 mr-2 flex justify-center items-center rounded-full" :class="(correct_answer_id == answer.id) && editMode ? 'bg-white' : 'bg-purple-400'">
 
-                    <span class="text-white text-sm leading-loose select-none">
+                    <span class="text-sm leading-loose select-none" :class="(correct_answer_id == answer.id) && editMode ? 'text-gray-secondary' : 'text-white'">
                         {{ answer.letter_label }}
                     </span>
 
@@ -24,13 +24,13 @@
                     {{ answer.answer }}
                 </div>
 
-                <button v-if="editMode"
-                        @click="removeAnswer()"
-                        class="inline-flex items-center justify-center absolute -right-2 -top-2 w-4 h-4 rounded-full shadow bg-red-primary transform hover:scale-125 transition duration-300 ease focus:outline-none">
+            </button>
 
-                    <font-awesome-icon :icon="['fas', 'times']" class="flex-0 w-2 h-2 fill-current text-gray-200" />
+            <button v-if="editMode"
+                  @click="removeAnswer()"
+                  class="inline-flex items-center justify-center absolute -right-2 -top-2 w-4 h-4 rounded-full shadow bg-red-primary transform hover:scale-125 transition duration-300 ease focus:outline-none">
 
-                </button>
+               <font-awesome-icon :icon="['fas', 'times']" class="flex-0 w-2 h-2 fill-current text-gray-200" />
 
             </button>
 

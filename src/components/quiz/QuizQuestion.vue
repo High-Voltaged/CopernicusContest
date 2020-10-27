@@ -171,6 +171,12 @@
 
         }
 
+         get init_questions() {
+
+           return vxm.quiz.getQuizUtil.init_questions;
+
+        }
+
         get question() {
 
             return vxm.quiz.getQuizUtil.question;
@@ -293,7 +299,13 @@
 
         validateCorrectAnswer(): boolean {
 
-            if (!this.correct_answer_id) {
+            let found = this.answers.find(a => {
+
+               return (a.id == this.correct_answer_id);
+
+            })
+
+            if (!this.correct_answer_id || !found) {
 
                 return false;
 
@@ -324,9 +336,9 @@
                 vxm.quiz.setValidationError({ value: false, content: '' });
 
                 vxm.quiz.setQuestion(this.temp_question);
-                APIWrapper.updateQuizQuestion(this.questions_array[this.question]);
-
                 vxm.quiz.setInitConfig(this.questions_array);
+
+                APIWrapper.updateQuizQuestion(this.init_questions[this.question]);
 
                 this.notif_content = 'Your changes to the quiz will be saved.';
                 this.notif_on = true;
@@ -334,6 +346,31 @@
             }
 
         }
+   
+         deepCopyArray(inObject): IQuizQuestion[] {
+
+            let outObject;
+            let value;
+
+            if ((typeof inObject != 'object') || (inObject == null)) {
+
+                  return inObject;
+
+            }
+
+            outObject = Array.isArray(inObject) ? [] : {};
+
+            for (let i in inObject) {
+
+                  value = inObject[i];
+
+                  outObject[i] = this.deepCopyArray(value);
+
+            }
+
+            return outObject;
+
+         }
 
         // Notification Config
 
@@ -350,33 +387,6 @@
 
         // Lifecycle Hooks
 
-        temp_quiz_array = [];
-
-        deepCopyArray(inObject): IQuizQuestion[] {
-
-            let outObject;
-            let value;
-
-            if ((typeof inObject != 'object') || (inObject == null)) {
-
-                return inObject;
-
-            }
-
-            outObject = Array.isArray(inObject) ? [] : {};
-
-            for (let i in inObject) {
-
-                value = inObject[i];
-
-                outObject[i] = this.deepCopyArray(value);
-
-            }
-
-            return outObject;
-
-        }
-
         mounted() {
 
             if (this.$parent._name == '<QuizEdit>') {
@@ -385,7 +395,6 @@
                 vxm.quiz.setInitConfig(this.deepCopyArray(this.questions_array));
 
             }
-
 
         }
 

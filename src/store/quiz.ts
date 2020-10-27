@@ -289,10 +289,39 @@ export default class Articles extends VuexModule {
 
          if(question[i] != stored_question[i]) {
 
-            console.log(`${i} isn't equal to ${i}`);
+            if(i == 'answers') {
 
-            this.saved_question = false;
-            return;
+               for(let j in question[i]) {
+
+                  for(let k in question[i][j]) {
+
+                     if(stored_question[i][j]) {
+
+                        if(question[i][j][k] != stored_question[i][j][k]) {
+   
+                           this.saved_question = false;
+                           return;
+   
+                        }                     
+
+                     } else {
+
+                        this.saved_question = false;
+                        return;
+
+                     }
+
+                  }
+
+               }
+
+            } else {
+
+               this.saved_question = false;
+               return;
+
+            }
+
 
          }
 
