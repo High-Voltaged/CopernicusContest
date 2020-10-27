@@ -148,15 +148,12 @@
     import APIWrapper from '../../scripts/api_wrapper';
     import IQuizQuestion from '~/interfaces/quiz_question';
 
-    import QuizAnswer from './QuizAnswer.vue';
     import QuizAnswersContainer from './QuizAnswersContainer.vue';
     import Notification from '../edit_panel/Notification.vue';
-
 
     @Component({
         name: "QuizQuestion",
         components: {
-            QuizAnswer,
             QuizAnswersContainer,
             Notification,
         }
@@ -387,9 +384,9 @@
 
         // Lifecycle Hooks
 
-        mounted() {
+        beforeMount() {
 
-            if (this.$parent._name == '<QuizEdit>') {
+            if (this.$route.name == "quiz_admin_view") {
 
                 vxm.quiz.setEditMode(true);
                 vxm.quiz.setInitConfig(this.deepCopyArray(this.questions_array));
