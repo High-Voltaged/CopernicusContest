@@ -299,6 +299,15 @@ select {
 // ARTICLE DIGEST 
 
 
+.article-edit-sort {
+   width: 18rem;
+}
+
+@screen md {
+   .article-edit-sort {
+      width: 25rem;
+   }
+}
 
 .article-sort .divider, .article-content .divider {
 	background-image: linear-gradient(to right, transparent, #7a58c5, transparent);
