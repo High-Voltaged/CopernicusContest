@@ -1,8 +1,8 @@
 <template>
 
-    <div class="flex items-center justify-center w-screen h-screen">
+    <div class="flex flex-col items-center justify-center w-screen h-screen relative">
 
-      <Categories v-if="edit_menu == 0" @edit="setEditMenu($event)" :edit_menu="edit_menu"></Categories>
+      <Categories v-if="edit_menu == 0" @edit="setEditMenu($event)" @setNewCategory="setNewCategory" :edit_menu="edit_menu"></Categories>
 
       <div v-else-if="edit_menu == 1" class="article-edit-sort flex flex-col space-y-6 bg-gray-main p-10 rounded-md shadow-lg">
 
@@ -32,7 +32,7 @@
 
          </div>
 
-         <Category :category="category" :edit_menu="edit_menu">
+         <Category :category="categories[current]" :edit_menu="edit_menu">
             
             <template #input>
 
@@ -77,9 +77,20 @@
       <transition name="fade-out">
 
          <Notification 
-            v-if="notif_on"
-            :content="notif_content"
+            v-if="notif.on"
+            :content="notif.content"
             @click="closeNotification"
+         />
+
+      </transition>
+
+      <transition name="scale-out">
+
+         <VerificationDialog 
+            v-if="verify.on"
+            :content="verify.content"
+            @cancel="handleCancel"
+            @continue="handleContinue"
          />
 
       </transition>
@@ -91,7 +102,7 @@
 <script lang="ts">
 
     import { Component, Prop, Watch, Vue } from "nuxt-property-decorator";
-import ICategory from "~/interfaces/category";
+   import ICategory from "~/interfaces/category";
     import ApiWrapper from '../../../scripts/api_wrapper';
     import { vxm } from '../../../store';
     
@@ -113,6 +124,14 @@ import ICategory from "~/interfaces/category";
 
       edit_menu = 0;
 
+      @Watch('edit_menu')
+      setEditMode() {
+
+         this.notif.on = false;
+         this.notif.content = '';
+
+      }
+
       get init_categories() {
 
          return vxm.categories.getMainUtil.init_categories;
@@ -122,12 +141,6 @@ import ICategory from "~/interfaces/category";
       get categories() {
 
          return vxm.categories.getMainUtil.categories;
-
-      }
-
-      get category() {
-
-         return vxm.categories.getMainUtil.category;
 
       }
 
@@ -143,22 +156,45 @@ import ICategory from "~/interfaces/category";
 
          vxm.categories.setCurrent(category_id);
 
+         this.temp_category = this.categories[this.current].name;
+
       }
 
       setMainMenu() {
 
-         this.edit_menu = 0;
+         if(!this.checkSavedCategory()) {
+
+            this.verify.content = 'Are you sure you want to leave this category unsaved?';
+            this.verify.on = true;   
+
+         } else {
+
+            this.edit_menu = 0;
+
+         }    
 
       }
 
       removeCategory() { // make async later
 
+         // post request
+
          vxm.categories.removeCategory();
+         vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
 
          this.edit_menu = 0;
 
       }
 
+      setNewCategory() {
+
+         vxm.categories.addCategory();
+
+         this.temp_category = this.categories[this.current].name;
+
+         this.edit_menu = 1;
+
+      }
 
       // Handle Input 
 
@@ -174,18 +210,17 @@ import ICategory from "~/interfaces/category";
 
             vxm.categories.setValidationError({ value: false, content: '' });
             
-            vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
             vxm.categories.setCategory(this.temp_category);
+            vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
 
             // post request, use init_categories
 
-            this.notif_content = 'The modified category was saved';
-            this.notif_on = true;
+            this.notif.content = 'The modified category was saved';
+            this.notif.on = true;
 
          }
 
       }
-
 
       deepCopyArray(inObject): ICategory[] {
 
@@ -222,15 +257,61 @@ import ICategory from "~/interfaces/category";
       }
 
 
-      // Notification 
+      checkSavedCategory(): boolean {
 
-      notif_on = false;
-      notif_content = '';
+         vxm.categories.checkSavedCategory(this.temp_category);
+
+         if(vxm.categories.getMainUtil.savedCategory) {
+
+            return true;
+
+         } else {
+
+            return false;
+
+         }
+
+      }
+
+
+      // Notification / Verification Dialog
+
+      notif = {
+         on: false,
+         content: '',
+      };
+
+      verify = {
+         on: false,
+         content: '',
+      }
 
       closeNotification() {
+         
+         this.notif.on = false;
+         this.notif.content = '';
 
-         this.notif_on = false;
-         this.notif_content = '';
+      }
+
+      handleCancel() {
+
+         this.verify.on = false;
+         this.verify.content = '';
+
+      }
+
+      handleContinue() {
+
+         this.edit_menu = 0;
+
+         this.verify.on = false;
+         this.verify.content = '';
+
+         if(!this.temp_category && (this.init_categories[this.current].id != this.categories[this.current].id)) {
+
+            this.removeCategory();
+
+         }
 
       }
 
@@ -241,23 +322,16 @@ import ICategory from "~/interfaces/category";
          vxm.categories.setEditMode(true);
 
          await vxm.categories.fetchCategories();
-
-         if(!this.category) {
-
-            await vxm.categories.fetchCategory(this.categories[this.current].id);
-
-         }
-
          vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
 
-         this.temp_category = this.category.name;
+         this.temp_category = this.categories[this.current].name;
 
       }
 
       beforeDestroy() {
 
-         this.notif_on = false;
-         this.notif_content = '';
+         this.notif.on = false;
+         this.notif.content = '';
 
          vxm.categories.resetCategories();
 

@@ -20,6 +20,8 @@ export default class Categories extends VuexModule {
    current = 0; 
    editMode = false;
 
+   temp_id = -1;
+
    get getMainUtil() {
 
       return {
@@ -27,8 +29,10 @@ export default class Categories extends VuexModule {
          categories: this.categories,
          category: this.category,
          current: this.current,
+
          editMode: this.editMode,
          error: this.validationError,
+         savedCategory: this.saved_category,
       }
 
    }
@@ -57,12 +61,26 @@ export default class Categories extends VuexModule {
 
    }
 
+   @mutation addCategory() {
+
+      let temp = {
+         id: this.temp_id,
+         name: '',
+      };
+
+      this.categories.push(temp);
+
+      this.current = this.categories.length - 1;
+
+      --this.temp_id;
+
+   }
+
    @mutation removeCategory() {
 
       this.categories.splice(this.current, 1);
 
    }
-
 
    // Fetching categories
 
@@ -88,6 +106,7 @@ export default class Categories extends VuexModule {
 
    @mutation resetCategories() {
 
+      this.init_categories = [];
       this.categories = [];
       this.category = null;
       this.current = 0;
@@ -103,10 +122,33 @@ export default class Categories extends VuexModule {
       content: '',
    };
 
+   saved_category = false;
+
    @mutation setValidationError(payload: { value: boolean; content: string }) {
 
       this.validationError.value = payload.value;
       this.validationError.content = payload.content;
+
+   }
+
+   @mutation checkSavedCategory(category: string) {
+
+      if(!this.init_categories[this.current]) {
+
+         this.saved_category = false;
+         return;
+
+      }
+
+      if(category != this.init_categories[this.current].name) {
+
+         this.saved_category = false;
+
+      } else {
+
+         this.saved_category = true;
+
+      }
 
    }
 

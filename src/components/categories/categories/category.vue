@@ -1,6 +1,6 @@
 <template>
 
-   <div v-if="category" class="category-selected relative">
+   <div v-if="category" class="category-selected relative w-full">
 
       <div :class="{ 'space-y-4': editMode }" class="flex flex-col items-center justify-center w-full space-y-2 bg-gray-main rounded-md">
       
@@ -99,6 +99,7 @@
             return vxm.categories.getMainUtil.current;
 
          }
+         
     }
 
 </script>
