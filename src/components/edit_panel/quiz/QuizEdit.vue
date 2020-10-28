@@ -168,9 +168,10 @@
 
       // Lifecycle Hooks
 
-      async beforeCreate() {
+      async beforeMount() {
 
          await vxm.quiz.prepareQuiz(this.$route.name);
+         console.log('called');
 
       }
 
@@ -194,7 +195,7 @@
 
       }
 
-      handleContinue(): void {
+      async handleContinue(): void {
 
          this.quiz_menu = 0;
 
@@ -206,15 +207,18 @@
          // Check if the question is both empty and wasn't within the initial version of questions_array
 
          if((!question && !this.answers.length && !this.correct_answer_id) 
-            && (this.init_questions.indexOf(this.questions_array[this.question]) == -1)) {
+            && (this.init_questions[this.question].id == this.questions_array[this.question].id)) {
 
             this.removeQuestion();
 
-         }        
+         }    
+
+         vxm.quiz.resetQuiz();
+         await vxm.quiz.prepareQuiz(this.$route.name);
 
       }
 
-      toMenu() {
+      async toMenu() {
       
          // show the prompt dialog if the question wasn't saved
          if(!this.checkSavedQuestion()) {
@@ -225,6 +229,9 @@
          } else {
 
             this.quiz_menu = 0;
+
+            vxm.quiz.resetQuiz();
+            await vxm.quiz.prepareQuiz(this.$route.name);
 
          }
 

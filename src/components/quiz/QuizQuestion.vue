@@ -263,6 +263,8 @@
 
             vxm.quiz.removeQuestion(this.question);
 
+            vxm.quiz.setInitConfig(this.deepCopyArray(this.questions_array));
+
         }
 
         validateQuestionLength(): boolean {
@@ -315,7 +317,7 @@
 
         }
 
-        saveTheQuestion(): void {
+        async saveTheQuestion(): Promise<void> {
 
             if (!this.validateQuestionLength()) {
 
@@ -336,7 +338,7 @@
                 vxm.quiz.setQuestion(this.temp_question);
                 vxm.quiz.setInitConfig(this.deepCopyArray(this.questions_array));
 
-                APIWrapper.updateQuizQuestion(this.init_questions[this.question]);
+                await APIWrapper.updateQuizQuestion(this.init_questions[this.question]);
 
                 this.notif_content = 'Your changes to the quiz will be saved.';
                 this.notif_on = true;
