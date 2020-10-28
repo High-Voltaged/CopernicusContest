@@ -99,13 +99,6 @@
             return vxm.categories.getMainUtil.current;
 
          }
-
-         beforeDestroy() {
-
-            vxm.categories.resetCategories();
-
-         }
-
     }
 
 </script>
