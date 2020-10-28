@@ -58,17 +58,25 @@ export namespace Utils {
             return false;
         }
 
+        console.log("1");
+
         if (!((content.length >= Limits.min_content_length) && (content.length <= Limits.max_content_length))) {
             return false;
         }
+
+        console.log("2");
 
         if (!((important >= 0) && (important <= 1))) {
             return false;
         }
 
+        console.log("3");
+
         if (!(picture_link.length <= Limits.max_picture_length)) {
             return false;
         }
+
+        console.log("4");
 
         return true;
 
@@ -151,7 +159,11 @@ export namespace Utils {
 
     export async function insertArticle(raw_cookie: string, title: string, content: string, picture_link: string, important: number, category_id: number): Promise<Codes> {
 
+        console.log(title);
+
         if ((await validateSession(getSessionToken(raw_cookie))) && (validateNewArticleDetails(title, content, picture_link, important))) {
+
+            console.log("HEREEE");
 
             await Queries.insertArticle(title, content, picture_link, important, category_id);
 

@@ -61,6 +61,14 @@ export namespace APIWrapper {
 
     }
 
+    export async function insertArticle(article): Promise<Codes> {
+
+        let response: AxiosResponse = await axios.post(Links.insert_article, { article: article });
+
+        return response.data["response"];
+
+    }
+
     export async function updateQuizQuestion(question: IQuizQuestion): Promise<Codes> {
 
         let response: AxiosResponse = await axios.post(Links.update_quiz_question, { question: question });

@@ -88,8 +88,9 @@ module.exports = function(app) {
     });
 
     app.post(Links.insert_article, async function(req: Request, res: Response) {
+
         res.json({
-            response: await Utils.insertArticle(req.headers.cookie, req.body.title, req.body.content, req.body.picture_link, req.body.important, req.body.category_id)
+            response: await Utils.insertArticle(req.headers.cookie, req.body.article.title, req.body.article.content, req.body.article.picture_link, req.body.article.important, req.body.article.category.id)
         });
     });
 
@@ -123,7 +124,7 @@ module.exports = function(app) {
         });
     });
 
-    app.post(Links.insert_article, async function(req: Request, res: Response) {
+    app.post(Links.insert_quiz_question, async function(req: Request, res: Response) {
         res.json({
             response: await Utils.insertQuizQuestion(req.headers.cookie, req.body.question)
         });

@@ -66,6 +66,8 @@ export default class Articles extends VuexModule {
 
             quiz = await ApiWrapper.fetchQuiz();
 
+            console.log(quiz);
+
         }
 
         for (let raw_question of quiz) {
