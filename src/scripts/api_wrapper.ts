@@ -49,6 +49,8 @@ export namespace APIWrapper {
 
         article[0].timestamp = moment(article[0].timestamp).format('YYYY-MM-DD HH:mm:s');
 
+        article[0].content = article[0].content.split("\n");
+
         return article;
 
     }

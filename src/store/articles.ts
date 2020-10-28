@@ -47,8 +47,6 @@ export default class Articles extends VuexModule {
 
         this.article = (await ApiWrapper.fetchArticle(Number(payload.article_id), payload.stealth))[0];
 
-        this.article.content = this.article.content.split("\n");
-
         this.popular_articles = await ApiWrapper.fetchPopularArticles();
 
         this.categories = await ApiWrapper.fetchCategories();
