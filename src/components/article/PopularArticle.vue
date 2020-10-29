@@ -4,24 +4,25 @@
 
       <div class="article-header flex items-center w-full lg:transition duration-300 ease capitalize">
 
-            <div class="hidden lg:block w-4 h-4 flex-shrink-0">
+         <div class="hidden lg:block w-4 h-4 flex-shrink-0">
 
-               <font-awesome-icon :icon="['fas', 'angle-right']" class="h-full w-full fill-current text-purple-secondary" />
+            <font-awesome-icon :icon="['fas', 'angle-right']" class="h-full w-full fill-current text-purple-secondary" />
 
-            </div>
+         </div>
 
-            <div class="lg:hidden w-2 h-2 flex-shrink-0">
+         <div class="lg:hidden w-2 h-2 flex-shrink-0">
 
-               <font-awesome-icon :icon="['fas', 'circle']" class="h-full w-full fill-current text-purple-secondary" />
+            <font-awesome-icon :icon="['fas', 'circle']" class="h-full w-full fill-current text-purple-secondary" />
 
-            </div>
+         </div>
 
-            <router-link tag="div" :to="`/article/${article.id}`" class="cursor-pointer ml-2"> 
-               
-               <span>
-                  {{ article.title }} 
-               </span>
-            </router-link>
+         <router-link tag="div" :to="`/article/${article.id}`" class="cursor-pointer ml-2"> 
+            
+            <span>
+               {{ article.title }} 
+            </span>
+            
+         </router-link>
 
       </div>
 

@@ -46,7 +46,7 @@
 
                     <slot name="editTitle"></slot>
 
-                    <div class="flex flex-col items-center w-full bg-gray-main relative p-5 xl:p-10 space-y-2 rounded-md shadow-lg">
+                    <div class="flex flex-col items-center w-full bg-gray-main relative p-5 xl:p-10 space-y-5 rounded-md shadow-lg">
 
                         <slot name="error"></slot>
 
@@ -54,7 +54,7 @@
 
                             <div v-for="(paragraph, i) in article.content"
                                  :key="i"
-                                 class="text-justify text-sm xl:text-base leading-relaxed xl:leading-loose font-light text-gray-300">
+                                 class="text-styled text-justify text-sm xl:text-base leading-relaxed xl:leading-loose font-light text-gray-300">
 
                                 <p> {{ paragraph }} </p>
 
@@ -66,7 +66,7 @@
 
                         <slot name="addCategory"></slot>
 
-                        <div v-if="!addArticle" class="flex justify-center mt-5 w-full">
+                        <div v-if="!addArticle" class="flex justify-center w-full">
 
                             <div class="flex flex-col items-start max-w-9/10 bg-gray-tertiary rounded-lg px-4 py-2 shadow-md">
 

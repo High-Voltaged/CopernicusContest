@@ -19,7 +19,7 @@
 
             <p v-for="(paragraph, i) in article.content"
                :key="i"
-               class="text-justify lg:text-left text-sm leading-relaxed font-light text-gray-300">
+               class="text-styled text-justify lg:text-left text-sm leading-relaxed font-light text-gray-300">
                 {{ paragraph }}
             </p><br>
 
