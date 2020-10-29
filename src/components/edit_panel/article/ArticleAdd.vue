@@ -219,6 +219,8 @@
 
         validateChanges(): boolean {
 
+
+
             for (let i in this.article) {
 
                 if (((i == 'category') && (!this.article[i].name))) {
