@@ -20,7 +20,7 @@
 
                 </div>
 
-                <div class="text-sm text-gray-secondary tracking-wider pr-2">
+                <div class="text-sm text-gray-secondary tracking-wider select-none pr-2">
                     {{ answer.answer }}
                 </div>
 

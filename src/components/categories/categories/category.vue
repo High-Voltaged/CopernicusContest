@@ -4,7 +4,7 @@
 
       <div :class="{ 'space-y-4': editMode }" class="flex flex-col items-center justify-center w-full space-y-2 bg-gray-main rounded-md">
       
-         <router-link v-if="!editMode" :to="`/category/${category.id}`" tag="div" class="flex items-center justify-center w-full py-1"> 
+         <router-link v-if="!editMode" :to="`/category/${category.id}`" tag="div" class="flex items-center justify-center w-full py-1 select-none"> 
             
             <span class="capitalize text-2xl text-center font-bold tracking-tight leading-tight text-gray-200">
                {{ category.name }}
@@ -14,7 +14,7 @@
 
          <div v-else-if="(edit_menu == 0) && editMode" class="flex items-center justify-center w-full py-1">
 
-            <span class="capitalize text-2xl text-center font-bold tracking-tight leading-tight text-gray-200">
+            <span class="capitalize text-2xl text-center font-bold tracking-tight leading-tight text-gray-200 select-none">
                {{ category.name }}
             </span>
 
@@ -30,11 +30,11 @@
 
             <div class="inline-flex items-center space-x-2">
 
-               <span class="text-sm text-left text-gray-200 font-semibold tracking-wide">
+               <span class="text-sm text-left text-gray-200 font-semibold tracking-wid select-none">
                   Number of articles:
                </span>
 
-               <span class="text-sm text-left text-gray-200 font-semibold tracking-wide">
+               <span class="text-sm text-left text-gray-200 font-semibold tracking-wide select-none">
                   120
                </span>
 
@@ -42,7 +42,7 @@
 
             <button v-if="edit_menu == 0" @click="$emit('edit')" class="md:absolute md:right-2 md:top-2 flex items-center justify-center px-6 md:px-3 py-2 rounded-lg bg-gray-primary bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
                   
-               <span class="text-sm text-gray-200 font-semibold tracking-wider text-left">
+               <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
                   Edit
                </span>
 

@@ -293,20 +293,35 @@ export default class Articles extends VuexModule {
 
             if(i == 'answers') {
 
+               if(question[i].length != stored_question[i].length) {
+
+                  console.log('length not equal');
+
+                  this.saved_question = false;
+                  return;
+
+               }
+
                for(let j in question[i]) {
 
                   for(let k in question[i][j]) {
 
                      if(stored_question[i][j]) {
 
+                        console.log('stored_question exists');
+
                         if(question[i][j][k] != stored_question[i][j][k]) {
    
+                           console.log('the two answers do not match')
+
                            this.saved_question = false;
                            return;
    
                         }                     
 
                      } else {
+
+                        console.log('the answer doesn\'t exist in the init array');
 
                         this.saved_question = false;
                         return;
@@ -323,7 +338,6 @@ export default class Articles extends VuexModule {
                return;
 
             }
-
 
          }
 

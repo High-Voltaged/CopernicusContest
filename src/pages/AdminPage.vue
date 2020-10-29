@@ -8,35 +8,55 @@
 
         </div>
 
-        <div v-else-if="edit_menu == 1" class="flex-auto flex flex-col md:flex-row items-center justify-center w-full h-full space-y-8 md:space-y-0 md:space-x-10 bg-gray-secondary p-8">
+        <div v-else-if="edit_menu == 1" class="flex-auto flex items-center justify-center w-full h-full bg-gray-secondary p-8">
 
-            <div class="flex items-center w-72">
+           <div class="flex flex-col md:flex-row flex-wrap items-center justify-center w-full md:w-4/5">
 
-                <div class="inline-block w-full">
+               <div class="flex-0 flex items-center w-48 sm:w-72 m-5">
 
-                    <button @click="setCurrent(articles)" class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
-                        Edit articles
-                    </button>
+                  <div class="inline-block w-full">
 
-                </div>
+                     <button @click="setCurrent(articles)" class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
+                           Edit articles
+                     </button>
 
-            </div>
+                  </div>
 
-            <div class="flex items-center w-72">
+               </div>
 
-                <div class="inline-block w-full">
+               <div class="flex-0 flex items-center w-48 sm:w-72 m-5">
 
-                    <router-link to="/edit/quiz">
+                  <div class="inline-block w-full">
 
-                        <button class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
-                            Edit the quiz
-                        </button>
+                     <router-link to="/edit/quiz" tag="div">
 
-                    </router-link>
+                           <button class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
+                              Edit the quiz
+                           </button>
 
-                </div>
+                     </router-link>
 
-            </div>
+                  </div>
+
+               </div>
+
+               <div class="flex-0 flex items-center w-48 sm:w-72 m-5">
+
+                  <div class="inline-block w-full">
+
+                     <router-link to="/edit/categories" tag="div">
+
+                           <button class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
+                              Edit the categories
+                           </button>
+
+                     </router-link>
+
+                  </div>
+
+               </div>
+              
+           </div>
 
         </div>
 

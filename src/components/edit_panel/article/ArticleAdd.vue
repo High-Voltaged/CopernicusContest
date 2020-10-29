@@ -219,9 +219,19 @@
 
         validateChanges(): boolean {
 
-            for (let i in this.article) {
+           let temp = {
+               title: this.article.title,
+               content: this.article.content,
+               category: {
+                  id: this.article.category.id,
+                  name: this.article.category.name,
+               },
+               picture_link: this.article.picture_link,
+           }
 
-                if (((i == 'category') && (!this.article[i].name))) {
+            for (let i in temp) {
+
+                if (!temp[i] || ((i == 'category') && (!temp[i].name))) {
 
                     vxm.articles.setValidationError({ value: true, content: 'Don\'t leave the input fields empty.' });
                     return false;

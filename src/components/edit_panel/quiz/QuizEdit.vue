@@ -195,7 +195,7 @@
 
       }
 
-      async handleContinue(): void {
+      async handleContinue() {
 
          this.quiz_menu = 0;
 

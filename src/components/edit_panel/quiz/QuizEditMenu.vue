@@ -37,12 +37,12 @@
             >
 
                <div class="flex items-center justify-center w-full">
-               
+
                   <span class="text-base md:text-sm text-center font-normal text-gray-300 select-none">
                      Question #{{ i + 1 }} out of {{ questions_array.length }}
                   </span>
 
-               </div>   
+               </div>  
 
                <div class="md:text-lg font-normal text-gray-200"> 
                   {{ question.question }} 
@@ -50,13 +50,17 @@
 
                <QuizAnswersContainer :answers="questions_array[i].answers"></QuizAnswersContainer>
 
-               <button @click="$emit('edit', i)" class="absolute right-2 top-2 flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-gray-primary bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
-                  
-                  <span class="text-sm text-gray-200 font-semibold tracking-wider text-left">
-                     Edit
-                  </span>
+               <div class="flex items-center justify-center md:justify-end w-full">
 
-               </button>
+                  <button @click="$emit('edit', i)" class="flex items-center justify-center space-x-1 px-6 md:px-3 py-2 rounded-lg bg-gray-primary bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
+                     
+                     <span class="text-sm text-gray-200 font-semibold tracking-wider text-left">
+                        Edit the Question
+                     </span>
+
+                  </button>
+
+               </div>
 
                <div class="divider relative h-px my-5 min-w-full">
             
