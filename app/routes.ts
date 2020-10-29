@@ -75,6 +75,12 @@ module.exports = function(app) {
         });
     });
 
+    app.post(Links.fetch_edit_categories, async function(req: Request, res: Response) {
+        res.json({
+            response: await Queries.fetchEditCategories()
+        });
+    });
+
     app.post(Links.admin_panel_login, async function(req: Request, res: Response) {
         res.json({
             response: await Utils.processAdminLogin(res, req.body.username, req.body.password)
@@ -127,6 +133,25 @@ module.exports = function(app) {
     app.post(Links.insert_quiz_question, async function(req: Request, res: Response) {
         res.json({
             response: await Utils.insertQuizQuestion(req.headers.cookie, req.body.question)
+        });
+    });
+
+
+    app.post(Links.insert_category, async function(req: Request, res: Response) {
+        res.json({
+            response: await Utils.insertCategory(req.headers.cookie, req.body.category_id, req.body.category_name)
+        });
+    });
+
+    /*app.post(Links.edit_category, async function(req: Request, res: Response) {
+        res.json({
+            response: await Utils.editCategory(req.headers.cookie, req.body.category_id)
+        });
+    });*/
+
+    app.post(Links.delete_category, async function(req: Request, res: Response) {
+        res.json({
+            response: await Utils.deleteCategory(req.headers.cookie, req.body.category_id)
         });
     });
 

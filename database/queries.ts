@@ -78,6 +78,15 @@ export namespace Queries {
 
     }
 
+    export async function fetchEditCategories() {
+
+        connection = await database.getConnection();
+        let result = await connection.query("SELECT *, (SELECT COUNT(*) FROM `articles` `a` WHERE `a`.`category_id` = `categories`.`id`) AS article_count FROM `categories` ORDER BY `id` DESC;", []);
+        connection.end();
+        return result;
+
+    }
+
     export async function fetchCategories() {
 
         connection = await database.getConnection();
@@ -148,6 +157,33 @@ export namespace Queries {
         connection = await database.getConnection();
         let result = await connection.query("INSERT IGNORE INTO `articles` (`title`, `content`, picture_link, `important`, `category_id`) VALUES (?, ?, ?, ?, ?)",
             [title, content, picture_link, important, category_id]);
+        connection.end();
+        return result;
+
+    }
+
+    export async function insertCategory(category_name: string) {
+
+        connection = await database.getConnection();
+        let result = await connection.query("INSERT IGNORE INTO `categories` (`name`) VALUES (?)", [category_name]);
+        connection.end();
+        return result;
+
+    }
+
+    export async function updateCategory(category_id: number, category_name: string) {
+
+        connection = await database.getConnection();
+        let result = await connection.query("UPDATE `categories` SET `name` = ? WHERE `id` = ?", [category_name, category_id]);
+        connection.end();
+        return result;
+
+    }
+
+    export async function deleteCategory(category_id: number) {
+
+        connection = await database.getConnection();
+        let result = await connection.query("DELETE IGNORE FROM `categories` WHERE `id` = ?", [category_id]);
         connection.end();
         return result;
 

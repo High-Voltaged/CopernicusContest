@@ -52,6 +52,16 @@ export namespace Utils {
 
     }
 
+    function validateCategory(category_name: string): boolean {
+
+        if (!((category_name.length >= Limits.min_category_length) && (category_name.length <= Limits.max_category_length))) {
+            return false;
+        }
+
+        return true;
+
+    }
+
     function validateNewArticleDetails(title: string, content: string, picture_link: string, important: number): boolean {
 
         if (!((title.length >= Limits.min_title_length) && (title.length <= Limits.max_title_length))) {
@@ -314,6 +324,62 @@ export namespace Utils {
 
     }
 
+    export async function insertCategory(raw_cookie: string, category_id: number, category_name: string): Promise<Codes> {
+
+        if (await validateSession(getSessionToken(raw_cookie)) && validateCategory(category_name)) {
+
+            // If it is in the database already
+            if (category_id < 0) {
+
+                await Queries.updateCategory(category_id, category_name);
+
+            } else {
+
+                await Queries.insertCategory(category_name);
+
+            }
+
+            return Codes.SUCCESS;
+
+        } else {
+
+            return Codes.INVALID_SESSION;
+
+        }
+
+    }
+
+    /*export async function editCategory(raw_cookie: string, category_id: number, category_name: string): Promise<Codes> {
+
+        if (await validateSession(getSessionToken(raw_cookie)) && validateCategory(category_name)) {
+
+            await Queries.editCategory(category_id, category_name);
+
+            return Codes.SUCCESS;
+
+        } else {
+
+            return Codes.INVALID_SESSION;
+
+        }
+
+    }*/
+
+    export async function deleteCategory(raw_cookie: string, category_id: number): Promise<Codes> {
+
+        if (await validateSession(getSessionToken(raw_cookie))) {
+
+            await Queries.deleteCategory(category_id);
+
+            return Codes.SUCCESS;
+
+        } else {
+
+            return Codes.INVALID_SESSION;
+
+        }
+
+    }
 
 };
 

@@ -26,6 +26,14 @@ export namespace APIWrapper {
 
     }
 
+    export async function fetchEditCategories(): Promise<ICategory[]> {
+
+        let response: AxiosResponse = await axios.post(Links.fetch_edit_categories);
+
+        return response.data["response"];
+
+    }
+
     export async function fetchArticle(id: number, stealth: boolean): Promise<IFullArticle> {
 
         let response: AxiosResponse;
@@ -146,6 +154,30 @@ export namespace APIWrapper {
     export async function validateSession(): Promise<Codes> {
 
         let response: AxiosResponse = await axios.post(Links.validate_session);
+
+        return response.data["response"];
+
+    }
+
+    export async function insertCategory(category_id: number, category_name: string): Promise<Codes> {
+
+        let response: AxiosResponse = await axios.post(Links.insert_category, { category_id: category_id, category_name: category_name });
+
+        return response.data["response"];
+
+    }
+
+    export async function editCategory(category_id: number, category_name: string): Promise<Codes> {
+
+        let response: AxiosResponse = await axios.post(Links.edit_category, { category_id: category_id, category_name: category_name });
+
+        return response.data["response"];
+
+    }
+
+    export async function deleteCategory(category_id: number): Promise<Codes> {
+
+        let response: AxiosResponse = await axios.post(Links.delete_category, { category_id: category_id });
 
         return response.data["response"];
 

@@ -17,6 +17,8 @@ export namespace Links {
 
 	export const fetch_edit_articles_list: string = "/api/fetchEditArticleList";
 
+	export const fetch_edit_categories: string = "/api/fetchEditCategories";
+
 	export const fetch_categories: string = "/api/fetchCategories";
 
 	export const fetch_category: string = "/api/fetchCategory";
@@ -26,13 +28,14 @@ export namespace Links {
 	// Fetches quiz questions, but all of them and ordered by question id instead
 	export const fetch_edit_quiz_questions: string = "/api/fetchEditQuizQuestions";
 
-	export const insert_article: string = "/api/insertArticle";
-
 	export const admin_panel_login: string = "/api/login";
+
+	export const insert_article: string = "/api/insertArticle";
 
 	export const edit_article: string = "/api/editArticle";
 
 	export const delete_article: string = "/api/deleteArticle";
+
 
 	export const delete_quiz_question: string = "/api/deleteQuizQuestion";
 
@@ -40,6 +43,14 @@ export namespace Links {
 
 	export const insert_quiz_question: string = "/api/insertQuizQuestion";
 
+
 	export const validate_session: string = "/api/validateSession";
+
+
+	export const insert_category: string = "/api/insertCategory";
+
+	export const edit_category: string = "/api/editCategory";
+
+	export const delete_category: string = "/api/deleteCategory";
 
 };

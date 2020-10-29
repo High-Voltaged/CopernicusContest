@@ -30,12 +30,8 @@
 
             <div class="inline-flex items-center space-x-2">
 
-               <span class="text-sm text-left text-gray-200 font-semibold tracking-wid select-none">
-                  Number of articles:
-               </span>
-
                <span class="text-sm text-left text-gray-200 font-semibold tracking-wide select-none">
-                  120
+                  Number of articles: {{ category.article_count }}
                </span>
 
             </div>

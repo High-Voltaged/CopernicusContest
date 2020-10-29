@@ -100,7 +100,7 @@ export default class Categories extends VuexModule {
 
    @action async fetchCategories() {
 
-      this.categories = await ApiWrapper.fetchCategories();
+       this.categories = await ApiWrapper.fetchEditCategories();
 
    }
 
