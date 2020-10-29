@@ -26,7 +26,7 @@
 
          </div>
 
-         <div v-if="editMode" class="flex flex-col items-center space-y-4 w-full">
+         <div v-if="editMode && (edit_menu == 0)" class="flex flex-col items-center space-y-4 w-full">
 
             <div class="inline-flex items-center space-x-2">
 

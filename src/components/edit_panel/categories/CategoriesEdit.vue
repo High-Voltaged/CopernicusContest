@@ -307,7 +307,7 @@
          this.verify.on = false;
          this.verify.content = '';
 
-         if(!this.temp_category && (this.init_categories[this.current].id != this.categories[this.current].id)) {
+         if(!this.temp_category && (this.init_categories[this.current])) {
 
             this.removeCategory();
 
