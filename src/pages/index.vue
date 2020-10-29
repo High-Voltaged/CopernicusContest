@@ -63,7 +63,7 @@
                            key="0"
                         ></MainTitle>
 
-                        <MajorArticles></MajorArticles>
+                        <MajorArticles> </MajorArticles>
 
                      </div>
 

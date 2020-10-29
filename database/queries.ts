@@ -63,7 +63,7 @@ export namespace Queries {
     export async function fetchDigest() {
 
         connection = await database.getConnection();
-        let result = await connection.query("SELECT `id`, `title`, SUBSTRING(`content`, 1, 50) as `content`, `picture_link`, `times_read` FROM `articles` ORDER BY `id` DESC LIMIT 50;", []);
+        let result = await connection.query("SELECT `id`, `title`, SUBSTRING(`content`, 1, 50) as `content`, `picture_link`, `times_read` FROM `articles` WHERE  `important` = 0 ORDER BY `id` DESC LIMIT 50;", []);
         connection.end();
         return result;
 
