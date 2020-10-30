@@ -184,6 +184,8 @@
          
          // console.log(result.data);
 
+          await APIWrapper.editArticle(this.article.id, this.article.title, this.article.content);
+
          this.notif_on = true;
          this.notif_content = 'Your changes to the article were saved.';
 
@@ -200,20 +202,16 @@
 
       }
 
-
       // Removing 
 
       async removeArticle(): Promise<void> {
 
-         // let result = await APIWrapper.removeArticle(this.article.id);
-
-         // console.log(result.data);
+         await APIWrapper.deleteArticle(this.article.id);
 
          this.notif_on = true;
          this.notif_content = 'The artilce was removed.';
 
       }
-
 
       // Validation for Editing the Article
       

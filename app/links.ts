@@ -36,7 +36,6 @@ export namespace Links {
 
 	export const delete_article: string = "/api/deleteArticle";
 
-
 	export const delete_quiz_question: string = "/api/deleteQuizQuestion";
 
 	export const update_quiz_question: string = "/api/updateQuizQuestion";

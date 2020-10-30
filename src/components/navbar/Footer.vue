@@ -7,7 +7,7 @@
       <div class="flex flex-col items-center">
 
          <div class="h-14">
-            <img src="https://askimspump.se/wp-content/uploads/sites/42/2018/01/placeholder-logo.png" class="h-full object-scale-down"> 
+            <img src="/logo.png" class="h-full object-scale-down"> 
          </div>
 
          <div class="flex items-center space-x-2">

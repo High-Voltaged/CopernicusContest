@@ -1,4 +1,4 @@
-<template>
+﻿<template>
 
    <div>
 
@@ -11,13 +11,13 @@
             <div class="main-title relative w-full h-104 md:h-88 p-5 flex flex-col items-center md:flex-row md:justify-around shadow-lg">
 
                <div class="absolute inset-0">
-                  <img src="https://images.unsplash.com/photo-1512840399005-5bce2b583140?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" class="h-full w-full object-cover opacity-25" />
+                  <img src="../img/banner.jpg" class="h-full w-full object-cover opacity-25" />
                </div>
 
                <div class="flex flex-col justify-center items-center w-full md:w-2/3  px-2 md:px-4 z-10">
 
                   <MainTitle
-                     :content="main_titles[1]"
+                     :content="main_titles[0]"
                      :divider="false"
                      key="4"
                   ></MainTitle>
@@ -59,7 +59,7 @@
                      <div class="flex flex-col w-full">
 
                         <MainTitle
-                           :content="main_titles[0]"
+                           :content="main_titles[1]"
                            key="0"
                         ></MainTitle>
 
@@ -72,7 +72,7 @@
                   <div class="mt-16 flex flex-col items-stretch justify-center 2xl:max-w-4/5 mx-auto w-full">
                         
                      <MainTitle
-                        :content="main_titles[1]"
+                        :content="main_titles[2]"
                         key="1"
                      ></MainTitle>
 
@@ -83,7 +83,7 @@
                   <div class="mt-4 2xl:max-w-4/5 mx-auto">
                         
                      <MainTitle
-                        :content="main_titles[2]"
+                        :content="main_titles[3]"
                         key="2"
                      ></MainTitle>
 
@@ -134,9 +134,10 @@
 
       main_titles = [
 
-         { subtitle: 'Some stuff', title: 'Section title here', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
-         { subtitle: 'Stuff here', title: 'Some other title', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
-         { subtitle: 'Other stuff', title: 'Title here', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+          { subtitle: 'Stuff here', title: 'Blog na temat Mikołaja Kopernika', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+          { subtitle: 'Some stuff', title: 'Główne informacje', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+          { subtitle: 'Stuff here', title: 'Timeline', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+          { subtitle: 'Other stuff', title: 'Wyróżnione artykuły', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
 
       ];
 
