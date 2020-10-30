@@ -68,6 +68,12 @@
 
         }
 
+        beforeDestroy() {
+
+           vxm.quiz.resetQuiz();
+
+        }
+
     }
 
 </script>

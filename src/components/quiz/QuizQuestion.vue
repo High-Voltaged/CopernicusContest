@@ -50,7 +50,7 @@
 
                 <div v-if="questions_array[question]" class="flex flex-col items-center justify-center w-full">
 
-                    <span v-if="!editMode" class="text-xl md:text-2xl text-center font-normal text-gray-200 md:px-2 lg:px-12 xl:px-8">
+                    <span v-if="!editMode" class="inline-block w-full text-xl md:text-2xl text-center font-normal text-gray-200 md:px-2 lg:px-12 xl:px-8">
                         {{ questions_array[question].question }}
                     </span>
 

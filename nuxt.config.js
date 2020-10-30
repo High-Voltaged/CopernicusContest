@@ -33,7 +33,7 @@ module.exports = {
 
     },
 
-    loading: { color: "#3B8070" },
+    loading: '~/components/other/Loading.vue',
 
     css: [
         './src/assets/css/style.scss',
