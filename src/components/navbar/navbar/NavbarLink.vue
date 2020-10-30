@@ -3,7 +3,7 @@
    <router-link 
       :to="link.to" 
       tag="div" 
-      class="flex-0 inline-block w-3/5 md:w-auto px-3 py-2 hover:bg-gray-secondary transition duration-300 linear cursor-pointer"
+      class="flex-0 inline-block w-3/5 md:w-auto px-3 py-2 hover:bg-gray-secondary md:hover:bg-gray-tertiary transition duration-300 linear cursor-pointer"
       style="border-radius: 10px"
    >
 
