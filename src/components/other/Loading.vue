@@ -1,6 +1,6 @@
 <template>
 
-   <div class="flex items-center justify-center h-screen w-screen bg-gray-main">
+   <div v-if="loading" class="flex items-center justify-center h-screen w-screen bg-gray-main">
 
       <div class="loading relative">
 
@@ -17,12 +17,27 @@
 <script lang="ts">
 
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-import { component } from 'vue/types/umd';
 
     @Component({
         name: "Loading",
     })
 
-    export default class Loading extends Vue {}
+    export default class Loading extends Vue {
+
+      loading = false;
+
+      start() {
+
+         this.loading = true;
+
+      }
+
+      finish() {
+
+         this.loading = false;
+         
+      }
+
+    }
 
 </script>

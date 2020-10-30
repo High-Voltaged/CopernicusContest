@@ -18,7 +18,7 @@ import Loading from '~/components/other/Loading.vue';
 Vue.use(Router)
 
 export function createRouter() {
-    return new Router({
+    const router = new Router({
         mode: 'history',
         routes: [
             {
@@ -72,5 +72,13 @@ export function createRouter() {
                component: Loading,
             }
         ]
-    })
+    });
+
+    return router;
 }
+
+// router.beforeEach((to, from, next) => {
+
+
+
+// })

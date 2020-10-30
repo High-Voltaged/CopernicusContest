@@ -138,7 +138,19 @@
          { subtitle: 'Stuff here', title: 'Some other title', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
          { subtitle: 'Other stuff', title: 'Title here', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
 
-      ]
+      ];
+
+      mounted() {
+
+         this.$nextTick(() => {
+
+            this.$nuxt.$loading.start();
+
+         })
+
+         setTimeout(() => this.$nuxt.$loading.finish(), 500);
+
+      }
 
    }
 
