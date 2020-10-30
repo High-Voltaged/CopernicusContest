@@ -50,7 +50,7 @@
 
             </div>
 
-            <div class="mt-20 md:mt-12 xl:mt-16 px-5 md:px-24 py-10">
+            <div class="mt-40 md:mt-12 xl:mt-16 px-5 md:px-24 py-10">
 
                <div class="container-main mdMax:overflow-x-hidden 2xl:w-4/5 2xl:mx-auto px-4 md:px-8 py-6 bg-gray-main shadow-md rounded-md">
 
