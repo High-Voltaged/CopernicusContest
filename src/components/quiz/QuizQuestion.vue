@@ -257,8 +257,6 @@
 
         async removeQuestion() {
 
-            console.log("HERE");
-
             await APIWrapper.deleteQuizQuestion(this.questions_array[this.question].id);
 
             vxm.quiz.removeQuestion(this.question);

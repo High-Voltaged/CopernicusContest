@@ -71,6 +71,7 @@
 
                 this.$emit('goToEdit');
 
+
             } else {
 
                 this.error_message = true;
@@ -79,7 +80,23 @@
 
             }
 
-        }
+        } 
+
+      //   mounted() {
+
+      //       this.$nextTick(() => {
+
+      //          this.$nuxt.$loading.finish();
+
+      //       });
+
+      //    }
+
+      //    destroyed() {
+
+      //       this.$nuxt.$loading.start();
+
+      //    }
 
     }
 
