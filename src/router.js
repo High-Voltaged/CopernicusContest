@@ -13,8 +13,6 @@ import ArticleAdd from '~/components/edit_panel/article/ArticleAdd.vue';
 import QuizEdit from '~/components/edit_panel/quiz/QuizEdit.vue';
 import CategoriesEdit from '~/components/edit_panel/categories/CategoriesEdit.vue';
 
-import Loading from '~/components/other/Loading.vue';
-
 Vue.use(Router)
 
 export function createRouter() {

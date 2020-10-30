@@ -109,11 +109,14 @@
 
             let session_validation = await ApiWrapper.validateSession();
             
-            if (session_validation == Codes.SUCCESS) {
 
-                this.goToEdit();
+            if (session_validation == Codes.SUCCESS) {
+               
+               this.goToEdit();
 
             }
+
+            this.$nuxt.$loading.finish();
 
         }
 
