@@ -185,7 +185,7 @@ export namespace APIWrapper {
 
     export async function editArticle(article_id: number, new_title: string, new_content: string): Promise<Codes> {
 
-        let response: AxiosResponse = await axios.post(Links.edit_category, { article_id: article_id, new_title: new_title, new_content: new_content });
+        let response: AxiosResponse = await axios.post(Links.edit_article, { article_id: article_id, new_title: new_title, new_content: new_content });
 
         return response.data["response"];
 
