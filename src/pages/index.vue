@@ -145,11 +145,15 @@
 
          this.$nextTick(() => {
 
-            this.$nuxt.$loading.start();
+            this.$nuxt.$loading.finish();
 
-         })
+         });
 
-         setTimeout(() => this.$nuxt.$loading.finish(), 500);
+      }
+
+      destroyed() {
+
+         this.$nuxt.$loading.start();
 
       }
 

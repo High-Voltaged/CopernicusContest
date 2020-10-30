@@ -62,6 +62,22 @@
 
         }
 
+        mounted() {
+
+            this.$nextTick(() => {
+
+               this.$nuxt.$loading.finish();
+
+            });
+
+         }
+
+         destroyed() {
+
+            this.$nuxt.$loading.start();
+
+         }
+
         async beforeMount(): Promise<void> {
 
             await vxm.quiz.prepareQuiz(this.$route.name);

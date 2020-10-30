@@ -153,6 +153,22 @@
 
       }
 
+      mounted() {
+
+         this.$nextTick(() => {
+
+            this.$nuxt.$loading.finish();
+
+         });
+
+      }
+
+      destroyed() {
+
+         this.$nuxt.$loading.start();
+
+      }
+
       get article() {
             
          return vxm.articles.getUtil.article;

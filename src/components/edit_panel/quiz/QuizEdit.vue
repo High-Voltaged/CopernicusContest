@@ -181,6 +181,22 @@
 
       }
 
+      mounted() {
+
+         this.$nextTick(() => {
+
+            this.$nuxt.$loading.finish();
+
+         });
+
+      }
+
+      destroyed() {
+
+         this.$nuxt.$loading.start();
+
+      }
+
       // Route Configuration
 
       verify = {

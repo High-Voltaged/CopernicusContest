@@ -67,10 +67,6 @@ export function createRouter() {
                 path: '/add_article',
                 component: ArticleAdd,
             },
-            {
-               path: '/loading',
-               component: Loading,
-            }
         ]
     });
 

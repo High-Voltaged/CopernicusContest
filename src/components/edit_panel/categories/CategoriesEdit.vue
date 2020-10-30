@@ -335,6 +335,22 @@
 
         }
 
+         mounted() {
+
+            this.$nextTick(() => {
+
+               this.$nuxt.$loading.finish();
+
+            });
+
+         }
+
+         destroyed() {
+
+            this.$nuxt.$loading.start();
+
+         }
+
     }
 
 </script>

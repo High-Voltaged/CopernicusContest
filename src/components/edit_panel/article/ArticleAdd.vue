@@ -162,6 +162,22 @@
 
         }
 
+        mounted() {
+
+            this.$nextTick(() => {
+
+               this.$nuxt.$loading.finish();
+
+            });
+
+         }
+
+         destroyed() {
+
+            this.$nuxt.$loading.start();
+
+         }
+
         // Add Article / Cancel
 
         async addArticle(): Promise<void> {
