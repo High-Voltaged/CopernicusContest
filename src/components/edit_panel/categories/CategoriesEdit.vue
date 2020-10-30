@@ -167,7 +167,7 @@
 
         }
 
-        removeCategory() { // make async later
+        async removeCategory() { // make async later
 
             // post request
 
@@ -175,7 +175,7 @@
             vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
 
             // HERE 1111 WHICH CATEGORY ID?
-            this.removeCategory(3);
+            await ApiWrapper.deleteCategory(this.categories[this.current].id);
 
             this.edit_menu = 0;
 
@@ -211,7 +211,7 @@
                 // post request, use init_categories
 
                 // HERE 1111, WHICH ID AND NAME?
-                await ApiWrapper.insertCategory(3, "testttttttt");
+                await ApiWrapper.insertCategory(this.categories[this.current].id, this.categories[this.current].name);
 
                 this.notif.content = 'The modified category was saved';
                 this.notif.on = true;
