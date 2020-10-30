@@ -52,6 +52,7 @@ module.exports = {
 
     plugins: [
         '~/plugins/fontawesome.js',
+         '~/plugins/vuetimeline.js',
     ],
 
     axios: {},

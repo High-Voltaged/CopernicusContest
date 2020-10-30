@@ -69,7 +69,7 @@
 
                   </div>
 
-                  <div class="mt-16 flex flex-col items-stretch justify-center 2xl:max-w-4/5 mx-auto w-full">
+                  <div class="mt-16 flex flex-col items-center justify-center 2xl:max-w-4/5 mx-auto w-full">
                         
                      <MainTitle
                         :content="main_titles[2]"
@@ -80,7 +80,7 @@
 
                   </div>
 
-                  <div class="mt-4 2xl:max-w-4/5 mx-auto">
+                  <div class="mt-16 2xl:max-w-4/5 mx-auto">
                         
                      <MainTitle
                         :content="main_titles[3]"

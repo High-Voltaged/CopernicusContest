@@ -2,7 +2,7 @@
    
    <div class="px-2 md:px-4">
       
-      <span class="block text-center uppercase text-gray-300 font-light leading-tight">
+      <span v-if="content.subtitle" class="block text-center uppercase text-gray-300 font-light leading-tight">
          {{ content.subtitle }}
       </span>
       <span class="block text-center text-5xl capitalize font-black tracking-wide leading-tight text-gray-200">
@@ -15,7 +15,7 @@
          </div>
       </div>
 
-      <p class="text-center font-light text-gray-300">
+      <p v-if="content.paragraph" class="text-center font-light text-gray-300">
          {{ content.paragraph }}
       </p>
    
