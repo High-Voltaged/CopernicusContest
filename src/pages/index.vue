@@ -134,7 +134,7 @@
 
       main_titles = [
 
-          { subtitle: ' ', title: 'Blog na temat Mikołaja Kopernika', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+          { subtitle: ' ', title: 'Blog na temat Mikołaja Kopernika', paragraph: ' ' },
           { subtitle: ' ', title: 'Główne informacje', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
           { subtitle: ' ', title: 'Oś czasu', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
           { subtitle: ' ', title: 'Wyróżnione artykuły', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
