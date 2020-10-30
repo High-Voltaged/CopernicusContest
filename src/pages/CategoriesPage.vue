@@ -11,7 +11,7 @@
 				<div class="w-full h-24 relative flex items-center px-3">
 
 					<div class="absolute inset-0">
-						<img src="https://images.unsplash.com/photo-1512840399005-5bce2b583140?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" class="h-full w-full object-cover opacity-25" />
+						<img src="../img/banner.jpg" class="h-full w-full object-cover opacity-25" />
 					</div>
 
 				</div>

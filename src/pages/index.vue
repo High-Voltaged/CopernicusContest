@@ -11,7 +11,7 @@
             <div class="main-title relative w-full h-104 md:h-88 p-5 flex flex-col items-center md:flex-row md:justify-around shadow-lg">
 
                <div class="absolute inset-0">
-                  <img src="https://images.unsplash.com/photo-1512840399005-5bce2b583140?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" class="h-full w-full object-cover opacity-25" />
+                  <img src="../img/banner.jpg" class="h-full w-full object-cover opacity-25" />
                </div>
 
                <div class="flex flex-col justify-center items-center w-full md:w-2/3  px-2 md:px-4 z-10">
