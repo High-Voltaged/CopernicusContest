@@ -5,7 +5,7 @@
       <div class="flex items-center py-3 px-3 justify-between sm:p-0">
          
          <div>
-            <img src="https://askimspump.se/wp-content/uploads/sites/42/2018/01/placeholder-logo.png" class="object-cover h-14"> 
+            <img src="/logo.png" class="object-cover h-14"> 
          </div>
 
          <div class="sm:hidden">
