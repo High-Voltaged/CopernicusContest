@@ -115,6 +115,7 @@
     export default class CategoriesEdit extends Vue {
 
         edit_menu = 0;
+        new_category = false;
 
         @Watch('edit_menu')
         setEditMode() {
@@ -168,17 +169,22 @@
         }
 
         async removeCategory() { 
-
-            vxm.categories.removeCategory();
-            vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
-
-            await ApiWrapper.deleteCategory(this.init_categories[this.current].id);
-
-            this.edit_menu = 0;
-
+           
+           console.log(this.init_categories[this.current].id);
+           
+           await ApiWrapper.deleteCategory(this.init_categories[this.current].id);
+           
+           this.edit_menu = 0;
+           
+           vxm.categories.removeCategory();
+           vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
+        
         }
 
+
          setNewCategory() {
+
+            this.new_category = true;
 
             vxm.categories.addCategory();
 
@@ -192,7 +198,39 @@
 
         temp_category = '';
 
-         
+         async saveCategory() {
+            
+            if (!this.temp_category) {
+            
+               vxm.categories.setValidationError({ value: true, content: 'Don\'t leave the input field empty.' });
+            
+            } else {
+            
+               vxm.categories.setValidationError({ value: false, content: '' });
+               
+               vxm.categories.setCategory(this.temp_category);
+               vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
+               
+               await ApiWrapper.insertCategory(this.init_categories[this.current].id, this.init_categories[this.current].name);
+               
+               if(this.new_category) {
+               
+                  this.notif.content = 'The new category has been added.';
+               
+               } else {
+               
+                  this.notif.content = 'The changes have been saved.';
+               
+               }
+               
+               this.notif.on = true;
+
+               this.new_category = false;
+            
+            }
+        
+        }
+
 
         deepCopyArray(inObject): ICategory[] {
 
