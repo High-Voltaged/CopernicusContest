@@ -170,12 +170,14 @@
 
         async removeCategory() { 
 
-            vxm.categories.removeCategory();
-            vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
+            console.log(this.init_categories[this.current].id);
 
             await ApiWrapper.deleteCategory(this.init_categories[this.current].id);
 
             this.edit_menu = 0;
+
+            vxm.categories.removeCategory();
+            vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
 
         }
 
