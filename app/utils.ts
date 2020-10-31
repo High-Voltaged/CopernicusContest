@@ -304,14 +304,18 @@ export namespace Utils {
 
         if (await validateSession(getSessionToken(raw_cookie)) && validateCategory(category_name)) {
 
-            // If it is in the database already
+            // If it is not in the database already
             if (category_id < 0) {
 
-                await Queries.updateCategory(category_id, category_name);
-
-            } else {
+                console.log("1");
 
                 await Queries.insertCategory(category_name);
+                
+            } else {
+
+                console.log("2");
+
+                await Queries.updateCategory(category_id, category_name);
 
             }
 

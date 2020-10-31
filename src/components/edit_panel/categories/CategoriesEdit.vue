@@ -224,7 +224,7 @@
                   vxm.categories.setCategory(this.temp_category);
                   vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
                   
-                  await ApiWrapper.editCategory(this.init_categories[this.current].id, this.init_categories[this.current].name);
+                   await ApiWrapper.insertCategory(this.init_categories[this.current].id, this.init_categories[this.current].name);
 
                   this.notif.content = 'The modified category has been saved.';
                   this.notif.on = true;
