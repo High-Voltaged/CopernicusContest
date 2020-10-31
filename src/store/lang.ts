@@ -1,9 +1,6 @@
 import { createModule, mutation, action } from 'vuex-class-component';
 
-import ApiWrapper from '../scripts/api_wrapper';
-import IBriefArticle from '../../interfaces/brief_article';
-import ICategory from '../../interfaces/category';
-import IFullArticle from '../../interfaces/full_article';
+import LangEnum from "../scripts/lang_enum";
 
 const VuexModule = createModule({
     namespaced: 'lang',
@@ -13,7 +10,7 @@ const VuexModule = createModule({
 
 export default class Lang extends VuexModule {
 
-   current_lang = 0; 
+    current_lang = LangEnum.Polish; 
 
    get currentLang() {
 

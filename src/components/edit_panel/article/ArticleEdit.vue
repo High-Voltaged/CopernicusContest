@@ -282,8 +282,6 @@
 
           let sum_length: number = 0;
 
-          console.log(this.article);
-
          if(this.article.content.length < Limits.min_content_length) {
 
             vxm.articles.setValidationError({ value: true, content: 'The article\'s content\'s length is too short.' });

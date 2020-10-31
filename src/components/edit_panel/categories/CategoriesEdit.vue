@@ -115,7 +115,6 @@
     export default class CategoriesEdit extends Vue {
 
         edit_menu = 0;
-         new_category = false;
 
         @Watch('edit_menu')
         setEditMode() {
@@ -179,15 +178,11 @@
 
         }
 
-         async setNewCategory() {
-
-           this.new_category = true;
+         setNewCategory() {
 
             vxm.categories.addCategory();
 
             this.temp_category = this.categories[this.current].name;
-
-            await this.saveCategory();
 
             this.edit_menu = 1;
 
@@ -197,27 +192,7 @@
 
         temp_category = '';
 
-        async saveCategory() {
-
-            if (!this.temp_category) {
-
-                vxm.categories.setValidationError({ value: true, content: 'Don\'t leave the input field empty.' });
-
-            } else {
-
-               vxm.categories.setValidationError({ value: false, content: '' });
-
-               vxm.categories.setCategory(this.temp_category);
-               vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
-               
-               await ApiWrapper.editCategory(this.init_categories[this.current].id, this.init_categories[this.current].name);
-
-               this.notif.content = 'The modified category has been saved.';
-               this.notif.on = true;
-               
-            }
-
-        }
+         
 
         deepCopyArray(inObject): ICategory[] {
 

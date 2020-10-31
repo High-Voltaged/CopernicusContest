@@ -71,8 +71,6 @@
 
          }
 
-         console.log(this.categories.length > 0);
-
       }
 
       get categories() {

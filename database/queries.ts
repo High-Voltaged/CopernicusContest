@@ -165,7 +165,7 @@ export namespace Queries {
     export async function insertCategory(category_name: string) {
 
         connection = await database.getConnection();
-        let result = await connection.query("INSERT IGNORE INTO `categories` (`name`) VALUES (?)", [category_name]);
+        let result = await connection.query("INSERT INTO `categories` (`name`) VALUES (?)", [category_name]);
         connection.end();
         return result;
 
@@ -183,7 +183,7 @@ export namespace Queries {
     export async function deleteCategory(category_id: number) {
 
         connection = await database.getConnection();
-        let result = await connection.query("DELETE IGNORE FROM `categories` WHERE `id` = ?", [category_id]);
+        let result = await connection.query("DELETE FROM `categories` WHERE `id` = ?", [category_id]);
         connection.end();
         return result;
 
