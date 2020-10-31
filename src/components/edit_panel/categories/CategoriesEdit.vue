@@ -205,34 +205,26 @@
 
             } else {
 
-               if(this.new_category) {
+                vxm.categories.setValidationError({ value: false, content: '' });
 
-                  vxm.categories.setValidationError({ value: false, content: '' });
+                vxm.categories.setCategory(this.temp_category);
+                vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
 
-                  vxm.categories.setCategory(this.temp_category);
-                  vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
+                await ApiWrapper.insertCategory(this.init_categories[this.current].id, this.init_categories[this.current].name);
 
-                  await ApiWrapper.insertCategory(this.init_categories[this.current].id, this.init_categories[this.current].name);
+                this.new_category = false;
 
-                  this.notif.content = 'The new category has been added.';
-                  this.notif.on = true;
+                if(this.new_category) {
 
-                  this.new_category = false;
+                    this.notif.content = 'The new category has been added.';
 
-               } else {
+                } else {
 
-                  vxm.categories.setValidationError({ value: false, content: '' });
-   
-                  vxm.categories.setCategory(this.temp_category);
-                  vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
-                  
-                   await ApiWrapper.insertCategory(this.init_categories[this.current].id, this.init_categories[this.current].name);
+                  this.notif.content = 'The changes have been saved';
 
-                  this.notif.content = 'The modified category has been saved.';
-                  this.notif.on = true;
+                }
 
-               }
-               
+                this.notif.on = true;
 
             }
 
