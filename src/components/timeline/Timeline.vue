@@ -24,7 +24,6 @@
     @Component({
         name: 'Timeline',
     })
-
     export default class Timeline extends Vue {
 
         timeline = [
@@ -33,7 +32,7 @@
                 title: 'This title here',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit',
                 thumbnail: 'https://images.unsplash.com/photo-1603989112393-db862d0176b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
-                date: new Date('1892'),
+                date: new Date('1473-3-1'),
             },
             {
                 title: 'The other title here',

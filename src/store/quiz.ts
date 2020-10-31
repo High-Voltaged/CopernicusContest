@@ -2,7 +2,6 @@ import { createModule, mutation, action } from 'vuex-class-component';
 
 import ApiWrapper from '../scripts/api_wrapper';
 import IQuizQuestion from '../../interfaces/quiz_question';
-import IQuizAnswer from '../../interfaces/quiz_answer';
 import { store } from '.';
 
 const VuexModule = createModule({
@@ -65,8 +64,6 @@ export default class Articles extends VuexModule {
         } else {
 
             quiz = await ApiWrapper.fetchQuiz();
-
-            console.log(quiz);
 
         }
 
