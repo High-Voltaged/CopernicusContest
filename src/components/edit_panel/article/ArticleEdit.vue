@@ -196,11 +196,7 @@
 
          }
 
-         // let result = await ApiUtils.postArticleChanges({ article: this.article }); 
-         
-         // console.log(result.data);
-
-          await APIWrapper.editArticle(this.article.id, this.article.title, this.article.content.join("\n"), this.article.picture_link, this.article.important, this.article.category.id);
+         await APIWrapper.editArticle(this.article.id, this.article.title, this.article.content.join("\n"), this.article.picture_link, this.article.important, this.article.category.id);
 
          this.notif_on = true;
          this.notif_content = 'Your changes to the article were saved.';
