@@ -89,12 +89,11 @@ module.exports = function(app) {
 
     app.post(Links.edit_article, async function(req: Request, res: Response) {
         res.json({
-            response: await Utils.editArticle(req.headers.cookie, req.body.article_id, req.body.new_title, req.body.new_content)
+            response: await Utils.editArticle(req.headers.cookie, req.body.article_id, req.body.article.title, req.body.article.content, req.body.article.picture_link, req.body.article.important, req.body.article.category.id)
         });
     });
 
     app.post(Links.insert_article, async function(req: Request, res: Response) {
-
         res.json({
             response: await Utils.insertArticle(req.headers.cookie, req.body.article.title, req.body.article.content, req.body.article.picture_link, req.body.article.important, req.body.article.category.id)
         });
@@ -135,7 +134,6 @@ module.exports = function(app) {
             response: await Utils.insertQuizQuestion(req.headers.cookie, req.body.question)
         });
     });
-
 
     app.post(Links.insert_category, async function(req: Request, res: Response) {
         res.json({

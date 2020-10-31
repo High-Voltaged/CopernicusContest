@@ -43,8 +43,6 @@ export default class Articles extends VuexModule {
 
     @action async fetchArticle(payload: { article_id: string, stealth: boolean }): Promise<void> {
 
-        console.log("ARTICLE");
-
         this.article = (await ApiWrapper.fetchArticle(Number(payload.article_id), payload.stealth))[0];
 
         this.popular_articles = await ApiWrapper.fetchPopularArticles();

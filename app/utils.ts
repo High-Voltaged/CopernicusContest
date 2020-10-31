@@ -38,20 +38,6 @@ export namespace Utils {
 
     }
 
-    function validateUpdatedArticleDetails(new_title: string, new_content: string): boolean {
-
-        if (!((new_title.length >= Limits.min_title_length) && (new_title.length <= Limits.max_title_length))) {
-            return false;
-        }
-
-        if (!((new_content.length >= Limits.min_content_length) && (new_content.length <= Limits.max_content_length))) {
-            return false;
-        }
-
-        return true;
-
-    }
-
     function validateCategory(category_name: string): boolean {
 
         if (!((category_name.length >= Limits.min_category_length) && (category_name.length <= Limits.max_category_length))) {
@@ -62,31 +48,23 @@ export namespace Utils {
 
     }
 
-    function validateNewArticleDetails(title: string, content: string, picture_link: string, important: number): boolean {
+    function validateArticleDetails(title: string, content: string, picture_link: string, important: number): boolean {
 
         if (!((title.length >= Limits.min_title_length) && (title.length <= Limits.max_title_length))) {
             return false;
         }
 
-        console.log("1");
-
         if (!((content.length >= Limits.min_content_length) && (content.length <= Limits.max_content_length))) {
             return false;
         }
-
-        console.log("2");
 
         if (!((important >= 0) && (important <= 1))) {
             return false;
         }
 
-        console.log("3");
-
         if (!(picture_link.length <= Limits.max_picture_length)) {
             return false;
         }
-
-        console.log("4");
 
         return true;
 
@@ -171,9 +149,7 @@ export namespace Utils {
 
         console.log(title);
 
-        if ((await validateSession(getSessionToken(raw_cookie))) && (validateNewArticleDetails(title, content, picture_link, important))) {
-
-            console.log("HEREEE");
+        if ((await validateSession(getSessionToken(raw_cookie))) && (validateArticleDetails(title, content, picture_link, important))) {
 
             await Queries.insertArticle(title, content, picture_link, important, category_id);
 
@@ -187,11 +163,11 @@ export namespace Utils {
 
     }
 
-    export async function editArticle(raw_cookie: string, article_id: number, new_title: string, new_content: string): Promise<Codes> {
+    export async function editArticle(raw_cookie: string, article_id: number, title: string, content: string, picture_link: string, important: number, category_id: number): Promise<Codes> {
 
-        if ((await validateSession(getSessionToken(raw_cookie))) && (validateUpdatedArticleDetails(new_title, new_content))) {
+        if ((await validateSession(getSessionToken(raw_cookie))) && (validateArticleDetails(title, content, picture_link, important))) {
 
-            await Queries.updateArticle(article_id, new_title, new_content);
+            await Queries.updateArticle(article_id, title, content, picture_link, important, category_id);
 
             return Codes.SUCCESS;
 

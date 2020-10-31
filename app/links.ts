@@ -42,9 +42,7 @@ export namespace Links {
 
 	export const insert_quiz_question: string = "/api/insertQuizQuestion";
 
-
 	export const validate_session: string = "/api/validateSession";
-
 
 	export const insert_category: string = "/api/insertCategory";
 

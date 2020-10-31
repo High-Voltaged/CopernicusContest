@@ -200,7 +200,7 @@
          
          // console.log(result.data);
 
-          await APIWrapper.editArticle(this.article.id, this.article.title, this.article.content);
+          await APIWrapper.editArticle(this.article.id, this.article.title, this.article.content.join("\n"), this.article.picture_link, this.article.important, this.article.category.id);
 
          this.notif_on = true;
          this.notif_content = 'Your changes to the article were saved.';
@@ -284,6 +284,10 @@
 
       validateContent(): boolean {
 
+          let sum_length: number = 0;
+
+          console.log(this.article);
+
          if(this.article.content.length < Limits.min_content_length) {
 
             vxm.articles.setValidationError({ value: true, content: 'The article\'s content\'s length is too short.' });
@@ -316,7 +320,6 @@
          }
 
       }
-
 
       // Notification / Verify Config
 
