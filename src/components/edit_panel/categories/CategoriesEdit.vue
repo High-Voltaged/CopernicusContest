@@ -223,8 +223,8 @@
                
                }
                
-               this.notif.on = true;
-
+               this.notif.on = true;         
+               
                this.new_category = false;
             
             }
