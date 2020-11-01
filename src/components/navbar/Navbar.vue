@@ -27,7 +27,7 @@
             </div>
             
             <SelectMenu
-               :current="lang_array[0]"
+               :current="lang_array[current_language]"
                :options="lang_array"
                :width="'w-24'"
                @input="setLang($event)"
@@ -56,7 +56,7 @@
          </div>
 
          <SelectMenu
-            :current="lang_array[0]"
+            :current="lang_array[current_language]"
             :options="lang_array"
             width="w-24"
             @input="setLang($event)"
@@ -98,7 +98,9 @@
    import { vxm } from '../../store';
    
    import NavbarLink from './navbar/NavbarLink.vue';
-   import SelectMenu from '../other/SelectMenu.vue';
+    import SelectMenu from '../other/SelectMenu.vue';
+    import { LangUtil } from "../../scripts/lang/utils";
+import { LangEnum } from '../../scripts/lang/enum';
 
    @Component({
       name: "Navbar",
@@ -117,14 +119,22 @@
          { to: '', content: 'Other' },
       ];
 
+       current_language: LangEnum;
+
       lang_array = [
          { id: 0, name: 'ENG' },
          { id: 1, name: 'PL' },
       ];
 
-      setLang() {
+       beforeMount() {
 
-         console.log('the language is set');
+           this.current_language = LangUtil.getLanguage();
+
+       }
+
+      setLang(language) {
+
+          LangUtil.setLanguage(language.id);
 
       }
 
