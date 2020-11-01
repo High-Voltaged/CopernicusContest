@@ -12,7 +12,7 @@
                         :class="{ 'hover:border-opacity-100': (edit_menu == 1) }"
                         class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 transition duration-300 ease focus:outline-none">
 
-                    <span class="text-xs text-gray-200 font-semibold tracking-wider text-left select-none">
+                    <span class="text-xs text-gray-200 font-semibold text-left select-none">
                         Menu
                     </span>
 
@@ -22,7 +22,7 @@
                         :class="{ 'hover:border-opacity-100': (edit_menu == 1) }"
                         class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 transition duration-300 ease focus:outline-none">
 
-                    <span class="text-xs text-gray-200 font-semibold tracking-wider text-left select-none">
+                    <span class="text-xs text-gray-200 font-semibold text-left select-none">
                         Remove
                     </span>
 

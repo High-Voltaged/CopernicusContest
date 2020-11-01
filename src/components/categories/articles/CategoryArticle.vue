@@ -16,7 +16,7 @@
                   
                   </div>
                   
-                  <div class="pl-2 text-lg text-gray-300 tracking-wide font-bold"> {{ article.title }} </div>
+                  <div class="pl-2 text-lg text-gray-300 font-semibold"> {{ article.title }} </div>
                
                </div>
                
@@ -27,15 +27,15 @@
                      <font-awesome-icon :icon="['fas', 'eye']" class="flex-shrink-0 w-3 h-3 fill-current" />
                      
                      <div class="ml-2 flex items-center">
-                        <span class="flex-shrink-0 text-xs font-light tracking-wide">Times viewed:</span>
-                        <span class="ml-1 text-xs font-light tracking-wide"> {{ article.times_read }} </span>
+                        <span class="flex-shrink-0 text-xs">Times viewed:</span>
+                        <span class="ml-1 text-xs"> {{ article.times_read }} </span>
                      </div>
                   
                   </div>
                   
                   <div class="flex-shrink w-full">
                   
-                     <div class="text-xs font-light text-gray-400 text-right italic"> {{ article.timestamp }} </div>
+                     <div class="text-xs text-gray-400 text-right"> {{ article.timestamp }} </div>
             
                   </div>
             

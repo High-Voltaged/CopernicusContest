@@ -1,6 +1,6 @@
 <template>
 
-   <div v-if="article" class="flex flex-col items-start w-full space-y-2">
+   <div v-if="article" class="flex flex-col items-start w-full space-y-3">
 
       <div class="article-header flex items-center w-full lg:transition duration-300 ease capitalize">
 
@@ -26,33 +26,33 @@
 
       </div>
 
-      <div class="flex flex-col xl:flex-row items-start xl:items-center xl:justify-between w-full my-2 mx-1">
+      <div class="flex flex-col xl:flex-row items-start xl:items-center xl:justify-between space-y-1 xl:space-y-0 w-full my-2 mx-1">
 
-            <div class="flex-grow flex items-center text-white">
+         <div class="flex-grow flex items-center text-white">
 
-               <font-awesome-icon :icon="['fas', 'eye']" class="flex-shrink-0 w-3 h-3 fill-current" />
+            <font-awesome-icon :icon="['fas', 'eye']" class="flex-shrink-0 w-3 h-3 fill-current" />
 
-               <div class="ml-2 flex items-center">
-                  
-                  <span class="flex-shrink-0 text-xs font-light tracking-wide">
-                     Times viewed:
-                  </span>
-                  
-                  <span class="ml-1 text-xs font-light tracking-wide"> 
-                     {{ article.times_read }} 
-                  </span>
+            <div class="ml-2 flex items-center">
                
-               </div>
-
+               <span class="flex-shrink-0 text-xs">
+                  Times viewed:
+               </span>
+               
+               <span class="ml-1 text-xs"> 
+                  {{ article.times_read }} 
+               </span>
+            
             </div>
 
-            <div class="flex-shrink w-full">
+         </div>
 
-               <div class="text-xs font-light text-gray-400 text-right italic"> 
-                  {{ article.timestamp }} 
-               </div>
+         <div class="flex-shrink w-full">
 
+            <div class="text-xs font-light text-gray-400 text-right"> 
+               {{ article.timestamp }} 
             </div>
+
+         </div>
 
       </div>
 

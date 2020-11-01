@@ -44,7 +44,7 @@
 
                </div>  
 
-               <div class="md:text-lg font-normal text-gray-200"> 
+               <div class="md:text-lg font-normal text-center text-gray-200"> 
                   {{ question.question }} 
                </div>
 
@@ -54,7 +54,7 @@
 
                   <button @click="$emit('edit', i)" class="flex items-center justify-center space-x-1 px-6 md:px-3 py-2 rounded-lg bg-gray-primary bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
                      
-                     <span class="text-sm text-gray-200 font-semibold tracking-wider text-left">
+                     <span class="text-sm text-gray-200 font-medium text-left">
                         Edit the Question
                      </span>
 
@@ -75,7 +75,7 @@
 
          <div v-else class="inline-block w-full">
 
-            <span class="inline-block w-full text-center font-semibold tracking-wide text-gray-300 select-none">
+            <span class="inline-block w-full text-center font-medium text-gray-300 select-none">
                There are no questions within the quiz.
             </span>
 

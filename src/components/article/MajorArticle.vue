@@ -5,7 +5,7 @@
         <div :class="{ 'lg:order-last': left_position }" class="w-full lg:w-1/2 px-4">
 
             <div class="flex justify-center md:justify-start">
-                <span class="text-3xl font-semibold tracking-wide capitalize text-center md:text-left leading-tight text-gray-200">
+                <span class="text-3xl font-semibold capitalize text-center md:text-left leading-tight text-gray-200">
                     {{ article.title }}
                 </span>
             </div>
@@ -17,27 +17,18 @@
                 </div>
             </div>
 
-            <p v-for="(paragraph, i) in article.content"
+            <div 
+               v-for="(paragraph, i) in article.content"
                :key="i"
-               class="text-styled text-justify lg:text-left text-sm leading-relaxed font-light text-gray-300">
-                {{ paragraph }}
-            </p><br>
+               class="inline-block">
 
-            <div class="flex items-center justify-end mt-5">
-
-                <!-- <router-link :to="`/article/${article.id}`" class="arrow-container flex items-center px-3 py-2 rounded-full lg:transition duration-300 ease-in lg:transform hover:translate-x-6 shadow focus:outline-none">
-
-                    <span class="text-xs xl:text-sm tracking-wide text-gray-200 cursor-pointer pr-2">
-                        Continue reading here
-                    </span> 
-
-                    <span class="arrow-icon w-3 h-3">
-                        <font-awesome-icon :icon="['fas', 'arrow-right']" class="w-full h-full fill-current text-gray-200" />
-                    </span>
-
-                </router-link> -->
+               <p
+                  v-html="paragraph"
+                  class="text-styled text-justify lg:text-left text-sm leading-relaxed font-light text-gray-300">
+               </p>
 
             </div>
+            
 
         </div>
 

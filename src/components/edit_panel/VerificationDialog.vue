@@ -6,7 +6,7 @@
 
             <div class="header flex items-center justify-center w-2/3">
 
-               <span class="inline-block w-full text-center text-base text-white font-semibold tracking-wide">
+               <span class="inline-block w-full text-center text-base text-white font-semibold">
                   {{ content }}
                </span>
 
@@ -20,7 +20,7 @@
                      @click="$emit('cancel')"
                      class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-purple-secondary border-opacity-50 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
-                     <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
+                     <span class="text-sm text-gray-200 font-semibold text-left select-none">
                         Discard
                      </span>
 
@@ -30,7 +30,7 @@
                      @click="$emit('continue')"
                      class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-purple-secondary bg-opacity-50 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
 
-                     <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
+                     <span class="text-sm text-gray-200 font-semibold text-left select-none">
                         Continue
                      </span>
 

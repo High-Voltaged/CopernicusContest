@@ -1,6 +1,6 @@
 <template>
 
-    <div class="sidebar flex flex-col lgMax:items-center w-full lg:w-3/10 2xl:w-1/5 bg-gray-main p-5 rounded-md shadow-mdIn mt-16 lg:mt-0">
+    <div class="sidebar flex flex-col lgMax:items-center w-full lg:w-3/10 2xl:w-1/5 p-5 mt-16 lg:mt-0 bg-gray-main shadow-mdIn" style="border-radius: 15px">
 
         <Categories :categories="categories"></Categories>
 

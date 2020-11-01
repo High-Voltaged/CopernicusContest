@@ -26,7 +26,7 @@
 
       <div class="flex flex-col items-center sm:items-stretch lg:p-0 py-2">
 
-         <span class="inline-block text-gray-200 font-bold uppercase text-xl tracking-wider p-0 lg:px-5 lg:text-left text-center my-2 lg:my-0">
+         <span class="inline-block text-gray-200 font-semibold uppercase text-xl tracking-wider p-0 lg:px-5 lg:text-left text-center my-2 lg:my-0">
             Support
          </span>
 
@@ -46,7 +46,7 @@
 
       <div class="flex flex-col items-center sm:items-stretch lg:p-0 py-2">
 
-         <span class="inline-block text-gray-200 font-bold uppercase text-xl tracking-wider p-0 lg:px-5 lg:text-left text-center my-2 lg:my-0">
+         <span class="inline-block text-gray-200 font-semibold uppercase text-xl tracking-wider p-0 lg:px-5 lg:text-left text-center my-2 lg:my-0">
             Our website
          </span>
 
@@ -70,7 +70,7 @@
                
             <router-link to="/quiz">
 
-               <span class="font-semibold tracking-wide text-gray-200 cursor-pointer pr-2 xl:text-lg">
+               <span class="font-medium text-gray-200 cursor-pointer pr-2 xl:text-lg">
                   Take A Quiz Here
                </span> 
 

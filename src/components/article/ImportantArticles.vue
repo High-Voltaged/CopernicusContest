@@ -1,22 +1,18 @@
 <template>
 
-    <div v-if="articles.length > 0">
+   <div v-if="articles.length > 0" class="flex flex-col xl:flex-row items-center mt-16">
 
-        <div class="flex flex-col lg:flex-row items-center mt-16">
+      <div class="flex flex-wrap items-center justify-between ">
 
-            <div class="flex flex-wrap items-center justify-between ">
+            <ImportantArticle v-for="(article, index) in articles"
+            :key="article.id"
+            :article="article"
+            :picture_right="getPicPosition(index)"
+         ></ImportantArticle>
 
-                <ImportantArticle v-for="(article, index) in articles"
-                  :key="article.id"
-                  :article="article"
-                  :picture_right="getPicPosition(index)"
-               ></ImportantArticle>
+      </div>
 
-            </div>
-
-        </div>
-
-    </div>
+   </div>
 
 </template>
 

@@ -40,13 +40,13 @@
 
                     </div>
 
-                    <span v-if="!editMode && !addArticle" class="block capitalize text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-gray-200 my-4 md:my-2">
+                    <span v-if="!editMode && !addArticle" class="block capitalize text-3xl lg:text-4xl font-semibold tracking-tight leading-tight text-gray-200 my-4 md:my-2">
                         {{ article.title }}
                     </span>
 
                     <slot name="editTitle"></slot>
 
-                    <div class="flex flex-col items-center w-full bg-gray-main relative p-5 xl:p-10 space-y-5 rounded-md shadow-lg">
+                    <div class="flex flex-col items-center w-full bg-gray-main relative p-5 xl:p-10 space-y-5 shadow-lg" style="border-radius: 15px">
 
                         <slot name="error"></slot>
 
@@ -56,7 +56,9 @@
                                  :key="i"
                                  class="text-styled text-justify text-sm xl:text-base leading-relaxed xl:leading-loose font-light text-gray-300">
 
-                                <p> {{ paragraph }} </p>
+                                <p v-html="paragraph" class="font-light"></p>
+
+                                <!-- <br> -->
 
                             </div>
 
@@ -72,7 +74,7 @@
 
                                 <div class="mt-2 w-full">
 
-                                    <div class="text-xs font-light text-gray-400 text-right italic"> Date published: {{ article.timestamp }} </div>
+                                    <div class="text-xs font-light text-gray-400 text-right"> Date published: {{ article.timestamp }} </div>
 
                                 </div>
 
@@ -84,7 +86,7 @@
 
                                     <font-awesome-icon :icon="['fas', 'hashtag']" class="h-4 w-4 fill-current text-purple-secondary" />
 
-                                    <span v-if="article.category" class="article-header ml-2 text-gray-300 font-semibold lg:transition duration-300 ease">
+                                    <span v-if="article.category" class="article-header ml-2 text-gray-300 font-medium lg:transition duration-300 ease">
                                         {{ article.category.name }}
                                     </span>
 
@@ -98,9 +100,9 @@
 
                                     <div class="ml-2">
 
-                                        <span class="text-sm font-light tracking-wide">Times viewed:</span>
+                                        <span class="text-sm">Times viewed:</span>
 
-                                        <span class="text-sm font-light tracking-wide"> {{ article.times_read }} </span>
+                                        <span class="text-sm"> {{ article.times_read }} </span>
 
                                     </div>
 

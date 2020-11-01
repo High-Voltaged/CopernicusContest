@@ -1,6 +1,6 @@
 <template>
 
-    <div class="flex flex-col items-center justify-center w-full mt-16">
+    <div ref="container" class="flex flex-col items-center justify-center w-full mt-16">
 
         <vue-timeline-update v-for="(t, i) in timeline"
                              :key="i"
@@ -9,7 +9,10 @@
                              :description="t.description"
                              :thumbnail="t.thumbnail"
                              :date="t.date"
-                             :animation="true">
+                             :animation="true"
+                             :animation-duration="1500"
+                             :animation-container="container"
+                             >
         </vue-timeline-update>
 
     </div>
@@ -25,6 +28,12 @@
         name: 'Timeline',
     })
     export default class Timeline extends Vue {
+
+       get container() {
+
+          return this.$refs.container;
+
+       }
 
         timeline = [
 

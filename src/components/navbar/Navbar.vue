@@ -14,7 +14,7 @@
 
                <button @click="setLang(0)" class="inline-flex items-center focus:outline-none">
                   
-                  <span class="inline-block text-sm font-semibold text-center text-white uppercase px-3 py-2 bg-transparent border-2 border-purple-secondary border-opacity-50 hover:border-opacity-100 transition duration-300 ease" style="border-radius: 10px">
+                  <span class="inline-block text-sm font-medium text-center text-white uppercase px-3 py-2 bg-transparent border-2 border-purple-secondary border-opacity-50 hover:border-opacity-100 transition duration-300 ease" style="border-radius: 10px">
                      Eng
                   </span>
 
@@ -22,7 +22,7 @@
 
                <button @click="setLang(1)" class="inline-flex items-center focus:outline-none">
                   
-                  <span class="inline-block text-sm font-semibold text-center text-white uppercase px-3 py-2 bg-transparent border-2 border-purple-secondary border-opacity-50 hover:border-opacity-100 transition duration-300 ease" style="border-radius: 10px">
+                  <span class="inline-block text-sm font-medium text-center text-white uppercase px-3 py-2 bg-transparent border-2 border-purple-secondary border-opacity-50 hover:border-opacity-100 transition duration-300 ease" style="border-radius: 10px">
                      Pl
                   </span>
 
@@ -70,7 +70,7 @@
 
             <button @click="setLang(0)" class="inline-flex items-center focus:outline-none">
                
-               <span class="inline-block text-sm font-semibold text-center text-white uppercase px-3 py-2 bg-transparent border-2 border-purple-secondary border-opacity-50 hover:border-opacity-100 transition duration-300 ease" style="border-radius: 10px">
+               <span class="inline-block text-sm font-medium text-center text-white uppercase px-3 py-2 bg-transparent border-2 border-purple-secondary border-opacity-50 hover:border-opacity-100 transition duration-300 ease" style="border-radius: 10px">
                   Eng
                </span>
 
@@ -78,7 +78,7 @@
 
             <button @click="setLang(1)" class="inline-flex items-center focus:outline-none">
                
-               <span class="inline-block text-sm font-semibold text-center text-white uppercase px-3 py-2 bg-transparent border-2 border-purple-secondary border-opacity-50 hover:border-opacity-100 transition duration-300 ease" style="border-radius: 10px">
+               <span class="inline-block text-sm font-medium text-center text-white uppercase px-3 py-2 bg-transparent border-2 border-purple-secondary border-opacity-50 hover:border-opacity-100 transition duration-300 ease" style="border-radius: 10px">
                   Pl
                </span>
 

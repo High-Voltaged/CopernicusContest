@@ -5,7 +5,7 @@
       <span v-if="content.subtitle" class="block text-center uppercase text-gray-300 font-light leading-tight">
          {{ content.subtitle }}
       </span>
-      <span class="block text-center text-5xl capitalize font-black tracking-wide leading-tight text-gray-200">
+      <span class="block text-center text-5xl capitalize font-semibold leading-tight text-gray-200">
          {{ content.title }}
       </span>
 

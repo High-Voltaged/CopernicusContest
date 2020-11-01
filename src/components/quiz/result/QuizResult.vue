@@ -8,7 +8,7 @@
 
             <router-link to="/" tag="button" class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
-               <span class="text-sm text-gray-200 font-semibold tracking-wider text-left">
+               <span class="text-sm text-gray-200 font-semibold text-left">
                   Main
                </span>
 
@@ -20,7 +20,7 @@
 
             <div class="flex items-center justify-center w-full">
                
-               <div class="text-xl md:text-2xl font-bold text-gray-200 select-none">
+               <div class="text-xl md:text-2xl font-semibold text-gray-200 select-none">
                   Your result is:
                </div>
 
@@ -54,7 +54,7 @@
 
             <div class="flex flex-col items-start w-full">
 
-               <div class="w-full text-lg md:text-xl 2xl:text-center font-bold text-gray-secondary">
+               <div class="w-full text-lg md:text-xl 2xl:text-center font-semibold text-gray-secondary">
                   Correct answers:
                </div>
 

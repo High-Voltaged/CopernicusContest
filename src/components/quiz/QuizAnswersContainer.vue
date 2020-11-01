@@ -16,7 +16,7 @@
             <button :disabled="disabled"
                     @click="setNewAnswer(true)"
                     :class="{ 'hover:bg-opacity-100': !disabled }"
-                    class="flex items-center justify-center space-x-1 px-2 py-1 rounded-full shadow bg-gray-primary bg-opacity-75 transition duration-300 ease focus:outline-none">
+                    class="flex items-center justify-center space-x-1 px-3 py-1 rounded-full shadow bg-gray-primary bg-opacity-75 transition duration-300 ease focus:outline-none">
 
                 <font-awesome-icon :icon="['fas', 'plus']" class="w-3 h-3 fill-current text-gray-200" />
 

@@ -8,7 +8,7 @@
             <font-awesome-icon :icon="['fas', 'plus']" class="w-4 h-4 fill-current text-white" />
          </span>
 
-         <span class="text-left text-lg font-semibold text-white select-none">
+         <span class="text-left text-base xl:text-lg font-semibold text-white select-none">
             Add an article
          </span>
 

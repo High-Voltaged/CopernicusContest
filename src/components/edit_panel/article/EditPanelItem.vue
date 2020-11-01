@@ -19,9 +19,7 @@
       </div>
 
       <div class="flex-auto flex w-full">
-          <p class="text-left text-sm text-gray-200">
-              {{ article.content }}
-          </p>
+          <p v-html="article.content" class="text-left text-sm text-gray-200"></p>
       </div>
 
    </button>

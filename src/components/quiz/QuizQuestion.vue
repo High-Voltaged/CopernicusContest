@@ -10,7 +10,7 @@
 
                     <button @click="$emit('toMenu')" v-if="editMode" to="/admin" tag="button" class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
-                        <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
+                        <span class="text-sm text-gray-200 font-semibold text-left select-none">
                            Menu
                         </span>
 
@@ -18,7 +18,7 @@
 
                     <router-link v-else to="/" tag="button" class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
-                        <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
+                        <span class="text-sm text-gray-200 font-semibold text-left select-none">
                             Main
                         </span>
 
@@ -28,7 +28,7 @@
                             @click="removeQuestion"
                             class="flex items-center justify-center px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
-                        <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
+                        <span class="text-sm text-gray-200 font-semibold text-left select-none">
                             Remove
                         </span>
 
@@ -98,7 +98,7 @@
                         :class="{ 'hover:border-opacity-100': !prev_disabled }"
                         class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 transition duration-300 ease focus:outline-none">
 
-                    <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
+                    <span class="text-sm text-gray-200 font-semibold text-left select-none">
                         Previous
                     </span>
 
@@ -119,7 +119,7 @@
                         :class="{ 'hover:border-opacity-100': !next_disabled }"
                         class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 transition duration-300 ease focus:outline-none">
 
-                    <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
+                    <span class="text-sm text-gray-200 font-semibold text-left select-none">
                         Next
                     </span>
 

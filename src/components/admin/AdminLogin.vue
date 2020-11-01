@@ -7,7 +7,7 @@
             <form @submit.prevent="login" class="admin-login flex flex-col items-center justify-center w-80 space-y-6 p-8 xl:p-10 shadow-md" style="border-radius: 15px">
 
                 <div class="flex items-center justify-center w-full">
-                    <span class="text-lg font-semibold tracking-wide text-center text-white select-none">
+                    <span class="text-lg font-semibold text-center text-white select-none">
                         Login to Admin Panel
                     </span>
                 </div>
@@ -24,7 +24,7 @@
                     <button
                         class="flex items-center justify-center w-full px-3 py-2 rounded-lg bg-gray-main bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
 
-                        <span class="text-sm text-gray-200 font-semibold tracking-wider text-left select-none">
+                        <span class="text-sm text-gray-200 font-semibold text-left select-none">
                            Continue
                         </span>
 
