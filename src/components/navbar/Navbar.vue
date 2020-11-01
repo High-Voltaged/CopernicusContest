@@ -27,7 +27,7 @@
             </div>
             
             <SelectMenu
-               :current="lang_array[current_language]"
+               :current="lang_current"
                :options="lang_array"
                :width="'w-24'"
                @input="setLang($event)"
@@ -56,7 +56,7 @@
          </div>
 
          <SelectMenu
-            :current="lang_array[current_language]"
+            :current="lang_current"
             :options="lang_array"
             width="w-24"
             @input="setLang($event)"
@@ -119,8 +119,6 @@ import { LangEnum } from '../../scripts/lang/enum';
          { to: '', content: 'Other' },
       ];
 
-       current_language: LangEnum;
-
       lang_array = [
          { id: 0, name: 'ENG' },
          { id: 1, name: 'PL' },
@@ -145,14 +143,6 @@ import { LangEnum } from '../../scripts/lang/enum';
          vxm.lang.setLang(language.id);
 
       }
-
-      beforeMount() {
-
-           this.current_language = LangUtil.getLanguage();
-
-       }
-
-
    }
 
 </script>
