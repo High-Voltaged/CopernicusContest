@@ -45,6 +45,7 @@
     import QuizQuestion from '../../quiz/QuizQuestion.vue';
     import QuizAnswer from '../../quiz/QuizAnswer.vue';
     import VerificationDialog from '../VerificationDialog.vue';
+    import { LangUtil } from "../../../scripts/lang/utils";
 
     @Component({
         name: "QuizEdit",
@@ -239,7 +240,7 @@
          // show the prompt dialog if the question wasn't saved
          if(!this.checkSavedQuestion()) {
 
-            this.verify.content = 'Are you sure you want to leave the question unsaved?';
+             this.verify.content = LangUtil.getLanguage().unsaved_question_confirm;
             this.verify.on = true;
 
          } else {

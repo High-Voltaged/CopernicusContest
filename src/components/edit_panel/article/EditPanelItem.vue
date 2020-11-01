@@ -35,7 +35,6 @@
    @Component({
       name: "EditPanelItem",
    })
-
    export default class EditPanelItem extends Vue {
 
        @Prop() private article;
