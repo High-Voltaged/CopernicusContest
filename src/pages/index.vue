@@ -109,16 +109,18 @@
 
 <script lang="ts">
 
-   import { Component, Prop, Vue } from "nuxt-property-decorator";
+   import { Component, Prop, Vue, Watch } from "nuxt-property-decorator";
    import Navbar from '../components/navbar/Navbar.vue';
    import Footer from '../components/navbar/Footer.vue';
    import MajorArticles from '../components/article/MajorArticles.vue';
    import ImportantArticles from '../components/article/ImportantArticles.vue';
    import DigestList from '../components/digest/DigestList.vue';
    import Timeline from '../components/timeline/Timeline.vue';
-    import MainTitle from '../components/other/MainTitle.vue';
-    import { LangUtil } from "../scripts/lang/utils";
-import { lang } from "moment";
+   import MainTitle from '../components/other/MainTitle.vue';
+
+   import { vxm } from '../store';
+   import { LangUtil } from "../scripts/lang/utils";
+   import { Lang } from '../scripts/lang/lang';
 
    @Component({
       name: "index",
@@ -136,18 +138,32 @@ import { lang } from "moment";
 
       main_titles = [
 
-          { subtitle: ' ', title: LangUtil.getLanguage().blog_about_copernicus, paragraph: ' ' },
-          { subtitle: ' ', title: LangUtil.getLanguage().main_articles, paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
-          { subtitle: ' ', title: LangUtil.getLanguage().timeline, paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
-          { subtitle: ' ', title: LangUtil.getLanguage().featured_articles, paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+          { subtitle: ' ', title: this.current_lang.blog_about_copernicus, paragraph: ' ' },
+          { subtitle: ' ', title: this.current_lang.main_articles, paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+          { subtitle: ' ', title: this.current_lang.timeline, paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+          { subtitle: ' ', title: this.current_lang.featured_articles, paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
 
       ];
 
+      get current_lang() {
+
+         return vxm.lang.getCurrentLangStrings;
+
+      }
+
       mounted() {
 
-          console.log(LangUtil.getLanguage().username);
+         let language = LangUtil.getLanguageCookie();
+      
+         let set_lang = vxm.lang.getCurrentLang;
+      
+         if(set_lang.id != language) {
 
-          //LangUtil.setLanguage(1);
+            console.log('called')
+
+            vxm.lang.setLang(language);
+      
+         }
 
          this.$nextTick(() => {
 

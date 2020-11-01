@@ -56,7 +56,7 @@
          </div>
 
          <SelectMenu
-            :current="lang_array[0]"
+            :current="lang_current"
             :options="lang_array"
             width="w-24"
             @input="setLang($event)"
@@ -122,7 +122,23 @@
          { id: 1, name: 'PL' },
       ];
 
-      setLang() {
+      get lang_current() {
+
+         return vxm.lang.getCurrentLang;
+
+      }
+
+      get lang_current_strings() {
+
+         return vxm.lang.getCurrentLangStrings;
+
+      }
+
+      setLang(language) {
+
+         console.log(language);
+
+         vxm.lang.setLang(language.id);
 
          console.log('the language is set');
 

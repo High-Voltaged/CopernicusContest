@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import { vxm } from './store';
+import { LangUtil } from './scripts/lang/utils';
 
 import index from '~/pages/index.vue'
 import quiz from '~/pages/quiz.vue'
@@ -13,10 +14,10 @@ import ArticleAdd from '~/components/edit_panel/article/ArticleAdd.vue';
 import QuizEdit from '~/components/edit_panel/quiz/QuizEdit.vue';
 import CategoriesEdit from '~/components/edit_panel/categories/CategoriesEdit.vue';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export function createRouter() {
-    const router = new Router({
+   const router = new Router({
         mode: 'history',
         routes: [
             {
@@ -24,8 +25,8 @@ export function createRouter() {
                 component: index,
             },
             {
-                path: '/',
-                component: index,
+               path: '/',
+               component: index,
             },
             {
                 path: '/admin',
@@ -69,10 +70,5 @@ export function createRouter() {
     });
 
     return router;
+
 }
-
-// router.beforeEach((to, from, next) => {
-
-
-
-// })

@@ -120,7 +120,7 @@
                         class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 transition duration-300 ease focus:outline-none">
 
                     <span class="text-sm text-gray-200 font-semibold text-left select-none">
-                        Next
+                        {{ getLang.next }}
                     </span>
 
                 </button>
@@ -220,6 +220,12 @@
             }
 
         }
+
+         get getLang() {
+
+            return vxm.lang.getCurrentLangStrings;
+
+         }
 
         prevQuestion(): void {
 
