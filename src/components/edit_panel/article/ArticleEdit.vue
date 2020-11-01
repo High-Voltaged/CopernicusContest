@@ -120,6 +120,7 @@
    import Notification from '../Notification.vue';
    import VerificationDialog from '../VerificationDialog.vue';
    import SelectMenu from '../../other/SelectMenu.vue';
+import { LangUtil } from "../../../scripts/lang/utils";
 
    @Component({
       name: "ArticleEdit",
@@ -198,8 +199,9 @@
 
          await APIWrapper.editArticle(this.article.id, this.article.title, this.article.content.join("\n"), this.article.picture_link, this.article.important, this.article.category.id);
 
-         this.notif_on = true;
-         this.notif_content = 'Your changes to the article were saved.';
+          this.notif_on = true;
+
+          this.notif_content = LangUtil.getLanguage().changes_saved;
 
       }
 
@@ -209,8 +211,9 @@
 
          vxm.articles.setValidationError({ value: false, content: '' });
 
-         this.notif_on = true;
-         this.notif_content = 'Your changes to the article were discarded.';
+          this.notif_on = true;
+
+          this.notif_content = LangUtil.getLanguage().changes_discarded_article;
 
       }
 
@@ -220,8 +223,9 @@
 
          await APIWrapper.deleteArticle(this.article.id);
 
-         this.notif_on = true;
-         this.notif_content = 'The artilce was removed.';
+          this.notif_on = true;
+
+          this.notif_content = LangUtil.getLanguage().article_was_removed;
 
       }
 
@@ -244,9 +248,9 @@
 
          for(let i in temp) {
 
-            if(!temp[i]) {
+             if (!temp[i]) {
 
-               vxm.articles.setValidationError({ value: true, content: 'Don\'t leave the input fields empty.' });
+                 vxm.articles.setValidationError({ value: true, content: LangUtil.getLanguage().dont_leave_imput_empty });
                return false;
 
             } 
@@ -262,12 +266,12 @@
 
          if(this.article.title.length < Limits.min_title_length) {
 
-            vxm.articles.setValidationError({ value: true, content: 'The article\'s title\'s length is too short.' });
+             vxm.articles.setValidationError({ value: true, content: LangUtil.getLanguage().article_title_too_short });
             return false;
 
          } else if(this.article.title.length > Limits.max_title_length) {
 
-            vxm.articles.setValidationError({ value: true, content: 'The article\'s title\'s length is too long.' });
+             vxm.articles.setValidationError({ value: true, content: LangUtil.getLanguage().article_title_too_long });
             return false;
 
          } else {
@@ -284,12 +288,12 @@
 
          if(this.article.content.length < Limits.min_content_length) {
 
-            vxm.articles.setValidationError({ value: true, content: 'The article\'s content\'s length is too short.' });
+             vxm.articles.setValidationError({ value: true, content: LangUtil.getLanguage().article_content_too_short });
             return false;
 
          } else if(this.article.title.length > Limits.max_content_length) {
 
-            vxm.articles.setValidationError({ value: true, content: 'The article\'s content\'s length is too long.' });
+             vxm.articles.setValidationError({ value: true, content: LangUtil.getLanguage().article_content_too_long });
             return false;
 
          } else {
@@ -303,8 +307,9 @@
       validatePicture(): boolean {
 
          if(this.article.picture_link.length > Limits.max_picture_length) {
+            
+            vxm.articles.setValidationError({ value: true, content: LangUtil.getLanguage().article_picture_link_invalid });
 
-            vxm.articles.setValidationError({ value: true, content: 'The article\'s picture\'s link is invalid.' });
             return false;
 
          } else {
@@ -334,7 +339,7 @@
       setDialog() {
 
          this.verify_on = true;
-         this.verify_content = 'Are you sure you want to remove this article?';
+          this.verify_content = LangUtil.getLanguage().are_you_sure_remove_article;
 
       }
 

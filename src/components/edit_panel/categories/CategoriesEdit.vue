@@ -102,6 +102,7 @@
     import Category from '../../categories/categories/Category.vue';
     import Notification from '../Notification.vue';
     import VerificationDialog from '../VerificationDialog.vue';
+import { LangUtil } from "../../../scripts/lang/utils";
 
     @Component({
         name: "CategoriesEdit",
@@ -157,7 +158,7 @@
 
             if (!this.checkSavedCategory()) {
 
-                this.verify.content = 'Are you sure you want to leave this category unsaved?';
+                this.verify.content = LangUtil.getLanguage().unsaved_question_confirm;
                 this.verify.on = true;
 
             } else {
@@ -201,7 +202,8 @@
          async saveCategory() {
             
             if (!this.temp_category) {
-            
+
+                // Lang util here
                vxm.categories.setValidationError({ value: true, content: 'Don\'t leave the input field empty.' });
             
             } else {
@@ -213,13 +215,13 @@
                
                await ApiWrapper.insertCategory(this.init_categories[this.current].id, this.init_categories[this.current].name);
                
-               if(this.new_category) {
-               
-                  this.notif.content = 'The new category has been added.';
+                if (this.new_category) {
+                    
+                    this.notif.content = LangUtil.getLanguage().new_category_added;
                
                } else {
-               
-                  this.notif.content = 'The changes have been saved.';
+
+                    this.notif.content = LangUtil.getLanguage().changes_saved;
                
                }
                
@@ -230,7 +232,6 @@
             }
         
         }
-
 
         deepCopyArray(inObject): ICategory[] {
 
@@ -265,7 +266,6 @@
             return vxm.categories.getMainUtil.error;
 
         }
-
 
         checkSavedCategory(): boolean {
 

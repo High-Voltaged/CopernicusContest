@@ -42,7 +42,7 @@
 
         export const save_changes: string = "Save changes";
 
-        export const changes_saved_article: string = "Your changes to the article were saved.";
+        export const changes_saved: string = "Your changes have been saved.";
 
         export const changes_discarded_article: string = "Your changes to the article were discarded.";
 
@@ -83,6 +83,18 @@
         export const login_to_admin_panel: string = "Login to Admin Panel";
 
         export const login_details_incorrect: string = "Login details incorrect";
+
+        export const timeline: string = "Timeline";
+
+        export const featured_articles: string = "Featured articles";
+
+        export const main_articles: string = "Main articles";
+
+        export const blog_about_copernicus: string = "Blog about Nicolaus Copernicus";
+
+        export const new_category_added: string = "The new category has been added.";
+
+        export const article_was_removed: string = "The article was removed.";
 
     }
 
@@ -129,7 +141,7 @@
 
         export const save_changes: string = "Zapisz zmiany";
 
-        export const changes_saved_article: string = "Twoje zmiany w artykule zostały zapisane.";
+        export const changes_saved: string = "Twoje zmiany zostały zapisane.";
 
         export const changes_discarded_article: string = "Twoje zmiany w artykule zostały odrzucone.";
 
@@ -170,6 +182,18 @@
         export const login_to_admin_panel: string = "Zaloguj się do panelu administracyjnego";
 
         export const login_details_incorrect: string = "Dane logowania są nieprawidłowe";
+
+        export const timeline: string = "Oś czasu";
+
+        export const featured_articles: string = "Wyróżnione artykuły";
+
+        export const main_articles: string = "Główne informacje";
+
+        export const blog_about_copernicus: string = "Blog na temat Mikołaja Kopernika";
+
+        export const new_category_added: string = "Nowa kategoria została dodana.";
+
+        export const article_was_removed: string = "The article was removed.";
 
     }
 

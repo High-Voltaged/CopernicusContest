@@ -116,7 +116,9 @@
    import ImportantArticles from '../components/article/ImportantArticles.vue';
    import DigestList from '../components/digest/DigestList.vue';
    import Timeline from '../components/timeline/Timeline.vue';
-   import MainTitle from '../components/other/MainTitle.vue';
+    import MainTitle from '../components/other/MainTitle.vue';
+    import { LangUtil } from "../scripts/lang/utils";
+import { lang } from "moment";
 
    @Component({
       name: "index",
@@ -134,14 +136,18 @@
 
       main_titles = [
 
-          { subtitle: ' ', title: 'Blog na temat Mikołaja Kopernika', paragraph: ' ' },
-          { subtitle: ' ', title: 'Główne informacje', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
-          { subtitle: ' ', title: 'Oś czasu', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
-          { subtitle: ' ', title: 'Wyróżnione artykuły', paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+          { subtitle: ' ', title: LangUtil.getLanguage().blog_about_copernicus, paragraph: ' ' },
+          { subtitle: ' ', title: LangUtil.getLanguage().main_articles, paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+          { subtitle: ' ', title: LangUtil.getLanguage().timeline, paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+          { subtitle: ' ', title: LangUtil.getLanguage().featured_articles, paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
 
       ];
 
       mounted() {
+
+          console.log(LangUtil.getLanguage().username);
+
+          //LangUtil.setLanguage(1);
 
          this.$nextTick(() => {
 
