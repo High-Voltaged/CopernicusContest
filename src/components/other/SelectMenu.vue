@@ -1,13 +1,13 @@
 <template>
    
-   <div class="select-menu relative w-48">
+   <div :class="width" class="select-menu relative">
       
       <div class="w-full">
 
          <div :class="color" class="flex items-center space-x-2 p-3" style="border-radius: 10px 10px 0 0">
 
             <input 
-               :value="category.name"
+               :value="current.name"
                @click="dropdownOn = !dropdownOn"
                readonly
                placeholder="Input your value" 
@@ -30,19 +30,19 @@
 
       <transition name="fade-out">
 
-         <div v-if="dropdownOn" :class="color" class="select-menu__dropdown top-full absolute w-48 p-3 space-y-2" style="border-radius: 0 0 15px 15px">
+         <div v-if="dropdownOn" :class="color" class="select-menu__dropdown top-full absolute w-full p-3 space-y-2" style="border-radius: 0 0 15px 15px">
 
             <button 
-               v-for="c in categories"
-               :key="c.id"
+               v-for="opt in options"
+               :key="opt.id"
                :class="[color, `hover:border-${border}`, `focus:bg-${border}`]"
                class="select-menu__cion inline-flex items-center w-full p-2 bg-transparent border-2 border-transparent transition duration-300 ease focus:outline-none" 
                style="border-radius: 10px"
-               @click="changeValue(c)" 
+               @click="changeValue(opt)" 
             >
                
                <span class="inline-block w-full px-2 text-left text-sm text-gray-200 font-medium">
-                  {{ c.name }}
+                  {{ opt.name }}
                </span>
 
             </button>
@@ -66,8 +66,10 @@
    })
    export default class SelectMenu extends Vue {
       
-      @Prop({ default: '' }) private category;
-
+      @Prop({ default: '' }) private current;
+      @Prop({ default: null }) private options;
+      
+      @Prop({ default: 'w-48' }) private width;
       @Prop({ default: 'bg-gray-main' }) private color: string;
       @Prop({ default: 'gray-tertiary' }) private border: string; 
          
@@ -81,9 +83,9 @@
 
       }
 
-      changeValue(category): void {
+      changeValue(value): void {
 
-         this.$emit('input', category);
+         this.$emit('input', value);
 
          this.dropdownOn = false;
 

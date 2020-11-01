@@ -46,7 +46,8 @@
                         Article's category
                     </label>
 
-                    <SelectMenu :category="article.category"
+                    <SelectMenu :current="article.category"
+                                 :options="categories"
                                 @input="article.category = $event"
                                 :color="'bg-gray-tertiary'"
                                 :border="'gray-main'"></SelectMenu>
@@ -126,7 +127,7 @@
     import ArticleContent from '../../../pages/content.vue';
     import Notification from '../Notification.vue';
     import SelectMenu from '../../other/SelectMenu.vue';
-import { LangUtil } from "../../../scripts/lang/utils";
+   import { LangUtil } from "../../../scripts/lang/utils";
 
     @Component({
         name: "ArticleAdd",
@@ -152,6 +153,24 @@ import { LangUtil } from "../../../scripts/lang/utils";
 
         };
 
+        categories: ICategory[] = [];
+
+         async beforeMount() {
+
+            this.categories = await APIWrapper.fetchCategories();
+
+         }
+
+         mounted() {
+
+            this.$nextTick(() => {
+
+               this.$nuxt.$loading.finish();
+
+            });
+
+         }
+
         beforeDestroy() {
 
             this.resetArticle();
@@ -162,16 +181,6 @@ import { LangUtil } from "../../../scripts/lang/utils";
             this.notif_on = false;
 
         }
-
-        mounted() {
-
-            this.$nextTick(() => {
-
-               this.$nuxt.$loading.finish();
-
-            });
-
-         }
 
          destroyed() {
 

@@ -1,11 +1,11 @@
 <template>
 
-    <div class="flex-col lg:flex-row flex justify-center lg:justify-around items-center mt-16">
+    <div class="flex-col lg:flex-row flex justify-center lg:justify-around items-center w-full mt-16">
 
         <div :class="{ 'lg:order-last': left_position }" class="w-full lg:w-1/2 px-4">
 
             <div class="flex justify-center md:justify-start">
-                <span class="text-3xl font-semibold capitalize text-center md:text-left leading-tight text-gray-200">
+                <span class="text-2xl md:text-3xl font-semibold capitalize text-center md:text-left leading-tight text-gray-200">
                     {{ article.title }}
                 </span>
             </div>

@@ -8,27 +8,7 @@
             <img src="/logo.png" class="w-full h-full object-cover h-14"> 
          </div>
 
-         <div class="md:hidden flex-auto flex items-center justify-end space-x-4">
-
-            <div class="flex items-center space-x-2">
-
-               <button @click="setLang(0)" class="inline-flex items-center focus:outline-none">
-                  
-                  <span class="inline-block text-sm font-medium text-center text-white uppercase px-3 py-2 bg-transparent border-2 border-purple-secondary border-opacity-50 hover:border-opacity-100 transition duration-300 ease" style="border-radius: 10px">
-                     Eng
-                  </span>
-
-               </button>
-
-               <button @click="setLang(1)" class="inline-flex items-center focus:outline-none">
-                  
-                  <span class="inline-block text-sm font-medium text-center text-white uppercase px-3 py-2 bg-transparent border-2 border-purple-secondary border-opacity-50 hover:border-opacity-100 transition duration-300 ease" style="border-radius: 10px">
-                     Pl
-                  </span>
-
-               </button>
-
-            </div>
+         <div class="md:hidden flex items-center justify-end space-x-4">        
 
             <div>
                
@@ -46,15 +26,24 @@
             
             </div>
             
+            <SelectMenu
+               :current="lang_array[0]"
+               :options="lang_array"
+               :width="'w-24'"
+               @input="setLang($event)"
+               :color="'bg-gray-tertiary'"
+               :border="'gray-secondary'"
+            ></SelectMenu>      
+
          </div>
 
       </div>
 
       <div class="hidden md:flex items-center space-x-6 h-full mr-2">
 
-         <div class="flex items-center w-full bg-transparent z-50">
+         <div class="flex items-center bg-transparent z-50">
 
-            <div class="flex-auto flex items-center relative space-x-2">
+            <div class="flex items-center relative space-x-2">
             
                <NavbarLink
                   v-for="(link, index) in links"
@@ -66,25 +55,14 @@
 
          </div>
 
-         <div class="flex items-center space-x-2">
-
-            <button @click="setLang(0)" class="inline-flex items-center focus:outline-none">
-               
-               <span class="inline-block text-sm font-medium text-center text-white uppercase px-3 py-2 bg-transparent border-2 border-purple-secondary border-opacity-50 hover:border-opacity-100 transition duration-300 ease" style="border-radius: 10px">
-                  Eng
-               </span>
-
-            </button>
-
-            <button @click="setLang(1)" class="inline-flex items-center focus:outline-none">
-               
-               <span class="inline-block text-sm font-medium text-center text-white uppercase px-3 py-2 bg-transparent border-2 border-purple-secondary border-opacity-50 hover:border-opacity-100 transition duration-300 ease" style="border-radius: 10px">
-                  Pl
-               </span>
-
-            </button>
-
-         </div>
+         <SelectMenu
+            :current="lang_array[0]"
+            :options="lang_array"
+            width="w-24"
+            @input="setLang($event)"
+            :color="'bg-gray-tertiary'"
+            :border="'gray-secondary'"
+         ></SelectMenu>  
 
       </div>
 
@@ -117,13 +95,16 @@
 <script lang="ts">
 
    import { Component, Prop, Vue } from 'nuxt-property-decorator';
-   import NavbarLink from './navbar/NavbarLink.vue';
    import { vxm } from '../../store';
+   
+   import NavbarLink from './navbar/NavbarLink.vue';
+   import SelectMenu from '../other/SelectMenu.vue';
 
    @Component({
       name: "Navbar",
       components: {
          NavbarLink,
+         SelectMenu
       }
    })
    export default class Navbar extends Vue {
@@ -136,9 +117,14 @@
          { to: '', content: 'Other' },
       ];
 
-      setLang(value: number) {
+      lang_array = [
+         { id: 0, name: 'ENG' },
+         { id: 1, name: 'PL' },
+      ];
 
-         vxm.lang.setLang(value);
+      setLang() {
+
+         console.log('the language is set');
 
       }
 

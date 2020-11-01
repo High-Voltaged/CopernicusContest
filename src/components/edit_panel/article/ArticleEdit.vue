@@ -43,7 +43,8 @@
             <div class="flex flex-col items-center w-full space-y-2">
 
                <SelectMenu
-                  :category="article.category"
+                  :current="article.category"
+                  :options="categories"
                   @input="setCategory($event)"
                   :color="'bg-gray-main'"
                   :border="'gray-tertiary'"

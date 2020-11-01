@@ -1,11 +1,11 @@
 <template>
    
-   <div class="px-2 md:px-4">
+   <div class="w-full px-2 md:px-4">
       
       <span v-if="content.subtitle" class="block text-center uppercase text-gray-300 font-light leading-tight">
          {{ content.subtitle }}
       </span>
-      <span class="block text-center text-5xl capitalize font-semibold leading-tight text-gray-200">
+      <span class="block text-center text-4xl md:text-5xl capitalize font-semibold leading-tight text-gray-200">
          {{ content.title }}
       </span>
 
