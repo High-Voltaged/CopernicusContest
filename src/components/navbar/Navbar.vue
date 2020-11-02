@@ -99,8 +99,6 @@
    
    import NavbarLink from './navbar/NavbarLink.vue';
    import SelectMenu from '../other/SelectMenu.vue';
-   import { LangUtil } from "../../scripts/lang/utils";
-   import { LangEnum } from '../../scripts/lang/enum';
 
    @Component({
       name: "Navbar",

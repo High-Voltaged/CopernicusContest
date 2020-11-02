@@ -8,9 +8,9 @@
 
             <router-link to="/" tag="button" class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
-               <span class="text-sm text-gray-200 font-semibold text-left">
-                  Main
-               </span>
+                <span class="text-sm text-gray-200 font-semibold text-left">
+                    {{ current_lang.main }}
+                </span>
 
             </router-link>
 
@@ -93,6 +93,12 @@
 
       @Prop() private questions_array;
       @Prop() private correct_answers;
+
+       get current_lang() {
+
+           return vxm.lang.getCurrentLangStrings;
+
+       }
 
    }
 

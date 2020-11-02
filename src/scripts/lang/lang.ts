@@ -96,6 +96,16 @@
 
         export const article_was_removed: string = "The article was removed.";
 
+        export const continue_str: string = "Continue";
+
+        export const add_an_answer: string = "Add an answer";
+
+        export const menu: string = "Menu";
+
+        export const remove: string = "Remove";
+
+        export const main: string = "Main";
+
     }
 
     // TRANSLATE THIS
@@ -194,6 +204,16 @@
         export const new_category_added: string = "Nowa kategoria została dodana.";
 
         export const article_was_removed: string = "The article was removed.";
+
+        export const continue_str: string = "Kontynuj";
+
+        export const add_an_answer: string = "Dodaj odpowiedź";
+
+        export const menu: string = "Menu";
+
+        export const remove: string = "Usuń";
+
+        export const main: string = "Główny";
 
     }
 

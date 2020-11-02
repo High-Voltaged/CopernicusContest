@@ -25,7 +25,7 @@
                         class="flex items-center justify-center w-full px-3 py-2 rounded-lg bg-gray-main bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
 
                         <span class="text-sm text-gray-200 font-semibold text-left select-none">
-                           Continue
+                            {{ current_lang.continue_str }}
                         </span>
 
                      </button>
@@ -34,7 +34,7 @@
                 <transition name="fade-out">
 
                     <div v-if="error_message" class="error_message w-full bg-transparent mt-3 px-2 text-center text-sm text-red-500 select-none">
-                        Login details incorrect
+                        {{ current_lang.login_details_incorrect }}
                     </div>
 
                 </transition>
