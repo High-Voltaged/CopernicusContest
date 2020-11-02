@@ -197,7 +197,7 @@ import { LangUtil } from "../../../scripts/lang/utils";
 
          }
 
-         await APIWrapper.editArticle(this.article.id, this.article.title, this.article.content, this.article.picture_link, this.article.important, this.article.category.id);
+         APIWrapper.editArticle(this.article.id, this.article.title, this.article.content as any, this.article.picture_link, this.article.important, this.article.category.id);
 
           this.notif_on = true;
 

@@ -52,7 +52,8 @@
 
                         <div v-if="!editMode && !addArticle" class="w-full h-full flex flex-col items-center">
 
-                            <div v-for="(paragraph, i) in article.content"
+                            <div
+                                 v-for="(paragraph, i) in article.content"
                                  :key="i"
                                  class="text-styled text-justify text-sm xl:text-base leading-relaxed xl:leading-loose font-light text-gray-300">
 
@@ -167,7 +168,7 @@
         @Prop({ default: false }) private addArticle?: boolean;
 
         async beforeMount() {
-           
+
             if (!this.addArticle) {
 
                 if (this.$route.name == "article_user_view") {
