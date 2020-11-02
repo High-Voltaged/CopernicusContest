@@ -94,7 +94,7 @@
 
 <script lang="ts">
 
-   import { Component, Prop, Vue } from 'nuxt-property-decorator';
+   import { Component, Prop, Watch, Vue } from 'nuxt-property-decorator';
    import { vxm } from '../../store';
    
    import NavbarLink from './navbar/NavbarLink.vue';
@@ -114,15 +114,22 @@
       isOpen = false;
 
       links = [
-         { to: '/admin', content: 'Admin menu' },
-         { to: '/categories', content: 'All articles' },
-         { to: '', content: 'Other' },
+         { to: '/admin', content: this.lang_current_strings.admin_menu },
+         { to: '/categories', content: this.lang_current_strings.all_articles },
       ];
 
       lang_array = [
          { id: 0, name: 'ENG' },
          { id: 1, name: 'PL' },
       ];
+      
+      @Watch('lang_current_strings')
+      setLinks() {
+
+         this.links[0].content = this.lang_current_strings.admin_menu;
+         this.links[1].content = this.lang_current_strings.all_articles;
+
+      }
       
       get lang_current() {
 

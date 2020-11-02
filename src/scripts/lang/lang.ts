@@ -10,7 +10,7 @@
 
         export const date_published: string = "Date published";
 
-        export const times_viewed: string = "Times viewed";
+        export const times_viewed: string = "Times viewed: ";
 
         export const edit_articles: string = "Edit articles";
 
@@ -24,7 +24,7 @@
 
         export const save_the_question: string = "Save the Question";
 
-        export const question_out_of: string = "Question {{{1 }}} out of ";
+        export const question_out_of: string = "Question out of";
 
         export const select_category: string = "Select a category";
 
@@ -109,7 +109,7 @@
 
         export const date_published: string = "Data opublikowania";
 
-        export const times_viewed: string = "Razy przeczytane";
+        export const times_viewed: string = "Razy przeczytane: ";
 
         export const edit_articles: string = "Edytuj artykuły";
 
@@ -123,7 +123,7 @@
 
         export const save_the_question: string = "Zapisz pytanie";
 
-        export const question_out_of: string = "Question {{{1 }}} out of ";
+        export const question_out_of: string = "Question out of"; // forgot to translate that 
 
         export const select_category: string = "Wybierz kategorię";
 
@@ -198,3 +198,6 @@
     }
 
 }
+
+// 'read_more', 'popular_articles', 'add_a_question', 'add_a_category', 'continue', 'remove', 'discard', 'cancel', 
+// 'input_your_value', keywords at /quiz and all the ones at admin_panel need to be added

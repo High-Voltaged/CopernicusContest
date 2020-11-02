@@ -47,6 +47,8 @@
 <script lang="ts">
 
    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+   import { vxm } from '../../store';
+
    import IBriefArticle from '../../../interfaces/brief_article';
 
    @Component({
@@ -59,6 +61,12 @@
       get article_content() {
 
          return this.article.content.slice(0, 340) + '...';
+
+      }
+
+      get current_lang() {
+
+         return vxm.lang.getCurrentLangStrings;
 
       }
 

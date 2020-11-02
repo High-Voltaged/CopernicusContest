@@ -75,7 +75,7 @@
 
                                 <div class="mt-2 w-full">
 
-                                    <div class="text-xs font-light text-gray-400 text-right"> Date published: {{ article.timestamp }} </div>
+                                    <div class="text-xs font-light text-gray-400 text-right"> {{ current_lang.date_published }}: {{ article.timestamp }} </div>
 
                                 </div>
 
@@ -101,7 +101,9 @@
 
                                     <div class="ml-2">
 
-                                        <span class="text-sm">Times viewed:</span>
+                                        <span class="text-sm">
+                                           {{ current_lang.times_viewed }}
+                                        </span>
 
                                         <span class="text-sm"> {{ article.times_read }} </span>
 
@@ -203,6 +205,11 @@
 
         }
 
+         get current_lang() {
+
+            return vxm.lang.getCurrentLangStrings;
+
+         }
 
         // Loading 
 

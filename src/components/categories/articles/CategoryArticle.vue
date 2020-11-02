@@ -27,7 +27,9 @@
                      <font-awesome-icon :icon="['fas', 'eye']" class="flex-shrink-0 w-3 h-3 fill-current" />
                      
                      <div class="ml-2 flex items-center">
-                        <span class="flex-shrink-0 text-xs">Times viewed:</span>
+                        <span class="flex-shrink-0 text-xs">
+                           {{ current_lang.times_viewed }}
+                        </span>
                         <span class="ml-1 text-xs"> {{ article.times_read }} </span>
                      </div>
                   
@@ -54,6 +56,7 @@
 <script lang="ts">
 
    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+   import { vxm } from '../../../store';
 
    @Component({
       name: "CategoryArticle",
@@ -65,6 +68,12 @@
       goToArticle(): void {
 
          this.$router.push("/article/" + this.article.id);
+
+      }
+
+      get current_lang() {
+
+         return vxm.lang.getCurrentLangStrings;
 
       }
 

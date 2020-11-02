@@ -35,7 +35,7 @@
             <div class="ml-2 flex items-center">
                
                <span class="flex-shrink-0 text-xs">
-                  Times viewed:
+                  {{ current_lang.times_viewed }}
                </span>
                
                <span class="ml-1 text-xs"> 
@@ -63,6 +63,7 @@
 <script lang="ts">
 
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
+    import { vxm } from '../../store';
 
     @Component({
         name: "PopularArticle",
@@ -70,6 +71,12 @@
     export default class PopularArticle extends Vue {
 
         @Prop() private article;
+
+      get current_lang() {
+
+         return vxm.lang.getCurrentLangStrings;
+
+      }
 
     }
 

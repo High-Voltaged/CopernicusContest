@@ -7,7 +7,7 @@
             <div class="digest-header flex items-end md:min-w-56 h-100 px-6 md:px-10 py-5 mt-12 bg-purple-secondary rounded-lg transform rotate-180 md:rotate-0">
 
                <span class="capitalize font-medium text-2xl md:text-3xl text-gray-200">
-                  Other articles
+                  {{ current_lang.other_articles }}
                </span>
 
             </div>
@@ -44,6 +44,8 @@
 
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import ApiWrapper from '../../scripts/api_wrapper';
+   import { vxm } from '../../store';
+
     import IBriefArticle from "../../../interfaces/brief_article";
     import DigestItem from './DigestItem.vue';
 
@@ -56,6 +58,12 @@
     export default class DigestList extends Vue {
 
         articles: IBriefArticle[] = [];
+
+         get current_lang() {
+
+            return vxm.lang.getCurrentLangStrings;
+
+         }
 
         async beforeMount() {
 

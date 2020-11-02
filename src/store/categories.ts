@@ -110,7 +110,9 @@ export default class Categories extends VuexModule {
       this.categories = [];
       this.category = null;
       this.current = 0;
-      this.editMode = false;
+
+      this.validationError.value = false;
+      this.validationError.content = '';
 
    }
 

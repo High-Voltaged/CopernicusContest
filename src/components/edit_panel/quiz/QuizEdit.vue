@@ -126,6 +126,12 @@
 
       }
 
+      get current_lang() {
+
+         return vxm.lang.getCurrentLangStrings;
+
+      }
+
       removeQuestion(): void {
 
          vxm.quiz.removeQuestion(this.question);
@@ -240,7 +246,7 @@
          // show the prompt dialog if the question wasn't saved
          if(!this.checkSavedQuestion()) {
 
-             this.verify.content = LangUtil.getLanguage().unsaved_question_confirm;
+             this.verify.content = this.current_lang.unsaved_question_confirm;
             this.verify.on = true;
 
          } else {

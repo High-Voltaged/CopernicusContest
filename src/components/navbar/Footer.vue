@@ -71,7 +71,7 @@
             <router-link to="/quiz">
 
                <span class="font-medium text-gray-200 cursor-pointer pr-2 xl:text-lg">
-                  Take A Quiz Here
+                  {{ current_lang.take_a_quiz_here }}
                </span> 
 
             </router-link>
@@ -93,6 +93,8 @@
 <script lang="ts">
 
    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+   import { vxm } from '../../store';
+
    import FooterIcon from './footer/FooterIcon.vue';
    import FooterLink from './footer/FooterLink.vue';
 
@@ -124,7 +126,13 @@
          { to: '', content: 'Major resources' },
          { to: '', content: 'More info' },
 
-      ]
+      ];
+
+      get current_lang() {
+
+         return vxm.lang.getCurrentLangStrings;
+
+      }
 
    }
 </script>

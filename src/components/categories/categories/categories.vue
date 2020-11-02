@@ -4,7 +4,7 @@
 
       <div class="flex flex-col items-center justify-center w-full md:w-3/4 lg:w-3/5 2xl:w-2/5 m-auto px-5 md:px-0 z-10">
 
-         <div v-if="categories.length > 0" class="article-sort flex flex-col items-center w-full relative bg-gray-main space-y-6 p-3 md:p-5 xl:p-10 rounded-md shadow-lg">
+         <div v-if="categories.length > 0" class="article-sort flex flex-col items-center w-full relative bg-gray-main space-y-6 p-3 md:p-5 xl:p-10 shadow-lg" style="border-radius: 15px">
 
             <button v-if="editMode" @click="$emit('setNewCategory')" class="inline-flex items-center justify-center mt-3 xl:mt-0 px-2 py-1 lg:px-4 lg:py-2 bg-gray-tertiary rounded-lg shadow bg-opacity-50 hover:bg-opacity-75 transition duration-300 ease focus:outline-none">
 

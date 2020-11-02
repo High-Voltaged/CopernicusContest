@@ -8,16 +8,16 @@
 
                 <div class="flex items-center justify-center w-full">
                     <span class="text-lg font-semibold text-center text-white select-none">
-                        Login to Admin Panel
+                        {{ current_lang.login_to_admin_panel }}
                     </span>
                 </div>
 
                 <div class="flex items-center w-full h-10">
-                    <input v-model="username" placeholder="Your username" class="w-full bg-gray-200 text-sm py-2 px-3 overflow-hidden focus:outline-none transition duration-300 ease" type="text" style="border-radius: 10px" />
+                    <input v-model="username" :placeholder="current_lang.username" class="w-full bg-gray-200 text-sm py-2 px-3 overflow-hidden focus:outline-none transition duration-300 ease" type="text" style="border-radius: 10px" />
                 </div>
 
                 <div class="flex items-center w-full h-10">
-                    <input v-model="password" placeholder="Your password" class="w-full bg-gray-200 text-sm py-2 px-3 overflow-hidden focus:outline-none transition duration-300 ease" type="password" style="border-radius: 10px" />
+                    <input v-model="password" :placeholder="current_lang.password" class="w-full bg-gray-200 text-sm py-2 px-3 overflow-hidden focus:outline-none transition duration-300 ease" type="password" style="border-radius: 10px" />
                 </div>
 
                 <div class="w-full">
@@ -52,6 +52,7 @@
     import { Component, Vue } from "nuxt-property-decorator";
     import APIWrapper from "../../scripts/api_wrapper";
     import Codes from "../../../app/codes";
+    import { vxm } from '../../store';
 
     @Component({
         name: "AdminLogin",
@@ -81,6 +82,12 @@
             }
 
         } 
+
+        get current_lang() {
+
+            return vxm.lang.getCurrentLangStrings;
+
+         }
 
       //   mounted() {
 

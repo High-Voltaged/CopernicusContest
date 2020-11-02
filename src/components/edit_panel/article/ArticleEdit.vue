@@ -10,18 +10,18 @@
 
                <div class="flex-auto inline-block mx-2">
                   
-                  <input v-model="article.title" placeholder="Edit the title" type="text" class="w-full md:w-48 xl:w-72 bg-gray-tertiary bg-opacity-75 text-sm text-gray-200 py-2 px-3 overflow-hidden focus:bg-opacity-100 transition duration-200 ease focus:outline-none" style="border-radius: 15px 15px 0 0" />
+                  <input v-model="article.title" :placeholder="current_lang.article_title" type="text" class="w-full md:w-48 xl:w-72 bg-gray-tertiary bg-opacity-75 text-sm text-gray-200 py-2 px-3 overflow-hidden focus:bg-opacity-100 transition duration-200 ease focus:outline-none" style="border-radius: 15px 15px 0 0" />
 
                </div>
 
                <div class="inline-flex items-end space-x-2 ml-2 mr-2">
                   
                   <button @click="discardChanges" class="p-2 bg-red-600 bg-opacity-50 text-white text-center text-sm font-medium hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none" style="border-radius: 10px 10px 0 0">
-                     Discard changes
+                     {{ current_lang.discard_changes }}
                   </button>
 
                   <button @click="saveChanges" class="p-2 bg-purple-secondary bg-opacity-50 text-white text-center text-sm font-medium hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none" style="border-radius: 10px 10px 0 0">
-                     Save changes
+                     {{ current_lang.save_changes }}
                   </button>
 
                </div>
@@ -32,8 +32,8 @@
 
          <template #editContent>
 
-            <div v-if="article.content" class="w-full">
-               <textarea v-model="article.content" placeholder="Edit the content" rows="10" class="w-full p-3 bg-gray-tertiary bg-opacity-75 text-sm text-gray-200 overflow-y-auto overflow-x-hidden focus:outline-none resize-none" style="border-radius: 15px"></textarea>
+            <div class="w-full">
+               <textarea v-model="article.content" :placeholder="current_lang.article_content" rows="10" class="w-full p-3 bg-gray-tertiary bg-opacity-75 text-sm text-gray-200 overflow-y-auto overflow-x-hidden focus:outline-none resize-none" style="border-radius: 15px"></textarea>
             </div>
 
          </template>
@@ -59,7 +59,7 @@
             <input 
                type="text" 
                v-model="article.picture_link" 
-               placeholder="Article's picture src" 
+               :placeholder="current_lang.article_picture_link" 
                class="w-full bg-gray-tertiary bg-opacity-75 text-sm text-gray-200 py-2 px-3 overflow-hidden focus:bg-opacity-100 transition duration-200 ease focus:outline-none"
                style="border-radius: 15px" 
             />
@@ -177,6 +177,12 @@ import { LangUtil } from "../../../scripts/lang/utils";
       
       };
 
+      get current_lang() {
+
+         return vxm.lang.getCurrentLangStrings;
+
+      }
+
       // Editing / Discarding  
 
       setCategory(category): void {
@@ -201,7 +207,7 @@ import { LangUtil } from "../../../scripts/lang/utils";
 
           this.notif_on = true;
 
-          this.notif_content = LangUtil.getLanguage().changes_saved;
+          this.notif_content = this.current_lang.changes_saved;
 
       }
 
@@ -213,7 +219,7 @@ import { LangUtil } from "../../../scripts/lang/utils";
 
           this.notif_on = true;
 
-          this.notif_content = LangUtil.getLanguage().changes_discarded_article;
+          this.notif_content = this.current_lang.changes_discarded_article;
 
       }
 
@@ -225,7 +231,7 @@ import { LangUtil } from "../../../scripts/lang/utils";
 
           this.notif_on = true;
 
-          this.notif_content = LangUtil.getLanguage().article_was_removed;
+          this.notif_content = this.current_lang.article_was_removed;
 
       }
 
@@ -250,7 +256,7 @@ import { LangUtil } from "../../../scripts/lang/utils";
 
              if (!temp[i]) {
 
-                 vxm.articles.setValidationError({ value: true, content: LangUtil.getLanguage().dont_leave_imput_empty });
+                 vxm.articles.setValidationError({ value: true, content: this.current_lang.dont_leave_imput_empty });
                return false;
 
             } 
@@ -266,12 +272,12 @@ import { LangUtil } from "../../../scripts/lang/utils";
 
          if(this.article.title.length < Limits.min_title_length) {
 
-             vxm.articles.setValidationError({ value: true, content: LangUtil.getLanguage().article_title_too_short });
+             vxm.articles.setValidationError({ value: true, content: this.current_lang.article_title_too_short });
             return false;
 
          } else if(this.article.title.length > Limits.max_title_length) {
 
-             vxm.articles.setValidationError({ value: true, content: LangUtil.getLanguage().article_title_too_long });
+             vxm.articles.setValidationError({ value: true, content: this.current_lang.article_title_too_long });
             return false;
 
          } else {
@@ -288,12 +294,12 @@ import { LangUtil } from "../../../scripts/lang/utils";
 
          if(this.article.content.length < Limits.min_content_length) {
 
-             vxm.articles.setValidationError({ value: true, content: LangUtil.getLanguage().article_content_too_short });
+             vxm.articles.setValidationError({ value: true, content: this.current_lang.article_content_too_short });
             return false;
 
          } else if(this.article.title.length > Limits.max_content_length) {
 
-             vxm.articles.setValidationError({ value: true, content: LangUtil.getLanguage().article_content_too_long });
+             vxm.articles.setValidationError({ value: true, content: this.current_lang.article_content_too_long });
             return false;
 
          } else {
@@ -308,7 +314,7 @@ import { LangUtil } from "../../../scripts/lang/utils";
 
          if(this.article.picture_link.length > Limits.max_picture_length) {
             
-            vxm.articles.setValidationError({ value: true, content: LangUtil.getLanguage().article_picture_link_invalid });
+            vxm.articles.setValidationError({ value: true, content: this.current_lang.article_picture_link_invalid });
 
             return false;
 
@@ -339,7 +345,7 @@ import { LangUtil } from "../../../scripts/lang/utils";
       setDialog() {
 
          this.verify_on = true;
-          this.verify_content = LangUtil.getLanguage().are_you_sure_remove_article;
+          this.verify_content = this.current_lang.are_you_sure_remove_article;
 
       }
 

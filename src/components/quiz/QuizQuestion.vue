@@ -39,7 +39,7 @@
                 <div class="flex items-center justify-center w-full">
 
                     <span class="text-base md:text-sm text-center font-normal text-gray-300 select-none">
-                        Question #{{ question + 1 }} out of {{ questions_array.length }}
+                        {{ question_out_of[0] }} {{ question + 1 }} {{ question_out_of[1] }} {{ question_out_of[2] }} {{ questions_array.length }}
                     </span>
 
                 </div>
@@ -99,7 +99,7 @@
                         class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 transition duration-300 ease focus:outline-none">
 
                     <span class="text-sm text-gray-200 font-semibold text-left select-none">
-                        Previous
+                        {{ current_lang.previous }}
                     </span>
 
                 </button>
@@ -109,7 +109,7 @@
                         class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg shadow bg-gray-primary bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
 
                     <span class="text-sm text-gray-200 font-medium text-left select-none">
-                        Save the Question
+                        {{ current_lang.save_the_question }}
                     </span>
 
                 </button>
@@ -120,7 +120,7 @@
                         class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 transition duration-300 ease focus:outline-none">
 
                     <span class="text-sm text-gray-200 font-semibold text-left select-none">
-                        {{ getLang.next }}
+                        {{ current_lang.next }}
                     </span>
 
                 </button>
@@ -221,9 +221,15 @@
 
         }
 
-         get getLang() {
+         get current_lang() {
 
             return vxm.lang.getCurrentLangStrings;
+
+         }
+
+         get question_out_of() {
+
+            return this.current_lang.question_out_of.split(' ');
 
          }
 

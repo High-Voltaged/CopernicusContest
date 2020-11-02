@@ -9,7 +9,7 @@
          </span>
 
          <span class="text-left text-base xl:text-lg font-semibold text-white select-none">
-            Add an article
+            {{ current_lang.add_an_article }}
          </span>
 
       </button>
@@ -18,7 +18,7 @@
 
          <div class="inline-block">
             <span class="text-left text-xl font-semibold text-white capitalize select-none">
-               Articles configuration
+               {{ current_lang.articles_configuration }}
             </span>
          </div>
 
@@ -44,6 +44,7 @@
    import { Component, Prop, Vue } from "nuxt-property-decorator";
    import IBriefArticle from "../../../../interfaces/brief_article";
    import APIWRapper from "../../../scripts/api_wrapper";
+   import { vxm } from '../../../store';
    
    import EditPanelItem from './EditPanelItem.vue';
    
@@ -75,6 +76,12 @@
       goToAddArticle() {
 
          this.$router.push('/add_article');
+
+      }
+
+      get current_lang() {
+
+         return vxm.lang.getCurrentLangStrings;
 
       }
    

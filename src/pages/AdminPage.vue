@@ -17,7 +17,7 @@
                   <div class="inline-block w-full">
 
                      <button @click="setCurrent(articles)" class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
-                           Edit articles
+                           {{ current_lang.edit_articles }}
                      </button>
 
                   </div>
@@ -31,7 +31,7 @@
                      <router-link to="/edit/quiz" tag="div">
 
                            <button class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
-                              Edit the quiz
+                              {{ current_lang.edit_quiz }}
                            </button>
 
                      </router-link>
@@ -47,7 +47,7 @@
                      <router-link to="/edit/categories" tag="div">
 
                            <button class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
-                              Edit the categories
+                              {{ current_lang.edit_categories }}
                            </button>
 
                      </router-link>
@@ -69,6 +69,7 @@
 <script lang="ts">
 
     import { Component, Prop, Vue } from "nuxt-property-decorator";
+    import { vxm } from '../store';
 
     import Navbar from '../components/navbar/Navbar.vue';
     import EditPanelItem from '../components/edit_panel/article/EditPanelItem.vue';
@@ -104,6 +105,12 @@
             this.edit_menu = -1;
 
         }
+
+         get current_lang() {
+
+            return vxm.lang.getCurrentLangStrings;
+
+         }
 
         async beforeMount() {
 

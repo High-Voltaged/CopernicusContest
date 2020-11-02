@@ -28,7 +28,7 @@
                         <button class="arrow-container flex items-center px-6 py-3 2xl:py-4 2xl:px-8 rounded-full lg:transition duration-300 ease-in transform lg:hover:translate-x-6 shadow-md focus:outline-none">
                            
                            <p class="font-medium tracking-wide text-gray-200 cursor-pointer pr-2">
-                              Take A Quiz Here
+                              {{ current_lang.take_a_quiz_here }}
                            </p>
                            
                            <span class="arrow-icon w-3 h-3">
@@ -52,7 +52,7 @@
 
             <div class="mt-40 md:mt-12 xl:mt-16 px-5 md:px-24 py-10">
 
-               <div class="container-main mdMax:overflow-x-hidden w-full 2xl:w-9/10 2xl:mx-auto px-4 md:px-8 py-6 bg-gray-main shadow-md rounded-md">
+               <div class="container-main mdMax:overflow-x-hidden w-full 2xl:w-9/10 2xl:mx-auto px-4 md:px-8 py-6 bg-gray-main shadow-md" style="border-radius: 15px">
 
                   <div class="w-full">
 
@@ -144,6 +144,16 @@
           { subtitle: ' ', title: this.current_lang.featured_articles, paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
 
       ];
+
+      @Watch('current_lang')
+      setMainTitles() {
+
+         this.main_titles[0].title = this.current_lang.blog_about_copernicus;
+         this.main_titles[1].title = this.current_lang.main_articles;
+         this.main_titles[2].title = this.current_lang.timeline;
+         this.main_titles[3].title = this.current_lang.featured_articles;
+
+      }
 
       get current_lang() {
 

@@ -2,7 +2,9 @@
 
    <div v-if="categories.length > 0" class="category-container flex flex-col lgMax:items-center">
 
-      <span class="block text-gray-200 text-xl xl:text-2xl font-semibold lgMax:text-center my-2">Random categories</span>
+      <span class="block text-gray-200 text-xl xl:text-2xl font-semibold lgMax:text-center my-2">
+         {{ current_lang.random_categories }}
+      </span>
 
       <div class="sub-category-container flex flex-wrap lgMax:justify-evenly lg:flex-col w-full">
 
@@ -26,6 +28,8 @@
 <script lang="ts">
 
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
+   import { vxm } from '../../store';
+
     import Category from './Category.vue';
 
     @Component({
@@ -37,6 +41,12 @@
     export default class Categories extends Vue {
 
         @Prop() private categories;
+
+      get current_lang() {
+
+         return vxm.lang.getCurrentLangStrings;
+
+      }
 
     }
 

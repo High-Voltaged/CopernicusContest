@@ -4,7 +4,7 @@
 
         <Categories v-if="edit_menu == 0" @edit="setEditMenu($event)" @setNewCategory="setNewCategory" :edit_menu="edit_menu"></Categories>
 
-        <div v-else-if="edit_menu == 1" class="article-edit-sort flex flex-col space-y-6 bg-gray-main p-10 rounded-md shadow-lg">
+        <div v-else-if="edit_menu == 1" class="article-edit-sort flex flex-col space-y-6 bg-gray-main p-10 shadow-lg" style="border-radius: 15px">
 
             <div class="header flex justify-between items-center w-full space-x-4">
 
@@ -144,6 +144,12 @@ import { LangUtil } from "../../../scripts/lang/utils";
 
         }
 
+        get current_lang() {
+
+           return vxm.lang.getCurrentLangStrings;
+
+        }
+
         setEditMenu(category_id: number) {
 
             this.edit_menu = 1;
@@ -158,20 +164,19 @@ import { LangUtil } from "../../../scripts/lang/utils";
 
             if (!this.checkSavedCategory()) {
 
-                this.verify.content = LangUtil.getLanguage().unsaved_question_confirm;
+                this.verify.content = this.current_lang.unsaved_question_confirm;
                 this.verify.on = true;
 
             } else {
 
                 this.edit_menu = 0;
+                vxm.categories.resetCategories();
 
             }
 
         }
 
         async removeCategory() { 
-           
-           console.log(this.init_categories[this.current].id);
            
            await ApiWrapper.deleteCategory(this.init_categories[this.current].id);
            
@@ -203,8 +208,7 @@ import { LangUtil } from "../../../scripts/lang/utils";
             
             if (!this.temp_category) {
 
-                // Lang util here
-               vxm.categories.setValidationError({ value: true, content: 'Don\'t leave the input field empty.' });
+               vxm.categories.setValidationError({ value: true, content: this.current_lang.dont_leave_imput_empty });
             
             } else {
             
@@ -217,11 +221,11 @@ import { LangUtil } from "../../../scripts/lang/utils";
                
                 if (this.new_category) {
                     
-                    this.notif.content = LangUtil.getLanguage().new_category_added;
+                    this.notif.content = this.current_lang.new_category_added;
                
                } else {
 
-                    this.notif.content = LangUtil.getLanguage().changes_saved;
+                    this.notif.content = this.current_lang.changes_saved;
                
                }
                
@@ -344,6 +348,7 @@ import { LangUtil } from "../../../scripts/lang/utils";
             this.notif.content = '';
 
             vxm.categories.resetCategories();
+            vxm.categories.setEditMode(false);
 
         }
 

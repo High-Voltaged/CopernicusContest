@@ -39,7 +39,7 @@
                <div class="flex items-center justify-center w-full">
 
                   <span class="text-base md:text-sm text-center font-normal text-gray-300 select-none">
-                     Question #{{ i + 1 }} out of {{ questions_array.length }}
+                     {{ question_out_of[0] }} {{ i + 1 }} {{ question_out_of[1] }} {{ question_out_of[2] }} {{ questions_array.length }}
                   </span>
 
                </div>  
@@ -111,6 +111,18 @@
       setNewQuestion(): void {
 
          this.$emit('addQuestion');         
+
+      }
+
+      get current_lang() {
+
+         return vxm.lang.getCurrentLangStrings;
+
+      }
+
+      get question_out_of() {
+
+         return this.current_lang.question_out_of.split(' ');
 
       }
 
