@@ -14,7 +14,7 @@
                   <img src="../img/banner.jpg" class="h-full w-full object-cover opacity-25" />
                </div>
 
-               <div class="flex flex-col justify-center items-center w-full md:w-2/3  px-2 md:px-4 z-10">
+               <div class="flex flex-col justify-center items-center w-full md:w-2/3 px-2 md:px-4 z-10">
 
                   <MainTitle
                      :content="main_titles[0]"
@@ -50,7 +50,7 @@
 
             </div>
 
-            <div class="mt-40 md:mt-12 xl:mt-16 px-5 md:px-24 py-10">
+            <div class="mt-20 sm:mt-8 md:mt-12 xl:mt-16 px-5 md:px-24 py-10">
 
                <div class="container-main mdMax:overflow-x-hidden w-full 2xl:w-9/10 2xl:mx-auto px-4 md:px-8 py-6 bg-gray-main shadow-md" style="border-radius: 15px">
 
