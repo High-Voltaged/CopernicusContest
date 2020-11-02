@@ -32,7 +32,7 @@
 
          <template #editContent>
 
-            <div class="w-full">
+            <div v-if="article.content" class="w-full">
                <textarea v-model="article.content" placeholder="Edit the content" rows="10" class="w-full p-3 bg-gray-tertiary bg-opacity-75 text-sm text-gray-200 overflow-y-auto overflow-x-hidden focus:outline-none resize-none" style="border-radius: 15px"></textarea>
             </div>
 
@@ -157,7 +157,7 @@ import { LangUtil } from "../../../scripts/lang/utils";
 
       mounted() {
 
-         this.$nextTick(() => {
+         this.$nextTick(() => {            
 
             this.$nuxt.$loading.finish();
 
@@ -176,7 +176,6 @@ import { LangUtil } from "../../../scripts/lang/utils";
          return vxm.articles.getUtil.article;
       
       };
-
 
       // Editing / Discarding  
 

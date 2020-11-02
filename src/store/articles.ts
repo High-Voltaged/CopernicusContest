@@ -51,6 +51,19 @@ export default class Articles extends VuexModule {
 
     }
 
+    @mutation resetArticleUtil() {
+
+      this.article = {} as any;
+
+      this.categories = [];
+
+      this.popular_articles = [];
+
+      this.validationError.value = false;
+      this.validationError.content = '';
+
+    }
+
     // Adding / Editing an Article
 
     validationError = {

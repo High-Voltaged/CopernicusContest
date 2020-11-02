@@ -167,7 +167,7 @@
         @Prop({ default: false }) private addArticle?: boolean;
 
         async beforeMount() {
-
+           
             if (!this.addArticle) {
 
                 if (this.$route.name == "article_user_view") {
@@ -176,7 +176,7 @@
 
                 } else {
 
-                    vxm.articles.fetchArticle({ article_id: this.$route.params.id, stealth: true });
+                  vxm.articles.fetchArticle({ article_id: this.$route.params.id, stealth: true });
 
                 }
 
