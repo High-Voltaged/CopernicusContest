@@ -4,7 +4,7 @@
       
       <div class="w-full">
 
-         <div :class="color" class="flex items-center space-x-2 p-3" style="border-radius: 10px 10px 0 0">
+         <div :class="color" class="flex items-center space-x-2 p-3 shadow" style="border-radius: 10px 10px 0 0">
 
             <input 
                :value="current.name"
@@ -30,7 +30,7 @@
 
       <transition name="fade-out">
 
-         <div v-if="dropdownOn" :class="color" class="select-menu__dropdown top-full absolute w-full p-3 space-y-2" style="border-radius: 0 0 15px 15px">
+         <div v-if="dropdownOn" :class="color" class="select-menu__dropdown top-full absolute w-full p-3 space-y-2 shadow" style="border-radius: 0 0 15px 15px">
 
             <button 
                v-for="opt in options"

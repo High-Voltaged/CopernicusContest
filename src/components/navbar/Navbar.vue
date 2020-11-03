@@ -1,6 +1,6 @@
 <template>
 
-   <header class="bg-gray-secondary z-50 inset-x-0 top-0 px-4 sm:flex sm:justify-between sm:items-center relative h-20 leading-tight shadow-navbar">
+   <header class="inset-x-0 top-0 sm:flex sm:justify-between sm:items-center relative h-20 px-4 bg-gray-secondary leading-tight shadow-navbar z-40">
 
       <div class="flex-auto flex items-center justify-between h-full space-x-3 py-3 px-3 sm:p-0">
          

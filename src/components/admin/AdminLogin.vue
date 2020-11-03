@@ -4,7 +4,7 @@
 
         <div class="flex flex-col items-center justify-center flex-auto h-full py-6 bg-gray-primary">
 
-            <form @submit.prevent="login" class="admin-login flex flex-col items-center justify-center w-80 space-y-6 p-8 xl:p-10 shadow-md" style="border-radius: 15px">
+            <form @submit.prevent="login" class="admin-login flex flex-col items-center justify-center w-9/10 sm:w-80 space-y-6 p-8 xl:p-10 shadow-md" style="border-radius: 15px">
 
                 <div class="flex items-center justify-center w-full">
                     <span class="text-lg font-semibold text-center text-white select-none">
