@@ -10,7 +10,7 @@
                :value="current.name"
                @click="dropdownOn = !dropdownOn"
                readonly
-               placeholder="Input your value" 
+               :placeholder="current_lang.input_your_value" 
                class="flex-auto w-full bg-transparent text-sm text-white placeholder-gray-300 focus:outline-none cursor-pointer"
             />
 
@@ -60,6 +60,7 @@
    import { Component, Prop, Vue } from "nuxt-property-decorator";
    import ICategory from '../../../interfaces/category';
    import { APIWrapper } from '../../scripts/api_wrapper';
+   import { vxm } from '../../store';
 
    @Component({
       name: "SelectMenu",
@@ -76,6 +77,12 @@
       categories: ICategory[] = [];
       
       dropdownOn = false;
+
+      get current_lang() {
+
+         return vxm.lang.getCurrentLangStrings;
+
+      }
 
       async beforeMount() {
 

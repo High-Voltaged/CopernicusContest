@@ -13,7 +13,7 @@
                </span>
 
                <span class="text-left text-base xl:text-lg font-semibold text-white select-none">
-                  Add a Category
+                  {{ current_lang.add_a_category }}
                </span>
 
             </button>
@@ -88,6 +88,12 @@
       get editMode() {
 
          return vxm.categories.getMainUtil.editMode;
+
+      }
+
+      get current_lang() {
+
+         return vxm.lang.getCurrentLangStrings;
 
       }
 

@@ -1,6 +1,6 @@
 <template>
 
-   <div v-if="questions_array.length > 0">
+   <div class="flex flex-col items-center space-y-5">
 
       <div 
          v-for="(question, i) in questions_array"
@@ -11,8 +11,7 @@
 
          <div class="divider relative h-px my-5 min-w-full">
             
-            <div class="div-quiz-transparent absolute top-0 left-1/20 right-1/20 h-px">
-            </div>
+            <div class="div-quiz-transparent absolute top-0 left-1/20 right-1/20 h-px"></div>
          
          </div>
 

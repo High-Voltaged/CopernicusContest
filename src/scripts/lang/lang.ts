@@ -24,7 +24,7 @@
 
         export const save_the_question: string = "Save the Question";
 
-        export const question_out_of: string = "Question out of";
+        export const save_the_category: string = "Save the Category";
 
         export const select_category: string = "Select a category";
 
@@ -63,6 +63,8 @@
         export const article_title: string = "Article's title";
 
         export const cancel: string = "Cancel";
+
+        export const add: string = "Add";
 
         export const add_article: string = "Add article";
 
@@ -104,6 +106,8 @@
 
         export const remove: string = "Remove";
 
+        export const edit: string = "Edit";
+
         export const main: string = "Main";
 
         export const edit_question: string = "Edit the question";
@@ -117,6 +121,18 @@
         export const question: string = "Question";
 
         export const out_of: string = "out of";
+
+        export const your_result_is: string = "Your result is: ";
+
+        export const correct_answers: string = "Correct answers: ";
+
+        export const add_a_category: string = "Add a category";
+
+        export const number_of_articles: string = "Number of articles";
+
+        export const input_category_name: string = "Input a category name";
+
+        export const input_your_value: string = "Input your value";
 
     }
 
@@ -145,7 +161,7 @@
 
         export const save_the_question: string = "Zapisz pytanie";
 
-        export const question_out_of: string = "Question out of"; // forgot to translate that 
+        export const save_the_category: string = "Zapisz kategorię";
 
         export const select_category: string = "Wybierz kategorię";
 
@@ -182,6 +198,8 @@
         export const are_you_sure_remove_article: string = "Czy na pewno chcesz usunąć ten artykuł?";
 
         export const article_title: string = "Tytuł artykułu";
+
+         export const add: string = "Dodaj";
 
         export const cancel: string = "Anuluj";
 
@@ -225,6 +243,8 @@
 
         export const remove: string = "Usuń";
 
+        export const edit: string = "Edytuj";
+
         export const main: string = "Powrót";
 
         export const edit_question: string = "Edytuj pytanie";
@@ -239,9 +259,18 @@
 
         export const out_of: string = "z";
 
+        export const your_result_is: string = "Twój wynik: ";
+
+        export const correct_answers: string = "Poprawne odpowiedzi: ";
+
+        export const add_a_category: string = "Dodaj kategorię";
+
+        export const number_of_articles: string = "Liczba artykułów";
+
+        export const input_category_name: string = "Wpisz nazwę kategorii";
+
+        export const input_your_value: string = "Wprowadź swoją wartość";
+
     }
 
 }
-
-// 'read_more', 'popular_articles', 'add_a_question', 'add_a_category', 'continue', 'remove', 'discard', 'cancel', 
-// 'input_your_value', keywords at /quiz and all the ones at admin_panel need to be added

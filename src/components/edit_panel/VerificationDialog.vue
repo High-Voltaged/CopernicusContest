@@ -21,7 +21,7 @@
                      class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-purple-secondary border-opacity-50 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
                      <span class="text-sm text-gray-200 font-semibold text-left select-none">
-                        Discard
+                        {{ current_lang.cancel }}
                      </span>
 
                   </button>
@@ -31,7 +31,7 @@
                      class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-purple-secondary bg-opacity-50 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
 
                      <span class="text-sm text-gray-200 font-semibold text-left select-none">
-                        Continue
+                        {{ current_lang.continue_str }}
                      </span>
 
                   </button>
@@ -58,6 +58,12 @@
    export default class VerificationDialog extends Vue {
 
       @Prop({ default: '' }) private content: string;
+
+      get current_lang() {
+
+         return vxm.lang.getCurrentLangStrings;
+
+      }
 
    }   
 

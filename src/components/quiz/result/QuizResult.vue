@@ -21,7 +21,7 @@
             <div class="flex items-center justify-center w-full">
                
                <div class="text-xl md:text-2xl font-semibold text-gray-200 select-none">
-                  Your result is:
+                  {{ current_lang.your_result_is }}
                </div>
 
                <div class="ml-3 text-xl md:text-2xl tracking-wider font-bold text-gray-200 select-none">
@@ -35,6 +35,7 @@
                      <font-awesome-icon :icon="['fas', 'check']" class="w-6 h-6 fill-current text-green-400" />
 
                   </div>
+
                   <div v-else>
 
                      <font-awesome-icon :icon="['fas', 'times']" class="w-6 h-6 fill-current text-red-primary" />
@@ -55,16 +56,12 @@
             <div class="flex flex-col items-start w-full">
 
                <div class="w-full text-lg md:text-xl 2xl:text-center font-semibold text-gray-secondary">
-                  Correct answers:
+                  {{ current_lang.correct_answers }}
                </div>
 
-               <div class="w-full mt-4">
+               <div v-if="questions_array.length > 0" class="w-full mt-4">
 
-                  <div v-if="questions_array.length > 0">
-
-                     <QuizResultQuestions :questions_array="questions_array"> </QuizResultQuestions>
-
-                  </div>
+                  <QuizResultQuestions :questions_array="questions_array"> </QuizResultQuestions>
 
                </div>
 
@@ -81,6 +78,8 @@
 <script lang="ts">
 
    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+   import { vxm } from '../../../store';
+   
    import QuizResultQuestions from './QuizResultQuestions.vue';
 
    @Component({

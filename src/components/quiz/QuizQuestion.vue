@@ -39,7 +39,7 @@
                 <div class="flex items-center justify-center w-full">
 
                     <span class="text-base md:text-sm text-center font-normal text-gray-300 select-none">
-                        {{ question_out_of[0] }} {{ question + 1 }} {{ question_out_of[1] }} {{ question_out_of[2] }} {{ questions_array.length }}
+                        {{ current_lang.question }} {{ question + 1 }} {{ current_lang.out_of }} {{ questions_array.length }}
                     </span>
 
                 </div>
@@ -224,12 +224,6 @@
          get current_lang() {
 
             return vxm.lang.getCurrentLangStrings;
-
-         }
-
-         get question_out_of() {
-
-            return this.current_lang.question_out_of.split(' ');
 
          }
 
