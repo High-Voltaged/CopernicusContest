@@ -1,8 +1,8 @@
 <template>
 
-    <div class="flex flex-col">
+    <div class="flex flex-col w-full">
 
-        <div class="quiz-main-container overflow-y-auto overflow-x-hidden">
+        <div class="h-full w-full overflow-y-auto overflow-x-hidden">
 
             <QuizQuestion v-if="questions_array.length > question"
                           :key="question"

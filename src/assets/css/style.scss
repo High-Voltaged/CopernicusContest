@@ -32,10 +32,9 @@ body {
 }
 
 
-.main-container {
-	max-height: calc(100vh - 5rem);
+.main-container, .height-fixed {
+	height: calc(100vh - 5rem);
 }
-
 
 input, textarea  {
    white-space: pre-wrap;

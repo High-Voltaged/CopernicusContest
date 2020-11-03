@@ -19,7 +19,7 @@
                     <router-link v-else to="/" tag="button" class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 hover:border-opacity-100 transition duration-300 ease focus:outline-none">
 
                         <span class="text-sm text-gray-200 font-semibold text-left select-none">
-                            Main
+                            {{ current_lang.main }}
                         </span>
 
                     </router-link>
@@ -90,7 +90,7 @@
             <div class="divider-full w-full min-w-full h-px my-4 bg-white"></div>
 
             <div :class="editMode ? 'justify-evenly' : 'justify-end' "
-                 class="footer w-full flex items-center md:px-0 lg:px-2">
+                 class="footer flex flex-col md:flex-row items-center w-full space-y-3 md:space-y-0 md:px-0 lg:px-2">
 
                 <button v-if="editMode"
                         :disabled="prev_disabled"

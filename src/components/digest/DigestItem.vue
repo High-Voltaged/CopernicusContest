@@ -2,7 +2,7 @@
 
     <div v-if="article">
 
-        <div @click="goToArticle" class="flex flex-col justify-between min-w-72 h-100 p-5 space-y-2 bg-gray-tertiary rounded-lg shadow-black cursor-pointer">
+        <div @click="goToArticle" class="flex flex-col justify-between min-w-72 h-100 p-5 space-y-2 bg-gray-tertiary shadow-black cursor-pointer" style="border-radius: 10px">
 
             <div class="w-full">
                 

@@ -8,7 +8,7 @@
          @addQuestion="setNewQuestion"
       ></QuizEditMenu>
 
-      <div v-else-if="quiz_menu == 1" class="quiz-main-container overflow-y-auto overflow-x-hidden">
+      <div v-else-if="quiz_menu == 1" class="flex justify-center items-center w-full h-full overflow-y-auto overflow-x-hidden">
 
          <QuizQuestion v-if="questions_array.length > 0"
                         :key="question"

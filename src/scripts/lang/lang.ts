@@ -134,6 +134,8 @@
 
         export const input_your_value: string = "Input your value";
 
+        export const read_more: string = "Read more";
+
     }
 
     // TRANSLATE THIS
@@ -270,6 +272,8 @@
         export const input_category_name: string = "Wpisz nazwę kategorii";
 
         export const input_your_value: string = "Wprowadź swoją wartość";
+
+        export const read_more: string = "Czytaj więcej";
 
     }
 

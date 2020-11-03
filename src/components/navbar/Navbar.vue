@@ -5,7 +5,7 @@
       <div class="flex-auto flex items-center justify-between h-full space-x-3 py-3 px-3 sm:p-0">
          
          <div class="flex-0 flex items-center justify-center w-10 h-10">
-            <img src="/logo.png" class="w-full h-full object-cover h-14"> 
+            <!-- <img src="" class="w-full h-full object-cover h-14">  -->
          </div>
 
          <div class="md:hidden flex items-center justify-end space-x-4">        

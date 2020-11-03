@@ -2,7 +2,7 @@
 
    <div v-if="category" class="category-selected relative w-full">
 
-      <div :class="{ 'space-y-4': editMode }" class="flex flex-col items-center justify-center w-full space-y-2 bg-gray-main rounded-md">
+      <div :class="{ 'space-y-4': editMode }" class="flex flex-col items-center justify-center w-full space-y-2 bg-gray-main" style="border-radius: 15px">
       
          <router-link v-if="!editMode" :to="`/category/${category.id}`" tag="div" class="flex items-center justify-center w-full py-1 select-none"> 
             
