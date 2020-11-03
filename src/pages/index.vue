@@ -97,8 +97,6 @@
 
             </div>
 
-            <Footer />
-
          </div>
 
       </div>
@@ -111,7 +109,6 @@
 
    import { Component, Prop, Vue, Watch } from "nuxt-property-decorator";
    import Navbar from '../components/navbar/Navbar.vue';
-   import Footer from '../components/navbar/Footer.vue';
    import MajorArticles from '../components/article/MajorArticles.vue';
    import ImportantArticles from '../components/article/ImportantArticles.vue';
    import DigestList from '../components/digest/DigestList.vue';
@@ -126,7 +123,6 @@
       name: "index",
       components: {
          Navbar,
-         Footer,
          MajorArticles,
          ImportantArticles,
          DigestList,

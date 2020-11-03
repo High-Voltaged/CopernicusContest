@@ -139,8 +139,6 @@
 
             </div>
 
-            <Footer />
-
         </div>
 
     </div>
@@ -154,14 +152,12 @@
 
     import ArticleSidebar from '../components/article/ArticleSidebar.vue';
     import Navbar from '../components/navbar/Navbar.vue';
-    import Footer from '../components/navbar/Footer.vue';
 
     @Component({
         name: "contentPage",
         components: {
             ArticleSidebar,
             Navbar,
-            Footer,
         },
     })
     export default class contentPage extends Vue {

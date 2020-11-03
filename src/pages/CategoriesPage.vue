@@ -20,8 +20,6 @@
 
 			<CategoriesList> </CategoriesList>
 
-			<Footer />
-
 		</div>
 
 	</div>
@@ -33,14 +31,12 @@
 	import { Component, Prop, Vue } from "nuxt-property-decorator";
    import CategoriesList from '../components/categories/categories/Categories.vue';
 	import Navbar from '../components/navbar/Navbar.vue';
-	import Footer from '../components/navbar/Footer.vue';
 
 	@Component({
 		name: "CategoriesPage",
 		components: {
          CategoriesList,
          Navbar,
-         Footer,
 		},
 	})
     export default class CategoriesPage extends Vue {
