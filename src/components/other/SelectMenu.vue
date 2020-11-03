@@ -4,13 +4,13 @@
       
       <div class="w-full">
 
-         <div :class="color" class="flex items-center space-x-2 p-3" style="border-radius: 10px 10px 0 0">
+         <div :class="color" class="flex items-center space-x-2 p-3 shadow" style="border-radius: 10px 10px 0 0">
 
             <input 
                :value="current.name"
                @click="dropdownOn = !dropdownOn"
                readonly
-               placeholder="Input your value" 
+               :placeholder="current_lang.input_your_value" 
                class="flex-auto w-full bg-transparent text-sm text-white placeholder-gray-300 focus:outline-none cursor-pointer"
             />
 
@@ -30,7 +30,7 @@
 
       <transition name="fade-out">
 
-         <div v-if="dropdownOn" :class="color" class="select-menu__dropdown top-full absolute w-full p-3 space-y-2" style="border-radius: 0 0 15px 15px">
+         <div v-if="dropdownOn" :class="color" class="select-menu__dropdown top-full absolute w-full p-3 space-y-2 shadow" style="border-radius: 0 0 15px 15px">
 
             <button 
                v-for="opt in options"
@@ -60,6 +60,7 @@
    import { Component, Prop, Vue } from "nuxt-property-decorator";
    import ICategory from '../../../interfaces/category';
    import { APIWrapper } from '../../scripts/api_wrapper';
+   import { vxm } from '../../store';
 
    @Component({
       name: "SelectMenu",
@@ -76,6 +77,12 @@
       categories: ICategory[] = [];
       
       dropdownOn = false;
+
+      get current_lang() {
+
+         return vxm.lang.getCurrentLangStrings;
+
+      }
 
       async beforeMount() {
 

@@ -106,6 +106,12 @@
 
         }
 
+         get current_lang() {
+
+            return vxm.lang.getCurrentLangStrings;
+
+         }
+
         setNewAnswer(value: boolean) {
 
             this.new_answer = value;

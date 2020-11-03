@@ -13,7 +13,7 @@
                         class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 transition duration-300 ease focus:outline-none">
 
                     <span class="text-xs text-gray-200 font-semibold text-left select-none">
-                        Menu
+                        {{ current_lang.menu }}
                     </span>
 
                 </button>
@@ -23,7 +23,7 @@
                         class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 transition duration-300 ease focus:outline-none">
 
                     <span class="text-xs text-gray-200 font-semibold text-left select-none">
-                        Remove
+                        {{ current_lang.remove }}
                     </span>
 
                 </button>
@@ -35,7 +35,7 @@
                 <template #input>
 
                     <input v-model="temp_category"
-                           placeholder="Input a category name"
+                           :placeholder="current_lang.input_category_name"
                            class="w-full md:w-64 bg-gray-tertiary bg-opacity-50 text-sm text-gray-200 py-2 px-4 overflow-hidden focus:bg-opacity-75 transition duration-200 ease focus:outline-none"
                            style="border-radius: 15px" />
 
@@ -61,7 +61,7 @@
                         class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg shadow bg-gray-primary bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
 
                     <span class="text-sm text-gray-200 font-medium text-left select-none">
-                        Save the Category
+                        {{ current_lang.save_the_category }}
                     </span>
 
                 </button>

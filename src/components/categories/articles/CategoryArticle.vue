@@ -6,7 +6,7 @@
 
          <div class="flex flex-col px-4">
 
-            <div @click="goToArticle()" class="py-3 px-4 mb-2 rounded bg-gray-tertiary cursor-pointer shadow-md transform hover:translate-x-4  transition duration-300 linear">
+            <div @click="goToArticle()" class="py-3 px-4 mb-2 bg-gray-tertiary cursor-pointer shadow-md transform hover:translate-x-4 transition duration-300 linear" style="border-radius: 10px">
                
                <div class="flex items-center capitalize">
                      

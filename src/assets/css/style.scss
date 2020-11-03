@@ -32,10 +32,9 @@ body {
 }
 
 
-.main-container {
-	max-height: calc(100vh - 5rem);
+.main-container, .height-fixed {
+	height: calc(100vh - 5rem);
 }
-
 
 input, textarea  {
    white-space: pre-wrap;
@@ -421,7 +420,8 @@ b, strong, bold {
 
 .fade-out-enter-active, .fade-out-leave-active, 
 .fade-away-enter-active, .fade-away-leave-active,
-.scale-out-enter-active, .scale-out-leave-active {
+.scale-out-enter-active, .scale-out-leave-active,
+.dialog-content {
    transition: all .25s ease;
 }
 
@@ -446,11 +446,17 @@ b, strong, bold {
 }
 
 .scale-out-enter-to, .scale-out-leave {
-   transform: scale(1);
    opacity: 1;
+   
+   .dialog-content {
+      transform: scale(1);
+   }
 }
 
 .scale-out-enter, .scale-out-leave-to {
-   transform: scale(0.7);
    opacity: 0;
+
+   .dialog-content {
+      transform: scale(0.7);
+   }
 }

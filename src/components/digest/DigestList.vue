@@ -4,7 +4,7 @@
 
         <div class="card-digest mdMax:overflow-x-auto flex mt-16 rounded-md">
 
-            <div class="digest-header flex items-end md:min-w-56 h-100 px-6 md:px-10 py-5 mt-12 bg-purple-secondary rounded-lg transform rotate-180 md:rotate-0">
+            <div class="digest-header flex items-end md:min-w-56 h-100 px-6 md:px-10 py-5 mt-12 bg-purple-secondary transform rotate-180 md:rotate-0" style="border-radius: 10px">
 
                <span class="capitalize font-medium text-2xl md:text-3xl text-gray-200">
                   {{ current_lang.other_articles }}

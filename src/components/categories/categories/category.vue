@@ -2,7 +2,7 @@
 
    <div v-if="category" class="category-selected relative w-full">
 
-      <div :class="{ 'space-y-4': editMode }" class="flex flex-col items-center justify-center w-full space-y-2 bg-gray-main rounded-md">
+      <div :class="{ 'space-y-4': editMode }" class="flex flex-col items-center justify-center w-full space-y-2 bg-gray-main" style="border-radius: 15px">
       
          <router-link v-if="!editMode" :to="`/category/${category.id}`" tag="div" class="flex items-center justify-center w-full py-1 select-none"> 
             
@@ -31,7 +31,7 @@
             <div class="inline-flex items-center space-x-2">
 
                <span class="text-sm text-left text-gray-200 font-medium select-none">
-                  Number of articles: {{ category.article_count }}
+                  {{ current_lang.number_of_articles }} {{ category.article_count }}
                </span>
 
             </div>
@@ -39,7 +39,7 @@
             <button v-if="edit_menu == 0" @click="$emit('edit')" class="md:absolute md:right-2 md:top-2 flex items-center justify-center px-6 md:px-3 py-2 rounded-lg bg-gray-primary bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
                   
                <span class="text-sm text-gray-200 font-medium text-left select-none">
-                  Edit
+                  {{ current_lang.edit }}
                </span>
 
             </button>
@@ -93,6 +93,12 @@
          get current() {
 
             return vxm.categories.getMainUtil.current;
+
+         }
+
+         get current_lang() {
+
+            return vxm.lang.getCurrentLangStrings;
 
          }
          
