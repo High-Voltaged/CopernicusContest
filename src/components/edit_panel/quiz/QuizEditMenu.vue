@@ -8,9 +8,9 @@
 
             <div class="flex items-center justify-center w-full">
 
-               <span class="text-xl font-semibold text-white text-center select-none">
-                  All the Quiz Questions
-               </span>
+                <span class="text-xl font-semibold text-white text-center select-none">
+                    {{ current_lang.all_quiz_questions }}
+                </span>
 
             </div>
 
@@ -21,7 +21,7 @@
                </span>
 
                <span class="text-left text-base xl:text-lg font-semibold text-white select-none">
-                  Add a Question
+                   {{ current_lang.add_question }}
                </span>
 
             </button>
@@ -38,9 +38,11 @@
 
                <div class="flex items-center justify-center w-full">
 
-                  <span class="text-base md:text-sm text-center font-normal text-gray-300 select-none">
-                     {{ question_out_of[0] }} {{ i + 1 }} {{ question_out_of[1] }} {{ question_out_of[2] }} {{ questions_array.length }}
-                  </span>
+                   <span class="text-base md:text-sm text-center font-normal text-gray-300 select-none">
+                       
+                       {{ current_lang.question }} {{ i + 1 }} {{ current_lang.out_of }} {{ questions_array.length }}
+
+                   </span>
 
                </div>  
 
@@ -54,46 +56,29 @@
 
                   <button @click="$emit('edit', i)" class="flex items-center justify-center space-x-1 px-6 md:px-3 py-2 rounded-lg bg-gray-primary bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
                      
-                     <span class="text-sm text-gray-200 font-medium text-left">
-                        Edit the Question
+                      <span class="text-sm text-gray-200 font-medium text-left">
+                          {{ current_lang.edit_question }}
                      </span>
-
                   </button>
-
                </div>
-
                <div class="divider relative h-px my-5 min-w-full">
-            
                   <div class="div-quiz-transparent absolute top-0 left-1/20 right-1/20 h-px">
                   </div>
-               
                </div>
-
             </div>
-
          </div>
-
          <div v-else class="inline-block w-full">
-
-            <span class="inline-block w-full text-center font-medium text-gray-300 select-none">
-               There are no questions within the quiz.
-            </span>
-
+             <span class="inline-block w-full text-center font-medium text-gray-300 select-none">
+                 {{ current_lang.no_questions }}
+             </span>
          </div>
-
       </div>
-
    </div>
-
 </template>
-
 <script lang="ts">
-
    import { Component, Prop, Vue } from 'nuxt-property-decorator';
    import { vxm } from '../../../store';
-
    import QuizAnswersContainer from '../../quiz/QuizAnswersContainer.vue';
-
    @Component({
       name: "QuizEditMenu",
       components: {
@@ -101,31 +86,17 @@
       }
    })
    export default class QuizEditMenu extends Vue {
-
       get questions_array() {
-
          return vxm.quiz.getQuizUtil.questions;
-
       }
-
       setNewQuestion(): void {
-
-         this.$emit('addQuestion');         
-
+         this.$emit('addQuestion');
       }
-
       get current_lang() {
-
          return vxm.lang.getCurrentLangStrings;
-
       }
-
       get question_out_of() {
-
          return this.current_lang.question_out_of.split(' ');
-
       }
-
    }
-
 </script>

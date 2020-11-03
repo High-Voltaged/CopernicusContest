@@ -106,6 +106,18 @@
 
         export const main: string = "Main";
 
+        export const edit_question: string = "Edit the question";
+
+        export const no_questions: string = "There are no questions within the quiz.";
+
+        export const add_question: string = "Add a Question";
+
+        export const all_quiz_questions: string = "All the Quiz Questions";
+
+        export const question: string = "Question";
+
+        export const out_of: string = "out of";
+
     }
 
     // TRANSLATE THIS
@@ -213,7 +225,19 @@
 
         export const remove: string = "Usuń";
 
-        export const main: string = "Główny";
+        export const main: string = "Powrót";
+
+        export const edit_question: string = "Edytuj pytanie";
+
+        export const no_questions: string = "W quizie nie ma pytań.";
+
+        export const add_question: string = "Dodaj pytanie";
+
+        export const all_quiz_questions: string = "Wszystkie pytania quizowe";
+
+        export const question: string = "Pytanie";
+
+        export const out_of: string = "z";
 
     }
 
