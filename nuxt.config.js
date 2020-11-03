@@ -19,7 +19,7 @@ module.exports = {
 
     head: {
 
-        title: "Copernicus_project",
+        title: "Blog Kopernika",
 
         meta: [
             { charset: "utf-8" },

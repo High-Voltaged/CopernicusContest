@@ -32,7 +32,7 @@
                 title: 'Mikołaj Kopernik - biografia',
 
                 content: [
-                    'Nicolaus Copernicus polski polihistor: prawnik, urzędnik, dyplomata, lekarz i niższy duchowny katolicki, zajmujący się również astronomią i astrologią, matematyką, ekonomią, strategią wojskową i filologią. Udowodnił, że Ziemia i planety krążą wokół nieruchomego Słońca.',
+                    'Nicolaus Copernicus to polski polihistor: prawnik, urzędnik, dyplomata, lekarz i niższy duchowny katolicki, zajmujący się również astronomią i astrologią, matematyką, ekonomią, strategią wojskową i filologią. Udowodnił, że Ziemia i planety krążą wokół nieruchomego Słońca.',
                     ' ',
                     'Urodzony w Toruniu 19 lutego 1473 roku w rodzinie kupca Mikołaja i Barbary. Według badań dotyczących pochodzenia rodu Koperników wywodzi się on ze Śląska.',
                     ' ',

@@ -118,6 +118,10 @@
 
         export const out_of: string = "out of";
 
+        export const timeline_paragraph: string = "This is a timeline which illustrates important events of Copernicus' life";
+
+        export const main_title_paragraph: string = "This is a blog dedicated to Nicolaus Copernicus";
+
     }
 
     // TRANSLATE THIS
@@ -238,6 +242,10 @@
         export const question: string = "Pytanie";
 
         export const out_of: string = "z";
+
+        export const timeline_paragraph: string = "To oś czasu ilustrująca ważne wydarzenia z życia Kopernika";
+
+        export const main_title_paragraph: string = "To jest blog poświęcony Mikołajowi Kopernikowi";
 
     }
 

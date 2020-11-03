@@ -31,7 +31,7 @@
                         <font-awesome-icon :icon="['fas', 'eye']" class="w-3 h-3 flex-shrink-0 fill-current" />
                         
                         <div class="ml-2 flex items-center">
-                            <span class="text-xs">Times viewed:</span>
+                            <span class="text-xs"> {{ current_lang.times_viewed }} </span>
                             <span class="ml-1 text-xs"> {{ article.times_read }} </span>
                         </div>
 
@@ -51,6 +51,7 @@
 
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import IBriefArticle from "../../../interfaces/brief_article";
+    import { vxm } from '../../store';
 
     @Component({
         name: "DigestItem",
@@ -68,6 +69,12 @@
         goToArticle(): void {
 
             this.$router.push("/article/" + this.article.id);
+
+        }
+
+        get current_lang() {
+
+            return vxm.lang.getCurrentLangStrings;
 
         }
 

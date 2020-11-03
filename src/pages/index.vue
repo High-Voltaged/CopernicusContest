@@ -138,20 +138,25 @@
 
       main_titles = [
 
-          { subtitle: ' ', title: this.current_lang.blog_about_copernicus, paragraph: ' ' },
-          { subtitle: ' ', title: this.current_lang.main_articles, paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
-          { subtitle: ' ', title: this.current_lang.timeline, paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
-          { subtitle: ' ', title: this.current_lang.featured_articles, paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et suscipit tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+          { subtitle: ' ', title: this.current_lang.blog_about_copernicus, paragraph: this.current_lang.main_title_paragraph },
+          { subtitle: ' ', title: this.current_lang.main_articles, paragraph: ' ' },
+          { subtitle: ' ', title: this.current_lang.timeline, paragraph: this.current_lang.timeline_paragraph },
+          { subtitle: ' ', title: this.current_lang.featured_articles, paragraph: ' ' },
 
       ];
 
       @Watch('current_lang')
       setMainTitles() {
 
-         this.main_titles[0].title = this.current_lang.blog_about_copernicus;
-         this.main_titles[1].title = this.current_lang.main_articles;
-         this.main_titles[2].title = this.current_lang.timeline;
-         this.main_titles[3].title = this.current_lang.featured_articles;
+          this.main_titles[0].title = this.current_lang.blog_about_copernicus;
+          this.main_titles[0].paragraph = this.current_lang.main_title_paragraph;
+
+          this.main_titles[1].title = this.current_lang.main_articles;
+
+          this.main_titles[2].title = this.current_lang.timeline;
+          this.main_titles[2].title = this.current_lang.timeline_paragraph;
+
+          this.main_titles[3].title = this.current_lang.featured_articles;
 
       }
 
