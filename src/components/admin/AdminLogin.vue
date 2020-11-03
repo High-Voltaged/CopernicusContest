@@ -99,12 +99,6 @@
 
       //    }
 
-      //    destroyed() {
-
-      //       this.$nuxt.$loading.start();
-
-      //    }
-
     }
 
 </script>

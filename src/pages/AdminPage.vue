@@ -4,7 +4,7 @@
 
         <div v-if="edit_menu == 0" class="flex-auto flex flex-col items-center justify-center h-full py-3 bg-gray-primary">
 
-            <AdminLogin @goToEdit="goToEdit()"></AdminLogin>
+            <AdminLogin @goToEdit="goToEditMenu()"></AdminLogin>
 
         </div>
 
@@ -93,7 +93,7 @@
 
         articles = false;
 
-        goToEdit() {
+        goToEditMenu() {
 
             this.edit_menu = 1;
 
@@ -112,18 +112,17 @@
 
          }
 
-        async beforeMount() {
+        async beforeCreate() {
 
             let session_validation = await ApiWrapper.validateSession();
             
-
             if (session_validation == Codes.SUCCESS) {
                
-               this.goToEdit();
+               this.goToEditMenu();
 
             }
 
-            this.$nuxt.$loading.finish();
+            // this.$nuxt.$loading.finish();
 
         }
 

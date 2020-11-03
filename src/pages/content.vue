@@ -48,16 +48,7 @@
 
                   <div v-if="!editMode && !addArticle" class="w-full h-full flex flex-col items-center">
 
-                        <div
-                           v-for="(paragraph, i) in article.content"
-                           :key="i"
-                           class="text-styled text-justify text-sm xl:text-base leading-relaxed xl:leading-loose font-light text-gray-300">
-
-                           <p v-html="paragraph" class="font-light"></p>
-
-                           <!-- <br> -->
-
-                        </div>
+                     <p v-html="article.content" class="text-styled text-justify text-sm xl:text-base leading-relaxed xl:leading-loose font-light text-gray-300 font-light"></p>
 
                   </div>
 
@@ -116,7 +107,7 @@
                      <button @click="$emit('remove')" class="inline-flex items-center p-3 rounded-lg shadow bg-purple-secondary bg-opacity-25 hover:bg-opacity-75 transition duration-300 ease focus:outline-none">
 
                         <span class="inline-block md:hidden text-sm text-center font-medium text-white">
-                           Remove
+                           {{ current_lang.remove }}
                         </span>
 
                         <font-awesome-icon :icon="['fas', 'trash']" class="hidden md:inline-block w-4 h-4 fill-current text-white" />

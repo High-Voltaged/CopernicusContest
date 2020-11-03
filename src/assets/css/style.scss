@@ -36,9 +36,9 @@ body {
 	height: calc(100vh - 5rem);
 }
 
-input, textarea  {
-   white-space: pre-wrap;
-   overflow-wrap: break-words;
+input, textarea, p  {
+   white-space: break-spaces;
+   overflow-wrap: break-word;
 }
 
 label {
@@ -54,7 +54,6 @@ select {
 }
 
 .text-styled {
-   text-indent: 1.5rem;
    line-height: 1.8;
 }
 
