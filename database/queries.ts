@@ -192,7 +192,7 @@ export namespace Queries {
     export async function updateArticle(article_id: number, title: string, content: string, picture_link: string, important: number, category_id: number) {
 
         connection = await database.getConnection();
-        let result = await connection.query("UPDATE `articles` SET `title` = ?, `content` = ?, `picture_link` = ?, `important` = ?, `category_id` = ?, WHERE `id` = ?", [title, content, picture_link, important, category_id, article_id]);
+        let result = await connection.query("UPDATE `articles` SET `title` = ?, `content` = ?, `picture_link` = ?, `important` = ?, `category_id` = ? WHERE `id` = ?", [title, content, picture_link, important, category_id, article_id]);
         connection.end();
         return result;
 

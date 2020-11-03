@@ -89,7 +89,7 @@ module.exports = function(app) {
 
     app.post(Links.edit_article, async function(req: Request, res: Response) {
         res.json({
-            response: await Utils.editArticle(req.headers.cookie, req.body.article_id, req.body.article.title, req.body.article.content, req.body.article.picture_link, req.body.article.important, req.body.article.category.id)
+            response: await Utils.editArticle(req.headers.cookie, req.body.article_id, req.body.title, req.body.content, req.body.picture_link, req.body.important, req.body.category_id)
         });
     });
 
