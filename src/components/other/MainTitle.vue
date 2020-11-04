@@ -5,7 +5,7 @@
       <span v-if="content.subtitle" class="block text-center uppercase text-gray-300 font-light leading-tight">
          {{ content.subtitle }}
       </span>
-      <span class="block text-center text-4xl md:text-5xl capitalize font-semibold leading-tight text-gray-200">
+      <span class="block text-center text-4xl lg:text-5xl capitalize font-semibold leading-tight text-gray-200">
          {{ content.title }}
       </span>
 
@@ -15,9 +15,9 @@
          </div>
       </div>
 
-      <p v-if="content.paragraph" class="text-center font-light text-gray-300">
+      <span v-if="content.paragraph" class="inline-block w-full text-center font-light text-gray-300">
          {{ content.paragraph }}
-      </p>
+      </span>
    
    </div>
 
