@@ -95,7 +95,8 @@
 <script lang="ts">
 
    import { Component, Prop, Watch, Vue } from 'nuxt-property-decorator';
-   import { vxm } from '../../store';
+    import { vxm } from '../../store';
+    import { LangUtil } from "../../scripts/lang/utils";
    
    import NavbarLink from './navbar/NavbarLink.vue';
    import SelectMenu from '../other/SelectMenu.vue';
@@ -128,7 +129,13 @@
          this.links[1].content = this.lang_current_strings.all_articles;
 
       }
-      
+
+       beforeMount() {
+
+           vxm.lang.setLang(Number(LangUtil.getLanguage()));
+
+       }
+
       get lang_current() {
 
          return vxm.lang.getCurrentLang;
@@ -142,8 +149,6 @@
       }
 
       setLang(language) {
-
-         console.log(language);
 
          vxm.lang.setLang(language.id);
 
