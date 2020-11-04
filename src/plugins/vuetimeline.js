@@ -1,4 +1,4 @@
 import Vue from 'vue';
-import VueTimeline from 'vuetimeline_custom_plus';
+import VueTimeline from '@growthbunker/vuetimeline';
 
 Vue.use(VueTimeline);

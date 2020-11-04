@@ -22,7 +22,7 @@
 <script>
 
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import VueTimeline from 'vuetimeline_custom_plus';
+    import VueTimeline from '@growthbunker/vuetimeline';
 
     @Component({
         name: 'Timeline',

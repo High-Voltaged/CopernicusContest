@@ -23,9 +23,9 @@
 
                      <button class="arrow-container flex items-center px-6 py-3 2xl:py-4 2xl:px-8 rounded-full lg:transition duration-300 ease-in transform lg:hover:translate-x-6 shadow-md focus:outline-none">
                         
-                        <p class="font-medium tracking-wide text-gray-200 cursor-pointer pr-2">
+                        <span class="font-medium tracking-wide text-gray-200 cursor-pointer pr-2">
                            {{ current_lang.take_a_quiz_here }}
-                        </p>
+                        </span>
                         
                         <span class="arrow-icon w-3 h-3">
                            <font-awesome-icon :icon="['fas', 'arrow-right']" class="w-full h-full fill-current text-gray-200" />
