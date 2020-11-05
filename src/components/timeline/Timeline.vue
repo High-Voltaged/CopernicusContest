@@ -9,7 +9,7 @@
    
       <div class="gb-vue-timeline-update__left">
 
-         <span class="gb-vue-timeline-update__ago whitespace-pre-wrap">
+         <span class="gb-vue-timeline-update__ago">
             {{ date }}
          </span>
          
@@ -33,7 +33,7 @@
 
             <div class="gb-vue-timeline-update__meta">
 
-               <span class="gb-vue-timeline-update__ago whitespace-pre-wrap">
+               <span class="gb-vue-timeline-update__ago">
                   {{ date }}
                </span>
 
