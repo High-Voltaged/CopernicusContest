@@ -148,12 +148,22 @@ b, strong, bold {
 
 // TIMELINE STYLING 
 
-
+.gb-vue-timeline-update__left {
+   width: 80px !important;
+}
 
 @screen sm {
    
    .gb-vue-timeline-update  {
       width: 80% !important;
+   }
+
+}
+
+@screen md {
+
+   .gb-vue-timeline-update__left {
+      width: 120px !important;
    }
 
 }
@@ -176,7 +186,7 @@ b, strong, bold {
 
 .gb-vue-timeline-update__title {
    font-weight: 600 !important;
-   font-size: 20px !important;
+   font-size: 16px !important;
    text-transform: capitalize !important;
 }
 
