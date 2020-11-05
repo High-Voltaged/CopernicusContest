@@ -50,7 +50,7 @@
                   {{ question.question }} 
                </div>
 
-               <QuizAnswersContainer :answers="questions_array[i].answers"></QuizAnswersContainer>
+               <QuizAnswersContainer :question_id="i" :answers="questions_array[i].answers"></QuizAnswersContainer>
 
                <div class="flex items-center justify-center md:justify-end w-full">
 

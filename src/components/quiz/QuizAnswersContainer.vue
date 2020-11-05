@@ -7,6 +7,7 @@
             <QuizAnswer v-for="(answer, i) in answers"
                         :key="i"
                         :answer="answer"
+                        :question_id="question_id"
                         @selectedAnswer="selectedAnswer"></QuizAnswer>
 
         </div>
@@ -57,6 +58,7 @@
     export default class QuizAnswersContainer extends Vue {
 
         @Prop() private answers;
+        @Prop() private question_id;
 
         // Edit Mode
 

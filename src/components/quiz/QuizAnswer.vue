@@ -7,14 +7,14 @@
             <button @click="selectedAnswer()"
                     :class="[
                         { 'transform hover:-translate-y-2 focus:shadow-solidDark focus:opacity-50': !editMode }, 
-                        { 'bg-green-400': (correct_answer_id == answer.id) && editMode }, 
+                        { 'bg-green-400': (correct_answer_id == answer.id) && edit_panel }, 
                         { 'hover:bg-green-400': editMode }
                      ]"
                     class="button-container flex items-center w-56 flex-shink-0 flex-grow-0 rounded-lg focus:outline-none bg-gray-200 p-2 transition duration-300 ease">
 
-                <div class="flex-0 w-6 min-w-6 h-6 min-h-6 mr-2 flex justify-center items-center rounded-full" :class="(correct_answer_id == answer.id) && editMode ? 'bg-white' : 'bg-purple-400'">
+                <div class="flex-0 w-6 min-w-6 h-6 min-h-6 mr-2 flex justify-center items-center rounded-full" :class="((correct_answer_id == answer.id) && edit_panel) ? 'bg-white' : 'bg-purple-400'">
 
-                    <span class="text-sm leading-loose select-none" :class="(correct_answer_id == answer.id) && editMode ? 'text-gray-secondary' : 'text-white'">
+                    <span class="text-sm leading-loose select-none" :class="((correct_answer_id == answer.id) && edit_panel) ? 'text-gray-secondary' : 'text-white'">
                         {{ answer.letter_label }}
                     </span>
 
@@ -51,6 +51,7 @@
     export default class QuizAnswer extends Vue {
 
         @Prop() private answer;
+        @Prop() private question_id;
 
         get editMode() {
 
@@ -78,7 +79,13 @@
 
          get correct_answer_id() {
 
-            return this.questions_array[this.question].correct_answer_id;
+            return this.questions_array[this.question_id].correct_answer_id;
+
+         }
+
+         get edit_panel() {
+
+            return (this.$route.name == 'quiz_admin_view');
 
          }
 
