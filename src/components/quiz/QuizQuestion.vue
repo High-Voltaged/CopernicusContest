@@ -71,7 +71,8 @@
 
                 <QuizAnswersContainer v-if="answers"
                                       @selectedAnswer="selectedAnswer"
-                                      :answers="answers"></QuizAnswersContainer>
+                                      :answers="answers"
+                                      :question_id="question"></QuizAnswersContainer>
 
             </div>
 

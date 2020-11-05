@@ -125,13 +125,7 @@
          return vxm.lang.getCurrentLangStrings;
       
       }
-      
-      get question_out_of() {
-      
-         return this.current_lang.question_out_of.split(' ');
-      
-      }
-   
+         
    }
 
 </script>
