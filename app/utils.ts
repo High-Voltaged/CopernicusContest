@@ -105,7 +105,9 @@ export namespace Utils {
 
     async function validateSession(session_token: string): Promise<boolean> {
 
-        console.log(session_token);
+        if (session_token == undefined) {
+            return false;
+        }
 
         let result = await Queries.querySession(session_token);
 
