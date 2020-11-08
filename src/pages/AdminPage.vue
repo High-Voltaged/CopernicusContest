@@ -89,7 +89,7 @@
     })
     export default class AdminPage extends Vue {
 
-        edit_menu = 0;
+        edit_menu = null;
 
         articles = false;
 
@@ -120,21 +120,15 @@
                
                this.goToEditMenu();
 
+            } else {
+
+               this.edit_menu = 0;
+
             }
 
-            // this.$nuxt.$loading.finish();
+            this.$nuxt.$loading.finish();
 
         }
-
-        mounted() {
-
-            this.$nextTick(() => {
-
-               this.$nuxt.$loading.finish();
-
-            });
-
-         }
 
          destroyed() {
 

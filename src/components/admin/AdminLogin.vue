@@ -89,16 +89,6 @@
 
          }
 
-      //   mounted() {
-
-      //       this.$nextTick(() => {
-
-      //          this.$nuxt.$loading.finish();
-
-      //       });
-
-      //    }
-
     }
 
 </script>
