@@ -149,8 +149,6 @@ export namespace Utils {
 
     export async function insertArticle(raw_cookie: string, title: string, content: string, picture_link: string, important: number, category_id: number): Promise<Codes> {
 
-        console.log(title);
-
         if ((await validateSession(getSessionToken(raw_cookie))) && (validateArticleDetails(title, content, picture_link, important))) {
 
             await Queries.insertArticle(title, content, picture_link, important, category_id);
@@ -309,13 +307,9 @@ export namespace Utils {
             // If it is not in the database already
             if (category_id < 0) {
 
-                console.log("1");
-
                 await Queries.insertCategory(category_name);
                 
             } else {
-
-                console.log("2");
 
                 await Queries.updateCategory(category_id, category_name);
 

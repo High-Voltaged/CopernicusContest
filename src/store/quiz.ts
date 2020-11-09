@@ -292,8 +292,6 @@ export default class Articles extends VuexModule {
 
                if(question[i].length != stored_question[i].length) {
 
-                  console.log('length not equal');
-
                   this.saved_question = false;
                   return;
 
@@ -305,11 +303,7 @@ export default class Articles extends VuexModule {
 
                      if(stored_question[i][j]) {
 
-                        console.log('stored_question exists');
-
                         if(question[i][j][k] != stored_question[i][j][k]) {
-   
-                           console.log('the two answers do not match')
 
                            this.saved_question = false;
                            return;
@@ -317,8 +311,6 @@ export default class Articles extends VuexModule {
                         }                     
 
                      } else {
-
-                        console.log('the answer doesn\'t exist in the init array');
 
                         this.saved_question = false;
                         return;

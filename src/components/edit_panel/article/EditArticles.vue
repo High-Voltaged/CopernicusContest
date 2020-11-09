@@ -61,9 +61,7 @@
       
       async beforeMount() {
       
-         console.log("hereeee");
          this.articles = await APIWRapper.fetchEditArticlesList();
-         console.log(this.articles);
       
       }
       

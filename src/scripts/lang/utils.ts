@@ -40,9 +40,6 @@ export namespace LangUtil {
 
         let language_enum: LangEnum = getLanguageCookie();
 
-        console.log(LangEnum.ENGLISH);
-        console.log(language_enum);
-
         switch (language_enum) {
 
             case LangEnum.ENGLISH:
@@ -61,13 +58,9 @@ export namespace LangUtil {
 
     export function setLanguage(language: LangEnum): void {
 
-        console.log(document.cookie);
-
         let cookie_string: string = "language=" + language;
 
         document.cookie = cookie_string;
-
-        console.log(document.cookie);
 
     }
 

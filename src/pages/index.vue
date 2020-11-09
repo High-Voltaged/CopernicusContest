@@ -261,8 +261,6 @@
       
          if(set_lang.id != language) {
 
-            console.log('called')
-
             vxm.lang.setLang(language);
       
          }
