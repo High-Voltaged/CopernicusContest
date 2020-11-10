@@ -198,9 +198,6 @@
 
         async addArticle(): Promise<void> {
 
-            console.log(this.article.content.split("\n"));
-            console.log(this.article);
-
             if (this.validateChanges() && this.validateTitle() && this.validateContent() && this.validatePicture()) {
 
                 vxm.articles.setValidationError({ value: false, content: '' });

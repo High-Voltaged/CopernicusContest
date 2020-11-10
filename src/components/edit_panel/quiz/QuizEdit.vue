@@ -175,7 +175,6 @@
       async beforeMount() {
 
          await vxm.quiz.prepareQuiz(this.$route.name);
-         console.log('called');
 
       }
 

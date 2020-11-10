@@ -51,8 +51,6 @@
 
             this.articles = await ApiWrapper.fetchImportantArticles();
 
-            console.log(this.articles);
-
         }
 
     }
