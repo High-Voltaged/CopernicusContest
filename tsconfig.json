@@ -9,6 +9,8 @@
     
     "lib": [ "es6", "dom" ],
     
+   "skipLibCheck": true,
+
     "esModuleInterop": true,
     
     "experimentalDecorators": true,
