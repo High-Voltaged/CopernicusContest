@@ -2,7 +2,7 @@ export namespace Limits {
 
     // For Article Editing
     export const min_title_length: number = 1;
-    export const max_title_length: number = 100;
+    export const max_title_length: number = 255;
 
     export const min_content_length: number = 100;
     export const max_content_length: number = 10000000;
