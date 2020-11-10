@@ -185,6 +185,12 @@ export default class Articles extends VuexModule {
 
     }
 
+    @mutation setTempQuestion(question_text: string) {
+
+      this.questions_array[this.question].question = question_text;
+
+    }
+
     @mutation addQuestion() {
 
       let temp = {
@@ -276,7 +282,13 @@ export default class Articles extends VuexModule {
 
     }
 
-    @mutation checkSavedQuestion(question: IQuizQuestion) {
+    @mutation checkSavedQuestion() {
+
+      let curr_question = {
+         question: this.questions_array[this.question].question,
+         answers: this.questions_array[this.question].answers,
+         correct_answer_id: this.questions_array[this.question].correct_answer_id,
+      }
 
       let stored_question = {
          question: this.init_questions_array[this.question].question,
@@ -284,13 +296,13 @@ export default class Articles extends VuexModule {
          correct_answer_id: this.init_questions_array[this.question].correct_answer_id,
       };
 
-      for(let i in question) {
+      for(let i in curr_question) {
 
-         if(question[i] != stored_question[i]) {
+         if(curr_question[i] != stored_question[i]) {
 
             if(i == 'answers') {
 
-               if(question[i].length != stored_question[i].length) {
+               if(curr_question[i].length != stored_question[i].length) {
 
                   console.log('length not equal');
 
@@ -299,15 +311,15 @@ export default class Articles extends VuexModule {
 
                }
 
-               for(let j in question[i]) {
+               for(let j in curr_question[i]) {
 
-                  for(let k in question[i][j]) {
+                  for(let k in curr_question[i][j]) {
 
                      if(stored_question[i][j]) {
 
                         console.log('stored_question exists');
 
-                        if(question[i][j][k] != stored_question[i][j][k]) {
+                        if(curr_question[i][j][k] != stored_question[i][j][k]) {
    
                            console.log('the two answers do not match')
 

@@ -114,6 +114,12 @@
 
       }
 
+      get question_text() {
+
+         return vxm.quiz.getQuizUtil.questions[this.question].question;
+
+      }
+
       get answers() {
 
          return vxm.quiz.getQuizUtil.questions[this.question].answers;
@@ -142,23 +148,14 @@
 
       checkSavedQuestion(): boolean {
 
-         // get the value of the temp_question from QuizQuestion.vue
-         let temp_question: string = this.$children[0].temp_question;
-
-         let question = {
-            question: temp_question,
-            answers: this.answers,
-            correct_answer_id: this.correct_answer_id,
-         }
-
          // if the question is absolutely empty, it cannot be left unsaved
-         if(!question.question && !question.answers.length && !question.correct_answer_id) {
+         if(!this.question_text && !this.answers.length && !this.correct_answer_id) {
 
             return false;
 
          }
 
-         vxm.quiz.checkSavedQuestion(question as IQuizQuestion);
+         vxm.quiz.checkSavedQuestion();
 
          if(vxm.quiz.savedQuestion) {
 
@@ -225,11 +222,9 @@
          this.verify.on = false;
          this.verify.content = '';
 
-         let question: string = this.$children[0].temp_question;
-
          // Check if the question is both empty and wasn't within the initial version of questions_array
 
-         if((!question && !this.answers.length && !this.correct_answer_id) 
+         if((!this.question_text && !this.answers.length && !this.correct_answer_id) 
             && (this.init_questions[this.question].id == this.questions_array[this.question].id)) {
 
             this.removeQuestion();

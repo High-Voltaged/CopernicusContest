@@ -55,7 +55,8 @@
                     </span>
 
                     <input v-else
-                           v-model="temp_question"
+                           :value="question_text"
+                           @input="setTempQuestion($event.target.value)"
                            placeholder="Input a question"
                            class="w-full sm:w-2/3 md:w-1/2 lg:w-64 bg-gray-tertiary bg-opacity-50 text-sm text-gray-200 py-2 px-4 overflow-hidden focus:bg-opacity-75 transition duration-200 ease focus:outline-none"
                            style="border-radius: 15px" />
@@ -182,6 +183,12 @@
 
         }
 
+         get question_text() {
+
+            return vxm.quiz.getQuizUtil.questions[this.question].question;
+
+         }
+
         get answers() {
 
             return vxm.quiz.getQuizUtil.questions[this.question].answers;
@@ -228,6 +235,12 @@
 
          }
 
+         setTempQuestion(question_text: string) {
+
+            vxm.quiz.setTempQuestion(question_text);
+
+         }
+
         prevQuestion(): void {
 
             vxm.quiz.prevQuestion();
@@ -247,8 +260,6 @@
         }
 
         // Edit Mode / Validation
-
-        temp_question = this.questions_array[this.question].question;
 
         get editMode() {
 
@@ -274,8 +285,8 @@
 
         validateQuestionLength(): boolean {
 
-            if ((this.temp_question.length < Limits.min_question_length)
-                || (this.temp_question.length > Limits.max_question_length)) {
+            if ((this.question_text.length < Limits.min_question_length)
+                || (this.question_text.length > Limits.max_question_length)) {
 
                 return false;
 
@@ -340,7 +351,7 @@
 
                 vxm.quiz.setValidationError({ value: false, content: '' });
 
-                vxm.quiz.setQuestion(this.temp_question);
+                vxm.quiz.setQuestion(this.question_text);
                 vxm.quiz.setInitConfig(this.deepCopyArray(this.questions_array));
 
                APIWrapper.updateQuizQuestion(this.init_questions[this.question]);
