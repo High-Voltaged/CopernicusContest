@@ -122,6 +122,7 @@
    import VerificationDialog from '../VerificationDialog.vue';
    import SelectMenu from '../../other/SelectMenu.vue';
 import { LangUtil } from "../../../scripts/lang/utils";
+import IFullArticle from "~/interfaces/full_article";
 
    @Component({
       name: "ArticleEdit",
@@ -203,7 +204,7 @@ import { LangUtil } from "../../../scripts/lang/utils";
 
          }
 
-         APIWrapper.editArticle(this.article.id, this.article.title, this.article.content as any, this.article.picture_link, this.article.important, this.article.category.id);
+         APIWrapper.editArticle((this.article as IFullArticle).id, (this.article as IFullArticle).title, (this.article as IFullArticle).content as any, (this.article as IFullArticle).picture_link, (this.article as any).important, (this.article as IFullArticle).category.id);
 
           this.notif_on = true;
 

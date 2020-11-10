@@ -13,7 +13,7 @@ const VuexModule = createModule({
 
 export default class Articles extends VuexModule {
 
-    article: IFullArticle = {};
+    article: IFullArticle | {} = {};
 
     categories: ICategory[] = [];
 
@@ -22,7 +22,7 @@ export default class Articles extends VuexModule {
     get getUtil() {
 
         return {
-            article: this.article,
+            article: this.article as IFullArticle,
             categories: this.categories,
             popular_articles: this.popular_articles,
         };
@@ -37,7 +37,7 @@ export default class Articles extends VuexModule {
 
     @mutation setCategory(category: ICategory) {
 
-      this.article.category = category;
+      (this.article as IFullArticle).category = category;
 
     }
 
