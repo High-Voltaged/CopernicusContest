@@ -31,9 +31,9 @@
       "#/*": [ "./src/*" ]
     },
   
-   //  "types": [
-   //    "@nuxt/types"
-   //  ]
+    "types": [
+      "@nuxt/types"
+    ]
   
   },
 
