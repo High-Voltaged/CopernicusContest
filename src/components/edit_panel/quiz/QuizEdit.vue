@@ -4,6 +4,7 @@
 
       <QuizEditMenu 
          v-if="quiz_menu == 0"
+         :default_menu="default_menu"
          @edit="setEditForm($event)"
          @addQuestion="setNewQuestion"
       ></QuizEditMenu>
@@ -169,28 +170,39 @@
 
       }
 
+      default_menu = null;
+      
+      prepareMenu() {
+
+         if(this.questions_array.length == 0) {
+
+            this.default_menu = true;
+
+         } else {
+
+            this.default_menu = false;
+
+         }
+
+         this.$nuxt.$loading.finish();
+
+      }
+
 
       // Lifecycle Hooks
+
 
       async beforeMount() {
 
          await vxm.quiz.prepareQuiz(this.$route.name);
+
+         this.prepareMenu();
 
       }
 
       beforeDestroy() {
 
          vxm.quiz.resetQuiz();
-
-      }
-
-      mounted() {
-
-         this.$nextTick(() => {
-
-            setTimeout(() => this.$nuxt.$loading.finish(), 300);
-
-         });
 
       }
 
@@ -240,15 +252,19 @@
          // show the prompt dialog if the question wasn't saved
          if(!this.checkSavedQuestion()) {
 
-             this.verify.content = this.current_lang.unsaved_question_confirm;
+            this.verify.content = this.current_lang.unsaved_question_confirm;
             this.verify.on = true;
 
          } else {
 
             this.quiz_menu = 0;
 
+            this.$nuxt.$loading.start();
+
             vxm.quiz.resetQuiz();
             await vxm.quiz.prepareQuiz(this.$route.name);
+
+            this.prepareMenu();
 
          }
 

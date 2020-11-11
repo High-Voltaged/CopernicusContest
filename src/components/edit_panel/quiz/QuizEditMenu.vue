@@ -28,7 +28,7 @@
 
          </div>
 
-         <div v-if="questions_array.length > 0" class="content w-full space-y-10 md:space-y-5">
+         <div v-if="!default_menu" class="content w-full space-y-10 md:space-y-5">
 
             <div 
                v-for="(question, i) in questions_array"
@@ -94,7 +94,7 @@
 
 <script lang="ts">
 
-   import { Component, Prop, Vue } from 'nuxt-property-decorator';
+   import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator';
 
    import { vxm } from '../../../store';
    import QuizAnswersContainer from '../../quiz/QuizAnswersContainer.vue';
@@ -107,6 +107,8 @@
    })
    
    export default class QuizEditMenu extends Vue {
+
+      @Prop() private default_menu: boolean;
 
       get questions_array() {
       

@@ -8,63 +8,63 @@
 
             <div class="header flex justify-between items-center w-full space-x-4">
 
-                <button @click="setMainMenu"
+               <button @click="setMainMenu"
                         :class="{ 'hover:border-opacity-100': (edit_menu == 1) }"
                         class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 transition duration-300 ease focus:outline-none">
 
-                    <span class="text-xs text-gray-200 font-semibold text-left select-none">
+                  <span class="text-xs text-gray-200 font-semibold text-left select-none">
                         {{ current_lang.menu }}
-                    </span>
+                  </span>
 
-                </button>
+               </button>
 
-                <button @click="removeCategory"
+               <button @click="removeCategory"
                         :class="{ 'hover:border-opacity-100': (edit_menu == 1) }"
                         class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg bg-transparent border-2 border-gray-primary border-opacity-75 transition duration-300 ease focus:outline-none">
 
-                    <span class="text-xs text-gray-200 font-semibold text-left select-none">
+                  <span class="text-xs text-gray-200 font-semibold text-left select-none">
                         {{ current_lang.remove }}
-                    </span>
+                  </span>
 
-                </button>
+               </button>
 
             </div>
 
             <Category :category="categories[current]" :edit_menu="edit_menu">
 
-                <template #input>
+               <template #input>
 
-                    <input v-model="temp_category"
+                  <input v-model="temp_category"
                            :placeholder="current_lang.input_category_name"
                            class="w-full md:w-64 bg-gray-tertiary bg-opacity-50 text-sm text-gray-200 py-2 px-4 overflow-hidden focus:bg-opacity-75 transition duration-200 ease focus:outline-none"
                            style="border-radius: 15px" />
 
-                </template>
+               </template>
 
             </Category>
 
             <transition name="fade-out">
 
-                <div v-if="error.value" class="flex items-center justify-center w-full px-2 mb-2">
+               <div v-if="error.value" class="flex items-center justify-center w-full px-2 mb-2">
 
-                    <span class="text-center text-sm font-medium text-red-primary select-none">
+                  <span class="text-center text-sm font-medium text-red-primary select-none">
                         {{ error.content }}
-                    </span>
+                  </span>
 
-                </div>
+               </div>
 
             </transition>
 
             <div class="footer flex justify-center items-center w-full">
 
-                <button @click="saveCategory"
+               <button @click="saveCategory"
                         class="flex items-center justify-center space-x-1 px-3 py-2 rounded-lg shadow bg-gray-primary bg-opacity-75 hover:bg-opacity-100 transition duration-300 ease focus:outline-none">
 
-                    <span class="text-sm text-gray-200 font-medium text-left select-none">
+                  <span class="text-sm text-gray-200 font-medium text-left select-none">
                         {{ current_lang.save_the_category }}
-                    </span>
+                  </span>
 
-                </button>
+               </button>
 
             </div>
 
@@ -161,16 +161,18 @@ import { LangUtil } from "../../../scripts/lang/utils";
         }
 
         setMainMenu() {
-
-            if (!this.checkSavedCategory()) {
-
-                this.verify.content = this.current_lang.unsaved_question_confirm;
+           
+           if (!this.checkSavedCategory()) {
+              
+              this.verify.content = this.current_lang.unsaved_question_confirm;
                 this.verify.on = true;
 
             } else {
-
-                this.edit_menu = 0;
-                vxm.categories.resetCategories();
+               
+               this.$nuxt.$loading.start();
+              
+              this.edit_menu = 0;
+              vxm.categories.resetCategories();
 
             }
 
@@ -339,7 +341,7 @@ import { LangUtil } from "../../../scripts/lang/utils";
             vxm.categories.setInitConfig(this.deepCopyArray(this.categories));
 
             this.temp_category = this.categories[this.current].name;
-
+            
         }
 
         beforeDestroy() {
@@ -351,16 +353,6 @@ import { LangUtil } from "../../../scripts/lang/utils";
             vxm.categories.setEditMode(false);
 
         }
-
-         mounted() {
-
-            this.$nextTick(() => {
-
-               setTimeout(() => this.$nuxt.$loading.finish(), 300);
-
-            });
-
-         }
 
          destroyed() {
 

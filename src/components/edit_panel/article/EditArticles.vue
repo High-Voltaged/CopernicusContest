@@ -22,7 +22,7 @@
             </span>
          </div>
 
-         <div class="flex-auto flex flex-wrap items-center justify-center max-w-full">
+         <div v-if="!default_menu" class="flex-auto flex flex-wrap items-center justify-center max-w-full">
 
             <EditPanelItem 
                v-for="article in articles"
@@ -30,6 +30,16 @@
                :article="article"
                @click="goToArticle(article.id)"
             ></EditPanelItem>
+
+         </div>
+
+         <div v-else class="inline-block w-full">
+
+             <span class="inline-block w-full text-center font-medium text-gray-300 select-none">
+
+                 {{ current_lang.no_articles }}
+
+             </span>
 
          </div>
 
@@ -57,22 +67,26 @@
    
    export default class EditArticles extends Vue {
       
+      default_menu = null;
+
       articles: IBriefArticle[] = [];
       
       async beforeMount() {
       
          this.articles = await APIWRapper.fetchEditArticlesList();
+
+         if(this.articles.length == 0) {
+
+            this.default_menu = true;
+
+         } else {
+
+            this.default_menu = false;
+
+         }
+
+         this.$nuxt.$loading.finish();
       
-      }
-
-      mounted() {
-
-         this.$nextTick(() => {
-
-            setTimeout(() => this.$nuxt.$loading.finish(), 300);
-
-         });
-
       }
       
       destroyed() {

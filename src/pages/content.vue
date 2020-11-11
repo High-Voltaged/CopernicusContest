@@ -166,6 +166,19 @@
 
             }
 
+            this.$nextTick(() => {
+
+               this.$nuxt.$loading.finish();
+
+            })
+
+
+        }
+
+        beforeDestroy() {
+
+           vxm.articles.resetArticleUtil();
+
         }
 
         get article() {
@@ -193,16 +206,6 @@
          }
 
         // Loading 
-
-        mounted() {
-
-            this.$nextTick(() => {
-
-               this.$nuxt.$loading.finish();
-
-            });
-
-         }
 
          destroyed() {
 

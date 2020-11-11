@@ -114,6 +114,10 @@
 
         export const no_questions: string = "There are no questions within the quiz.";
 
+        export const no_articles: string = "There are no articles within the menu."; 
+
+        export const no_categories: string = "There are no categories within the menu."; 
+
         export const add_question: string = "Add a Question";
 
         export const all_quiz_questions: string = "All the Quiz Questions";
@@ -256,6 +260,10 @@
         export const edit_question: string = "Edytuj pytanie";
 
         export const no_questions: string = "W quizie nie ma pytań.";
+
+        export const no_articles: string = "W menu nie ma artykułów.";
+
+        export const no_categories: string = "W menu nie ma kategorii.";
 
         export const add_question: string = "Dodaj pytanie";
 
