@@ -61,26 +61,22 @@
             vxm.quiz.nextQuestion();
 
         }
-
-        mounted() {
+        
+         beforeCreate() {
 
             this.$nextTick(() => {
 
-               this.$nuxt.$loading.finish();
+               this.$nuxt.$loading.start();
 
-            });
-
-         }
-
-         destroyed() {
-
-            this.$nuxt.$loading.start();
+            })
 
          }
 
         async beforeMount(): Promise<void> {
 
             await vxm.quiz.prepareQuiz(this.$route.name);
+
+            this.$nuxt.$loading.finish();
 
         }
 

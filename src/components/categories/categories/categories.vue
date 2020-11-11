@@ -103,6 +103,16 @@
 
       }
 
+      beforeCreate() {
+
+         this.$nextTick(() => {
+
+            this.$nuxt.$loading.start();
+
+         })
+
+      }
+
       async beforeMount() {
 
          if (this.$route.params.id != undefined) {
