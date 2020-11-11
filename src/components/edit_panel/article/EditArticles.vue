@@ -22,7 +22,7 @@
             </span>
          </div>
 
-         <div v-if="!default_menu" class="flex-auto flex flex-wrap items-center justify-center max-w-full">
+         <div v-if="default_menu == false" class="flex-auto flex flex-wrap items-center justify-center max-w-full">
 
             <EditPanelItem 
                v-for="article in articles"
@@ -33,7 +33,7 @@
 
          </div>
 
-         <div v-else class="inline-block w-full">
+         <div v-else-if="default_menu == true" class="inline-block w-full">
 
              <span class="inline-block w-full text-center font-medium text-gray-300 select-none">
 

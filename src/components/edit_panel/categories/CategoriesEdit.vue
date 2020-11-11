@@ -102,7 +102,7 @@
     import Category from '../../categories/categories/Category.vue';
     import Notification from '../Notification.vue';
     import VerificationDialog from '../VerificationDialog.vue';
-import { LangUtil } from "../../../scripts/lang/utils";
+   import { LangUtil } from "../../../scripts/lang/utils";
 
     @Component({
         name: "CategoriesEdit",

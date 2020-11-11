@@ -28,7 +28,7 @@
 
          </div>
 
-         <div v-if="!default_menu" class="content w-full space-y-10 md:space-y-5">
+         <div v-if="default_menu == false" class="content w-full space-y-10 md:space-y-5">
 
             <div 
                v-for="(question, i) in questions_array"
@@ -76,7 +76,7 @@
 
          </div>
 
-         <div v-else class="inline-block w-full">
+         <div v-else-if="default_menu == true" class="inline-block w-full">
 
              <span class="inline-block w-full text-center font-medium text-gray-300 select-none">
 
