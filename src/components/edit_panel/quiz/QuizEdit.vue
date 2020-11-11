@@ -188,7 +188,7 @@
 
          this.$nextTick(() => {
 
-            this.$nuxt.$loading.finish();
+            setTimeout(() => this.$nuxt.$loading.finish(), 300);
 
          });
 

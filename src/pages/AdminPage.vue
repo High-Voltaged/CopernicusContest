@@ -16,7 +16,7 @@
 
                   <div class="inline-block w-full">
 
-                     <button @click="setCurrent(articles)" class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
+                     <button @click="setCurrent" class="w-full p-5 rounded-lg bg-gray-tertiary bg-opacity-75 text-base font-medium text-white select-none hover:bg-opacity-100 focus:bg-opacity-100 transition duration-200 ease focus:outline-none">
                            {{ current_lang.edit_articles }}
                      </button>
 
@@ -60,7 +60,7 @@
 
         </div>
 
-        <EditArticles v-if="articles"></EditArticles>
+        <EditArticles v-if="edit_menu == -1"></EditArticles>
 
     </div>
 
@@ -91,18 +91,17 @@
 
         edit_menu = null;
 
-        articles = false;
-
         goToEditMenu() {
 
             this.edit_menu = 1;
 
         }
 
-        setCurrent(c: string) {
+        setCurrent() {
 
-            this.articles = true;
             this.edit_menu = -1;
+            this.$nuxt.$loading.start();
+            setTimeout(() => this.$nuxt.$loading.finish(), 500);
 
         }
 

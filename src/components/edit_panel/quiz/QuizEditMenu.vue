@@ -107,7 +107,7 @@
    })
    
    export default class QuizEditMenu extends Vue {
-   
+
       get questions_array() {
       
          return vxm.quiz.getQuizUtil.questions;

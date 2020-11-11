@@ -64,7 +64,23 @@
          this.articles = await APIWRapper.fetchEditArticlesList();
       
       }
+
+      mounted() {
+
+         this.$nextTick(() => {
+
+            setTimeout(() => this.$nuxt.$loading.finish(), 300);
+
+         });
+
+      }
       
+      destroyed() {
+
+         this.$nuxt.$loading.start();
+
+      }
+
       goToArticle(id: number) {
       
          this.$router.push(`/edit/article/${id}`);
